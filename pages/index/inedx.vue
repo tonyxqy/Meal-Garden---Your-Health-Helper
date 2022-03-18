@@ -95,8 +95,15 @@
 				<!--右边虚化-->
 				<view class="hide-content-box hide-content-box-right"></view>
 				<scroll-view scroll-x="true" class="kite-classify-scroll">
+					<div class="loader" v-if="show">
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+					</div>
 					<view class="kite-classify-cell shadow" v-for="(item, index) in curriculum" :key="index">
-						<view :class="'nav-li bg-index' + (index+1)">
+						<view :class="'nav-li bg-index' + ((index%6)+1)">
 							<view class="nav-name">{{item.menu}}</view>
 						</view>
 						<view class="nav-content" style="height: 100%;">
@@ -119,39 +126,23 @@
 					<text class="text-lg text-grey text-shadow">更多</text>
 				</view>
 			</view>
-			<view style="height: 1000px;">
+			<!-- <view style="height: 1000px;"> -->
 
-			</view>
-			<!-- 	<view class="cu-card case no-card">
-
-					<view @click="goProject(item.id)" class="cu-item shadow" v-for="(item, index) in projectList"
-						:key="index">
-						<view class="image">
-							<image :src="item.tImg" mode="widthFix"></image>
-							<view class="cu-tag bg-gradual-orange">{{item.tabs}}</view>
-							<view class="cu-bar bg-shadeBottom"> <text class="text-cut">{{item.type}}</text></view>
-						</view>
-						<view class="cu-list menu-avatar">
-							<view class="cu-item">
-								<view class="margin-lr flex-sub">
-									<view class="item-name text-grey text-lg">{{item.title}}</view>
-									<view class="text-gray text-sm flex justify-between">
-										{{item.time}}
-										<view class="text-gray text-sm">
-											<text class="cuIcon-attentionfill margin-lr-xs"></text>
-											{{item.user[0].read}}
-											<text class="cuIcon-appreciatefill margin-lr-xs"></text>
-											{{item.user[0].like}}
-											<text class="cuIcon-shopfill margin-lr-xs"></text> {{item.user[0].use}}
-										</view>
-									</view>
-								</view>
-							</view>
-						</view>
-					</view>
-				</view>
-		 -->
 		</view>
+		<view class="cu-card case no-card">
+			<view @click="goProject(item.id)" class="cu-item shadow" v-for="(item, index) in dishList" :key="index">
+				<van-card :tag="item.time" :price="item.taste" :desc="item.ingredients" currency=" " lazy-load="true" :title="item.menu"
+					:thumb="item.pictureUrl">
+					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
+						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
+					</view>
+					<view slot="bottom" style="float: right;">
+						糖:{{item.sugar}} 脂肪{{item.fat}} 能量{{item.energy}}
+					</view>
+				</van-card>
+			</view>
+		</view>
+
 
 
 
@@ -168,6 +159,8 @@
 		},
 		data() {
 			return {
+				mystylelist:['primary','success','danger','warning'],
+				show: true,
 				current: {
 					userId: 8,
 					currentWeight: 155,
@@ -242,28 +235,9 @@
 					mid: '4',
 					name: '分享动态'
 				}],
-				curriculum: [{
-						menu: '香辣牛肉',
-						pictureUrl: "http://s1.st.meishij.net/r/97/32/4758097/s4758097_151971999169604.jpg",
-					},
-					{
-						menu: '藜麦鸡肉丸',
-						pictureUrl: "http://s1.st.meishij.net/r/178/85/5833928/s5833928_151843048575508.jpg",
-					}, {
-						menu: '清炒木耳菜',
-						pictureUrl: "https://s1.st.meishij.net/r/231/00/2937731/s2937731_152734041810444.jpg",
-					}, {
-						menu: '香辣牛肉',
-						pictureUrl: "http://s1.st.meishij.net/r/97/32/4758097/s4758097_151971999169604.jpg",
-					}, {
-						menu: '香辣牛肉',
-						pictureUrl: "http://s1.st.meishij.net/r/97/32/4758097/s4758097_151971999169604.jpg",
-					}
-
-
-
-				],
+				curriculum: [],
 				projectList: [],
+				dishList: []
 			}
 		},
 		watch: {
@@ -304,7 +278,7 @@
 						console.log(this.target)
 					} else {}
 				});
-				
+
 				// 获取当前身体状态
 				let optscur = {
 					url: 'user/getUserCurrent',
@@ -319,18 +293,92 @@
 					} else {}
 				});
 
-				// 获取早餐推荐食谱
+				// 获取推荐食谱
 				let optsbreak = {
 					url: 'recommend/recommendByUserbreakfast',
 					method: 'get',
 				};
+				let optslunch = {
+					url: 'recommend/recommendByUserlunch',
+					method: 'get',
+				};
+				let optsdinner = {
+					url: 'recommend/recommendByUserdinner',
+					method: 'get',
+				};
 				request.httpRequest(optsbreak, user).then(res => {
-					console.log(res);
 					uni.hideLoading();
+					this.show = true
 					if (res.statusCode == 200) {
-						console.log(this.res.data)
+						this.curriculum = this.curriculum.concat(res.data)
+						this.show = false
 					} else {}
 				});
+				request.httpRequest(optslunch, user).then(res => {
+					uni.hideLoading();
+					this.show = true
+					if (res.statusCode == 200) {
+						this.curriculum = this.curriculum.concat(res.data)
+						this.show = false
+					} else {}
+				});
+				request.httpRequest(optsdinner, user).then(res => {
+					uni.hideLoading();
+					this.show = true
+					if (res.statusCode == 200) {
+						this.curriculum = this.curriculum.concat(res.data)
+						this.show = false
+					} else {}
+				});
+
+				//获取今日食谱
+				let optsdaymenu = {
+					url: 'user/dayMeun',
+					method: 'get',
+				};
+				let datamenu = {
+					user_id: '8',
+					createTime: '2022-3-16'
+				}
+				request.httpRequest(optsdaymenu, datamenu).then(res => {
+					uni.hideLoading();
+					this.show = true
+					if (res.statusCode == 200) {
+						this.dishList = res.data
+						this.help(this.dishList)
+					} else {}
+				});
+			},
+			help(item){
+					item.forEach((self,index)=>{
+					if(self.ingredients!=null){
+						let ingredients = self.ingredients.slice(1,-1).split(',')
+						let list = []
+						ingredients.forEach((self,index)=>{
+							let change = self.trim().replace(/\'/g, "");
+							list.push(change)
+						})
+						self.ingredients = list
+					}
+					if(self.classifiction!=null){
+						let classifiction = self.classifiction.slice(1,-1).split(',')
+						let list = []
+						classifiction.forEach((self,index)=>{
+							let change = self.trim().replace(/\'/g, "");
+							list.push(change)
+						})
+						self.classifiction = list
+					}
+					if(self.practice!=null){
+						let practice = self.practice.slice(1,-1).split(',')
+						let list = []
+						practice.forEach((self,index)=>{
+							let change = self.trim().replace(/\'/g, "");
+							list.push(change)
+						})
+						self.practice = list
+					}
+				})
 			},
 			scroll: function(e) {
 				console.log(e)
@@ -588,5 +636,107 @@
 		border-right-width: 0px !important;
 		border-bottom-width: 0px !important;
 		border-left-width: 0px;
+	}
+
+	.loader {
+		position: absolute;
+		top: 50%;
+		left: 40%;
+		margin-left: 10%;
+		transform: translate3d(-50%, -50%, 0);
+	}
+
+	.dot {
+		width: 24px;
+		height: 24px;
+		background: #3ac;
+		border-radius: 100%;
+		display: inline-block;
+		animation: slide 1s infinite;
+	}
+
+	.dot:nth-child(1) {
+		animation-delay: 0.1s;
+		background: #32aacc;
+	}
+
+	.dot:nth-child(2) {
+		animation-delay: 0.2s;
+		background: #64aacc;
+	}
+
+	.dot:nth-child(3) {
+		animation-delay: 0.3s;
+		background: #96aacc;
+	}
+
+	.dot:nth-child(4) {
+		animation-delay: 0.4s;
+		background: #c8aacc;
+	}
+
+	.dot:nth-child(5) {
+		animation-delay: 0.5s;
+		background: #faaacc;
+	}
+
+	@-moz-keyframes slide {
+		0% {
+			transform: scale(1);
+		}
+
+		50% {
+			opacity: 0.3;
+			transform: scale(2);
+		}
+
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@-webkit-keyframes slide {
+		0% {
+			transform: scale(1);
+		}
+
+		50% {
+			opacity: 0.3;
+			transform: scale(2);
+		}
+
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@-o-keyframes slide {
+		0% {
+			transform: scale(1);
+		}
+
+		50% {
+			opacity: 0.3;
+			transform: scale(2);
+		}
+
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes slide {
+		0% {
+			transform: scale(1);
+		}
+
+		50% {
+			opacity: 0.3;
+			transform: scale(2);
+		}
+
+		100% {
+			transform: scale(1);
+		}
 	}
 </style>
