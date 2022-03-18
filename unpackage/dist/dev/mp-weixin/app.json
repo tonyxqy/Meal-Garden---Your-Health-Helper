@@ -63,6 +63,10 @@
     "van-circle": "/wxcomponents/vant/circle/index",
     "van-grid": "/wxcomponents/vant/grid/index",
     "van-grid-item": "/wxcomponents/vant/grid-item/index",
+    "van-transition": "/wxcomponents/vant/transition/index",
+    "van-loading": "/wxcomponents/vant/loading/index",
+    "van-card": "/wxcomponents/vant/card/index",
+    "van-tag": "/wxcomponents/vant/tag/index",
     "cu-custom": "/colorui/components/cu-custom",
     "tn-custom": "/components/TnCustom/TnCustom"
   }
