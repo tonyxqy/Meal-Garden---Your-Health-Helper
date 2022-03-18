@@ -1,0 +1,47 @@
+    <scroll-view scroll-x="true" class="tab-h bg-grey text-gray" scroll-left="{{scrollLeft}}">
+        <view class="tab-item bg-pgrey {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">身高</view>
+        <view class="tab-item bg-pgrey {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">体重</view>
+        <view class="tab-item bg-pgrey {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">体脂率</view>
+        <view class="tab-item bg-pgrey {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">血压</view>
+        <view class="tab-item bg-pgrey {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">血糖</view>
+        <view class="tab-item bg-pgrey {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">BMI</view>
+        <view class="tab-item bg-pgrey {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">静息心率</view>
+        <view class="tab-item bg-pgrey {{currentTab==7?'active':''}}" data-current="7" bindtap="swichNav">留空</view>
+    </scroll-view>
+    <view class="container bg-pgrey " style="height:{{winHeight*0.4}}rpx">
+              <ec-canvas id="mychart" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+    </view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+     style="height:{{winHeight*0.65}}rpx">
+        <swiper-item wx:for="{{[0,1,2,3,4,5,6,7]}}">
+                    <scroll-view scroll-y="true" class="scoll-h" >
+                        <block wx:for="{{TabList[currentTab].TimeList}}" wx:key="*this">
+                        <view class="item-ans">
+                            <view class="avatar">
+                            </view>
+                            <view class="expertInfo">
+                                <view class="name">{{item.value}}{{unit[currentTab]}}</view>
+                                <view class="tag">{{item.time}}月</view>
+                                <view class="answerHistory"></view>
+                            </view>
+                            <navigator url="/pages/askExpert/expertDetail" class="askBtn">目前没用</navigator> 
+                        </view>
+                    </block> 
+                </scroll-view>
+        </swiper-item>
+    </swiper>
+    <view id="login" class="login" style="display:{{inputValue==true?'none':'block'}}">
+                <form bindsubmit="addval">
+                 <view class="login-input-content">
+                    <view class="login-input">
+                        <view>请输入当前{{TabList[currentTab].name}}</view>
+                        <input type="number" placeholder="" name="myvalue" class="list-input"/><text>{{unit[currentTab]}}</text>
+                    </view>
+                </view>
+                <button class="login-button bg-gradual-green" form-type="submit">
+				     提交
+                </button>
+            </form>
+    </view>
+    <view id="bg" class="login-bg" style="display:{{inputValue==true?'none':'block'}};"></view>
+    <button class="bg-gradual-green" style="position: fixed; bottom: 0; width: 100%; z-index: -10;" bindtap="inputcover">记录{{TabList[currentTab].name}}</button>

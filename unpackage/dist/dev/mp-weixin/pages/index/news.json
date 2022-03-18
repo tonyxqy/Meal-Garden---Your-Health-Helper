@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "news-u-waterfall-left": "/pages/index/news-u-waterfall-left",
+    "news-u-waterfall-right": "/pages/index/news-u-waterfall-right",
+    "u-tabs-swiper": "/uview-ui/components/u-tabs-swiper/u-tabs-swiper",
+    "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar",
+    "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall",
+    "u-lazy-load": "/uview-ui/components/u-lazy-load/u-lazy-load",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "mp-video-swiper": "/wxcomponents/video-swiper/index",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore"
+  },
+  "component": true
+}

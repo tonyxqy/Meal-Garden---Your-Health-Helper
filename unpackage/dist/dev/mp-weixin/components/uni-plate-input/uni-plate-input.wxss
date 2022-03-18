@@ -1,0 +1,171 @@
+.so-mask.data-v-d5bf861c {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+.so-plate.data-v-d5bf861c {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background: #fff;
+  padding: 25rpx 25rpx 0 25rpx;
+}
+.so-plate-head.data-v-d5bf861c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.so-plate-type.data-v-d5bf861c {
+  flex: 1;
+  display: block;
+}
+.so-plate-type label.data-v-d5bf861c {
+  display: inline-block;
+  min-height: 32rpx;
+  font-size: 26rpx;
+  margin-right: 10rpx;
+}
+.so-plate-body.data-v-d5bf861c {
+  box-sizing: border-box;
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.so-plate-word.data-v-d5bf861c {
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  height: 0;
+  margin: 0 5rpx;
+  box-sizing: border-box;
+  padding-bottom: calc((100% - 70rpx) / 7);
+  width: calc((100% - 70rpx) / 7);
+  position: relative;
+}
+.so-plate-word.active.data-v-d5bf861c {
+  border-color: #007aff;
+  box-shadow: 0 0 15rpx 0 #007aff;
+}
+.so-plate-word text.data-v-d5bf861c {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  font-weight: 700;
+  font-size: 32rpx;
+}
+.so-plate-dot.data-v-d5bf861c {
+  width: 15rpx;
+  height: 15rpx;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 5rpx;
+}
+.so-plate-keyboard.data-v-d5bf861c {
+  background: #eee;
+  margin-left: -25rpx;
+  margin-right: -25rpx;
+  padding: 20rpx 25rpx 10rpx 25rpx;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+.so-plate-keyboard > view.data-v-d5bf861c {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.so-plate-key.data-v-d5bf861c {
+  display: block;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 0 8rpx 0 #bbb;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 5rpx 0;
+  font-size: 32rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.so-plate-key.hover.data-v-d5bf861c {
+  background: #efefef;
+}
+.so-plate-key.fill-block.data-v-d5bf861c {
+  width: 80rpx;
+  height: 80rpx;
+  background: none;
+  box-shadow: none;
+}
+.so-plate-btn.data-v-d5bf861c {
+  display: inline-block;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10rpx 0 #bbb;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 0 0 0 10rpx;
+  padding: 0 25rpx;
+}
+.so-plate-btn-group.data-v-d5bf861c {
+  display: flex;
+  justify-content: space-between;
+  background: #eee;
+  margin-left: -25rpx;
+  margin-right: -25rpx;
+  box-sizing: border-box;
+  padding: 0 25rpx 10rpx 25rpx;
+}
+.so-plate-btn--cancel.data-v-d5bf861c {
+  margin: 0;
+}
+.so-plate-btn--submit.data-v-d5bf861c {
+  background: #5773f9;
+  color: #fff;
+}
+.so-plate-btn--delete.data-v-d5bf861c {
+  color: #fd6b6d;
+}
+.animation-scale-up.data-v-d5bf861c {
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: scale-up-data-v-d5bf861c;
+          animation-name: scale-up-data-v-d5bf861c;
+}
+@-webkit-keyframes scale-up-data-v-d5bf861c {
+0% {
+    opacity: 0.8;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+}
+@keyframes scale-up-data-v-d5bf861c {
+0% {
+    opacity: 0.8;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+}
+

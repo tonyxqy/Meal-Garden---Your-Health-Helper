@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "资讯详情",
+  "usingComponents": {
+    "mp-video-swiper": "/wxcomponents/video-swiper/index"
+  }
+}

@@ -1,0 +1,592 @@
+<!-- 首页 -->
+<template>
+	<view>
+		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
+			<!-- <block slot="backText">返回</block> -->
+			<block slot="content">首页</block>
+		</cu-custom>
+
+		<add-tip :tip="tip" :duration="duration" />
+		<view id="container">
+			<!-- banner图 -->
+			<view class="uni-padding-wrap">
+				<view class="page-section swiper">
+					<view class="page-section-spacing">
+						<swiper class="swiper" circular="true" indicator-dots="true" autoplay="true" interval="3500"
+							duration="600">
+							<swiper-item class="swiper-list" v-for="(item, index) in bannerList" :key="index">
+								<view class="swiper-item uni-bg-red">
+									<image class="swiper-img" :src="item.imageUrl" mode=""></image>
+								</view>
+							</swiper-item>
+						</swiper>
+					</view>
+				</view>
+			</view>
+			<!-- 导航栏 -->
+			<view class="cu-list grid solids-bottom col-4 no-border">
+				<view class="cu-item" v-for="(item,index) in categories" :key="index"
+					:style="[{animation: 'show ' + ((index+1)*0.2+1) + 's 1'}]" @click="goCategorieslist"
+					:data-mid="item.mid">
+					<view :class="['cuIcon-' + item.cuIcon,'text-' + item.color]">
+						<view class="cu-tag badge" v-if="item.count!=0">
+							<block v-if="item.badge!=1">{{item.badge>99?'99+':item.badge}}</block>
+						</view>
+					</view>
+					<text>{{item.name}}</text>
+				</view>
+			</view>
+			<van-sticky offset-top="80 ">
+				<view class="cu-bar bg-white margin-top-xs">
+					<view class="action sub-title">
+						<text class="text-xl text-bold text-blue text-shadow">今日能量</text>
+						<text class="text-ABC text-blue">energy</text>
+					</view>
+				</view>
+				<van-grid column-num="3" border="false" direction="horizontal">
+					<van-grid-item use-slot text="糖分" border="false">
+						<span class="iconfont">&#xe62d;</span>
+						<text class="gridtext">糖分</text>
+						<text class="gridtext1">:{{target.targetSugar}}g</text>
+					</van-grid-item>
+					<van-grid-item use-slot text="脂肪" border="false">
+						<span class="iconfont">&#xe725;</span>
+						<text class="gridtext">脂肪</text>
+						<text class="gridtext1">:{{target.targetFat}}g</text>
+					</van-grid-item>
+					<van-grid-item use-slot text="能量" border="false">
+						<span class="iconfont">&#xe61b;</span>
+						<text class="gridtext">能量</text>
+						<text class="gridtext1">:{{target.targetEnergy}}cal</text>
+					</van-grid-item>
+				</van-grid>
+				<van-grid column-num="3" border="false">
+					<van-grid-item use-slot text="糖分">
+						<van-circle :value="current.currentSugar/target.targetSugar*100" size="40"
+							:text="current.currentSugar" :color="gradientColor[0]" />
+						<text class="gridtext">糖分</text>
+					</van-grid-item>
+					<van-grid-item use-slot text="脂肪">
+						<van-circle :value="current.currentFat/target.targetFat*100" size="40"
+							:text="current.currentFat" :color="gradientColor[1]" />
+						<text class="gridtext">脂肪</text>
+					</van-grid-item>
+					<van-grid-item use-slot text="能量">
+						<van-circle :value="current.currentEnergy/target.targetEnergy*100" size="40"
+							:text="current.currentEnergy" :color="gradientColor[2]" />
+						<text class="gridtext">能量</text>
+					</van-grid-item>
+				</van-grid>
+			</van-sticky>
+
+			<view class="cu-bar bg-white margin-top-xs">
+				<view class="action sub-title">
+					<text class="text-xl text-bold text-blue text-shadow">每日推荐</text>
+					<text class="text-ABC text-blue">recommendation</text>
+				</view>
+				<view class="action" @click="goVideo">
+					<text class="text-lg text-grey text-shadow">更多</text>
+				</view>
+			</view>
+
+			<view class="skill-sequence-panel-content-wrapper">
+				<!--左边虚化-->
+				<view class="hide-content-box hide-content-box-left"></view>
+				<!--右边虚化-->
+				<view class="hide-content-box hide-content-box-right"></view>
+				<scroll-view scroll-x="true" class="kite-classify-scroll">
+					<view class="kite-classify-cell shadow" v-for="(item, index) in curriculum" :key="index">
+						<view :class="'nav-li bg-index' + (index+1)">
+							<view class="nav-name">{{item.menu}}</view>
+						</view>
+						<view class="nav-content" style="height: 100%;">
+							<van-grid column-num="1" :border="false">
+								<van-grid-item use-slot>
+									<image style="width: 100%; height: 90px;border-radius: 10%;"
+										:src="item.pictureUrl" />
+								</van-grid-item>
+							</van-grid>
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+			<view class="cu-bar bg-white margin-top-xs">
+				<view class="action sub-title">
+					<text class="text-xl text-bold text-blue text-shadow">我的今日食谱</text>
+					<text class="text-ABC text-blue">Daily recipe</text>
+				</view>
+				<view class="action" @click="goProjectList">
+					<text class="text-lg text-grey text-shadow">更多</text>
+				</view>
+			</view>
+			<view style="height: 1000px;">
+
+			</view>
+			<!-- 	<view class="cu-card case no-card">
+
+					<view @click="goProject(item.id)" class="cu-item shadow" v-for="(item, index) in projectList"
+						:key="index">
+						<view class="image">
+							<image :src="item.tImg" mode="widthFix"></image>
+							<view class="cu-tag bg-gradual-orange">{{item.tabs}}</view>
+							<view class="cu-bar bg-shadeBottom"> <text class="text-cut">{{item.type}}</text></view>
+						</view>
+						<view class="cu-list menu-avatar">
+							<view class="cu-item">
+								<view class="margin-lr flex-sub">
+									<view class="item-name text-grey text-lg">{{item.title}}</view>
+									<view class="text-gray text-sm flex justify-between">
+										{{item.time}}
+										<view class="text-gray text-sm">
+											<text class="cuIcon-attentionfill margin-lr-xs"></text>
+											{{item.user[0].read}}
+											<text class="cuIcon-appreciatefill margin-lr-xs"></text>
+											{{item.user[0].like}}
+											<text class="cuIcon-shopfill margin-lr-xs"></text> {{item.user[0].use}}
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+		 -->
+		</view>
+
+
+
+		<view style="height: 140rpx;width: 1rpx;"></view>
+	</view>
+</template>
+
+<script>
+	import request from '@/common/request.js';
+	import addTip from "../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue"
+	export default {
+		components: {
+			addTip,
+		},
+		data() {
+			return {
+				current: {
+					userId: 8,
+					currentWeight: 155,
+					currentHeight: 46,
+					currentSugar: 16.2,
+					currentEnergy: 311.6,
+					currentFat: 16.2
+				},
+				target: {
+					userId: 6,
+					targetWeight: 0,
+					targetHeight: 0,
+					targetSugar: 50,
+					targetEnergy: 2000,
+					targetFat: 55
+				},
+
+				gradientColor: [{
+					'0%': '#ffd01e',
+					'100%': '#ee0a24',
+				}, {
+					'0%': '#0081ff',
+					'100%': '#1cbbb4',
+				}, {
+					'0%': '#e03997',
+					'100%': '#6739b6',
+				}],
+				container: null,
+				tip: "点击「添加小程序」，下次访问更便捷",
+				duration: 1,
+
+				scrollTop: 0,
+				old: {
+					scrollTop: 0
+				},
+
+				bannerList: [{
+						imageUrl: 'https://tse1-mm.cn.bing.net/th/id/R-C.5e11fda5b177f51290733a0a5e56599b?rik=gijEoQ%2faNE%2fdzA&riu=http%3a%2f%2fimg.99.com.cn%2fuploads%2f202012%2f449_111438_1.jpg&ehk=7vZcg2qvqq7OS2NbEXdlP5HA%2f6%2bLaHh5840UAARMLLI%3d&risl=&pid=ImgRaw&r=0',
+					},
+					{
+						imageUrl: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.jpmOoKasCkpfRddDBjGaGQHaDP?w=310&h=153&c=7&r=0&o=5&pid=1.7',
+					},
+					{
+						imageUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.SHuggeGyxVoCr06u5ZpwAwHaDf?w=298&h=165&c=7&r=0&o=5&pid=1.7',
+					},
+					{
+						imageUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.RKZRJBeeJtnyUYG7V4e1FAHaDe?w=299&h=164&c=7&r=0&o=5&pid=1.7',
+					}
+				],
+				categories: [{
+					cuIcon: 'appreciatefill',
+					color: 'red',
+					badge: '推荐',
+					mid: '1',
+					name: '餐谱推荐'
+				}, {
+					cuIcon: 'selection',
+					color: 'orange',
+					badge: 1,
+					mid: '2',
+					name: '体质测试'
+				}, {
+					cuIcon: 'videofill',
+					color: 'yellow',
+					badge: 12,
+					mid: '3',
+					name: '分享视频'
+				}, {
+					cuIcon: 'group',
+					color: 'cyan',
+					badge: 22,
+					mid: '4',
+					name: '分享动态'
+				}],
+				curriculum: [{
+						menu: '香辣牛肉',
+						pictureUrl: "http://s1.st.meishij.net/r/97/32/4758097/s4758097_151971999169604.jpg",
+					},
+					{
+						menu: '藜麦鸡肉丸',
+						pictureUrl: "http://s1.st.meishij.net/r/178/85/5833928/s5833928_151843048575508.jpg",
+					}, {
+						menu: '清炒木耳菜',
+						pictureUrl: "https://s1.st.meishij.net/r/231/00/2937731/s2937731_152734041810444.jpg",
+					}, {
+						menu: '香辣牛肉',
+						pictureUrl: "http://s1.st.meishij.net/r/97/32/4758097/s4758097_151971999169604.jpg",
+					}, {
+						menu: '香辣牛肉',
+						pictureUrl: "http://s1.st.meishij.net/r/97/32/4758097/s4758097_151971999169604.jpg",
+					}
+
+
+
+				],
+				projectList: [],
+			}
+		},
+		watch: {
+
+		},
+		mounted() {
+			console.log(this.projectList)
+			this.getData();
+			this.$nextTick(function() {
+				console.log(uni.createSelectorQuery().in(this))
+				const query = uni.createSelectorQuery().in(this)
+				query.select('#container').boundingClientRect(data => {
+					console.log(data)
+					this.container = data
+				}).exec();
+			})
+		},
+		methods: {
+			getData() {
+				let user = {
+					user_id: '8'
+				}
+				console.log('数据加载')
+
+				// 获取目标身体状态
+				let optstar = {
+					url: 'user/getUserTarget',
+					method: 'get',
+				};
+				uni.showLoading({
+					title: '加载中'
+				})
+				request.httpRequest(optstar, user).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.target = res.data;
+						console.log(this.target)
+					} else {}
+				});
+				
+				// 获取当前身体状态
+				let optscur = {
+					url: 'user/getUserCurrent',
+					method: 'get',
+				};
+				request.httpRequest(optscur, user).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.current = res.data;
+						console.log(this.current)
+					} else {}
+				});
+
+				// 获取早餐推荐食谱
+				let optsbreak = {
+					url: 'recommend/recommendByUserbreakfast',
+					method: 'get',
+				};
+				request.httpRequest(optsbreak, user).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						console.log(this.res.data)
+					} else {}
+				});
+			},
+			scroll: function(e) {
+				console.log(e)
+				this.old.scrollTop = e.detail.scrollTop
+			},
+			goCategorieslist: function(e) {
+				// console.log(e.currentTarget.dataset.mid)
+				if (e.currentTarget.dataset.mid == 2) {
+					uni.navigateTo({
+						url: '../me/mentalTest/index?mid=1'
+					})
+				}
+				// if (e.currentTarget.dataset.mid == 1 || e.currentTarget.dataset.mid == 2) {
+				// 	uni.navigateTo({
+				// 		url: '../timeline?mid=' + e.currentTarget.dataset.mid
+				// 	})
+				// } else if (e.currentTarget.dataset.mid == 3) {
+				// 	uni.navigateTo({
+				// 		url: '../project/list'
+				// 	})
+				// }
+			},
+			goProjectList() {
+				uni.navigateTo({
+					url: '../project/list'
+				})
+			},
+			goProject(id) {
+				uni.navigateTo({
+					url: '../project/project?proId=' + id
+				})
+			},
+			goVideo() {
+				uni.navigateTo({
+					url: '../video'
+				})
+			}
+		}
+	}
+</script>
+<style lang="scss" scoped>
+	@font-face {
+		font-family: 'iconfont';
+		src: url('@/static/iconfont.ttf?t=1647423422630') format('truetype');
+	}
+
+	.iconfont {
+		font-family: "iconfont" !important;
+		font-size: 16px;
+		font-style: normal;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo {
+		height: 200rpx;
+		width: 200rpx;
+		margin-top: 200rpx;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 50rpx;
+	}
+
+	.text-area {
+		display: flex;
+		justify-content: center;
+	}
+
+	.title {
+		font-size: 36rpx;
+		color: #8f8f94;
+	}
+
+	.swiper-box {
+		flex: 1;
+	}
+
+	.swiper-item {
+		height: 100%;
+	}
+
+	/*scroll-view外层*/
+	.skill-sequence-panel-content-wrapper {
+		position: relative;
+		white-space: nowrap;
+		padding: 10rpx 0 10rpx 10rpx;
+	}
+
+	/*左右渐变遮罩*/
+	.hide-content-box {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 10px;
+		z-index: 2;
+	}
+
+	.hide-content-box-left {
+		left: 0;
+		background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #f3f3f3 60%);
+	}
+
+	.hide-content-box-right {
+		right: 0;
+		background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #f3f3f3 60%);
+	}
+
+	.kite-classify-scroll {
+		width: 100%;
+		height: 380rpx;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	.kite-classify-cell {
+		display: inline-block;
+		width: 266rpx;
+		height: 370rpx;
+		margin-right: 20rpx;
+		background-color: #FFFFFF;
+		border-radius: 10rpx;
+		overflow: hidden;
+		box-shadow: 2px 2px 3px rgba(26, 26, 26, 0.2);
+	}
+
+	.nav-li {
+		padding: 40rpx 30rpx;
+		width: 100%;
+		background-image: url(https://s1.ax1x.com/2020/06/27/NyU04x.png);
+		background-size: cover;
+		background-position: center;
+		position: relative;
+		z-index: 1;
+	}
+
+	.nav-name {
+		font-size: 28upx;
+		text-transform: Capitalize;
+		margin-top: 20upx;
+		position: relative;
+	}
+
+	.nav-name::before {
+		content: "";
+		position: absolute;
+		display: block;
+		width: 40rpx;
+		height: 6rpx;
+		background: #fff;
+		bottom: 0;
+		right: 0;
+		opacity: 0.5;
+	}
+
+	.nav-name::after {
+		content: "";
+		position: absolute;
+		display: block;
+		width: 100rpx;
+		height: 1px;
+		background: #fff;
+		bottom: 0;
+		right: 40rpx;
+		opacity: 0.3;
+	}
+
+	.nav-content {
+		width: 100%;
+		padding: 15rpx;
+		display: inline-block;
+		overflow-wrap: break-word;
+		white-space: normal;
+	}
+
+	.nav-btn {
+		width: 200rpx;
+		height: 60rpx;
+		margin: 8rpx auto;
+		text-align: center;
+		line-height: 60rpx;
+		border-radius: 10rpx;
+	}
+
+	.bg-index1 {
+		background-color: #19CF8A;
+		color: #fff;
+	}
+
+	.bg-index2 {
+		background-color: #954FF6;
+		color: #fff;
+	}
+
+	.bg-index3 {
+		background-color: #5177EE;
+		color: #fff;
+	}
+
+	.bg-index4 {
+		background-color: #F49A02;
+		color: #fff;
+	}
+
+	.bg-index5 {
+		background-color: #FF4F94;
+		color: #fff;
+	}
+
+	.bg-index6 {
+		background-color: #7FD02B;
+		color: #fff;
+	}
+
+	.item-name {
+		margin-bottom: 15rpx;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		overflow: hidden;
+	}
+
+	.gridtext {
+		color: #888;
+		font-size: 26rpx;
+		line-height: 26rpx;
+	}
+
+	.ingrid {
+		float: left;
+	}
+
+	.gridtext1 {
+		float: left;
+		color: #888;
+		font-size: 26rpx;
+		line-height: 26rpx;
+	}
+
+	.custom-class {
+		border: 0px;
+		border-radius: 10%;
+	}
+
+	.van-grid-item__content:after {
+		border-width: 0 0px 0px 0 !important;
+		z-index: 1;
+		border-top-width: 0px;
+		border-right-width: 0px !important;
+		border-bottom-width: 0px !important;
+		border-left-width: 0px;
+	}
+</style>
