@@ -1,9 +1,9 @@
 <template>
 	<view>
 		<!-- 冰冰我的冰冰 -->
-		<view class="friend" @click="talking" v-if="xiaobing">
+		<view class="friend" @click="talking" v-if="xiaobing" style="z-index: 10000;">
 			<image src="https://s.cn.bing.net/th?id=OJ.ctIMyEUgdeHZwQ&w=120&h=160&c=8&rs=1&pid=academic" mode=""
-				style="width: 100%;height: 100%;"></image>
+				style="width: 100%;height: 100%;z-index: 10000;"></image>
 		</view>
 		<uni-transition mode-class="fade" :show="!xiaobing">
 			<view class="ev_talkbox_max">

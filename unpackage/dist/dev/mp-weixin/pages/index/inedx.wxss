@@ -282,4 +282,20 @@
             transform: scale(1);
 }
 }
+.chartsMain.data-v-079d618e {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border-top: 2rpx solid #f2f2f2;
+}
+.chartsMain .charts.data-v-079d618e {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+/* 请根据需求修改图表容器尺寸，如果父容器没有高度图表则会显示异常 */
+.charts-box.data-v-079d618e {
+  width: 100%;
+  height: 200px;
+}
 

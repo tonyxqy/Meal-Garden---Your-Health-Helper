@@ -49,32 +49,43 @@
 						<text class="gridtext">糖分</text>
 						<text class="gridtext1">:{{target.targetSugar}}g</text>
 					</van-grid-item>
-					<van-grid-item use-slot text="脂肪" border="false">
-						<span class="iconfont">&#xe725;</span>
-						<text class="gridtext">脂肪</text>
-						<text class="gridtext1">:{{target.targetFat}}g</text>
-					</van-grid-item>
 					<van-grid-item use-slot text="能量" border="false">
 						<span class="iconfont">&#xe61b;</span>
 						<text class="gridtext">能量</text>
 						<text class="gridtext1">:{{target.targetEnergy}}cal</text>
 					</van-grid-item>
+					<van-grid-item use-slot text="脂肪" border="false">
+						<span class="iconfont">&#xe725;</span>
+						<text class="gridtext">脂肪</text>
+						<text class="gridtext1">:{{target.targetFat}}g</text>
+					</van-grid-item>
 				</van-grid>
 				<van-grid column-num="3" border="false">
-					<van-grid-item use-slot text="糖分">
-						<van-circle :value="current.currentSugar/target.targetSugar*100" size="40"
-							:text="current.currentSugar" :color="gradientColor[0]" />
-						<text class="gridtext">糖分</text>
+					<van-grid-item use-slot text="糖分" style="text-align: center;">
+						<view style="height: 160px">
+							<van-circle style="display: block;margin: 5px 0;" :value="current.currentSugar/target.targetSugar*100" size="60"
+								:text="current.currentSugar" :color="gradientColor[0]" />
+							<text class="gridtext">糖分</text>
+						</view>
 					</van-grid-item>
-					<van-grid-item use-slot text="脂肪">
-						<van-circle :value="current.currentFat/target.targetFat*100" size="40"
+					<van-grid-item use-slot text="热量">
+						<!-- 	<van-circle :value="current.currentFat/target.targetFat*100" size="40"
 							:text="current.currentFat" :color="gradientColor[1]" />
-						<text class="gridtext">脂肪</text>
+						<text class="gridtext">脂肪</text> -->
+						<view style="height: 180px;z-index: 1;margin-top: -20px;">
+							<view class="charts-box">
+								<qiun-data-charts type="gauge" :chartData="chartData"
+									:loadingType="4" :errorShow="false" background="none" />
+							</view>
+						</view>
+
 					</van-grid-item>
-					<van-grid-item use-slot text="能量">
-						<van-circle :value="current.currentEnergy/target.targetEnergy*100" size="40"
-							:text="current.currentEnergy" :color="gradientColor[2]" />
-						<text class="gridtext">能量</text>
+					<van-grid-item use-slot text="脂肪"  style="text-align: center;">
+						<view style="height: 160px">
+							<van-circle style="display: block;margin: 5px 0;" :value="current.currentFat/target.targetFat*100" size="60"
+								:text="current.currentFat" :color="gradientColor[2]" />
+							<text class="gridtext">脂肪</text>
+						</view>
 					</van-grid-item>
 				</van-grid>
 			</van-sticky>
@@ -131,8 +142,16 @@
 		</view>
 		<view class="cu-card case no-card">
 			<view @click="goProject(item.id)" class="cu-item shadow" v-for="(item, index) in dishList" :key="index">
-				<van-card :tag="item.time" :price="item.taste" :desc="item.ingredients" currency=" " lazy-load="true" :title="item.menu"
+				<van-card :tag="item.time" :price="item.taste" currency=" " lazy-load="true" :title="item.menu"
 					:thumb="item.pictureUrl">
+					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
+						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
+							{{item}}
+						</van-tag>
+						<van-tag :type="mystylelist[3-index1]" style="display: block;margin: 2rpx;" v-if="index1==2">
+							{{item}}
+						</van-tag>
+					</view>
 					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
 						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
 					</view>
@@ -151,6 +170,9 @@
 </template>
 
 <script>
+	import uCharts from "@/components/u-charts/u-charts.js";
+	var _self;
+	var canvaGauge = null;
 	import request from '@/common/request.js';
 	import addTip from "../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue"
 	export default {
@@ -159,8 +181,29 @@
 		},
 		data() {
 			return {
-				mystylelist:['primary','success','danger','warning'],
+				mystylelist: ['primary', 'success', 'danger', 'warning'],
 				show: true,
+				// 仪表盘
+				gaugeWidth: 10,
+				chartData: {
+					categories: [{
+							"value": 0.2,
+							"color": "#1890ff"
+						},
+						{
+							"value": 0.8,
+							"color": "#2fc25b"
+						},
+						{
+							"value": 1,
+							"color": "#f04864"
+						}
+					],
+					"series": [{
+						"name": "完成率",
+						"data": 0.66
+					}]
+				},
 				current: {
 					userId: 8,
 					currentWeight: 155,
@@ -243,6 +286,9 @@
 		watch: {
 
 		},
+		onLoad() {
+
+		},
 		mounted() {
 			console.log(this.projectList)
 			this.getData();
@@ -254,6 +300,10 @@
 					this.container = data
 				}).exec();
 			})
+			_self = this;
+			this.cWidth = uni.upx2px(750);
+			this.cHeight = uni.upx2px(420);
+			this.getServerData();
 		},
 		methods: {
 			getData() {
@@ -290,6 +340,8 @@
 					if (res.statusCode == 200) {
 						this.current = res.data;
 						console.log(this.current)
+						console.log(_self)
+						_self.showGauge("canvasGauge", this.Gauge);
 					} else {}
 				});
 
@@ -349,36 +401,87 @@
 					} else {}
 				});
 			},
-			help(item){
-					item.forEach((self,index)=>{
-					if(self.ingredients!=null){
-						let ingredients = self.ingredients.slice(1,-1).split(',')
+			help(item) {
+				item.forEach((self, index) => {
+					if (self.ingredients != null) {
+						let ingredients = self.ingredients.slice(1, -1).split(',')
 						let list = []
-						ingredients.forEach((self,index)=>{
+						ingredients.forEach((self, index) => {
 							let change = self.trim().replace(/\'/g, "");
 							list.push(change)
 						})
 						self.ingredients = list
 					}
-					if(self.classifiction!=null){
-						let classifiction = self.classifiction.slice(1,-1).split(',')
+					if (self.classifiction != null) {
+						let classifiction = self.classifiction.slice(1, -1).split(',')
 						let list = []
-						classifiction.forEach((self,index)=>{
+						classifiction.forEach((self, index) => {
 							let change = self.trim().replace(/\'/g, "");
 							list.push(change)
 						})
 						self.classifiction = list
 					}
-					if(self.practice!=null){
-						let practice = self.practice.slice(1,-1).split(',')
+					if (self.practice != null) {
+						let practice = self.practice.slice(1, -1).split(',')
 						let list = []
-						practice.forEach((self,index)=>{
+						practice.forEach((self, index) => {
 							let change = self.trim().replace(/\'/g, "");
 							list.push(change)
 						})
 						self.practice = list
 					}
 				})
+			},
+			showGauge(canvasId, chartData) {
+				canvaGauge = new uCharts({
+					$this: _self,
+					canvasId: canvasId,
+					type: 'gauge',
+					fontSize: 11,
+					legend: false,
+					title: {
+						name: Math.round(_self.chartData.series[0].data * 100) + '%',
+						color: _self.chartData.categories[1].color,
+						fontSize: 25 * _self.pixelRatio,
+						offsetY: 50 * _self.pixelRatio, //新增参数，自定义调整Y轴文案距离
+					},
+					subtitle: {
+						name: _self.chartData.series[0].name,
+						color: '#666666',
+						fontSize: 15 * _self.pixelRatio,
+						offsetY: -50 * _self.pixelRatio, //新增参数，自定义调整Y轴文案距离
+					},
+					extra: {
+						gauge: {
+							type: 'default',
+							width: _self.gaugeWidth * _self.pixelRatio, //仪表盘背景的宽度
+							startAngle: 0.75,
+							endAngle: 0.25,
+							startNumber: 0,
+							endNumber: 100,
+							splitLine: {
+								fixRadius: 0,
+								splitNumber: 10,
+								width: _self.gaugeWidth * _self.pixelRatio, //仪表盘背景的宽度
+								color: '#FFFFFF',
+								childNumber: 5,
+								childWidth: _self.gaugeWidth * 0.4 * _self.pixelRatio, //仪表盘背景的宽度
+							},
+							pointer: {
+								width: _self.gaugeWidth * 0.8 * _self.pixelRatio, //指针宽度
+								color: 'auto'
+							}
+						}
+					},
+					background: '#FFFFFF',
+					pixelRatio: _self.pixelRatio,
+					categories: _self.chartData.categories,
+					series: _self.chartData.series,
+					animation: true,
+					width: _self.cWidth * _self.pixelRatio,
+					height: _self.cHeight * _self.pixelRatio,
+					dataLabel: true,
+				});
 			},
 			scroll: function(e) {
 				console.log(e)
@@ -738,5 +841,26 @@
 		100% {
 			transform: scale(1);
 		}
+	}
+
+	.chartsMain {
+		width: 200px;
+		height: 200px;
+		// padding-top: 15rpx;
+		background: #fff;
+		// margin-bottom: 24rpx;
+		border-top: 2rpx solid #f2f2f2;
+
+		.charts {
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+		}
+	}
+
+	/* 请根据需求修改图表容器尺寸，如果父容器没有高度图表则会显示异常 */
+	.charts-box {
+		width: 100%;
+		height: 200px;
 	}
 </style>
