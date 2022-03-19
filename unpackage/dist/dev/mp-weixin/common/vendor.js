@@ -947,7 +947,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2221,9 +2221,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 154:
-/*!*********************************************!*\
-  !*** D:/learn/myweb/营养助手/common/request.js ***!
-  \*********************************************/
+/*!***********************************************!*\
+  !*** C:/Users/DELL/-health/common/request.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2380,9 +2380,9 @@ var hadToken = function hadToken() {
 /***/ }),
 
 /***/ 16:
-/*!************************************************!*\
-  !*** D:/learn/myweb/营养助手/polyfill/polyfill.js ***!
-  \************************************************/
+/*!**************************************************!*\
+  !*** C:/Users/DELL/-health/polyfill/polyfill.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3463,9 +3463,9 @@ module.exports = {
 /***/ }),
 
 /***/ 17:
-/*!****************************************************!*\
-  !*** D:/learn/myweb/营养助手/polyfill/base64Binary.js ***!
-  \****************************************************/
+/*!******************************************************!*\
+  !*** C:/Users/DELL/-health/polyfill/base64Binary.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -3567,9 +3567,9 @@ module.exports = {
 /***/ }),
 
 /***/ 18:
-/*!**********************************************!*\
-  !*** D:/learn/myweb/营养助手/polyfill/mixins.js ***!
-  \**********************************************/
+/*!************************************************!*\
+  !*** C:/Users/DELL/-health/polyfill/mixins.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3721,9 +3721,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 181:
-/*!*******************************************!*\
-  !*** D:/learn/myweb/营养助手/common/uiImg.js ***!
-  \*******************************************/
+/*!*********************************************!*\
+  !*** C:/Users/DELL/-health/common/uiImg.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3759,9 +3759,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 19:
-/*!*********************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/index.js ***!
-  \*********************************************/
+/*!***********************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/index.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3942,9 +3942,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 20:
-/*!********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/mixin/mixin.js ***!
-  \********************************************************/
+/*!**********************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/mixin/mixin.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4002,9 +4002,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 21:
-/*!**********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/request/index.js ***!
-  \**********************************************************/
+/*!************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/request/index.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4183,9 +4183,9 @@ new Request();exports.default = _default;
 /***/ }),
 
 /***/ 22:
-/*!***************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/deepMerge.js ***!
-  \***************************************************************/
+/*!*****************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/deepMerge.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4224,9 +4224,9 @@ deepMerge;exports.default = _default;
 /***/ }),
 
 /***/ 23:
-/*!***************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/deepClone.js ***!
-  \***************************************************************/
+/*!*****************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/deepClone.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4258,9 +4258,9 @@ deepClone;exports.default = _default;
 /***/ }),
 
 /***/ 24:
-/*!**********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/test.js ***!
-  \**********************************************************/
+/*!************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/test.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4500,9 +4500,9 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
 /***/ }),
 
 /***/ 25:
-/*!*****************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/queryParams.js ***!
-  \*****************************************************************/
+/*!*******************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/queryParams.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4568,10 +4568,144 @@ queryParams;exports.default = _default;
 
 /***/ }),
 
-/***/ 254:
-/*!************************************************************!*\
-  !*** D:/learn/myweb/营养助手/components/QS-SharePoster/app.js ***!
-  \************************************************************/
+/***/ 26:
+/*!*************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/route.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 27));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 并且带有路由拦截功能
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */var
+
+Router = /*#__PURE__*/function () {
+  function Router() {_classCallCheck(this, Router);
+    // 原始属性定义
+    this.config = {
+      type: 'navigateTo',
+      url: '',
+      delta: 1, // navigateBack页面后退时,回退的层数
+      params: {}, // 传递的参数
+      animationType: 'pop-in', // 窗口动画,只在APP有效
+      animationDuration: 300, // 窗口动画持续时间,单位毫秒,只在APP有效
+      intercept: false // 是否需要拦截
+    };
+    // 因为route方法是需要对外赋值给另外的对象使用，同时route内部有使用this，会导致route失去上下文
+    // 这里在构造函数中进行this绑定
+    this.route = this.route.bind(this);
+  }
+
+  // 判断url前面是否有"/"，如果没有则加上，否则无法跳转
+  _createClass(Router, [{ key: "addRootPath", value: function addRootPath(url) {
+      return url[0] === '/' ? url : "/".concat(url);
+    }
+
+    // 整合路由参数
+  }, { key: "mixinParam", value: function mixinParam(url, params) {
+      url = url && this.addRootPath(url);
+
+      // 使用正则匹配，主要依据是判断是否有"/","?","="等，如“/page/index/index?name=mary"
+      // 如果有url中有get参数，转换后无需带上"?"
+      var query = '';
+      if (/.*\/.*\?.*=.*/.test(url)) {
+        // object对象转为get类型的参数
+        query = uni.$u.queryParams(params, false);
+        // 因为已有get参数,所以后面拼接的参数需要带上"&"隔开
+        return url += "&" + query;
+      } else {
+        // 直接拼接参数，因为此处url中没有后面的query参数，也就没有"?/&"之类的符号
+        query = uni.$u.queryParams(params);
+        return url += query;
+      }
+    }
+
+    // 对外的方法名称
+  }, { key: "route", value: function () {var _route = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var options,params,mergeConfig,isNext,_args = arguments;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};params = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
+                // 合并用户的配置和内部的默认配置
+                mergeConfig = {};
+
+                if (typeof options === 'string') {
+                  // 如果options为字符串，则为route(url, params)的形式
+                  mergeConfig.url = this.mixinParam(options, params);
+                  mergeConfig.type = 'navigateTo';
+                } else {
+                  mergeConfig = uni.$u.deepClone(options, this.config);
+                  // 否则正常使用mergeConfig中的url和params进行拼接
+                  mergeConfig.url = this.mixinParam(options.url, options.params);
+                }
+
+                if (params.intercept) {
+                  this.config.intercept = params.intercept;
+                }
+                // params参数也带给拦截器
+                mergeConfig.params = params;
+                // 合并内外部参数
+                mergeConfig = uni.$u.deepMerge(this.config, mergeConfig);
+                // 判断用户是否定义了拦截器
+                if (!(typeof uni.$u.routeIntercept === 'function')) {_context.next = 14;break;}_context.next = 10;return (
+
+                  new Promise(function (resolve, reject) {
+                    uni.$u.routeIntercept(mergeConfig, resolve);
+                  }));case 10:isNext = _context.sent;
+                // 如果isNext为true，则执行路由跳转
+                isNext && this.openPage(mergeConfig);_context.next = 15;break;case 14:
+
+                this.openPage(mergeConfig);case 15:case "end":return _context.stop();}}}, _callee, this);}));function route() {return _route.apply(this, arguments);}return route;}()
+
+
+
+    // 执行路由跳转
+  }, { key: "openPage", value: function openPage(config) {
+      // 解构参数
+      var
+      url =
+
+
+
+
+      config.url,type = config.type,delta = config.delta,animationType = config.animationType,animationDuration = config.animationDuration;
+      if (config.type == 'navigateTo' || config.type == 'to') {
+        uni.navigateTo({
+          url: url,
+          animationType: animationType,
+          animationDuration: animationDuration });
+
+      }
+      if (config.type == 'redirectTo' || config.type == 'redirect') {
+        uni.redirectTo({
+          url: url });
+
+      }
+      if (config.type == 'switchTab' || config.type == 'tab') {
+        uni.switchTab({
+          url: url });
+
+      }
+      if (config.type == 'reLaunch' || config.type == 'launch') {
+        uni.reLaunch({
+          url: url });
+
+      }
+      if (config.type == 'navigateBack' || config.type == 'back') {
+        uni.navigateBack({
+          delta: delta });
+
+      }
+    } }]);return Router;}();var _default =
+
+
+new Router().route;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 260:
+/*!**************************************************************!*\
+  !*** C:/Users/DELL/-health/components/QS-SharePoster/app.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5130,17 +5264,17 @@ module.exports = _app;
 
 /***/ }),
 
-/***/ 255:
-/*!***********************************************************************!*\
-  !*** D:/learn/myweb/营养助手/components/QS-SharePoster/QS-SharePoster.js ***!
-  \***********************************************************************/
+/***/ 261:
+/*!*************************************************************************!*\
+  !*** C:/Users/DELL/-health/components/QS-SharePoster/QS-SharePoster.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 27));var _app2 = _interopRequireDefault(__webpack_require__(/*! ./app.js */ 254));
-var _QRCodeAlg = _interopRequireDefault(__webpack_require__(/*! ./QRCodeAlg.js */ 256));
-var _imageTools = __webpack_require__(/*! ./image-tools.js */ 257);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 27));var _app2 = _interopRequireDefault(__webpack_require__(/*! ./app.js */ 260));
+var _QRCodeAlg = _interopRequireDefault(__webpack_require__(/*! ./QRCodeAlg.js */ 262));
+var _imageTools = __webpack_require__(/*! ./image-tools.js */ 263);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 var ShreUserPosterBackgroundKey = 'ShrePosterBackground_'; // 背景图片缓存名称前缀
 var idKey = 'QSSHAREPOSTER_IDKEY'; //drawArray自动生成的idkey
 var isMp = false;
@@ -6463,10 +6597,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 256:
-/*!******************************************************************!*\
-  !*** D:/learn/myweb/营养助手/components/QS-SharePoster/QRCodeAlg.js ***!
-  \******************************************************************/
+/***/ 262:
+/*!********************************************************************!*\
+  !*** C:/Users/DELL/-health/components/QS-SharePoster/QRCodeAlg.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7482,10 +7616,10 @@ QRBitBuffer.prototype = {
 
 /***/ }),
 
-/***/ 257:
-/*!********************************************************************!*\
-  !*** D:/learn/myweb/营养助手/components/QS-SharePoster/image-tools.js ***!
-  \********************************************************************/
+/***/ 263:
+/*!**********************************************************************!*\
+  !*** C:/Users/DELL/-health/components/QS-SharePoster/image-tools.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7640,140 +7774,6 @@ function base64ToPath(base64) {
 
 /***/ }),
 
-/***/ 26:
-/*!***********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/route.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 27));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    * 并且带有路由拦截功能
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    */var
-
-Router = /*#__PURE__*/function () {
-  function Router() {_classCallCheck(this, Router);
-    // 原始属性定义
-    this.config = {
-      type: 'navigateTo',
-      url: '',
-      delta: 1, // navigateBack页面后退时,回退的层数
-      params: {}, // 传递的参数
-      animationType: 'pop-in', // 窗口动画,只在APP有效
-      animationDuration: 300, // 窗口动画持续时间,单位毫秒,只在APP有效
-      intercept: false // 是否需要拦截
-    };
-    // 因为route方法是需要对外赋值给另外的对象使用，同时route内部有使用this，会导致route失去上下文
-    // 这里在构造函数中进行this绑定
-    this.route = this.route.bind(this);
-  }
-
-  // 判断url前面是否有"/"，如果没有则加上，否则无法跳转
-  _createClass(Router, [{ key: "addRootPath", value: function addRootPath(url) {
-      return url[0] === '/' ? url : "/".concat(url);
-    }
-
-    // 整合路由参数
-  }, { key: "mixinParam", value: function mixinParam(url, params) {
-      url = url && this.addRootPath(url);
-
-      // 使用正则匹配，主要依据是判断是否有"/","?","="等，如“/page/index/index?name=mary"
-      // 如果有url中有get参数，转换后无需带上"?"
-      var query = '';
-      if (/.*\/.*\?.*=.*/.test(url)) {
-        // object对象转为get类型的参数
-        query = uni.$u.queryParams(params, false);
-        // 因为已有get参数,所以后面拼接的参数需要带上"&"隔开
-        return url += "&" + query;
-      } else {
-        // 直接拼接参数，因为此处url中没有后面的query参数，也就没有"?/&"之类的符号
-        query = uni.$u.queryParams(params);
-        return url += query;
-      }
-    }
-
-    // 对外的方法名称
-  }, { key: "route", value: function () {var _route = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var options,params,mergeConfig,isNext,_args = arguments;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};params = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
-                // 合并用户的配置和内部的默认配置
-                mergeConfig = {};
-
-                if (typeof options === 'string') {
-                  // 如果options为字符串，则为route(url, params)的形式
-                  mergeConfig.url = this.mixinParam(options, params);
-                  mergeConfig.type = 'navigateTo';
-                } else {
-                  mergeConfig = uni.$u.deepClone(options, this.config);
-                  // 否则正常使用mergeConfig中的url和params进行拼接
-                  mergeConfig.url = this.mixinParam(options.url, options.params);
-                }
-
-                if (params.intercept) {
-                  this.config.intercept = params.intercept;
-                }
-                // params参数也带给拦截器
-                mergeConfig.params = params;
-                // 合并内外部参数
-                mergeConfig = uni.$u.deepMerge(this.config, mergeConfig);
-                // 判断用户是否定义了拦截器
-                if (!(typeof uni.$u.routeIntercept === 'function')) {_context.next = 14;break;}_context.next = 10;return (
-
-                  new Promise(function (resolve, reject) {
-                    uni.$u.routeIntercept(mergeConfig, resolve);
-                  }));case 10:isNext = _context.sent;
-                // 如果isNext为true，则执行路由跳转
-                isNext && this.openPage(mergeConfig);_context.next = 15;break;case 14:
-
-                this.openPage(mergeConfig);case 15:case "end":return _context.stop();}}}, _callee, this);}));function route() {return _route.apply(this, arguments);}return route;}()
-
-
-
-    // 执行路由跳转
-  }, { key: "openPage", value: function openPage(config) {
-      // 解构参数
-      var
-      url =
-
-
-
-
-      config.url,type = config.type,delta = config.delta,animationType = config.animationType,animationDuration = config.animationDuration;
-      if (config.type == 'navigateTo' || config.type == 'to') {
-        uni.navigateTo({
-          url: url,
-          animationType: animationType,
-          animationDuration: animationDuration });
-
-      }
-      if (config.type == 'redirectTo' || config.type == 'redirect') {
-        uni.redirectTo({
-          url: url });
-
-      }
-      if (config.type == 'switchTab' || config.type == 'tab') {
-        uni.switchTab({
-          url: url });
-
-      }
-      if (config.type == 'reLaunch' || config.type == 'launch') {
-        uni.reLaunch({
-          url: url });
-
-      }
-      if (config.type == 'navigateBack' || config.type == 'back') {
-        uni.navigateBack({
-          delta: delta });
-
-      }
-    } }]);return Router;}();var _default =
-
-
-new Router().route;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
 /***/ 27:
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
@@ -7833,10 +7833,10 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 282:
-/*!**********************************************************!*\
-  !*** D:/learn/myweb/营养助手/components/u-charts/checker.js ***!
-  \**********************************************************/
+/***/ 288:
+/*!************************************************************!*\
+  !*** C:/Users/DELL/-health/components/u-charts/checker.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8596,16 +8596,16 @@ module.exports = {
 
 /***/ }),
 
-/***/ 291:
-/*!***************************************************!*\
-  !*** D:/learn/myweb/营养助手/common/geocode-utils.js ***!
-  \***************************************************/
+/***/ 297:
+/*!*****************************************************!*\
+  !*** C:/Users/DELL/-health/common/geocode-utils.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _qqmapWxJssdk = _interopRequireDefault(__webpack_require__(/*! ./qqmap-wx-jssdk.js */ 292));
-var _amapWx = _interopRequireDefault(__webpack_require__(/*! ./amap-wx.js */ 293));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _qqmapWxJssdk = _interopRequireDefault(__webpack_require__(/*! ./qqmap-wx-jssdk.js */ 298));
+var _amapWx = _interopRequireDefault(__webpack_require__(/*! ./amap-wx.js */ 299));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 var amapKey = "83dd75107efbb10605ef3f89c4f76527";
 /** 
                                                    * 此方法为腾讯位置服务方法  日调用量1万次/key,并发数5次/key/秒
@@ -8704,10 +8704,10 @@ function amapGeocode(lat, lon, callback) {
 
 /***/ }),
 
-/***/ 292:
-/*!****************************************************!*\
-  !*** D:/learn/myweb/营养助手/common/qqmap-wx-jssdk.js ***!
-  \****************************************************/
+/***/ 298:
+/*!******************************************************!*\
+  !*** C:/Users/DELL/-health/common/qqmap-wx-jssdk.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9837,10 +9837,10 @@ module.exports = QQMapWX;
 
 /***/ }),
 
-/***/ 293:
-/*!*********************************************!*\
-  !*** D:/learn/myweb/营养助手/common/amap-wx.js ***!
-  \*********************************************/
+/***/ 299:
+/*!***********************************************!*\
+  !*** C:/Users/DELL/-health/common/amap-wx.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -15375,7 +15375,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -15396,14 +15396,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -15489,7 +15489,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -15901,9 +15901,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 30:
-/*!****************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/timeFormat.js ***!
-  \****************************************************************/
+/*!******************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/timeFormat.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15963,9 +15963,9 @@ timeFormat;exports.default = _default;
 /***/ }),
 
 /***/ 31:
-/*!**************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/timeFrom.js ***!
-  \**************************************************************/
+/*!****************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/timeFrom.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16021,9 +16021,9 @@ timeFrom;exports.default = _default;
 /***/ }),
 
 /***/ 32:
-/*!*******************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/colorGradient.js ***!
-  \*******************************************************************/
+/*!*********************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/colorGradient.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16165,9 +16165,9 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
 /***/ }),
 
 /***/ 33:
-/*!**********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/guid.js ***!
-  \**********************************************************/
+/*!************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/guid.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16217,9 +16217,9 @@ guid;exports.default = _default;
 /***/ }),
 
 /***/ 34:
-/*!***********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/color.js ***!
-  \***********************************************************/
+/*!*************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/color.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16265,9 +16265,9 @@ color;exports.default = _default;
 /***/ }),
 
 /***/ 35:
-/*!***************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/type2icon.js ***!
-  \***************************************************************/
+/*!*****************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/type2icon.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16311,9 +16311,9 @@ type2icon;exports.default = _default;
 /***/ }),
 
 /***/ 36:
-/*!*****************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/randomArray.js ***!
-  \*****************************************************************/
+/*!*******************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/randomArray.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16328,10 +16328,29 @@ randomArray;exports.default = _default;
 
 /***/ }),
 
-/***/ 366:
-/*!***************************************************!*\
-  !*** D:/learn/myweb/营养助手/common/classify.data.js ***!
-  \***************************************************/
+/***/ 37:
+/*!***************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/addUnit.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
+function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
+  value = String(value);
+  // 用uView内置验证规则中的number判断是否为数值
+  return _test.default.number(value) ? "".concat(value).concat(unit) : value;
+}
+
+/***/ }),
+
+/***/ 372:
+/*!*****************************************************!*\
+  !*** C:/Users/DELL/-health/common/classify.data.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16808,29 +16827,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 37:
-/*!*************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/addUnit.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
-function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
-  value = String(value);
-  // 用uView内置验证规则中的number判断是否为数值
-  return _test.default.number(value) ? "".concat(value).concat(unit) : value;
-}
-
-/***/ }),
-
 /***/ 38:
-/*!************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/random.js ***!
-  \************************************************************/
+/*!**************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/random.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16848,10 +16848,10 @@ random;exports.default = _default;
 
 /***/ }),
 
-/***/ 381:
-/*!**************************************************************!*\
-  !*** D:/learn/myweb/营养助手/wxcomponents/video-swiper/index.js ***!
-  \**************************************************************/
+/***/ 387:
+/*!****************************************************************!*\
+  !*** C:/Users/DELL/-health/wxcomponents/video-swiper/index.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -17113,9 +17113,9 @@ module.exports =
 /***/ }),
 
 /***/ 39:
-/*!**********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/trim.js ***!
-  \**********************************************************/
+/*!************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/trim.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17603,9 +17603,9 @@ function resolveLocaleChain(locale) {
 /***/ }),
 
 /***/ 40:
-/*!***********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/toast.js ***!
-  \***********************************************************/
+/*!*************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/toast.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17623,15 +17623,15 @@ toast;exports.default = _default;
 
 /***/ }),
 
-/***/ 402:
-/*!***************************************************************!*\
-  !*** D:/learn/myweb/营养助手/wxcomponents/ec-canvas/ec-canvas.js ***!
-  \***************************************************************/
+/***/ 408:
+/*!*****************************************************************!*\
+  !*** C:/Users/DELL/-health/wxcomponents/ec-canvas/ec-canvas.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-var _wxCanvas = _interopRequireDefault(__webpack_require__(/*! ./wx-canvas */ 403));
+var _wxCanvas = _interopRequireDefault(__webpack_require__(/*! ./wx-canvas */ 409));
 var echarts = _interopRequireWildcard(__webpack_require__(/*! ./echarts */ 62));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var ctx;
@@ -17884,10 +17884,10 @@ function wrapTouch(event) {
 
 /***/ }),
 
-/***/ 403:
-/*!***************************************************************!*\
-  !*** D:/learn/myweb/营养助手/wxcomponents/ec-canvas/wx-canvas.js ***!
-  \***************************************************************/
+/***/ 409:
+/*!*****************************************************************!*\
+  !*** C:/Users/DELL/-health/wxcomponents/ec-canvas/wx-canvas.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18000,9 +18000,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 41:
-/*!***************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/getParent.js ***!
-  \***************************************************************/
+/*!*****************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/getParent.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18058,9 +18058,9 @@ function getParent(name, keys) {
 /***/ }),
 
 /***/ 42:
-/*!*************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/$parent.js ***!
-  \*************************************************************/
+/*!***************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/$parent.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18087,9 +18087,9 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 /***/ }),
 
 /***/ 43:
-/*!*********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/sys.js ***!
-  \*********************************************************/
+/*!***********************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/sys.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18106,9 +18106,9 @@ function sys() {
 /***/ }),
 
 /***/ 44:
-/*!**************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/debounce.js ***!
-  \**************************************************************/
+/*!****************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/debounce.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18146,9 +18146,9 @@ debounce;exports.default = _default;
 /***/ }),
 
 /***/ 45:
-/*!**************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/function/throttle.js ***!
-  \**************************************************************/
+/*!****************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/throttle.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18189,9 +18189,9 @@ throttle;exports.default = _default;
 /***/ }),
 
 /***/ 46:
-/*!**********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/config/config.js ***!
-  \**********************************************************/
+/*!************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/config/config.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18213,9 +18213,9 @@ var version = '1.8.2';var _default =
 /***/ }),
 
 /***/ 47:
-/*!**********************************************************!*\
-  !*** D:/learn/myweb/营养助手/uview-ui/libs/config/zIndex.js ***!
-  \**********************************************************/
+/*!************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/config/zIndex.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18243,9 +18243,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 5:
-/*!**************************************!*\
-  !*** D:/learn/myweb/营养助手/pages.json ***!
-  \**************************************/
+/*!****************************************!*\
+  !*** C:/Users/DELL/-health/pages.json ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -18253,10 +18253,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 500:
-/*!***************************************************************************************************!*\
-  !*** D:/learn/myweb/营养助手/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
-  \***************************************************************************************************/
+/***/ 513:
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/DELL/-health/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19385,9 +19385,9 @@ main();
 /***/ }),
 
 /***/ 62:
-/*!*************************************************************!*\
-  !*** D:/learn/myweb/营养助手/wxcomponents/ec-canvas/echarts.js ***!
-  \*************************************************************/
+/*!***************************************************************!*\
+  !*** C:/Users/DELL/-health/wxcomponents/ec-canvas/echarts.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19440,9 +19440,9 @@ var Vi=!a.canvasSupported,Bi={},Fi={};var Gi=function(){function t(t,e,n){var i=
 /***/ }),
 
 /***/ 63:
-/*!***********************************************************!*\
-  !*** D:/learn/myweb/营养助手/components/u-charts/u-charts.js ***!
-  \***********************************************************/
+/*!*************************************************************!*\
+  !*** C:/Users/DELL/-health/components/u-charts/u-charts.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25120,14 +25120,14 @@ if ( true && typeof module.exports === "object") {
 /*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, deprecated, description, devDependencies, files, gitHead, homepage, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_from\":\"@dcloudio/uni-stat@next\",\"_id\":\"@dcloudio/uni-stat@2.0.1-33920220207001\",\"_inBundle\":false,\"_integrity\":\"sha512-fZ4/F/AJ5BsJz+aUs67suc3UtBUA4lQRtSCMvNM/9TndwqYjCpuGz1J0TWlagR/JHJlnLY6lvAtiH2bG4mvLeg==\",\"_location\":\"/@dcloudio/uni-stat\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"@dcloudio/uni-stat@next\",\"name\":\"@dcloudio/uni-stat\",\"escapedName\":\"@dcloudio%2funi-stat\",\"scope\":\"@dcloudio\",\"rawSpec\":\"next\",\"saveSpec\":null,\"fetchSpec\":\"next\"},\"_requiredBy\":[\"#USER\",\"/\",\"/@dcloudio/vue-cli-plugin-uni\"],\"_resolved\":\"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.1-33920220207001.tgz\",\"_shasum\":\"c7c773f0b6fa8c6a931388102e7a4e4305c46a7a\",\"_spec\":\"@dcloudio/uni-stat@next\",\"_where\":\"/Users/guoshengqiang/Documents/hbx-plugins/uniapp-cli\",\"author\":\"\",\"bugs\":{\"url\":\"https://github.com/dcloudio/uni-app/issues\"},\"bundleDependencies\":false,\"deprecated\":false,\"description\":\"\",\"devDependencies\":{\"@babel/core\":\"^7.5.5\",\"@babel/preset-env\":\"^7.5.5\",\"eslint\":\"^6.1.0\",\"rollup\":\"^1.19.3\",\"rollup-plugin-babel\":\"^4.3.3\",\"rollup-plugin-clear\":\"^2.0.7\",\"rollup-plugin-commonjs\":\"^10.0.2\",\"rollup-plugin-copy\":\"^3.1.0\",\"rollup-plugin-eslint\":\"^7.0.0\",\"rollup-plugin-json\":\"^4.0.0\",\"rollup-plugin-node-resolve\":\"^5.2.0\",\"rollup-plugin-replace\":\"^2.2.0\",\"rollup-plugin-uglify\":\"^6.0.2\"},\"files\":[\"dist\",\"package.json\",\"LICENSE\"],\"gitHead\":\"1b07e044226a99c1c368a2f53899122dd72013c3\",\"homepage\":\"https://github.com/dcloudio/uni-app#readme\",\"license\":\"Apache-2.0\",\"main\":\"dist/index.js\",\"name\":\"@dcloudio/uni-stat\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/dcloudio/uni-app.git\",\"directory\":\"packages/uni-stat\"},\"scripts\":{\"build\":\"NODE_ENV=production rollup -c rollup.config.js\",\"dev\":\"NODE_ENV=development rollup -w -c rollup.config.js\"},\"version\":\"2.0.1-33920220207001\"}");
+module.exports = JSON.parse("{\"_from\":\"@dcloudio/uni-stat@next\",\"_id\":\"@dcloudio/uni-stat@2.0.1-33920220314002\",\"_inBundle\":false,\"_integrity\":\"sha512-NDx9DUamZDPlKVfdub0drT+WU6Bf9ziGh4xRpT5w/lXo8vWxEl0TwKxB2vWjCS+GXeXcjynU+FIdYtWi1F/iVw==\",\"_location\":\"/@dcloudio/uni-stat\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"@dcloudio/uni-stat@next\",\"name\":\"@dcloudio/uni-stat\",\"escapedName\":\"@dcloudio%2funi-stat\",\"scope\":\"@dcloudio\",\"rawSpec\":\"next\",\"saveSpec\":null,\"fetchSpec\":\"next\"},\"_requiredBy\":[\"#USER\",\"/\",\"/@dcloudio/vue-cli-plugin-uni\"],\"_resolved\":\"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.1-33920220314002.tgz\",\"_shasum\":\"743c418b1611118ba667838111156aef90d648c3\",\"_spec\":\"@dcloudio/uni-stat@next\",\"_where\":\"/Users/guoshengqiang/Documents/hbx-plugins/uniapp-cli\",\"author\":\"\",\"bugs\":{\"url\":\"https://github.com/dcloudio/uni-app/issues\"},\"bundleDependencies\":false,\"deprecated\":false,\"description\":\"\",\"devDependencies\":{\"@babel/core\":\"^7.5.5\",\"@babel/preset-env\":\"^7.5.5\",\"eslint\":\"^6.1.0\",\"rollup\":\"^1.19.3\",\"rollup-plugin-babel\":\"^4.3.3\",\"rollup-plugin-clear\":\"^2.0.7\",\"rollup-plugin-commonjs\":\"^10.0.2\",\"rollup-plugin-copy\":\"^3.1.0\",\"rollup-plugin-eslint\":\"^7.0.0\",\"rollup-plugin-json\":\"^4.0.0\",\"rollup-plugin-node-resolve\":\"^5.2.0\",\"rollup-plugin-replace\":\"^2.2.0\",\"rollup-plugin-uglify\":\"^6.0.2\"},\"files\":[\"dist\",\"package.json\",\"LICENSE\"],\"gitHead\":\"b6484524de28ad9526d248f3f95838b6c51058db\",\"homepage\":\"https://github.com/dcloudio/uni-app#readme\",\"license\":\"Apache-2.0\",\"main\":\"dist/index.js\",\"name\":\"@dcloudio/uni-stat\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/dcloudio/uni-app.git\",\"directory\":\"packages/uni-stat\"},\"scripts\":{\"build\":\"NODE_ENV=production rollup -c rollup.config.js\",\"dev\":\"NODE_ENV=development rollup -w -c rollup.config.js\"},\"version\":\"2.0.1-33920220314002\"}");
 
 /***/ }),
 
 /***/ 8:
-/*!******************************************************!*\
-  !*** D:/learn/myweb/营养助手/pages.json?{"type":"stat"} ***!
-  \******************************************************/
+/*!********************************************************!*\
+  !*** C:/Users/DELL/-health/pages.json?{"type":"stat"} ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25137,14 +25137,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 9:
-/*!*******************************************************!*\
-  !*** D:/learn/myweb/营养助手/pages.json?{"type":"style"} ***!
-  \*******************************************************/
+/*!*********************************************************!*\
+  !*** C:/Users/DELL/-health/pages.json?{"type":"style"} ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/tabbar": { "navigationBarTitleText": "", "navigationStyle": "custom", "usingComponents": { "xiaobing": "/pages/index/xiaobing", "index": "/pages/index/inedx", "search": "/pages/index/search", "cases": "/pages/index/main", "news": "/pages/index/news", "me": "/pages/index/me" }, "usingAutoImportComponents": {} }, "pages/setinfo/setinfo": { "navigationBarTitleText": "", "navigationStyle": "custom", "usingComponents": { "ec-canvas": "/wxcomponents/ec-canvas/ec-canvas" }, "usingAutoImportComponents": {} }, "pages/breakfast/breakfast": { "navigationBarTitleText": "", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/info/info": { "navigationBarTitleText": "", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/salary": { "navigationBarTitleText": "薪资排行", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/aboutMe": { "navigationBarTitleText": "关于作者", "navigationStyle": "custom", "usingComponents": { "like-fx": "/components/likeFx/likeFx" }, "usingAutoImportComponents": {} }, "pages/me/mentalTest/list": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/mentalTest/index": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-line": "/uview-ui/components/u-line/u-line", "u-icon": "/uview-ui/components/u-icon/u-icon", "u-mask": "/uview-ui/components/u-mask/u-mask" } }, "pages/me/mentalTest/explain": { "navigationBarTitleText": "答题规则说明", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/news/news": { "navigationBarTitleText": "资讯详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/course": { "navigationBarTitleText": "班级课程", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-tabs-swiper": "/uview-ui/components/u-tabs-swiper/u-tabs-swiper", "u-icon": "/uview-ui/components/u-icon/u-icon", "u-line-progress": "/uview-ui/components/u-line-progress/u-line-progress", "u-line": "/uview-ui/components/u-line/u-line", "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore" } }, "pages/video": { "navigationBarTitleText": "视频播放", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon" } }, "pages/project/list": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar" } }, "pages/project/project": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/timeline": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-tabs-swiper": "/uview-ui/components/u-tabs-swiper/u-tabs-swiper" } }, "pages/design": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar", "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall", "u-lazy-load": "/uview-ui/components/u-lazy-load/u-lazy-load", "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore" }, "genericComponents": ["design-u-waterfall-left", "design-u-waterfall-right"] }, "tn_components/pano": { "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/bggrad": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/bgcolor": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/ancube": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/anloading": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/mimicry": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/mapLocus": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/charts": { "navigationBarTitleText": "图表展示", "usingComponents": {}, "usingAutoImportComponents": { "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar" } }, "tn_components/poster": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/discern": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar" } }, "tn_components/sign": { "navigationBarTitleText": "电子签名", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/district": { "navigationBarTitleText": "行政区图", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/search": { "navigationStyle": "custom", "navigationBarTitleText": "便捷查询", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-search": "/uview-ui/components/u-search/u-search" } }, "tn_components/openDocument": { "navigationStyle": "custom", "navigationBarTitleText": "文档预览", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/company": { "navigationBarTitleText": "自定义相机", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/timeline": { "navigationBarTitleText": "时间轴", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/guide": { "navigationStyle": "custom", "navigationBarTitleText": "引导页面", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/request": { "navigationStyle": "custom", "navigationBarTitleText": "模拟数据加载", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/keyboard": { "navigationStyle": "custom", "usingComponents": { "plate-input": "/components/uni-plate-input/uni-plate-input" }, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/tabbar": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/setinfo/setinfo": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/breakfast/breakfast": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/info/info": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/me/salary": { "navigationBarTitleText": "薪资排行", "navigationStyle": "custom" }, "pages/me/aboutMe": { "navigationBarTitleText": "关于作者", "navigationStyle": "custom" }, "pages/me/mentalTest/list": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom" }, "pages/me/mentalTest/index": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom" }, "pages/me/mentalTest/explain": { "navigationBarTitleText": "答题规则说明" }, "pages/news/news": { "navigationBarTitleText": "资讯详情" }, "pages/me/course": { "navigationBarTitleText": "班级课程", "navigationStyle": "custom" }, "pages/video": { "navigationBarTitleText": "视频播放" }, "pages/project/list": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom" }, "pages/project/project": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom" }, "pages/timeline": { "navigationStyle": "custom" }, "pages/design": { "navigationStyle": "custom" }, "pages/lunch/lunch": { "navigationBarTitleText": "", "enablePullDownRefresh": false }, "tn_components/pano": {}, "tn_components/bggrad": { "navigationStyle": "custom" }, "tn_components/bgcolor": { "navigationStyle": "custom" }, "tn_components/ancube": { "navigationStyle": "custom" }, "tn_components/anloading": { "navigationStyle": "custom" }, "tn_components/mimicry": { "navigationStyle": "custom" }, "tn_components/mapLocus": { "navigationStyle": "custom" }, "tn_components/charts": { "navigationBarTitleText": "图表展示" }, "tn_components/poster": { "navigationStyle": "custom" }, "tn_components/discern": { "navigationStyle": "custom" }, "tn_components/sign": { "navigationBarTitleText": "电子签名" }, "tn_components/district": { "navigationBarTitleText": "行政区图" }, "tn_components/search": { "navigationStyle": "custom", "navigationBarTitleText": "便捷查询" }, "tn_components/openDocument": { "navigationStyle": "custom", "navigationBarTitleText": "文档预览" }, "tn_components/company": { "navigationBarTitleText": "自定义相机" }, "tn_components/timeline": { "navigationBarTitleText": "时间轴" }, "tn_components/guide": { "navigationStyle": "custom", "navigationBarTitleText": "引导页面" }, "tn_components/request": { "navigationStyle": "custom", "navigationBarTitleText": "模拟数据加载" }, "tn_components/keyboard": { "navigationStyle": "custom" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ })
 

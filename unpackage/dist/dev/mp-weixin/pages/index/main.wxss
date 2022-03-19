@@ -226,13 +226,13 @@
 	font-size: 30rpx;
 	color: white;
 }
-.canvas .sumup .user .info .name .sex-1 {
+.canvas .sumup .user .info .name .gender-1 {
 	width: 25rpx;
 	height: 31rpx;
 	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAfCAMAAAAlbpZMAAAAVFBMVEUAAABRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPMhNB/vAAAAG3RSTlMA+ArnypW7INUv8KCLX0Yp3YJOQDdZF25mr3kk4AbQAAABDklEQVQoz21SCRKDIAwMh+CBV7XWNv//ZzdSCtrujBCyuSP9Yqmsss2PeqgMC+qTVt+6lhN0QVQq6pTchkqGgSks00GfUnA9I3GAA3JtJTXKsSLW3TGvdIGumZ/Ugb0yM3O7yfkqzfE1iNUT9cxVyt6hImVny+xkDPGCJRQJrYfCf4bQxxbjaY4K1dHqXbRhlek4ocRp1HLA1vqUr8UjleQgx/GlRvcoNgjlKeOB2UrpxNIzTJoMCl7oMvJHMtElkftHMXTCjbn777PDJxU9/M8zi3MBjSBNXCT6GQvmlf+oJ8ScaVF5nV6Biv5x7C6XiZfqhk37XvY0bVRSGbWnAt59Nxo0ndEEa5Rxe6F/A8FDGAqy49J9AAAAAElFTkSuQmCC) no-repeat;
 	background-size: contain;
 }
-.canvas .sumup .user .info .name .sex-2 {
+.canvas .sumup .user .info .name .gender-2 {
 	width: 21rpx;
 	height: 34rpx;
 	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAiBAMAAABCRo+wAAAALVBMVEUAAAD8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOFLIRsVAAAADnRSTlMATDKp3cuNIxX08LcZ5bpTZF8AAACaSURBVBjTYwACtdi5YQoMYFD8DggeF4CYjOvegcBCEFvu3WMJDuF37wQYGNjnPQGpVXk3nYGB+50HSJbD7zUDg947kDCEznsMMY35XQJD3EMIm/FdAMO9FxA2z7sFDO8eQNggxjqEOLJ6ZHNQzEfYi+weiDtleCDuZGCcB3b/RFR/gf0b9QroXyjgewck0NnvoOABbjZCPU3YAErjai9irVRIAAAAAElFTkSuQmCC) no-repeat;

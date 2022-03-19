@@ -30,7 +30,7 @@
 
 					<!-- 水壶、浇水动画 -->
 					<view class="kettle">
-		 			<view class="kettls" @tap="water" hover-class="none"></view>
+						<view class="kettls" @tap="water" @click="getPluss()" hover-class="none"></view>
 						<view :class="'flasks ' + (watercss ? 'water' : '')" v-if="watercss"></view>
 						<view class="flasms" @tap="water" v-if="!watercss" hover-class="none"></view>
 						<view class="waters" v-if="waterdom"></view>
@@ -45,7 +45,7 @@
 							<view class="info">
 								<view class="name">
 									<text class="name">{{ info.name }}</text>
-									<view :class="'sex-' + info.sex"></view>
+									<view :class="'gender-' + info.gender"></view>
 								</view>
 								<view class="drop" hover-class="none">
 									<text>{{ info.votes }}水滴</text>
@@ -95,12 +95,13 @@
 
 				info: {
 					name: '沐枫',
-					// 用户姓名
-					sex: 1,
-					// 用户姓别 1男， 2女
+					gender: 1,
 					votes: 8,
-					// 水滴值 默认为8
-					avatar: '/static/image/detail-bg.jpg' //用户头像
+					avatar: '/static/image/detail-bg.jpg', //用户头像
+					age: 0,
+					job: "xcy",
+					height: 46,
+					weight: 155,
 				},
 
 				rainArr: [28, 63, 5, 902],
@@ -139,9 +140,8 @@
 				value: ''
 			};
 		},
-		mounted(){
+		mounted() {
 			var that = this;
-			console.log(_self)
 			uni.getSystemInfo({
 				success(res) {
 					var clientHeight = res.windowHeight;
@@ -153,10 +153,13 @@
 					that.winHeight = calc
 				}
 			});
+			this.getvotes(),
+			this.getUserInfo(),
+			this.getStage(),
+			this.getRain()
 		},
-		onLoad: function() {
+		onLoad() {
 			var that = this;
-			console.log(_self)
 			uni.getSystemInfo({
 				success(res) {
 					var clientHeight = res.windowHeight;
@@ -196,23 +199,100 @@
 			}
 		},
 		methods: {
+			getvotes() {
+				var that = this
+				uni.request({
+					url: 'http://47.102.203.108:3306/tree/getVotes',
+					method: 'GET',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded'
+					},
+					data: {
+						user_id: 8,
+					},
+					success: (res) => {
+						console.log(res)
+						this.info.votes = res.data
+					}
+				})
+			},
+			getUserInfo() {
+				var that = this
+				uni.request({
+					url: 'http://47.102.203.108:3306/tree/userInfo',
+					method: 'GET',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded'
+					},
+					data: {
+						user_id: 8,
+					},
+					success: (res) => {
+						console.log(res.data)
+						console.log("info成功")
+						this.info.name=res.data.nickname
+						this.info.gender=res.data.gender
+						this.info.avatar=res.data.avatarUrl
+						this.info.age=res.data.age
+						this.info.job=res.data.job
+						this.info.height=res.data.height
+						this.info.weight=res.data.weight
+					}
+				})
+			},
+			getStage() {
+				var that = this
+				uni.request({
+					url: 'http://47.102.203.108:3306/tree/getStages',
+					method: 'GET',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded'
+					},
+					data: {
+						user_id: 8,
+					},
+					success: (res) => {
+						console.log(res,"1111111stages")
+					}
+				})
+			},
+			getPluss() {
+				var that = this
+				uni.request({
+					url: 'http://47.102.203.108:3306/tree/pluss',
+					method: 'GET',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded'
+					},
+					data: {
+						user_id: 8,
+						time:2022-3-16
+					},
+					success: (res) => {
+						console.log(res,"pluss")
+					}
+				})
+			},
+			getRain() {
+				var that = this
+				uni.request({
+					url: 'http://47.102.203.108:3306/tree/getRainTime',
+					method: 'GET',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded'
+					},
+					data: {
+						user_id: 8
+					},
+					success: (res) => {
+						console.log(res,"2222222rain")
+					}
+				})
+			},
 			//事件处理函数
 			bindViewTap: function() {
 				uni.navigateTo({
 					url: '../logs/logs'
-				});
-			},
-
-			getUserInfo: function(e) {
-				console.log(e);
-				app.globalData.userInfo = e.detail.userInfo;
-				let info = this.info;
-				info.name = e.detail.userInfo.nickName;
-				info.avatar = e.detail.userInfo.avatarUrl;
-				this.setData({
-					userInfo: e.detail.userInfo,
-					info,
-					hasUserInfo: true
 				});
 			},
 
@@ -578,14 +658,14 @@
 		color: white;
 	}
 
-	.canvas .sumup .user .info .name .sex-1 {
+	.canvas .sumup .user .info .name .gender-1 {
 		width: 25rpx;
 		height: 31rpx;
 		background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAfCAMAAAAlbpZMAAAAVFBMVEUAAABRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPNRrPMhNB/vAAAAG3RSTlMA+ArnypW7INUv8KCLX0Yp3YJOQDdZF25mr3kk4AbQAAABDklEQVQoz21SCRKDIAwMh+CBV7XWNv//ZzdSCtrujBCyuSP9Yqmsss2PeqgMC+qTVt+6lhN0QVQq6pTchkqGgSks00GfUnA9I3GAA3JtJTXKsSLW3TGvdIGumZ/Ugb0yM3O7yfkqzfE1iNUT9cxVyt6hImVny+xkDPGCJRQJrYfCf4bQxxbjaY4K1dHqXbRhlek4ocRp1HLA1vqUr8UjleQgx/GlRvcoNgjlKeOB2UrpxNIzTJoMCl7oMvJHMtElkftHMXTCjbn777PDJxU9/M8zi3MBjSBNXCT6GQvmlf+oJ8ScaVF5nV6Biv5x7C6XiZfqhk37XvY0bVRSGbWnAt59Nxo0ndEEa5Rxe6F/A8FDGAqy49J9AAAAAElFTkSuQmCC) no-repeat;
 		background-size: contain;
 	}
 
-	.canvas .sumup .user .info .name .sex-2 {
+	.canvas .sumup .user .info .name .gender-2 {
 		width: 21rpx;
 		height: 34rpx;
 		background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAiBAMAAABCRo+wAAAALVBMVEUAAAD8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOH8fOFLIRsVAAAADnRSTlMATDKp3cuNIxX08LcZ5bpTZF8AAACaSURBVBjTYwACtdi5YQoMYFD8DggeF4CYjOvegcBCEFvu3WMJDuF37wQYGNjnPQGpVXk3nYGB+50HSJbD7zUDg947kDCEznsMMY35XQJD3EMIm/FdAMO9FxA2z7sFDO8eQNggxjqEOLJ6ZHNQzEfYi+weiDtleCDuZGCcB3b/RFR/gf0b9QroXyjgewck0NnvoOABbjZCPU3YAErjai9irVRIAAAAAElFTkSuQmCC) no-repeat;

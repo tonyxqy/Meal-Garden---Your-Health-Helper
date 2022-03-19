@@ -119,9 +119,53 @@
 					<text class="text-lg text-grey text-shadow">更多</text>
 				</view>
 			</view>
-			<view style="height: 1000px;">
-
+			<view class="cu-list menu ">
+				<view class="basis-df padding-bottom-xs"></view>
+				<view class="cu-item ">
+					<navigator class="content" hover-class="none" url="/pages/breakfast/breakfast" open-type="redirect">
+						<view class="content justify-between">
+							<view>
+								<text class="text-black text-xl">早餐</text>
+		 				</view>
+							<view>
+								<text class="text-grey text-xl ">建议378千卡 </text>
+								<text class="text-grey cuIcon-roundadd "></text>
+							</view>
+						</view>
+					</navigator>
+				</view>
+				<view class="basis-df padding-bottom-xs"></view>
+				<view class="cu-item ">
+					<navigator class="content" hover-class="none" url="/pages/main/breakfast/basicinfo"
+						open-type="redirect">
+						<view class="content justify-between">
+							<view>
+								<text class="text-black text-xl">午餐</text>
+							</view>
+							<view>
+								<text class="text-grey text-xl ">建议504千卡 </text>
+								<text class="text-grey cuIcon-roundadd "></text>
+							</view>
+						</view>
+					</navigator>
+				</view>
+				<view class="basis-df padding-bottom-xs"></view>
+				<view class="cu-item ">
+					<navigator class="content" hover-class="none" url="/pages/myself/basicinfo/basicinfo"
+						open-type="redirect">
+						<view class="content justify-between">
+							<view>
+								<text class="text-black text-xl">晚餐</text>
+							</view>
+							<view>
+								<text class="text-grey text-xl ">建议378千卡 </text>
+								<text class="text-grey cuIcon-roundadd "></text>
+							</view>
+						</view>
+					</navigator>
+				</view>
 			</view>
+
 			<!-- 	<view class="cu-card case no-card">
 
 					<view @click="goProject(item.id)" class="cu-item shadow" v-for="(item, index) in projectList"
@@ -304,7 +348,7 @@
 						console.log(this.target)
 					} else {}
 				});
-				
+
 				// 获取当前身体状态
 				let optscur = {
 					url: 'user/getUserCurrent',
