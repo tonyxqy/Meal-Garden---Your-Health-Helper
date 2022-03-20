@@ -310,8 +310,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-charts/u-charts.js */ 63));
-
-
 var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.js */ 154));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -483,11 +481,12 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
 //
 //
 //
-var _self;var canvaGauge = null;var addTip = function addTip() {__webpack_require__.e(/*! require.ensure | components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip */ "components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip").then((function () {return resolve(__webpack_require__(/*! ../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue */ 642));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { addTip: addTip }, data: function data() {return { mystylelist: ['primary', 'success', 'danger', 'warning'], show: true, // 仪表盘
-      gaugeWidth: 10, chartData: { categories: [{ "value": 0.2, "color": "#1890ff" }, { "value": 0.8, "color": "#2fc25b" }, { "value": 1, "color": "#f04864" }], "series": [{ "name": "完成率", "data": 0.66 }] }, current: { userId: 8, currentWeight: 155, currentHeight: 46, currentSugar: 16.2, currentEnergy: 311.6, currentFat: 16.2 }, target: { userId: 6, targetWeight: 0, targetHeight: 0, targetSugar: 50, targetEnergy: 2000, targetFat: 55 }, gradientColor: [{ '0%': '#ffd01e', '100%': '#ee0a24' }, { '0%': '#0081ff', '100%': '#1cbbb4' }, { '0%': '#e03997', '100%': '#6739b6' }], container: null, tip: "点击「添加小程序」，下次访问更便捷", duration: 1, scrollTop: 0, old: { scrollTop: 0 }, bannerList: [{ imageUrl: 'https://tse1-mm.cn.bing.net/th/id/R-C.5e11fda5b177f51290733a0a5e56599b?rik=gijEoQ%2faNE%2fdzA&riu=http%3a%2f%2fimg.99.com.cn%2fuploads%2f202012%2f449_111438_1.jpg&ehk=7vZcg2qvqq7OS2NbEXdlP5HA%2f6%2bLaHh5840UAARMLLI%3d&risl=&pid=ImgRaw&r=0' }, { imageUrl: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.jpmOoKasCkpfRddDBjGaGQHaDP?w=310&h=153&c=7&r=0&o=5&pid=1.7' }, { imageUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.SHuggeGyxVoCr06u5ZpwAwHaDf?w=298&h=165&c=7&r=0&o=5&pid=1.7' }, { imageUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.RKZRJBeeJtnyUYG7V4e1FAHaDe?w=299&h=164&c=7&r=0&o=5&pid=1.7' }], categories: [{ cuIcon: 'appreciatefill', color: 'red', badge: '推荐', mid: '1', name: '餐谱推荐' }, { cuIcon: 'selection', color: 'orange', badge: 1, mid: '2', name: '体质测试' }, { cuIcon: 'videofill', color: 'yellow', badge: 12, mid: '3', name: '分享视频' }, { cuIcon: 'group', color: 'cyan', badge: 22, mid: '4', name: '分享动态' }], curriculum: [], projectList: [], dishList: [] };}, watch: {}, onLoad: function onLoad() {}, mounted: function mounted() {console.log(this.projectList);this.getData();this.$nextTick(function () {var _this = this;console.log(uni.createSelectorQuery().in(this));var query = uni.createSelectorQuery().in(this);query.select('#container').boundingClientRect(function (data) {console.log(data);_this.container = data;}).exec();});_self = this;this.cWidth = uni.upx2px(750);this.cHeight = uni.upx2px(420);this.getServerData();}, methods: { getData: function getData() {var _this2 = this;var user = { user_id: '8' };console.log('数据加载'); // 获取目标身体状态
+var addTip = function addTip() {__webpack_require__.e(/*! require.ensure | components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip */ "components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip").then((function () {return resolve(__webpack_require__(/*! ../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue */ 498));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var bodyhelper = function bodyhelper() {Promise.all(/*! require.ensure | pages/index/bodyhelper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/index/bodyhelper")]).then((function () {return resolve(__webpack_require__(/*! ./bodyhelper.vue */ 657));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { addTip: addTip, bodyhelper: bodyhelper }, data: function data() {return { mystylelist: ['primary', 'success', 'danger', 'warning'], show: true, // 仪表盘
+      gaugeWidth: 10, chartData: { categories: [{ "value": 0.2, "color": "#1890ff" }, { "value": 0.8, "color": "#2fc25b" }, { "value": 1, "color": "#f04864" }], "series": [] }, current: { userId: 8, currentWeight: 155, currentHeight: 46, currentSugar: 16.2, currentEnergy: 311.6, currentFat: 16.2 }, target: { userId: 6, targetWeight: 0, targetHeight: 0, targetSugar: 50, targetEnergy: 2000, targetFat: 55 }, gradientColor: [{ '0%': '#ffd01e', '100%': '#ee0a24' }, { '0%': '#0081ff', '100%': '#1cbbb4' }, { '0%': '#e03997', '100%': '#6739b6' }], container: null, tip: "点击「添加小程序」，下次访问更便捷", duration: 1, dishshow: true, scrollTop: 0, old: { scrollTop: 0 }, bannerList: [{ imageUrl: 'https://tse1-mm.cn.bing.net/th/id/R-C.5e11fda5b177f51290733a0a5e56599b?rik=gijEoQ%2faNE%2fdzA&riu=http%3a%2f%2fimg.99.com.cn%2fuploads%2f202012%2f449_111438_1.jpg&ehk=7vZcg2qvqq7OS2NbEXdlP5HA%2f6%2bLaHh5840UAARMLLI%3d&risl=&pid=ImgRaw&r=0' }, { imageUrl: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.jpmOoKasCkpfRddDBjGaGQHaDP?w=310&h=153&c=7&r=0&o=5&pid=1.7' }, { imageUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.SHuggeGyxVoCr06u5ZpwAwHaDf?w=298&h=165&c=7&r=0&o=5&pid=1.7' }, { imageUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.RKZRJBeeJtnyUYG7V4e1FAHaDe?w=299&h=164&c=7&r=0&o=5&pid=1.7' }], categories: [{ cuIcon: 'appreciatefill', color: 'red', badge: '推荐', mid: '1', name: '餐谱推荐' }, { cuIcon: 'selection', color: 'orange', badge: 1, mid: '2', name: '体质测试' }, { cuIcon: 'videofill', color: 'yellow', badge: 12, mid: '3', name: '分享视频' }, { cuIcon: 'group', color: 'cyan', badge: 22, mid: '4', name: '分享动态' }], curriculum: [], projectList: [], dishList: [] };}, watch: {}, onLoad: function onLoad() {}, mounted: function mounted() {console.log(this.projectList);this.getData();this.$nextTick(function () {var _this = this;console.log(uni.createSelectorQuery().in(this));var query = uni.createSelectorQuery().in(this);query.select('#container').boundingClientRect(function (data) {console.log(data);_this.container = data;}).exec();});this.cWidth = uni.upx2px(750);this.cHeight = uni.upx2px(420);}, methods: { getData: function getData() {var _this2 = this;var user = { user_id: '8' };console.log('数据加载'); // 获取目标身体状态
       var optstar = { url: 'user/getUserTarget', method: 'get' };uni.showLoading({ title: '加载中' });_request.default.httpRequest(optstar, user).then(function (res) {console.log(res);uni.hideLoading();if (res.statusCode == 200) {_this2.target = res.data;console.log(_this2.target);} else {}}); // 获取当前身体状态
-      var optscur = { url: 'user/getUserCurrent', method: 'get' };_request.default.httpRequest(optscur, user).then(function (res) {console.log(res);uni.hideLoading();if (res.statusCode == 200) {_this2.current = res.data;console.log(_this2.current);console.log(_self);_self.showGauge("canvasGauge", _this2.Gauge);} else {}}); // 获取推荐食谱
-      var optsbreak = { url: 'recommend/recommendByUserbreakfast', method: 'get' };
+      var optscur = { url: 'user/getUserCurrent', method: 'get' };_request.default.httpRequest(optscur, user).then(function (res) {console.log(res);uni.hideLoading();if (res.statusCode == 200) {_this2.current = res.data;console.log(_this2.current);var ans = { name: "完成率", data: _this2.current.currentFat / _this2.target.targetFat };_this2.chartData.series.push(ans);} else {}}); // 获取推荐食谱
+      var optsbreak = { url: 'recommend/recommendByUserbreakfast',
+        method: 'get' };
 
       var optslunch = {
         url: 'recommend/recommendByUserlunch',
@@ -537,6 +536,7 @@ var _self;var canvaGauge = null;var addTip = function addTip() {__webpack_requir
         if (res.statusCode == 200) {
           _this2.dishList = res.data;
           _this2.help(_this2.dishList);
+          _this2.dishshow = false;
         } else {}
       });
     },
@@ -570,57 +570,6 @@ var _self;var canvaGauge = null;var addTip = function addTip() {__webpack_requir
           self.practice = _list2;
         }
       });
-    },
-    showGauge: function showGauge(canvasId, chartData) {
-      canvaGauge = new _uCharts.default({
-        $this: _self,
-        canvasId: canvasId,
-        type: 'gauge',
-        fontSize: 11,
-        legend: false,
-        title: {
-          name: Math.round(_self.chartData.series[0].data * 100) + '%',
-          color: _self.chartData.categories[1].color,
-          fontSize: 25 * _self.pixelRatio,
-          offsetY: 50 * _self.pixelRatio //新增参数，自定义调整Y轴文案距离
-        },
-        subtitle: {
-          name: _self.chartData.series[0].name,
-          color: '#666666',
-          fontSize: 15 * _self.pixelRatio,
-          offsetY: -50 * _self.pixelRatio //新增参数，自定义调整Y轴文案距离
-        },
-        extra: {
-          gauge: {
-            type: 'default',
-            width: _self.gaugeWidth * _self.pixelRatio, //仪表盘背景的宽度
-            startAngle: 0.75,
-            endAngle: 0.25,
-            startNumber: 0,
-            endNumber: 100,
-            splitLine: {
-              fixRadius: 0,
-              splitNumber: 10,
-              width: _self.gaugeWidth * _self.pixelRatio, //仪表盘背景的宽度
-              color: '#FFFFFF',
-              childNumber: 5,
-              childWidth: _self.gaugeWidth * 0.4 * _self.pixelRatio //仪表盘背景的宽度
-            },
-            pointer: {
-              width: _self.gaugeWidth * 0.8 * _self.pixelRatio, //指针宽度
-              color: 'auto' } } },
-
-
-
-        background: '#FFFFFF',
-        pixelRatio: _self.pixelRatio,
-        categories: _self.chartData.categories,
-        series: _self.chartData.series,
-        animation: true,
-        width: _self.cWidth * _self.pixelRatio,
-        height: _self.cHeight * _self.pixelRatio,
-        dataLabel: true });
-
     },
     scroll: function scroll(e) {
       console.log(e);

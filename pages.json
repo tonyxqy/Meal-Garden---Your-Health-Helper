@@ -18,10 +18,13 @@
 			"path": "pages/setinfo/setinfo",
 			"style": {
 				"navigationBarTitleText": "",
-				"navigationStyle": "custom",
-				"usingComponents": {
-					"ec-canvas": "/ec-canvas/ec-canvas"
-				}
+				"navigationStyle": "custom"
+			}
+		},{
+			"path": "pages/job/job",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
 			}
 		}, {
 			"path": "pages/breakfast/breakfast",
@@ -257,7 +260,9 @@
 			"van-transition": "/wxcomponents/vant/transition/index",
 			"van-loading": "/wxcomponents/vant/loading/index",
 			"van-card": "/wxcomponents/vant/card/index",
-			"van-tag": "/wxcomponents/vant/tag/index"
+			"van-tag": "/wxcomponents/vant/tag/index",
+			"van-notify": "/wxcomponents/vant/notify/index",
+			"van-dialog": "/wxcomponents/vant/dialog/index"
 		}
 	},
 	"condition": { //模式配置，仅开发期间生效

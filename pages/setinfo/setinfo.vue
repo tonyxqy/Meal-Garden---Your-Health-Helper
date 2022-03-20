@@ -79,7 +79,6 @@
 
 <script>
 	import ecCanvas from '@/wxcomponents/ec-canvas/ec-canvas';
-	import * as echarts from '@/wxcomponents/ec-canvas/echarts';
 	import uCharts from "@/components/u-charts/u-charts.js";
 	var _self;
 	var canvaArea = null;

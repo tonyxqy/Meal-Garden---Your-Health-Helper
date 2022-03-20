@@ -5,6 +5,9 @@
 			<!-- <block slot="backText">返回</block> -->
 			<block slot="content">首页</block>
 		</cu-custom>
+		<!-- bodyhelper -->
+		<bodyhelper style="z-index: 5;"></bodyhelper>
+
 
 		<add-tip :tip="tip" :duration="duration" />
 		<view id="container">
@@ -63,27 +66,25 @@
 				<van-grid column-num="3" border="false">
 					<van-grid-item use-slot text="糖分" style="text-align: center;">
 						<view style="height: 160px">
-							<van-circle style="display: block;margin: 5px 0;" :value="current.currentSugar/target.targetSugar*100" size="60"
+							<van-circle style="display: block;margin: 5px 0;"
+								:value="current.currentSugar/target.targetSugar*100" size="60"
 								:text="current.currentSugar" :color="gradientColor[0]" />
 							<text class="gridtext">糖分</text>
 						</view>
 					</van-grid-item>
 					<van-grid-item use-slot text="热量">
-						<!-- 	<van-circle :value="current.currentFat/target.targetFat*100" size="40"
-							:text="current.currentFat" :color="gradientColor[1]" />
-						<text class="gridtext">脂肪</text> -->
 						<view style="height: 180px;z-index: 1;margin-top: -20px;">
 							<view class="charts-box">
-								<qiun-data-charts type="gauge" :chartData="chartData"
-									:loadingType="4" :errorShow="false" background="none" />
+								<qiun-data-charts type="gauge" :chartData="chartData" :loadingType="4"
+									:errorShow="false" background="none" />
 							</view>
 						</view>
-
 					</van-grid-item>
-					<van-grid-item use-slot text="脂肪"  style="text-align: center;">
+					<van-grid-item use-slot text="脂肪" style="text-align: center;">
 						<view style="height: 160px">
-							<van-circle style="display: block;margin: 5px 0;" :value="current.currentFat/target.targetFat*100" size="60"
-								:text="current.currentFat" :color="gradientColor[2]" />
+							<van-circle style="display: block;margin: 5px 0;"
+								:value="current.currentFat/target.targetFat*100" size="60" :text="current.currentFat"
+								:color="gradientColor[2]" />
 							<text class="gridtext">脂肪</text>
 						</view>
 					</van-grid-item>
@@ -138,8 +139,8 @@
 				</view>
 			</view>
 			<!-- <view style="height: 1000px;"> -->
-
 		</view>
+
 		<view class="cu-card case no-card">
 			<view @click="goProject(item.id)" class="cu-item shadow" v-for="(item, index) in dishList" :key="index">
 				<van-card :tag="item.time" :price="item.taste" currency=" " lazy-load="true" :title="item.menu"
@@ -164,20 +165,19 @@
 
 
 
-
 		<view style="height: 140rpx;width: 1rpx;"></view>
 	</view>
 </template>
 
 <script>
 	import uCharts from "@/components/u-charts/u-charts.js";
-	var _self;
-	var canvaGauge = null;
 	import request from '@/common/request.js';
 	import addTip from "../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue"
+	import bodyhelper from "./bodyhelper.vue"
 	export default {
 		components: {
 			addTip,
+			bodyhelper
 		},
 		data() {
 			return {
@@ -199,10 +199,7 @@
 							"color": "#f04864"
 						}
 					],
-					"series": [{
-						"name": "完成率",
-						"data": 0.66
-					}]
+					"series": []
 				},
 				current: {
 					userId: 8,
@@ -234,7 +231,7 @@
 				container: null,
 				tip: "点击「添加小程序」，下次访问更便捷",
 				duration: 1,
-
+				dishshow: true,
 				scrollTop: 0,
 				old: {
 					scrollTop: 0
@@ -300,10 +297,8 @@
 					this.container = data
 				}).exec();
 			})
-			_self = this;
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(420);
-			this.getServerData();
 		},
 		methods: {
 			getData() {
@@ -340,8 +335,12 @@
 					if (res.statusCode == 200) {
 						this.current = res.data;
 						console.log(this.current)
-						console.log(_self)
-						_self.showGauge("canvasGauge", this.Gauge);
+						let ans = {
+							name: "完成率",
+							data: this.current.currentFat / this.target.targetFat
+						}
+
+						this.chartData.series.push(ans)
 					} else {}
 				});
 
@@ -398,6 +397,7 @@
 					if (res.statusCode == 200) {
 						this.dishList = res.data
 						this.help(this.dishList)
+						this.dishshow = false
 					} else {}
 				});
 			},
@@ -431,57 +431,6 @@
 						self.practice = list
 					}
 				})
-			},
-			showGauge(canvasId, chartData) {
-				canvaGauge = new uCharts({
-					$this: _self,
-					canvasId: canvasId,
-					type: 'gauge',
-					fontSize: 11,
-					legend: false,
-					title: {
-						name: Math.round(_self.chartData.series[0].data * 100) + '%',
-						color: _self.chartData.categories[1].color,
-						fontSize: 25 * _self.pixelRatio,
-						offsetY: 50 * _self.pixelRatio, //新增参数，自定义调整Y轴文案距离
-					},
-					subtitle: {
-						name: _self.chartData.series[0].name,
-						color: '#666666',
-						fontSize: 15 * _self.pixelRatio,
-						offsetY: -50 * _self.pixelRatio, //新增参数，自定义调整Y轴文案距离
-					},
-					extra: {
-						gauge: {
-							type: 'default',
-							width: _self.gaugeWidth * _self.pixelRatio, //仪表盘背景的宽度
-							startAngle: 0.75,
-							endAngle: 0.25,
-							startNumber: 0,
-							endNumber: 100,
-							splitLine: {
-								fixRadius: 0,
-								splitNumber: 10,
-								width: _self.gaugeWidth * _self.pixelRatio, //仪表盘背景的宽度
-								color: '#FFFFFF',
-								childNumber: 5,
-								childWidth: _self.gaugeWidth * 0.4 * _self.pixelRatio, //仪表盘背景的宽度
-							},
-							pointer: {
-								width: _self.gaugeWidth * 0.8 * _self.pixelRatio, //指针宽度
-								color: 'auto'
-							}
-						}
-					},
-					background: '#FFFFFF',
-					pixelRatio: _self.pixelRatio,
-					categories: _self.chartData.categories,
-					series: _self.chartData.series,
-					animation: true,
-					width: _self.cWidth * _self.pixelRatio,
-					height: _self.cHeight * _self.pixelRatio,
-					dataLabel: true,
-				});
 			},
 			scroll: function(e) {
 				console.log(e)

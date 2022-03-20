@@ -80,10 +80,10 @@ var components
 try {
   components = {
     uRowNotice: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-row-notice/u-row-notice */ "uview-ui/components/u-row-notice/u-row-notice").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-row-notice/u-row-notice.vue */ 515))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-row-notice/u-row-notice */ "uview-ui/components/u-row-notice/u-row-notice").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-row-notice/u-row-notice.vue */ 525))
     },
     uColumnNotice: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-column-notice/u-column-notice */ "uview-ui/components/u-column-notice/u-column-notice").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-column-notice/u-column-notice.vue */ 522))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-column-notice/u-column-notice */ "uview-ui/components/u-column-notice/u-column-notice").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-column-notice/u-column-notice.vue */ 532))
     }
   }
 } catch (e) {

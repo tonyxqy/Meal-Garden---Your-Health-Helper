@@ -1,472 +1,628 @@
 export default [{
-		"name": "全部工作",
-		"foods": [{
-				"name": "会计",
-				"key": "会计",
-				"icon": "../../static/job/02.png",
-				"cat": 10
-			},
-			{
-				"name": "前台",
-				"key": "前台",
-				"icon": "../../static/job/07.png",
-				"cat": 10
-			},
-			{
-				"name": "化验员",
-				"key": "化验员",
-				"icon": "../../static/job/09.png",
-				"cat": 10
-			},
-			{
-				"name": "商人",
-				"key": "商人",
-				"icon": "../../static/job/13.png",
-				"cat": 10
-			},
-			{
-				"name": "工程师",
-				"key": "工程师",
-				"icon": "../../static/job/32.png",
-				"cat": 10
-			},
-			{
-				"name": "白领",
-				"key": "白领",
-				"icon": "../../static/job/34.png",
-				"cat": 10
-			},
-			{
-				"name": "程序员",
-				"key": "程序员",
-				"icon": "../../static/job/35.png",
-				"cat": 10
-			},
-			{
-				"name": "主持人",
-				"key": "主持人",
-				"icon": "../../static/job/01.png",
-				"cat": 6
-			},
-			{
-				"name": "动漫设计",
-				"key": "动漫设计",
-				"icon": "../../static/job/08.png",
-				"cat": 6
-			},
-			{
-				"name": "模特",
-				"key": "模特",
-				"icon": "../../static/job/24.png",
-				"cat": 6
-			},
-			{
-				"name": "歌手",
-				"key": "歌手",
-				"icon": "../../static/job/25.png",
-				"cat": 6
-			},
-			{
-				"name": "演员",
-				"key": "演员",
-				"icon": "../../static/job/29.png",
-				"cat": 6
-			},
-			{
-				"name": "漫画家",
-				"key": "漫画家",
-				"icon": "../../static/job/30.png",
-				"cat": 6
-			},
-			{
-				"name": "画师",
-				"key": "画师",
-				"icon": "../../static/job/33.png",
-				"cat": 6
-			},
-			{
-				"name": "记者",
-				"key": "记者",
-				"icon": "../../static/job/41.png",
-				"cat": 6
-			},
-			{
-				"name": "运动员",
-				"key": "运动员",
-				"icon": "../../static/job/42.png",
-				"cat": 6
-			},
-			{
-				"name": "医生",
-				"key": "医生",
-				"icon": "../../static/job/10.png",
-				"cat": 3
-			},
-			{
-				"name": "外卖员",
-				"key": "外卖员",
-				"icon": "../../static/job/14.png",
-				"cat": 3
-			},
-			{
-				"name": "导游",
-				"key": "导游",
-				"icon": "../../static/job/16.png",
-				"cat": 3
-			},
-			{
-				"name": "律师",
-				"key": "律师",
-				"icon": "../../static/job/17.png",
-				"cat": 3
-			},
-			{
-				"name": "护士",
-				"key": "护士",
-				"icon": "../../static/job/19.png",
-				"cat": 3
-			},
-			{
-				"name": "法官",
-				"key": "法官",
-				"icon": "../../static/job/26.png",
-				"cat": 3
-			},
-			{
-				"name": "消防员",
-				"key": "消防员",
-				"icon": "../../static/job/27.png",
-				"cat": 3
-			},{
-				"name": "司机",
-				"key": "司机",
-				"icon": "../../static/job/12.png",
-				"cat": 3
-			},
-			{
-				"name": "快递员",
-				"key": "快递员",
-				"icon": "../../static/job/18.png",
-				"cat": 3
-			},
-			{
-				"name": "机长",
-				"key": "机长",
-				"icon": "../../static/job/23.png",
-				"cat": 3
-			},{
-				"name": "保姆",
-				"key": "保姆",
-				"icon": "../../static/job/04.png",
-				"cat": 3
-			},
-			{
-				"name": "保安",
-				"key": "保安",
-				"icon": "../../static/job/05.png",
-				"cat": 3
-			},
-			{
-				"name": "清洁工",
-				"key": "清洁工",
-				"icon": "../../static/job/28.png",
-				"cat": 3
-			},
-			{
-				"name": "理发师",
-				"key": "理发师",
-				"icon": "../../static/job/31.png",
-				"cat": 3
-			},
-			{
-				"name": "美甲师",
-				"key": "美甲师",
-				"icon": "../../static/job/37.png",
-				"cat": 3
-			},
-			{
-				"name": "花匠",
-				"key": "花匠",
-				"icon": "../../static/job/39.png",
-				"cat": 3
-			},
-			{
-				"name": "裁缝",
-				"key": "裁缝",
-				"icon": "../../static/job/40.png",
-				"cat": 3
-			},{
-				"name": "服务员",
-				"key": "服务员",
-				"icon": "../../static/job/22.png",
-				"cat": 3
-			},
-			{
-				"name": "厨师",
-				"key": "厨师",
-				"icon": "../../static/job/11.png",
-				"cat": 3
-			},
-			{
-				"name": "面点师",
-				"key": "面点师",
-				"icon": "../../static/job/43.png",
-				"cat": 3
-			},{
-			"name": "学生",
-			"key": "学生",
-			"icon": "../../static/job/15.png",
-			"cat": 3
-		}
+		"name": "疾病养护",
+		"foods": [  {
+            "tag": 2,
+            "name": "不孕不育食谱"
+        },
+        {
+            "tag": 7,
+            "name": "阳痿早泄食谱"
+        },
+        {
+            "tag": 9,
+            "name": "糖尿病食谱"
+        },
+        {
+            "tag": 11,
+            "name": "结核病食谱"
+        },
+        {
+            "tag": 24,
+            "name": "肾炎食谱"
+        },
+        {
+            "tag": 35,
+            "name": "中风食谱"
+        },
+        {
+            "tag": 36,
+            "name": "高脂血症食谱"
+        },
+        {
+            "tag": 37,
+            "name": "动脉硬化食谱"
+        },
+        {
+            "tag": 38,
+            "name": "甲状腺疾病食谱"
+        },
+        {
+            "tag": 39,
+            "name": "冠心病食谱"
+        },
+        {
+            "tag": 43,
+            "name": "咳喘食谱"
+        },
+        {
+            "tag": 46,
+            "name": "贫血食谱"
+        },
+        {
+            "tag": 47,
+            "name": "心悸食谱"
+        },
+        {
+            "tag": 50,
+            "name": "肝炎食谱"
+        },
+        {
+            "tag": 56,
+            "name": "咽炎食谱"
+        },
+        {
+            "tag": 64,
+            "name": "耳鸣食谱"
+        },
+        {
+            "tag": 68,
+            "name": "水肿食谱"
+        },
+        {
+            "tag": 76,
+            "name": "失眠食谱"
+        },
+        {
+            "tag": 83,
+            "name": "冻疮食谱"
+        },
+        {
+            "tag": 90,
+            "name": "痔疮食谱"
+        },
+        {
+            "tag": 91,
+            "name": "痛经食谱"
+        },
+        {
+            "tag": 94,
+            "name": "胃炎食谱"
+        },
+        {
+            "tag": 95,
+            "name": "尿路结石食谱"
+        },
+        {
+            "tag": 97,
+            "name": "肠炎食谱"
+        },
+        {
+            "tag": 98,
+            "name": "哮喘食谱"
+        },
+        {
+            "tag": 101,
+            "name": "痛风食谱"
+        },
+        {
+            "tag": 102,
+            "name": "脚气食谱"
+        },
+        {
+            "tag": 105,
+            "name": "口腔溃疡食谱"
+        },
+        {
+            "tag": 110,
+            "name": "关节炎食谱"
+        },
+        {
+            "tag": 112,
+            "name": "子宫脱垂食谱"
+        },
+        {
+            "tag": 113,
+            "name": "祛痱食谱"
+        },
+        {
+            "tag": 114,
+            "name": "感冒食谱"
+        },
+        {
+            "tag": 115,
+            "name": "胆石症食谱"
+        },
+        {
+            "tag": 116,
+            "name": "痢疾食谱"
+        },
+        {
+            "tag": 117,
+            "name": "肝硬化食谱"
+        },
+        {
+            "tag": 118,
+            "name": "呕吐调理食谱"
+        },
+        {
+            "tag": 119,
+            "name": "前列腺疾病食谱"
+        },
+        {
+            "tag": 123,
+            "name": "消化性溃疡食谱"
+        },
+        {
+            "tag": 124,
+            "name": "腮腺炎食谱"
+        },
+        {
+            "tag": 125,
+            "name": "小儿营养不良食谱"
+        },
+        {
+            "tag": 129,
+            "name": "癫痫食谱"
+        },
+        {
+            "tag": 130,
+            "name": "鼻炎食谱"
+        },
+        {
+            "tag": 134,
+            "name": "皮肤病食谱"
+        },
+        {
+            "tag": 142,
+            "name": "麻疹食谱"
+        },
+        {
+            "tag": 144,
+            "name": "支气管炎食谱"
+        },
+        {
+            "tag": 146,
+            "name": "克山病食谱"
+        },
+        {
+            "tag": 147,
+            "name": "肺气肿食谱"
+        },
+        {
+            "tag": 150,
+            "name": "骨质增生食谱"
+        },
+        {
+            "tag": 151,
+            "name": "疟疾食谱"
+        }
 		]
 	}, {
-		"name": "工商企业",
-		"foods": [{
-				"name": "会计",
-				"key": "会计",
-				"icon": "../../static/job/02.png",
-				"cat": 10
-			},
-			{
-				"name": "前台",
-				"key": "前台",
-				"icon": "../../static/job/07.png",
-				"cat": 10
-			},
-			{
-				"name": "化验员",
-				"key": "化验员",
-				"icon": "../../static/job/09.png",
-				"cat": 10
-			},
-			{
-				"name": "商人",
-				"key": "商人",
-				"icon": "../../static/job/13.png",
-				"cat": 10
-			},
-			{
-				"name": "工程师",
-				"key": "工程师",
-				"icon": "../../static/job/32.png",
-				"cat": 10
-			},
-			{
-				"name": "白领",
-				"key": "白领",
-				"icon": "../../static/job/34.png",
-				"cat": 10
-			},
-			{
-				"name": "程序员",
-				"key": "程序员",
-				"icon": "../../static/job/35.png",
-				"cat": 10
-			},
+		"name": "适宜人群",
+		"foods": [  {
+            "tag": 5,
+            "name": "青少年食谱"
+        },
+        {
+            "tag": 1,
+            "name": "老人食谱"
+        },
+        {
+            "tag": 21,
+            "name": "学龄期儿童食谱"
+        },
+        {
+            "tag": 27,
+            "name": "小儿遗尿食谱"
+        },
+        {
+            "tag": 49,
+            "name": "孕妇菜谱"
+        },
+        {
+            "tag": 55,
+            "name": "乳母食谱"
+        },
+        {
+            "tag": 63,
+            "name": "更年期食谱"
+        },
+        {
+            "tag": 65,
+            "name": "产后调理食谱"
+        },
+        {
+            "tag": 89,
+            "name": "幼儿菜谱"
+        },
+        {
+            "tag": 103,
+            "name": "婴儿食谱"
+        },
+        {
+            "tag": 109,
+            "name": "学龄前儿童食谱"
+        },
+        {
+            "tag": 126,
+            "name": "保胎食谱"
+        },
+        {
+            "tag": 133,
+            "name": "运动员食谱"
+        },
+        {
+            "tag": 135,
+            "name": "围孕期食谱"
+        },
+        {
+            "tag": 136,
+            "name": "产妇菜谱"
+        },
 		]
 	},
 	{
-		"name": "娱乐休闲",
-		"foods": [{
-				"name": "主持人",
-				"key": "主持人",
-				"icon": "../../static/job/01.png",
-				"cat": 6
-			},
-			{
-				"name": "动漫设计",
-				"key": "动漫设计",
-				"icon": "../../static/job/08.png",
-				"cat": 6
-			},
-			{
-				"name": "模特",
-				"key": "模特",
-				"icon": "../../static/job/24.png",
-				"cat": 6
-			},
-			{
-				"name": "歌手",
-				"key": "歌手",
-				"icon": "../../static/job/25.png",
-				"cat": 6
-			},
-			{
-				"name": "演员",
-				"key": "演员",
-				"icon": "../../static/job/29.png",
-				"cat": 6
-			},
-			{
-				"name": "漫画家",
-				"key": "漫画家",
-				"icon": "../../static/job/30.png",
-				"cat": 6
-			},
-			{
-				"name": "画师",
-				"key": "画师",
-				"icon": "../../static/job/33.png",
-				"cat": 6
-			},
-			{
-				"name": "记者",
-				"key": "记者",
-				"icon": "../../static/job/41.png",
-				"cat": 6
-			},
-			{
-				"name": "运动员",
-				"key": "运动员",
-				"icon": "../../static/job/42.png",
-				"cat": 6
-			}
+		"name": "特殊工作",
+		"foods": [  {
+            "tag": 8,
+            "name": "低温环境作业人群食谱"
+        },
+        {
+            "tag": 17,
+            "name": "接触化学毒素人员食谱"
+        },
+        {
+            "tag": 122,
+            "name": "高温环境作业人群食谱"
+        },
+        {
+            "tag": 143,
+            "name": "接触电离辐射人员食谱"
+        },
 		]
 	},
 	{
-		"name": "公共服务",
-		"foods": [{
-				"name": "医生",
-				"key": "医生",
-				"icon": "../../static/job/10.png",
-				"cat": 3
-			},
-			{
-				"name": "外卖员",
-				"key": "外卖员",
-				"icon": "../../static/job/14.png",
-				"cat": 3
-			},
-			{
-				"name": "导游",
-				"key": "导游",
-				"icon": "../../static/job/16.png",
-				"cat": 3
-			},
-			{
-				"name": "律师",
-				"key": "律师",
-				"icon": "../../static/job/17.png",
-				"cat": 3
-			},
-			{
-				"name": "护士",
-				"key": "护士",
-				"icon": "../../static/job/19.png",
-				"cat": 3
-			},
-			{
-				"name": "法官",
-				"key": "法官",
-				"icon": "../../static/job/26.png",
-				"cat": 3
-			},
-			{
-				"name": "消防员",
-				"key": "消防员",
-				"icon": "../../static/job/27.png",
-				"cat": 3
-			}
-
+		"name": "身体调养",
+		"foods": [   {
+            "tag": 3,
+            "name": "肾调养食谱"
+        },
+        {
+            "tag": 6,
+            "name": "补阳食谱"
+        },
+        {
+            "tag": 10,
+            "name": "脾调养食谱"
+        },
+        {
+            "tag": 13,
+            "name": "骨质疏松食谱"
+        },
+        {
+            "tag": 14,
+            "name": "营养不良食谱"
+        },
+        {
+            "tag": 16,
+            "name": "壮腰健肾食谱"
+        },
+        {
+            "tag": 18,
+            "name": "高血压食谱"
+        },
+        {
+            "tag": 19,
+            "name": "健脾开胃食谱"
+        },
+        {
+            "tag": 22,
+            "name": "肝调养食谱"
+        },
+        {
+            "tag": 23,
+            "name": "神经衰弱食谱"
+        },
+        {
+            "tag": 25,
+            "name": "月经不调食谱"
+        },
+        {
+            "tag": 26,
+            "name": "滋阴食谱"
+        },
+        {
+            "tag": 28,
+            "name": "清热解毒食谱"
+        },
+        {
+            "tag": 29,
+            "name": "明目食谱"
+        },
+        {
+            "tag": 30,
+            "name": "补血食谱"
+        },
+        {
+            "tag": 31,
+            "name": "补虚养身食谱"
+        },
+        {
+            "tag": 32,
+            "name": "夜尿多食谱"
+        },
+        {
+            "tag": 33,
+            "name": "自汗盗汗食谱"
+        },
+        {
+            "tag": 34,
+            "name": "补气食谱"
+        },
+        {
+            "tag": 40,
+            "name": "防癌抗癌食谱"
+        },
+        {
+            "tag": 44,
+            "name": "减肥菜谱"
+        },
+        {
+            "tag": 48,
+            "name": "活血化瘀食谱"
+        },
+        {
+            "tag": 51,
+            "name": "胃调养食谱"
+        },
+        {
+            "tag": 52,
+            "name": "延缓衰老食谱"
+        },
+        {
+            "tag": 53,
+            "name": "气血双补食谱"
+        },
+        {
+            "tag": 54,
+            "name": "防暑食谱"
+        },
+        {
+            "tag": 57,
+            "name": "益智补脑食谱"
+        },
+        {
+            "tag": 58,
+            "name": "健忘食谱"
+        },
+        {
+            "tag": 59,
+            "name": "乌发食谱"
+        },
+        {
+            "tag": 60,
+            "name": "清热去火食谱"
+        },
+        {
+            "tag": 61,
+            "name": "理气调理食谱"
+        },
+        {
+            "tag": 62,
+            "name": "通乳食谱"
+        },
+        {
+            "tag": 72,
+            "name": "腹泻调理食谱"
+        },
+        {
+            "tag": 75,
+            "name": "消化不良食谱"
+        },
+        {
+            "tag": 77,
+            "name": "肺调养食谱"
+        },
+        {
+            "tag": 79,
+            "name": "增肥食谱"
+        },
+        {
+            "tag": 82,
+            "name": "止血调理食谱"
+        },
+        {
+            "tag": 84,
+            "name": "利尿食谱"
+        },
+        {
+            "tag": 86,
+            "name": "心调养食谱"
+        },
+        {
+            "tag": 88,
+            "name": "肢寒畏冷食谱"
+        },
+        {
+            "tag": 99,
+            "name": "头痛食谱"
+        },
+        {
+            "tag": 100,
+            "name": "祛痰食谱"
+        },
+        {
+            "tag": 106,
+            "name": "丰胸食谱"
+        },
 		]
 	},
 	{
-		"name": "交通运输",
-		"foods": [{
-				"name": "司机",
-				"key": "司机",
-				"icon": "../../static/job/12.png",
-				"cat": 3
-			},
-			{
-				"name": "快递员",
-				"key": "快递员",
-				"icon": "../../static/job/18.png",
-				"cat": 3
-			},
-			{
-				"name": "机长",
-				"key": "机长",
-				"icon": "../../static/job/23.png",
-				"cat": 3
-			}
+		"name": "特殊功效",
+		"foods": [  {
+            "tag": 121,
+            "name": "解酒食谱"
+        },
+        {
+            "tag": 42,
+            "name": "美容菜谱"
+        },
+        {
+            "tag": 69,
+            "name": "术后食谱"
+        },
+        {
+            "tag": 85,
+            "name": "药膳偏方"
+        },
+        {
+            "tag": 132,
+            "name": "跌打骨折食谱"
+        },
 		]
 	},
 	{
-		"name": "社区服务",
-		"foods": [{
-				"name": "保姆",
-				"key": "保姆",
-				"icon": "../../static/job/04.png",
-				"cat": 3
-			},
-			{
-				"name": "保安",
-				"key": "保安",
-				"icon": "../../static/job/05.png",
-				"cat": 3
-			},
-			{
-				"name": "清洁工",
-				"key": "清洁工",
-				"icon": "../../static/job/28.png",
-				"cat": 3
-			},
-			{
-				"name": "理发师",
-				"key": "理发师",
-				"icon": "../../static/job/31.png",
-				"cat": 3
-			},
-			{
-				"name": "美甲师",
-				"key": "美甲师",
-				"icon": "../../static/job/37.png",
-				"cat": 3
-			},
-			{
-				"name": "花匠",
-				"key": "花匠",
-				"icon": "../../static/job/39.png",
-				"cat": 3
-			},
-			{
-				"name": "裁缝",
-				"key": "裁缝",
-				"icon": "../../static/job/40.png",
-				"cat": 3
-			}
+		"name": "常见菜式",
+		"foods": [ {
+            "tag": 4,
+            "name": "家常菜谱"
+        },
+        {
+            "tag": 12,
+            "name": "私家菜"
+        },
+        {
+            "tag": 20,
+            "name": "京菜"
+        },
+        {
+            "tag": 41,
+            "name": "沪菜"
+        },
+        {
+            "tag": 45,
+            "name": "精品主食"
+        },
+        {
+            "tag": 66,
+            "name": "鲁菜"
+        },
+        {
+            "tag": 67,
+            "name": "清真菜"
+        },
+        {
+            "tag": 70,
+            "name": "湖北菜"
+        },
+        {
+            "tag": 71,
+            "name": "甜品/点心"
+        },
+        {
+            "tag": 73,
+            "name": "豫菜"
+        },
+        {
+            "tag": 74,
+            "name": "东北菜"
+        },
+        {
+            "tag": 78,
+            "name": "浙菜"
+        },
+        {
+            "tag": 80,
+            "name": "湘菜"
+        },
+        {
+            "tag": 81,
+            "name": "卤酱菜"
+        },
+        {
+            "tag": 87,
+            "name": "粤菜"
+        },
+        {
+            "tag": 92,
+            "name": "西北菜"
+        },
+        {
+            "tag": 93,
+            "name": "素斋菜"
+        },
+        {
+            "tag": 96,
+            "name": "微波菜谱"
+        },
+        {
+            "tag": 104,
+            "name": "年夜饭"
+        },
+        {
+            "tag": 107,
+            "name": "山西菜"
+        },
+        {
+            "tag": 108,
+            "name": "江西菜"
+        },
+        {
+            "tag": 111,
+            "name": "苏菜"
+        },
+        {
+            "tag": 120,
+            "name": "云贵菜"
+        },
+        {
+            "tag": 128,
+            "name": "闽菜"
+        },
+        {
+            "tag": 131,
+            "name": "美味粥汤"
+        },
+        {
+            "tag": 137,
+            "name": "时尚饮品"
+        },
+        {
+            "tag": 138,
+            "name": "清爽凉菜"
+        },
+        {
+            "tag": 139,
+            "name": "美味糕点"
+        },
+        {
+            "tag": 140,
+            "name": "韩国料理"
+        },
+        {
+            "tag": 141,
+            "name": "意大利餐"
+        },
+        {
+            "tag": 145,
+            "name": "日本料理"
+        },
+        {
+            "tag": 148,
+            "name": "港台菜"
+        },
+        {
+            "tag": 152,
+            "name": "徽菜"
+        },
+        {
+            "tag": 153,
+            "name": "火锅食谱"
+        },
+        {
+            "tag": 154,
+            "name": "法国菜谱"
+        }
 		]
-	},
-	{
-		"name": "餐饮行业",
-		"foods": [{
-				"name": "服务员",
-				"key": "服务员",
-				"icon": "../../static/job/22.png",
-				"cat": 3
-			},
-			{
-				"name": "厨师",
-				"key": "厨师",
-				"icon": "../../static/job/11.png",
-				"cat": 3
-			},
-			{
-				"name": "面点师",
-				"key": "面点师",
-				"icon": "../../static/job/43.png",
-				"cat": 3
-			}
-		]
-	},
-	{
-		"name": "无职业",
-		"foods": [{
-			"name": "学生",
-			"key": "学生",
-			"icon": "../../static/job/15.png",
-			"cat": 3
-		}]
 	}
 ]
