@@ -15,7 +15,9 @@
         "pages/project/project",
         "pages/timeline",
         "pages/design",
-        "pages/lunch/lunch"
+        "pages/lunch/lunch",
+        "pages/job/job",
+        "pages/breakfast/breakfast"
     ],
     "subPackages": [
         {
@@ -69,6 +71,8 @@
         "van-tag": "/wxcomponents/vant/tag/index",
         "van-stepper": "wxcomponents/vant/stepper/index",
         "van-divider": "wxcomponents/vant/divider/index",
+        "van-notify": "/wxcomponents/vant/notify/index",
+        "van-dialog": "/wxcomponents/vant/dialog/index",
         "cu-custom": "/colorui/components/cu-custom",
         "tn-custom": "/components/TnCustom/TnCustom"
     },

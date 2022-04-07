@@ -1,18 +1,19 @@
 {
-    "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "appid": "wxdd194d285cb574b1",
+    "compileType": "miniprogram",
+    "libVersion": "2.23.1",
     "packOptions": {
         "ignore": [],
         "include": []
     },
     "setting": {
-        "urlCheck": false,
-        "minified": false,
-        "es6": true,
         "coverView": true,
+        "es6": true,
         "postcss": true,
         "compileHotReLoad": false,
         "lazyloadPlaceholderEnable": false,
         "preloadBackgroundData": false,
+        "minified": false,
         "autoAudits": false,
         "uglifyFileName": false,
         "uploadWithSourceMap": true,
@@ -31,39 +32,12 @@
             "outputPath": ""
         },
         "disableUseStrict": false,
-        "useCompilerPlugins": false
-    },
-    "compileType": "miniprogram",
-    "libVersion": "2.23.1",
-    "appid": "wxdd194d285cb574b1",
-    "projectname": "营养助手",
-    "condition": {
-        "search": {
-            "current": -1,
-            "list": []
-        },
-        "conversation": {
-            "current": -1,
-            "list": []
-        },
-        "game": {
-            "current": -1,
-            "list": []
-        },
-        "miniprogram": {
-            "current": 0,
-            "list": [
-                {
-                    "name": "",
-                    "path": "",
-                    "query": "",
-                    "id": 0
-                }
-            ]
-        }
+        "useCompilerPlugins": false,
+        "minifyWXML": true
     },
     "editorSetting": {
         "tabIndent": "insertSpaces",
         "tabSize": 4
-    }
+    },
+    "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

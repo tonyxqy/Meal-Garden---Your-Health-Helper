@@ -107,7 +107,7 @@
 				<view class="cu-item " @click="mentalTest">
 					<button class='content cu-btn'>
 						<image src='../../static/me/icon/bianqian.png' class='png' mode='aspectFit'></image>
-						<text class='text-lg margin-sm'>留空</text>
+						<text class='text-lg margin-sm'>体制小测试</text>
 					</button>
 <!-- 					<view class="action">
 						<view class="cu-tag round bg-orange light">技术</view>
