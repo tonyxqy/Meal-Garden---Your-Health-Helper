@@ -55,7 +55,19 @@
 								</view>
 							</view>
 						</view>
-
+						<view>
+							<text class="mess">
+								年龄：{{info.age}}岁
+							</text>
+							<text class="mess">
+								职业：{{info.job}}
+							</text>
+							<text class="mess">
+								身高：{{info.height}}cm
+							</text><text class="mess">
+								体重：{{info.weight}}g
+							</text>
+						</view>
 						<!-- 树成长进度 -->
 						<view class="speed">
 							<view class="progress">
@@ -81,7 +93,23 @@
 	//获取应用实例
 	const app = getApp();
 	var _self;
+	import { ref } from 'vue';
+
 	export default {
+		setup() {
+		    const date = ref('');
+		    const show = ref(false);
+		    const formatDate = (date) => `${date.getMonth() + 1}/${date.getDate()}`;
+		    const onConfirm = (value) => {
+		      show.value = false;
+		      date.value = formatDate(value);
+		    };
+		    return {
+		      date,
+		      show,
+		      onConfirm,
+		    };
+		  },
 		data() {
 			return {
 				userInfo: {
@@ -92,9 +120,9 @@
 				//窗口高度
 				hasUserInfo: false,
 				canIUse: uni.canIUse('button.open-type.getUserInfo'),
-
+				time:2022-3-16,
 				info: {
-					name: '沐枫',
+					name: 'yuki',
 					gender: 1,
 					votes: 8,
 					avatar: '/static/image/detail-bg.jpg', //用户头像
@@ -156,7 +184,8 @@
 			this.getvotes(),
 			this.getUserInfo(),
 			this.getStage(),
-			this.getRain()
+			this.getRain(),
+			this.getPluss()
 		},
 		onLoad() {
 			var that = this;
@@ -260,7 +289,7 @@
 				var that = this
 				uni.request({
 					url: 'http://47.102.203.108:3306/tree/pluss',
-					method: 'GET',
+					method: 'POST',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'
 					},
@@ -270,6 +299,7 @@
 					},
 					success: (res) => {
 						console.log(res,"pluss")
+						
 					}
 				})
 			},
@@ -286,8 +316,14 @@
 					},
 					success: (res) => {
 						console.log(res,"2222222rain")
+						console.log(this.myDate.toLocaleDateString())
 					}
 				})
+			},
+			getData(){
+				var myDate = new Date();
+				this.time=myDate.toLocaleDateString();     //获取当前日期
+				console.log(this.time)
 			},
 			//事件处理函数
 			bindViewTap: function() {
@@ -454,7 +490,6 @@
 		background-size: cover;
 		overflow: hidden;
 	}
-
 	.canvas .cloud {
 		margin-top: 128rpx;
 	}
@@ -567,7 +602,7 @@
 		flex-direction: row;
 		justify-content: flex-end;
 		width: 100%;
-		height: 80rpx;
+		height: 700rpx;
 	}
 
 	.canvas .kettle .kettls {
@@ -620,15 +655,17 @@
 
 	.canvas .sumup {
 		position: absolute;
-		bottom: 26rpx;
+		top: 26rpx;
+		left:20rpx;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: space-between;
 		width: 100%;
 	}
 
 	.canvas .sumup .user {
 		display: flex;
+		left:30rpx;
 		flex-direction: row;
 	}
 
@@ -650,7 +687,17 @@
 		justify-content: flex-start;
 		padding-top: 16rpx;
 		font-weight: bold;
-		text-shadow: 4rpx 4rpx 2rpx #085828;
+		text-shadow: 2rpx 2rpx 1rpx #085828;
+	}
+	.canvas .sumup .mess{
+		display: flex;
+		flex-direction: column;
+		color: white;
+		justify-content: flex-start;
+		padding-top: 16rpx;
+		padding-left: 30rpx;
+		font-weight: bold;
+		text-shadow: 2rpx 2rpx 1rpx #085828;
 	}
 
 	.canvas .sumup .user .info .name {
