@@ -30,9 +30,10 @@
 
 					<!-- 水壶、浇水动画 -->
 					<view class="kettle">
-						<view class="kettls" @tap="water" @click="getPluss()" hover-class="none"></view>
+						<view class="kettls" @tap="water" hover-class="none"></view>
 						<view :class="'flasks ' + (watercss ? 'water' : '')" v-if="watercss"></view>
-						<view class="flasms" @tap="water" v-if="!watercss" hover-class="none"></view>
+						<view class="flasms" @tap="water" @click="getPluss()" v-if="!watercss" hover-class="none">
+						</view>
 						<view class="waters" v-if="waterdom"></view>
 					</view>
 
@@ -93,23 +94,25 @@
 	//获取应用实例
 	const app = getApp();
 	var _self;
-	import { ref } from 'vue';
+	import {
+		ref
+	} from 'vue';
 
 	export default {
 		setup() {
-		    const date = ref('');
-		    const show = ref(false);
-		    const formatDate = (date) => `${date.getMonth() + 1}/${date.getDate()}`;
-		    const onConfirm = (value) => {
-		      show.value = false;
-		      date.value = formatDate(value);
-		    };
-		    return {
-		      date,
-		      show,
-		      onConfirm,
-		    };
-		  },
+			const date = ref('');
+			const show = ref(false);
+			const formatDate = (date) => `${date.getMonth() + 1}/${date.getDate()}`;
+			const onConfirm = (value) => {
+				show.value = false;
+				date.value = formatDate(value);
+			};
+			return {
+				date,
+				show,
+				onConfirm,
+			};
+		},
 		data() {
 			return {
 				userInfo: {
@@ -120,7 +123,7 @@
 				//窗口高度
 				hasUserInfo: false,
 				canIUse: uni.canIUse('button.open-type.getUserInfo'),
-				time:2022-3-16,
+				time: 2022 - 3 - 16,
 				info: {
 					name: 'yuki',
 					gender: 1,
@@ -131,44 +134,23 @@
 					height: 46,
 					weight: 155,
 				},
-
-				rainArr: [28, 63, 5, 902],
-
-				// 雨滴值 点击收取
-				stages: 1,
-
-				// 成长阶段 1(小树[默认])，中2(中树) ，大3(大树)
-				during: 100,
-
-				// 阶段阈值 1、小树[100以下](during > votes ) ，2、中树[100及以上 并且小于1000](during <= votes && oldest > votes)
-				oldest: 1000,
-
-				// 阶段阈值 3、大树[1000及以上](oldest <= votes )
-				plussNum: 1,
-
-				// 加值数量（默认1）
-				pluss: false,
-
-				// 水滴值+1动画开关
-				movetree: true,
-
-				// 树动画开关
-				treemove: false,
-
-				// 树大小动画类型开关
-				wateroff: true,
-
-				// 浇水动画开关
-				watercss: false,
-
-				// 水壶动画开关
-				// 水滴动画开关
-				waterdom: false,
-
+				rainArr: [28, 63, 5, 902],// 雨滴值 点击收取
+				stages: 1,// 成长阶段 1(小树[默认])，中2(中树) ，大3(大树)
+				during: 100,// 阶段阈值 1、小树[100以下](during > votes ) ，2、中树[100及以上 并且小于1000](during <= votes && oldest > votes)
+				oldest: 1000,// 阶段阈值 3、大树[1000及以上](oldest <= votes )
+				plussNum: 1,// 加值数量（默认1）
+				pluss: false,// 水滴值+1动画开关
+				movetree: true,// 树动画开关
+				treemove: false,// 树大小动画类型开关
+				wateroff: true,// 浇水动画开关
+				watercss: false,// 水壶动画开关
+				waterdom: false,// 水滴动画开关
 				value: ''
 			};
 		},
 		mounted() {
+			var user_id = uni.getStorageSync('userId')
+			console.log(user_id,"userId")
 			var that = this;
 			uni.getSystemInfo({
 				success(res) {
@@ -181,11 +163,11 @@
 					that.winHeight = calc
 				}
 			});
-			this.getvotes(),
-			this.getUserInfo(),
-			this.getStage(),
-			this.getRain(),
-			this.getPluss()
+			this.getvotes(user_id),
+			this.getUserInfo(user_id),
+			this.getStage(user_id),
+			this.getRain(user_id),
+			this.getPluss(user_id)
 		},
 		onLoad() {
 			var that = this;
@@ -228,7 +210,7 @@
 			}
 		},
 		methods: {
-			getvotes() {
+			getvotes(user_id) {
 				var that = this
 				uni.request({
 					url: 'http://47.102.203.108:3306/tree/getVotes',
@@ -237,7 +219,7 @@
 						'content-type': 'application/x-www-form-urlencoded'
 					},
 					data: {
-						user_id: 8,
+						user_id
 					},
 					success: (res) => {
 						console.log(res)
@@ -245,7 +227,7 @@
 					}
 				})
 			},
-			getUserInfo() {
+			getUserInfo(user_id) {
 				var that = this
 				uni.request({
 					url: 'http://47.102.203.108:3306/tree/userInfo',
@@ -254,22 +236,21 @@
 						'content-type': 'application/x-www-form-urlencoded'
 					},
 					data: {
-						user_id: 8,
+						user_id
 					},
 					success: (res) => {
-						console.log(res.data)
-						console.log("info成功")
-						this.info.name=res.data.nickname
-						this.info.gender=res.data.gender
-						this.info.avatar=res.data.avatarUrl
-						this.info.age=res.data.age
-						this.info.job=res.data.job
-						this.info.height=res.data.height
-						this.info.weight=res.data.weight
+						console.log(res.data,"getInfo")
+						this.info.name = res.data.nickname
+						this.info.gender = res.data.gender
+						this.info.avatar = res.data.avatarUrl
+						this.info.age = res.data.age
+						this.info.job = res.data.job
+						this.info.height = res.data.height
+						this.info.weight = res.data.weight
 					}
 				})
 			},
-			getStage() {
+			getStage(user_id) {
 				var that = this
 				uni.request({
 					url: 'http://47.102.203.108:3306/tree/getStages',
@@ -278,14 +259,20 @@
 						'content-type': 'application/x-www-form-urlencoded'
 					},
 					data: {
-						user_id: 8,
+						user_id
 					},
 					success: (res) => {
-						console.log(res,"1111111stages")
+						console.log(res, "1111111stages")
 					}
 				})
 			},
-			getPluss() {
+			getPluss(user_id) {
+				var nowDate = new Date();
+				var year = nowDate.getFullYear();
+				var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+				var day = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+				var timer = year + "-" + month + "-" + day
+				console.log(timer, "dateStrdateStrdateStr")
 				var that = this
 				uni.request({
 					url: 'http://47.102.203.108:3306/tree/pluss',
@@ -294,16 +281,16 @@
 						'content-type': 'application/x-www-form-urlencoded'
 					},
 					data: {
-						user_id: 8,
-						time:2022-3-16
+						user_id,
+						time: timer
 					},
 					success: (res) => {
-						console.log(res,"pluss")
-						
+						console.log(res, "pluss")
+
 					}
 				})
 			},
-			getRain() {
+			getRain(user_id) {
 				var that = this
 				uni.request({
 					url: 'http://47.102.203.108:3306/tree/getRainTime',
@@ -312,18 +299,12 @@
 						'content-type': 'application/x-www-form-urlencoded'
 					},
 					data: {
-						user_id: 8
+						user_id
 					},
 					success: (res) => {
-						console.log(res,"2222222rain")
-						console.log(this.myDate.toLocaleDateString())
+						console.log(res, "getRain")
 					}
 				})
-			},
-			getData(){
-				var myDate = new Date();
-				this.time=myDate.toLocaleDateString();     //获取当前日期
-				console.log(this.time)
 			},
 			//事件处理函数
 			bindViewTap: function() {
@@ -490,6 +471,7 @@
 		background-size: cover;
 		overflow: hidden;
 	}
+
 	.canvas .cloud {
 		margin-top: 128rpx;
 	}
@@ -656,7 +638,7 @@
 	.canvas .sumup {
 		position: absolute;
 		top: 26rpx;
-		left:20rpx;
+		left: 20rpx;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -665,7 +647,7 @@
 
 	.canvas .sumup .user {
 		display: flex;
-		left:30rpx;
+		left: 30rpx;
 		flex-direction: row;
 	}
 
@@ -689,7 +671,8 @@
 		font-weight: bold;
 		text-shadow: 2rpx 2rpx 1rpx #085828;
 	}
-	.canvas .sumup .mess{
+
+	.canvas .sumup .mess {
 		display: flex;
 		flex-direction: column;
 		color: white;

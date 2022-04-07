@@ -947,7 +947,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -3566,6 +3566,44 @@ module.exports = {
 
 /***/ }),
 
+/***/ 173:
+/*!*********************************************!*\
+  !*** C:/Users/DELL/-health/common/uiImg.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = [
+{
+  // app设计
+  "appImg": [
+  {
+    price: 1,
+    title: '高热量放纵一次',
+    shop: '不知名用户',
+    yhdj: '高能博主',
+    type: '生活分享',
+    image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.jUNSLqUHW8YX9cbwl2NQAgHaEo?w=254&h=180&c=7&r=0&o=5&pid=1.7' },
+
+  {
+    price: 2,
+    title: '汉堡汉堡我的最爱',
+    shop: '不知名用户',
+    yhdj: '新人菜鸡',
+    type: '生活分享',
+    image: 'https://tse1-mm.cn.bing.net/th/id/R-C.45ad520bbba5c81dc0c330fe47a273da?rik=OgPiiCNILKOORA&riu=http%3a%2f%2fup.36992.com%2fpic%2f96%2f2a%2fb5%2f962ab52a61036be5ecf6a10595b3ae11.jpg&ehk=leUA8uAv9Jd7PsHtBosNcRzlmT6imOMAkXULc3a5gsM%3d&risl=&pid=ImgRaw&r=0' },
+
+  {
+    price: 3,
+    title: '第一天减肥餐爱了爱了',
+    shop: '不知名用户',
+    yhdj: '新人菜鸡',
+    type: '生活分享',
+    image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.sMMPuStdqooqM0R5ScKeyQHaF_?w=241&h=196&c=7&r=0&o=5&pid=1.7' }] }];exports.default = _default;
+
+/***/ }),
+
 /***/ 18:
 /*!************************************************!*\
   !*** C:/Users/DELL/-health/polyfill/mixins.js ***!
@@ -3717,44 +3755,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       // return clone
       return JSON.parse(JSON.stringify(obj));
     } } };exports.default = _default;
-
-/***/ }),
-
-/***/ 181:
-/*!*********************************************!*\
-  !*** C:/Users/DELL/-health/common/uiImg.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = [
-{
-  // app设计
-  "appImg": [
-  {
-    price: 1,
-    title: '高热量放纵一次',
-    shop: '不知名用户',
-    yhdj: '高能博主',
-    type: '生活分享',
-    image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.jUNSLqUHW8YX9cbwl2NQAgHaEo?w=254&h=180&c=7&r=0&o=5&pid=1.7' },
-
-  {
-    price: 2,
-    title: '汉堡汉堡我的最爱',
-    shop: '不知名用户',
-    yhdj: '新人菜鸡',
-    type: '生活分享',
-    image: 'https://tse1-mm.cn.bing.net/th/id/R-C.45ad520bbba5c81dc0c330fe47a273da?rik=OgPiiCNILKOORA&riu=http%3a%2f%2fup.36992.com%2fpic%2f96%2f2a%2fb5%2f962ab52a61036be5ecf6a10595b3ae11.jpg&ehk=leUA8uAv9Jd7PsHtBosNcRzlmT6imOMAkXULc3a5gsM%3d&risl=&pid=ImgRaw&r=0' },
-
-  {
-    price: 3,
-    title: '第一天减肥餐爱了爱了',
-    shop: '不知名用户',
-    yhdj: '新人菜鸡',
-    type: '生活分享',
-    image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.sMMPuStdqooqM0R5ScKeyQHaF_?w=241&h=196&c=7&r=0&o=5&pid=1.7' }] }];exports.default = _default;
 
 /***/ }),
 
@@ -4568,141 +4568,7 @@ queryParams;exports.default = _default;
 
 /***/ }),
 
-/***/ 26:
-/*!*************************************************************!*\
-  !*** C:/Users/DELL/-health/uview-ui/libs/function/route.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 27));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 并且带有路由拦截功能
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */var
-
-Router = /*#__PURE__*/function () {
-  function Router() {_classCallCheck(this, Router);
-    // 原始属性定义
-    this.config = {
-      type: 'navigateTo',
-      url: '',
-      delta: 1, // navigateBack页面后退时,回退的层数
-      params: {}, // 传递的参数
-      animationType: 'pop-in', // 窗口动画,只在APP有效
-      animationDuration: 300, // 窗口动画持续时间,单位毫秒,只在APP有效
-      intercept: false // 是否需要拦截
-    };
-    // 因为route方法是需要对外赋值给另外的对象使用，同时route内部有使用this，会导致route失去上下文
-    // 这里在构造函数中进行this绑定
-    this.route = this.route.bind(this);
-  }
-
-  // 判断url前面是否有"/"，如果没有则加上，否则无法跳转
-  _createClass(Router, [{ key: "addRootPath", value: function addRootPath(url) {
-      return url[0] === '/' ? url : "/".concat(url);
-    }
-
-    // 整合路由参数
-  }, { key: "mixinParam", value: function mixinParam(url, params) {
-      url = url && this.addRootPath(url);
-
-      // 使用正则匹配，主要依据是判断是否有"/","?","="等，如“/page/index/index?name=mary"
-      // 如果有url中有get参数，转换后无需带上"?"
-      var query = '';
-      if (/.*\/.*\?.*=.*/.test(url)) {
-        // object对象转为get类型的参数
-        query = uni.$u.queryParams(params, false);
-        // 因为已有get参数,所以后面拼接的参数需要带上"&"隔开
-        return url += "&" + query;
-      } else {
-        // 直接拼接参数，因为此处url中没有后面的query参数，也就没有"?/&"之类的符号
-        query = uni.$u.queryParams(params);
-        return url += query;
-      }
-    }
-
-    // 对外的方法名称
-  }, { key: "route", value: function () {var _route = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var options,params,mergeConfig,isNext,_args = arguments;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};params = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
-                // 合并用户的配置和内部的默认配置
-                mergeConfig = {};
-
-                if (typeof options === 'string') {
-                  // 如果options为字符串，则为route(url, params)的形式
-                  mergeConfig.url = this.mixinParam(options, params);
-                  mergeConfig.type = 'navigateTo';
-                } else {
-                  mergeConfig = uni.$u.deepClone(options, this.config);
-                  // 否则正常使用mergeConfig中的url和params进行拼接
-                  mergeConfig.url = this.mixinParam(options.url, options.params);
-                }
-
-                if (params.intercept) {
-                  this.config.intercept = params.intercept;
-                }
-                // params参数也带给拦截器
-                mergeConfig.params = params;
-                // 合并内外部参数
-                mergeConfig = uni.$u.deepMerge(this.config, mergeConfig);
-                // 判断用户是否定义了拦截器
-                if (!(typeof uni.$u.routeIntercept === 'function')) {_context.next = 14;break;}_context.next = 10;return (
-
-                  new Promise(function (resolve, reject) {
-                    uni.$u.routeIntercept(mergeConfig, resolve);
-                  }));case 10:isNext = _context.sent;
-                // 如果isNext为true，则执行路由跳转
-                isNext && this.openPage(mergeConfig);_context.next = 15;break;case 14:
-
-                this.openPage(mergeConfig);case 15:case "end":return _context.stop();}}}, _callee, this);}));function route() {return _route.apply(this, arguments);}return route;}()
-
-
-
-    // 执行路由跳转
-  }, { key: "openPage", value: function openPage(config) {
-      // 解构参数
-      var
-      url =
-
-
-
-
-      config.url,type = config.type,delta = config.delta,animationType = config.animationType,animationDuration = config.animationDuration;
-      if (config.type == 'navigateTo' || config.type == 'to') {
-        uni.navigateTo({
-          url: url,
-          animationType: animationType,
-          animationDuration: animationDuration });
-
-      }
-      if (config.type == 'redirectTo' || config.type == 'redirect') {
-        uni.redirectTo({
-          url: url });
-
-      }
-      if (config.type == 'switchTab' || config.type == 'tab') {
-        uni.switchTab({
-          url: url });
-
-      }
-      if (config.type == 'reLaunch' || config.type == 'launch') {
-        uni.reLaunch({
-          url: url });
-
-      }
-      if (config.type == 'navigateBack' || config.type == 'back') {
-        uni.navigateBack({
-          delta: delta });
-
-      }
-    } }]);return Router;}();var _default =
-
-
-new Router().route;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 260:
+/***/ 252:
 /*!**************************************************************!*\
   !*** C:/Users/DELL/-health/components/QS-SharePoster/app.js ***!
   \**************************************************************/
@@ -5264,7 +5130,7 @@ module.exports = _app;
 
 /***/ }),
 
-/***/ 261:
+/***/ 253:
 /*!*************************************************************************!*\
   !*** C:/Users/DELL/-health/components/QS-SharePoster/QS-SharePoster.js ***!
   \*************************************************************************/
@@ -5272,9 +5138,9 @@ module.exports = _app;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 27));var _app2 = _interopRequireDefault(__webpack_require__(/*! ./app.js */ 260));
-var _QRCodeAlg = _interopRequireDefault(__webpack_require__(/*! ./QRCodeAlg.js */ 262));
-var _imageTools = __webpack_require__(/*! ./image-tools.js */ 263);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+/* WEBPACK VAR INJECTION */(function(uni) {var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 27));var _app2 = _interopRequireDefault(__webpack_require__(/*! ./app.js */ 252));
+var _QRCodeAlg = _interopRequireDefault(__webpack_require__(/*! ./QRCodeAlg.js */ 254));
+var _imageTools = __webpack_require__(/*! ./image-tools.js */ 255);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 var ShreUserPosterBackgroundKey = 'ShrePosterBackground_'; // 背景图片缓存名称前缀
 var idKey = 'QSSHAREPOSTER_IDKEY'; //drawArray自动生成的idkey
 var isMp = false;
@@ -6597,7 +6463,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 262:
+/***/ 254:
 /*!********************************************************************!*\
   !*** C:/Users/DELL/-health/components/QS-SharePoster/QRCodeAlg.js ***!
   \********************************************************************/
@@ -7616,7 +7482,7 @@ QRBitBuffer.prototype = {
 
 /***/ }),
 
-/***/ 263:
+/***/ 255:
 /*!**********************************************************************!*\
   !*** C:/Users/DELL/-health/components/QS-SharePoster/image-tools.js ***!
   \**********************************************************************/
@@ -7774,6 +7640,140 @@ function base64ToPath(base64) {
 
 /***/ }),
 
+/***/ 26:
+/*!*************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/route.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 27));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 并且带有路由拦截功能
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */var
+
+Router = /*#__PURE__*/function () {
+  function Router() {_classCallCheck(this, Router);
+    // 原始属性定义
+    this.config = {
+      type: 'navigateTo',
+      url: '',
+      delta: 1, // navigateBack页面后退时,回退的层数
+      params: {}, // 传递的参数
+      animationType: 'pop-in', // 窗口动画,只在APP有效
+      animationDuration: 300, // 窗口动画持续时间,单位毫秒,只在APP有效
+      intercept: false // 是否需要拦截
+    };
+    // 因为route方法是需要对外赋值给另外的对象使用，同时route内部有使用this，会导致route失去上下文
+    // 这里在构造函数中进行this绑定
+    this.route = this.route.bind(this);
+  }
+
+  // 判断url前面是否有"/"，如果没有则加上，否则无法跳转
+  _createClass(Router, [{ key: "addRootPath", value: function addRootPath(url) {
+      return url[0] === '/' ? url : "/".concat(url);
+    }
+
+    // 整合路由参数
+  }, { key: "mixinParam", value: function mixinParam(url, params) {
+      url = url && this.addRootPath(url);
+
+      // 使用正则匹配，主要依据是判断是否有"/","?","="等，如“/page/index/index?name=mary"
+      // 如果有url中有get参数，转换后无需带上"?"
+      var query = '';
+      if (/.*\/.*\?.*=.*/.test(url)) {
+        // object对象转为get类型的参数
+        query = uni.$u.queryParams(params, false);
+        // 因为已有get参数,所以后面拼接的参数需要带上"&"隔开
+        return url += "&" + query;
+      } else {
+        // 直接拼接参数，因为此处url中没有后面的query参数，也就没有"?/&"之类的符号
+        query = uni.$u.queryParams(params);
+        return url += query;
+      }
+    }
+
+    // 对外的方法名称
+  }, { key: "route", value: function () {var _route = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var options,params,mergeConfig,isNext,_args = arguments;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};params = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
+                // 合并用户的配置和内部的默认配置
+                mergeConfig = {};
+
+                if (typeof options === 'string') {
+                  // 如果options为字符串，则为route(url, params)的形式
+                  mergeConfig.url = this.mixinParam(options, params);
+                  mergeConfig.type = 'navigateTo';
+                } else {
+                  mergeConfig = uni.$u.deepClone(options, this.config);
+                  // 否则正常使用mergeConfig中的url和params进行拼接
+                  mergeConfig.url = this.mixinParam(options.url, options.params);
+                }
+
+                if (params.intercept) {
+                  this.config.intercept = params.intercept;
+                }
+                // params参数也带给拦截器
+                mergeConfig.params = params;
+                // 合并内外部参数
+                mergeConfig = uni.$u.deepMerge(this.config, mergeConfig);
+                // 判断用户是否定义了拦截器
+                if (!(typeof uni.$u.routeIntercept === 'function')) {_context.next = 14;break;}_context.next = 10;return (
+
+                  new Promise(function (resolve, reject) {
+                    uni.$u.routeIntercept(mergeConfig, resolve);
+                  }));case 10:isNext = _context.sent;
+                // 如果isNext为true，则执行路由跳转
+                isNext && this.openPage(mergeConfig);_context.next = 15;break;case 14:
+
+                this.openPage(mergeConfig);case 15:case "end":return _context.stop();}}}, _callee, this);}));function route() {return _route.apply(this, arguments);}return route;}()
+
+
+
+    // 执行路由跳转
+  }, { key: "openPage", value: function openPage(config) {
+      // 解构参数
+      var
+      url =
+
+
+
+
+      config.url,type = config.type,delta = config.delta,animationType = config.animationType,animationDuration = config.animationDuration;
+      if (config.type == 'navigateTo' || config.type == 'to') {
+        uni.navigateTo({
+          url: url,
+          animationType: animationType,
+          animationDuration: animationDuration });
+
+      }
+      if (config.type == 'redirectTo' || config.type == 'redirect') {
+        uni.redirectTo({
+          url: url });
+
+      }
+      if (config.type == 'switchTab' || config.type == 'tab') {
+        uni.switchTab({
+          url: url });
+
+      }
+      if (config.type == 'reLaunch' || config.type == 'launch') {
+        uni.reLaunch({
+          url: url });
+
+      }
+      if (config.type == 'navigateBack' || config.type == 'back') {
+        uni.navigateBack({
+          delta: delta });
+
+      }
+    } }]);return Router;}();var _default =
+
+
+new Router().route;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
 /***/ 27:
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
@@ -7833,7 +7833,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 288:
+/***/ 280:
 /*!************************************************************!*\
   !*** C:/Users/DELL/-health/components/u-charts/checker.js ***!
   \************************************************************/
@@ -7861,6 +7861,114 @@ module.exports = {
     var reg = /^-?[1-9][0-9]?.?[0-9]*$/;
     return reg.test(checkVal);
   } };
+
+/***/ }),
+
+/***/ 289:
+/*!*****************************************************!*\
+  !*** C:/Users/DELL/-health/common/geocode-utils.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _qqmapWxJssdk = _interopRequireDefault(__webpack_require__(/*! ./qqmap-wx-jssdk.js */ 290));
+var _amapWx = _interopRequireDefault(__webpack_require__(/*! ./amap-wx.js */ 291));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var amapKey = "83dd75107efbb10605ef3f89c4f76527";
+/** 
+                                                   * 此方法为腾讯位置服务方法  日调用量1万次/key,并发数5次/key/秒
+                                                   * @param {Object} location
+                                                   * @param {Object} callback
+                                                   */
+function tencentGeocode(lat, lon, callback) {
+  var qqmapsdk = new _qqmapWxJssdk.default({
+    key: "SQYBZ-GEGRF-7YJJL-JCRZJ-BYD32-2XBZV" //自己申请的key
+  });
+  var location = {
+    latitude: lat,
+    longitude: lon };
+
+  qqmapsdk.reverseGeocoder({
+    location: location,
+    success: function success(addressRes) {
+      var address = addressRes.result.address;
+      callback(address);
+      console.log('腾讯->', address);
+    },
+    fail: function fail(res) {
+      console.log('失败', res);
+    } });
+
+}
+/** 
+   * 附近搜索
+   * @param {Object} location
+   * @param {Object} callback
+   */
+function getPoiAround(lat, lon, keywords, callback) {
+  var amapPlugin = new _amapWx.default.AMapWX({
+    key: amapKey });
+
+  var location = '' + lon + ',' + lat + '';
+
+  amapPlugin.getPoiAround({
+    location: location, //location的格式为'经度,纬度'，
+    querykeywords: keywords,
+    //成功回调
+    success: function success(data) {
+      callback(data);
+      //console.log("附近->", data)
+    },
+    fail: function fail(info) {
+      //失败回调
+      console.log(info);
+
+    } });
+
+
+}
+/** 
+   * 此方法为高德位置服务方法  
+   * @param {Object} location
+   * @param {Object} callback
+   */
+function amapGeocode(lat, lon, callback) {
+  var amapPlugin = new _amapWx.default.AMapWX({
+    key: "83dd75107efbb10605ef3f89c4f76527" });
+
+  var location = '' + lon + ',' + lat + '';
+  amapPlugin.getRegeo({
+    location: location, //location的格式为'经度,纬度'
+    //成功回调
+    success: function success(data) {
+      var address = data[0].name + data[0].desc;
+      callback(address);
+      // console.log("高德->", address)
+    },
+    fail: function fail(info) {
+      //失败回调
+      console.log(info);
+      // 定位权限未开启，引导设置
+      // uni.showModal({
+      // 	title: '温馨提示',
+      // 	content: '您已拒绝定位,请开启',
+      // 	confirmText: '去设置',
+      // 	success(res) {
+      // 		if (res.confirm) {
+      // 			//打开授权设置
+      // 			that.openSetting()
+      // 		}
+      // 	}
+      // })
+    } });
+
+
+}var _default =
+
+{
+  tencentGeocode: tencentGeocode,
+  amapGeocode: amapGeocode,
+  getPoiAround: getPoiAround };exports.default = _default;
 
 /***/ }),
 
@@ -8596,115 +8704,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 297:
-/*!*****************************************************!*\
-  !*** C:/Users/DELL/-health/common/geocode-utils.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _qqmapWxJssdk = _interopRequireDefault(__webpack_require__(/*! ./qqmap-wx-jssdk.js */ 298));
-var _amapWx = _interopRequireDefault(__webpack_require__(/*! ./amap-wx.js */ 299));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-var amapKey = "83dd75107efbb10605ef3f89c4f76527";
-/** 
-                                                   * 此方法为腾讯位置服务方法  日调用量1万次/key,并发数5次/key/秒
-                                                   * @param {Object} location
-                                                   * @param {Object} callback
-                                                   */
-function tencentGeocode(lat, lon, callback) {
-  var qqmapsdk = new _qqmapWxJssdk.default({
-    key: "SQYBZ-GEGRF-7YJJL-JCRZJ-BYD32-2XBZV" //自己申请的key
-  });
-  var location = {
-    latitude: lat,
-    longitude: lon };
-
-  qqmapsdk.reverseGeocoder({
-    location: location,
-    success: function success(addressRes) {
-      var address = addressRes.result.address;
-      callback(address);
-      console.log('腾讯->', address);
-    },
-    fail: function fail(res) {
-      console.log('失败', res);
-    } });
-
-}
-/** 
-   * 附近搜索
-   * @param {Object} location
-   * @param {Object} callback
-   */
-function getPoiAround(lat, lon, keywords, callback) {
-  var amapPlugin = new _amapWx.default.AMapWX({
-    key: amapKey });
-
-  var location = '' + lon + ',' + lat + '';
-
-  amapPlugin.getPoiAround({
-    location: location, //location的格式为'经度,纬度'，
-    querykeywords: keywords,
-    //成功回调
-    success: function success(data) {
-      callback(data);
-      //console.log("附近->", data)
-    },
-    fail: function fail(info) {
-      //失败回调
-      console.log(info);
-
-    } });
-
-
-}
-/** 
-   * 此方法为高德位置服务方法  
-   * @param {Object} location
-   * @param {Object} callback
-   */
-function amapGeocode(lat, lon, callback) {
-  var amapPlugin = new _amapWx.default.AMapWX({
-    key: "83dd75107efbb10605ef3f89c4f76527" });
-
-  var location = '' + lon + ',' + lat + '';
-  amapPlugin.getRegeo({
-    location: location, //location的格式为'经度,纬度'
-    //成功回调
-    success: function success(data) {
-      var address = data[0].name + data[0].desc;
-      callback(address);
-      // console.log("高德->", address)
-    },
-    fail: function fail(info) {
-      //失败回调
-      console.log(info);
-      // 定位权限未开启，引导设置
-      // uni.showModal({
-      // 	title: '温馨提示',
-      // 	content: '您已拒绝定位,请开启',
-      // 	confirmText: '去设置',
-      // 	success(res) {
-      // 		if (res.confirm) {
-      // 			//打开授权设置
-      // 			that.openSetting()
-      // 		}
-      // 	}
-      // })
-    } });
-
-
-}var _default =
-
-{
-  tencentGeocode: tencentGeocode,
-  amapGeocode: amapGeocode,
-  getPoiAround: getPoiAround };exports.default = _default;
-
-/***/ }),
-
-/***/ 298:
+/***/ 290:
 /*!******************************************************!*\
   !*** C:/Users/DELL/-health/common/qqmap-wx-jssdk.js ***!
   \******************************************************/
@@ -9837,7 +9837,7 @@ module.exports = QQMapWX;
 
 /***/ }),
 
-/***/ 299:
+/***/ 291:
 /*!***********************************************!*\
   !*** C:/Users/DELL/-health/common/amap-wx.js ***!
   \***********************************************/
@@ -15375,7 +15375,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -15396,14 +15396,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -15489,7 +15489,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -16328,26 +16328,7 @@ randomArray;exports.default = _default;
 
 /***/ }),
 
-/***/ 37:
-/*!***************************************************************!*\
-  !*** C:/Users/DELL/-health/uview-ui/libs/function/addUnit.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
-function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
-  value = String(value);
-  // 用uView内置验证规则中的number判断是否为数值
-  return _test.default.number(value) ? "".concat(value).concat(unit) : value;
-}
-
-/***/ }),
-
-/***/ 372:
+/***/ 364:
 /*!*****************************************************!*\
   !*** C:/Users/DELL/-health/common/classify.data.js ***!
   \*****************************************************/
@@ -16827,28 +16808,26 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 38:
-/*!**************************************************************!*\
-  !*** C:/Users/DELL/-health/uview-ui/libs/function/random.js ***!
-  \**************************************************************/
+/***/ 37:
+/*!***************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/addUnit.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function random(min, max) {
-  if (min >= 0 && max > 0 && max >= min) {
-    var gab = max - min + 1;
-    return Math.floor(Math.random() * gab + min);
-  } else {
-    return 0;
-  }
-}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
-random;exports.default = _default;
+// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
+function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
+  value = String(value);
+  // 用uView内置验证规则中的number判断是否为数值
+  return _test.default.number(value) ? "".concat(value).concat(unit) : value;
+}
 
 /***/ }),
 
-/***/ 387:
+/***/ 379:
 /*!****************************************************************!*\
   !*** C:/Users/DELL/-health/wxcomponents/video-swiper/index.js ***!
   \****************************************************************/
@@ -17109,6 +17088,27 @@ module.exports =
 
   /***/}
 /******/]);
+
+/***/ }),
+
+/***/ 38:
+/*!**************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/random.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function random(min, max) {
+  if (min >= 0 && max > 0 && max >= min) {
+    var gab = max - min + 1;
+    return Math.floor(Math.random() * gab + min);
+  } else {
+    return 0;
+  }
+}var _default =
+
+random;exports.default = _default;
 
 /***/ }),
 
@@ -17623,7 +17623,7 @@ toast;exports.default = _default;
 
 /***/ }),
 
-/***/ 408:
+/***/ 400:
 /*!*****************************************************************!*\
   !*** C:/Users/DELL/-health/wxcomponents/ec-canvas/ec-canvas.js ***!
   \*****************************************************************/
@@ -17631,7 +17631,7 @@ toast;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-var _wxCanvas = _interopRequireDefault(__webpack_require__(/*! ./wx-canvas */ 409));
+var _wxCanvas = _interopRequireDefault(__webpack_require__(/*! ./wx-canvas */ 401));
 var echarts = _interopRequireWildcard(__webpack_require__(/*! ./echarts */ 62));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var ctx;
@@ -17884,7 +17884,7 @@ function wrapTouch(event) {
 
 /***/ }),
 
-/***/ 409:
+/***/ 401:
 /*!*****************************************************************!*\
   !*** C:/Users/DELL/-health/wxcomponents/ec-canvas/wx-canvas.js ***!
   \*****************************************************************/
@@ -18242,1149 +18242,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 5:
-/*!****************************************!*\
-  !*** C:/Users/DELL/-health/pages.json ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 513:
-/*!*****************************************************************************************************!*\
-  !*** C:/Users/DELL/-health/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
-  \*****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.createAnimation = createAnimation;function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} // const defaultOption = {
-// 	duration: 300,
-// 	timingFunction: 'linear',
-// 	delay: 0,
-// 	transformOrigin: '50% 50% 0'
-// }
-var
-
-
-MPAnimation = /*#__PURE__*/function () {
-  function MPAnimation(options, _this) {_classCallCheck(this, MPAnimation);
-    this.options = options;
-    this.animation = uni.createAnimation(options);
-    this.currentStepAnimates = {};
-    this.next = 0;
-    this.$ = _this;
-
-  }_createClass(MPAnimation, [{ key: "_nvuePushAnimates", value: function _nvuePushAnimates(
-
-    type, args) {
-      var aniObj = this.currentStepAnimates[this.next];
-      var styles = {};
-      if (!aniObj) {
-        styles = {
-          styles: {},
-          config: {} };
-
-      } else {
-        styles = aniObj;
-      }
-      if (animateTypes1.includes(type)) {
-        if (!styles.styles.transform) {
-          styles.styles.transform = '';
-        }
-        var unit = '';
-        if (type === 'rotate') {
-          unit = 'deg';
-        }
-        styles.styles.transform += "".concat(type, "(").concat(args + unit, ") ");
-      } else {
-        styles.styles[type] = "".concat(args);
-      }
-      this.currentStepAnimates[this.next] = styles;
-    } }, { key: "_animateRun", value: function _animateRun()
-    {var styles = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var ref = this.$.$refs['ani'].ref;
-      if (!ref) return;
-      return new Promise(function (resolve, reject) {
-        nvueAnimation.transition(ref, _objectSpread({
-          styles: styles },
-        config),
-        function (res) {
-          resolve();
-        });
-      });
-    } }, { key: "_nvueNextAnimate", value: function _nvueNextAnimate(
-
-    animates) {var _this2 = this;var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;var fn = arguments.length > 2 ? arguments[2] : undefined;
-      var obj = animates[step];
-      if (obj) {var
-
-        styles =
-
-        obj.styles,config = obj.config;
-        this._animateRun(styles, config).then(function () {
-          step += 1;
-          _this2._nvueNextAnimate(animates, step, fn);
-        });
-      } else {
-        this.currentStepAnimates = {};
-        typeof fn === 'function' && fn();
-        this.isEnd = true;
-      }
-    } }, { key: "step", value: function step()
-
-    {var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-      this.animation.step(config);
-
-
-
-
-
-
-      return this;
-    } }, { key: "run", value: function run(
-
-    fn) {
-
-      this.$.animationData = this.animation.export();
-      this.$.timer = setTimeout(function () {
-        typeof fn === 'function' && fn();
-      }, this.$.durationTime);
-
-
-
-
-
-
-
-
-    } }]);return MPAnimation;}();
-
-
-
-var animateTypes1 = ['matrix', 'matrix3d', 'rotate', 'rotate3d', 'rotateX', 'rotateY', 'rotateZ', 'scale', 'scale3d',
-'scaleX', 'scaleY', 'scaleZ', 'skew', 'skewX', 'skewY', 'translate', 'translate3d', 'translateX', 'translateY',
-'translateZ'];
-
-var animateTypes2 = ['opacity', 'backgroundColor'];
-var animateTypes3 = ['width', 'height', 'left', 'right', 'top', 'bottom'];
-animateTypes1.concat(animateTypes2, animateTypes3).forEach(function (type) {
-  MPAnimation.prototype[type] = function () {var _this$animation;
-
-    (_this$animation = this.animation)[type].apply(_this$animation, arguments);
-
-
-
-
-    return this;
-  };
-});
-
-function createAnimation(option, _this) {
-  if (!_this) return;
-  clearTimeout(_this.timer);
-  return new MPAnimation(option, _this);
-}
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 6:
-/*!*******************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-stat/dist/index.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _package = __webpack_require__(/*! ../package.json */ 7);function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = _getPrototypeOf(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-
-var STAT_VERSION = _package.version;
-var STAT_URL = 'https://tongji.dcloud.io/uni/stat';
-var STAT_H5_URL = 'https://tongji.dcloud.io/uni/stat.gif';
-var PAGE_PVER_TIME = 1800;
-var APP_PVER_TIME = 300;
-var OPERATING_TIME = 10;
-var DIFF_TIME = 60 * 1000 * 60 * 24;
-
-var statConfig = __webpack_require__(/*! uni-stat-config */ 8).default || __webpack_require__(/*! uni-stat-config */ 8);
-var UUID_KEY = '__DC_STAT_UUID';
-var UUID_VALUE = '__DC_UUID_VALUE';
-
-function getUuid() {
-  var uuid = '';
-  if (getPlatformName() === 'n') {
-    try {
-      uuid = plus.runtime.getDCloudId();
-    } catch (e) {
-      uuid = '';
-    }
-    return uuid;
-  }
-
-  try {
-    uuid = uni.getStorageSync(UUID_KEY);
-  } catch (e) {
-    uuid = UUID_VALUE;
-  }
-
-  if (!uuid) {
-    uuid = Date.now() + '' + Math.floor(Math.random() * 1e7);
-    try {
-      uni.setStorageSync(UUID_KEY, uuid);
-    } catch (e) {
-      uni.setStorageSync(UUID_KEY, UUID_VALUE);
-    }
-  }
-  return uuid;
-}
-
-var getSgin = function getSgin(statData) {
-  var arr = Object.keys(statData);
-  var sortArr = arr.sort();
-  var sgin = {};
-  var sginStr = '';
-  for (var i in sortArr) {
-    sgin[sortArr[i]] = statData[sortArr[i]];
-    sginStr += sortArr[i] + '=' + statData[sortArr[i]] + '&';
-  }
-  // const options = sginStr.substr(0, sginStr.length - 1)
-  // sginStr = sginStr.substr(0, sginStr.length - 1) + '&key=' + STAT_KEY;
-  // const si = crypto.createHash('md5').update(sginStr).digest('hex');
-  return {
-    sign: '',
-    options: sginStr.substr(0, sginStr.length - 1) };
-
-};
-
-var getSplicing = function getSplicing(data) {
-  var str = '';
-  for (var i in data) {
-    str += i + '=' + data[i] + '&';
-  }
-  return str.substr(0, str.length - 1);
-};
-
-var getTime = function getTime() {
-  return parseInt(new Date().getTime() / 1000);
-};
-
-var getPlatformName = function getPlatformName() {var _platformList;
-  var aliArr = ['y', 'a', 'p', 'mp-ali'];
-  var platformList = (_platformList = {
-    'app-plus': 'n',
-    'h5': 'h5',
-    'mp-weixin': 'wx' }, _defineProperty(_platformList,
-  aliArr.reverse().join(''), 'ali'), _defineProperty(_platformList,
-  'mp-baidu', 'bd'), _defineProperty(_platformList,
-  'mp-toutiao', 'tt'), _defineProperty(_platformList,
-  'mp-qq', 'qq'), _defineProperty(_platformList,
-  'mp-jd', 'jd'), _defineProperty(_platformList,
-  'quickapp-native', 'qn'), _defineProperty(_platformList,
-  'mp-kuaishou', 'ks'), _platformList);
-
-  return platformList["mp-weixin"];
-};
-
-var getPackName = function getPackName() {
-  var packName = '';
-  if (getPlatformName() === 'wx' || getPlatformName() === 'qq') {
-    // 兼容微信小程序低版本基础库
-    if (uni.canIUse('getAccountInfoSync')) {
-      packName = uni.getAccountInfoSync().miniProgram.appId || '';
-    }
-  }
-  return packName;
-};
-
-var getVersion = function getVersion() {
-  return getPlatformName() === 'n' ? plus.runtime.version : '';
-};
-
-var getChannel = function getChannel() {
-  var platformName = getPlatformName();
-  var channel = '';
-  if (platformName === 'n') {
-    channel = plus.runtime.channel;
-  }
-  return channel;
-};
-
-var getScene = function getScene(options) {
-  var platformName = getPlatformName();
-  var scene = '';
-  if (options) {
-    return options;
-  }
-  if (platformName === 'wx') {
-    scene = uni.getLaunchOptionsSync().scene;
-  }
-  return scene;
-};
-var First__Visit__Time__KEY = 'First__Visit__Time';
-var Last__Visit__Time__KEY = 'Last__Visit__Time';
-
-var getFirstVisitTime = function getFirstVisitTime() {
-  var timeStorge = uni.getStorageSync(First__Visit__Time__KEY);
-  var time = 0;
-  if (timeStorge) {
-    time = timeStorge;
-  } else {
-    time = getTime();
-    uni.setStorageSync(First__Visit__Time__KEY, time);
-    uni.removeStorageSync(Last__Visit__Time__KEY);
-  }
-  return time;
-};
-
-var getLastVisitTime = function getLastVisitTime() {
-  var timeStorge = uni.getStorageSync(Last__Visit__Time__KEY);
-  var time = 0;
-  if (timeStorge) {
-    time = timeStorge;
-  } else {
-    time = '';
-  }
-  uni.setStorageSync(Last__Visit__Time__KEY, getTime());
-  return time;
-};
-
-
-var PAGE_RESIDENCE_TIME = '__page__residence__time';
-var First_Page_residence_time = 0;
-var Last_Page_residence_time = 0;
-
-
-var setPageResidenceTime = function setPageResidenceTime() {
-  First_Page_residence_time = getTime();
-  if (getPlatformName() === 'n') {
-    uni.setStorageSync(PAGE_RESIDENCE_TIME, getTime());
-  }
-  return First_Page_residence_time;
-};
-
-var getPageResidenceTime = function getPageResidenceTime() {
-  Last_Page_residence_time = getTime();
-  if (getPlatformName() === 'n') {
-    First_Page_residence_time = uni.getStorageSync(PAGE_RESIDENCE_TIME);
-  }
-  return Last_Page_residence_time - First_Page_residence_time;
-};
-var TOTAL__VISIT__COUNT = 'Total__Visit__Count';
-var getTotalVisitCount = function getTotalVisitCount() {
-  var timeStorge = uni.getStorageSync(TOTAL__VISIT__COUNT);
-  var count = 1;
-  if (timeStorge) {
-    count = timeStorge;
-    count++;
-  }
-  uni.setStorageSync(TOTAL__VISIT__COUNT, count);
-  return count;
-};
-
-var GetEncodeURIComponentOptions = function GetEncodeURIComponentOptions(statData) {
-  var data = {};
-  for (var prop in statData) {
-    data[prop] = encodeURIComponent(statData[prop]);
-  }
-  return data;
-};
-
-var Set__First__Time = 0;
-var Set__Last__Time = 0;
-
-var getFirstTime = function getFirstTime() {
-  var time = new Date().getTime();
-  Set__First__Time = time;
-  Set__Last__Time = 0;
-  return time;
-};
-
-
-var getLastTime = function getLastTime() {
-  var time = new Date().getTime();
-  Set__Last__Time = time;
-  return time;
-};
-
-
-var getResidenceTime = function getResidenceTime(type) {
-  var residenceTime = 0;
-  if (Set__First__Time !== 0) {
-    residenceTime = Set__Last__Time - Set__First__Time;
-  }
-
-  residenceTime = parseInt(residenceTime / 1000);
-  residenceTime = residenceTime < 1 ? 1 : residenceTime;
-  if (type === 'app') {
-    var overtime = residenceTime > APP_PVER_TIME ? true : false;
-    return {
-      residenceTime: residenceTime,
-      overtime: overtime };
-
-  }
-  if (type === 'page') {
-    var _overtime = residenceTime > PAGE_PVER_TIME ? true : false;
-    return {
-      residenceTime: residenceTime,
-      overtime: _overtime };
-
-  }
-
-  return {
-    residenceTime: residenceTime };
-
-
-};
-
-var getRoute = function getRoute() {
-  var pages = getCurrentPages();
-  var page = pages[pages.length - 1];
-  if (!page) return '';
-  var _self = page.$vm;
-
-  if (getPlatformName() === 'bd') {
-    return _self.$mp && _self.$mp.page.is;
-  } else {
-    return _self.$scope && _self.$scope.route || _self.$mp && _self.$mp.page.route;
-  }
-};
-
-var getPageRoute = function getPageRoute(self) {
-  var pages = getCurrentPages();
-  var page = pages[pages.length - 1];
-  if (!page) return '';
-  var _self = page.$vm;
-  var query = self._query;
-  var str = query && JSON.stringify(query) !== '{}' ? '?' + JSON.stringify(query) : '';
-  // clear
-  self._query = '';
-  if (getPlatformName() === 'bd') {
-    return _self.$mp && _self.$mp.page.is + str;
-  } else {
-    return _self.$scope && _self.$scope.route + str || _self.$mp && _self.$mp.page.route + str;
-  }
-};
-
-var getPageTypes = function getPageTypes(self) {
-  if (self.mpType === 'page' || self.$mp && self.$mp.mpType === 'page' || self.$options.mpType === 'page') {
-    return true;
-  }
-  return false;
-};
-
-var calibration = function calibration(eventName, options) {
-  //  login 、 share 、pay_success 、pay_fail 、register 、title
-  if (!eventName) {
-    console.error("uni.report \u7F3A\u5C11 [eventName] \u53C2\u6570");
-    return true;
-  }
-  if (typeof eventName !== 'string') {
-    console.error("uni.report [eventName] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u7C7B\u578B");
-    return true;
-  }
-  if (eventName.length > 255) {
-    console.error("uni.report [eventName] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
-    return true;
-  }
-
-  if (typeof options !== 'string' && typeof options !== 'object') {
-    console.error("uni.report [options] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u6216 Object \u7C7B\u578B");
-    return true;
-  }
-
-  if (typeof options === 'string' && options.length > 255) {
-    console.error("uni.report [options] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
-    return true;
-  }
-
-  if (eventName === 'title' && typeof options !== 'string') {
-    console.error('uni.report [eventName] 参数为 title 时，[options] 参数只能为 String 类型');
-    return true;
-  }
-};
-
-var Report_Data_Time = 'Report_Data_Time';
-var Report_Status = 'Report_Status';
-var isReportData = function isReportData() {
-  return new Promise(function (resolve, reject) {
-    var start_time = '';
-    var end_time = new Date().getTime();
-    var diff_time = DIFF_TIME;
-    var report_status = 1;
-    try {
-      start_time = uni.getStorageSync(Report_Data_Time);
-      report_status = uni.getStorageSync(Report_Status);
-    } catch (e) {
-      start_time = '';
-      report_status = 1;
-    }
-
-    if (report_status === '') {
-      requestData(function (_ref)
-
-      {var enable = _ref.enable;
-        uni.setStorageSync(Report_Data_Time, end_time);
-        uni.setStorageSync(Report_Status, enable);
-        if (enable === 1) {
-          resolve();
-        }
-      });
-      return;
-    }
-
-    if (report_status === 1) {
-      resolve();
-    }
-
-    if (!start_time) {
-      uni.setStorageSync(Report_Data_Time, end_time);
-      start_time = end_time;
-    }
-
-    if (end_time - start_time > diff_time) {
-      requestData(function (_ref2)
-
-      {var enable = _ref2.enable;
-        uni.setStorageSync(Report_Data_Time, end_time);
-        uni.setStorageSync(Report_Status, enable);
-      });
-    }
-
-  });
-};
-
-var requestData = function requestData(done) {
-  var formData = {
-    usv: STAT_VERSION,
-    conf: JSON.stringify({
-      ak: statConfig.appid }) };
-
-
-  uni.request({
-    url: STAT_URL,
-    method: 'GET',
-    data: formData,
-    success: function success(res) {var
-
-      data =
-      res.data;
-      if (data.ret === 0) {
-        typeof done === 'function' && done({
-          enable: data.enable });
-
-      }
-    },
-    fail: function fail(e) {
-      var report_status_code = 1;
-      try {
-        report_status_code = uni.getStorageSync(Report_Status);
-      } catch (e) {
-        report_status_code = 1;
-      }
-      if (report_status_code === '') {
-        report_status_code = 1;
-      }
-      typeof done === 'function' && done({
-        enable: report_status_code });
-
-    } });
-
-};
-
-var PagesJson = __webpack_require__(/*! uni-pages?{"type":"style"} */ 9).default;
-var statConfig$1 = __webpack_require__(/*! uni-stat-config */ 8).default || __webpack_require__(/*! uni-stat-config */ 8);
-
-var resultOptions = uni.getSystemInfoSync();var
-
-Util = /*#__PURE__*/function () {
-  function Util() {_classCallCheck(this, Util);
-    this.self = '';
-    this._retry = 0;
-    this._platform = '';
-    this._query = {};
-    this._navigationBarTitle = {
-      config: '',
-      page: '',
-      report: '',
-      lt: '' };
-
-    this._operatingTime = 0;
-    this._reportingRequestData = {
-      '1': [],
-      '11': [] };
-
-    this.__prevent_triggering = false;
-
-    this.__licationHide = false;
-    this.__licationShow = false;
-    this._lastPageRoute = '';
-    this.statData = {
-      uuid: getUuid(),
-      ut: getPlatformName(),
-      mpn: getPackName(),
-      ak: statConfig$1.appid,
-      usv: STAT_VERSION,
-      v: getVersion(),
-      ch: getChannel(),
-      cn: '',
-      pn: '',
-      ct: '',
-      t: getTime(),
-      tt: '',
-      p: resultOptions.platform === 'android' ? 'a' : 'i',
-      brand: resultOptions.brand || '',
-      md: resultOptions.model,
-      sv: resultOptions.system.replace(/(Android|iOS)\s/, ''),
-      mpsdk: resultOptions.SDKVersion || '',
-      mpv: resultOptions.version || '',
-      lang: resultOptions.language,
-      pr: resultOptions.pixelRatio,
-      ww: resultOptions.windowWidth,
-      wh: resultOptions.windowHeight,
-      sw: resultOptions.screenWidth,
-      sh: resultOptions.screenHeight };
-
-
-  }_createClass(Util, [{ key: "getIsReportData", value: function getIsReportData()
-
-    {
-      return isReportData();
-    } }, { key: "_applicationShow", value: function _applicationShow()
-
-    {
-      if (this.__licationHide) {
-        getLastTime();
-        var time = getResidenceTime('app');
-        if (time.overtime) {
-          var options = {
-            path: this._lastPageRoute,
-            scene: this.statData.sc };
-
-          this._sendReportRequest(options);
-        }
-        this.__licationHide = false;
-      }
-    } }, { key: "_applicationHide", value: function _applicationHide(
-
-    self, type) {
-
-      this.__licationHide = true;
-      getLastTime();
-      var time = getResidenceTime();
-      getFirstTime();
-      var route = getPageRoute(this);
-      this._sendHideRequest({
-        urlref: route,
-        urlref_ts: time.residenceTime },
-      type);
-    } }, { key: "_pageShow", value: function _pageShow()
-
-    {
-      var route = getPageRoute(this);
-      var routepath = getRoute();
-      this._navigationBarTitle.config = PagesJson &&
-      PagesJson.pages[routepath] &&
-      PagesJson.pages[routepath].titleNView &&
-      PagesJson.pages[routepath].titleNView.titleText ||
-      PagesJson &&
-      PagesJson.pages[routepath] &&
-      PagesJson.pages[routepath].navigationBarTitleText || '';
-
-      if (this.__licationShow) {
-        getFirstTime();
-        this.__licationShow = false;
-        // console.log('这是 onLauch 之后执行的第一次 pageShow ，为下次记录时间做准备');
-        this._lastPageRoute = route;
-        return;
-      }
-
-      getLastTime();
-      this._lastPageRoute = route;
-      var time = getResidenceTime('page');
-      if (time.overtime) {
-        var options = {
-          path: this._lastPageRoute,
-          scene: this.statData.sc };
-
-        this._sendReportRequest(options);
-      }
-      getFirstTime();
-    } }, { key: "_pageHide", value: function _pageHide()
-
-    {
-      if (!this.__licationHide) {
-        getLastTime();
-        var time = getResidenceTime('page');
-        this._sendPageRequest({
-          url: this._lastPageRoute,
-          urlref: this._lastPageRoute,
-          urlref_ts: time.residenceTime });
-
-        this._navigationBarTitle = {
-          config: '',
-          page: '',
-          report: '',
-          lt: '' };
-
-        return;
-      }
-    } }, { key: "_login", value: function _login()
-
-    {
-      this._sendEventRequest({
-        key: 'login' },
-      0);
-    } }, { key: "_share", value: function _share()
-
-    {
-      this._sendEventRequest({
-        key: 'share' },
-      0);
-    } }, { key: "_payment", value: function _payment(
-    key) {
-      this._sendEventRequest({
-        key: key },
-      0);
-    } }, { key: "_sendReportRequest", value: function _sendReportRequest(
-    options) {
-
-      this._navigationBarTitle.lt = '1';
-      var query = options.query && JSON.stringify(options.query) !== '{}' ? '?' + JSON.stringify(options.query) : '';
-      this.statData.lt = '1';
-      this.statData.url = options.path + query || '';
-      this.statData.t = getTime();
-      this.statData.sc = getScene(options.scene);
-      this.statData.fvts = getFirstVisitTime();
-      this.statData.lvts = getLastVisitTime();
-      this.statData.tvc = getTotalVisitCount();
-      if (getPlatformName() === 'n') {
-        this.getProperty();
-      } else {
-        this.getNetworkInfo();
-      }
-    } }, { key: "_sendPageRequest", value: function _sendPageRequest(
-
-    opt) {var
-
-      url =
-
-
-      opt.url,urlref = opt.urlref,urlref_ts = opt.urlref_ts;
-      this._navigationBarTitle.lt = '11';
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '11',
-        ut: this.statData.ut,
-        url: url,
-        tt: this.statData.tt,
-        urlref: urlref,
-        urlref_ts: urlref_ts,
-        ch: this.statData.ch,
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options);
-    } }, { key: "_sendHideRequest", value: function _sendHideRequest(
-
-    opt, type) {var
-
-      urlref =
-
-      opt.urlref,urlref_ts = opt.urlref_ts;
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '3',
-        ut: this.statData.ut,
-        urlref: urlref,
-        urlref_ts: urlref_ts,
-        ch: this.statData.ch,
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options, type);
-    } }, { key: "_sendEventRequest", value: function _sendEventRequest()
-
-
-
-    {var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref3$key = _ref3.key,key = _ref3$key === void 0 ? '' : _ref3$key,_ref3$value = _ref3.value,value = _ref3$value === void 0 ? "" : _ref3$value;
-      var route = this._lastPageRoute;
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '21',
-        ut: this.statData.ut,
-        url: route,
-        ch: this.statData.ch,
-        e_n: key,
-        e_v: typeof value === 'object' ? JSON.stringify(value) : value.toString(),
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options);
-    } }, { key: "getNetworkInfo", value: function getNetworkInfo()
-
-    {var _this = this;
-      uni.getNetworkType({
-        success: function success(result) {
-          _this.statData.net = result.networkType;
-          _this.getLocation();
-        } });
-
-    } }, { key: "getProperty", value: function getProperty()
-
-    {var _this2 = this;
-      plus.runtime.getProperty(plus.runtime.appid, function (wgtinfo) {
-        _this2.statData.v = wgtinfo.version || '';
-        _this2.getNetworkInfo();
-      });
-    } }, { key: "getLocation", value: function getLocation()
-
-    {var _this3 = this;
-      if (statConfig$1.getLocation) {
-        uni.getLocation({
-          type: 'wgs84',
-          geocode: true,
-          success: function success(result) {
-            if (result.address) {
-              _this3.statData.cn = result.address.country;
-              _this3.statData.pn = result.address.province;
-              _this3.statData.ct = result.address.city;
-            }
-
-            _this3.statData.lat = result.latitude;
-            _this3.statData.lng = result.longitude;
-            _this3.request(_this3.statData);
-          } });
-
-      } else {
-        this.statData.lat = 0;
-        this.statData.lng = 0;
-        this.request(this.statData);
-      }
-    } }, { key: "request", value: function request(
-
-    data, type) {var _this4 = this;
-      var time = getTime();
-      var title = this._navigationBarTitle;
-      data.ttn = title.page;
-      data.ttpj = title.config;
-      data.ttc = title.report;
-
-      var requestData = this._reportingRequestData;
-      if (getPlatformName() === 'n') {
-        requestData = uni.getStorageSync('__UNI__STAT__DATA') || {};
-      }
-      if (!requestData[data.lt]) {
-        requestData[data.lt] = [];
-      }
-      requestData[data.lt].push(data);
-
-      if (getPlatformName() === 'n') {
-        uni.setStorageSync('__UNI__STAT__DATA', requestData);
-      }
-      if (getPageResidenceTime() < OPERATING_TIME && !type) {
-        return;
-      }
-      var uniStatData = this._reportingRequestData;
-      if (getPlatformName() === 'n') {
-        uniStatData = uni.getStorageSync('__UNI__STAT__DATA');
-      }
-      // 时间超过，重新获取时间戳
-      setPageResidenceTime();
-      var firstArr = [];
-      var contentArr = [];
-      var lastArr = [];var _loop = function _loop(
-
-      i) {
-        var rd = uniStatData[i];
-        rd.forEach(function (elm) {
-          var newData = getSplicing(elm);
-          if (i === 0) {
-            firstArr.push(newData);
-          } else if (i === 3) {
-            lastArr.push(newData);
-          } else {
-            contentArr.push(newData);
-          }
-        });};for (var i in uniStatData) {_loop(i);
-      }
-
-      firstArr.push.apply(firstArr, contentArr.concat(lastArr));
-      var optionsData = {
-        usv: STAT_VERSION, //统计 SDK 版本号
-        t: time, //发送请求时的时间戮
-        requests: JSON.stringify(firstArr) };
-
-
-      this._reportingRequestData = {};
-      if (getPlatformName() === 'n') {
-        uni.removeStorageSync('__UNI__STAT__DATA');
-      }
-
-      if (data.ut === 'h5') {
-        this.imageRequest(optionsData);
-        return;
-      }
-
-      if (getPlatformName() === 'n' && this.statData.p === 'a') {
-        setTimeout(function () {
-          _this4._sendRequest(optionsData);
-        }, 200);
-        return;
-      }
-      this._sendRequest(optionsData);
-    } }, { key: "_sendRequest", value: function _sendRequest(
-    optionsData) {var _this5 = this;
-      this.getIsReportData().then(function () {
-        uni.request({
-          url: STAT_URL,
-          method: 'POST',
-          // header: {
-          //   'content-type': 'application/json' // 默认值
-          // },
-          data: optionsData,
-          success: function success() {
-            // if (process.env.NODE_ENV === 'development') {
-            //   console.log('stat request success');
-            // }
-          },
-          fail: function fail(e) {
-            if (++_this5._retry < 3) {
-              setTimeout(function () {
-                _this5._sendRequest(optionsData);
-              }, 1000);
-            }
-          } });
-
-      });
-    }
-    /**
-       * h5 请求
-       */ }, { key: "imageRequest", value: function imageRequest(
-    data) {
-      this.getIsReportData().then(function () {
-        var image = new Image();
-        var options = getSgin(GetEncodeURIComponentOptions(data)).options;
-        image.src = STAT_H5_URL + '?' + options;
-      });
-    } }, { key: "sendEvent", value: function sendEvent(
-
-    key, value) {
-      // 校验 type 参数
-      if (calibration(key, value)) return;
-
-      if (key === 'title') {
-        this._navigationBarTitle.report = value;
-        return;
-      }
-      this._sendEventRequest({
-        key: key,
-        value: typeof value === 'object' ? JSON.stringify(value) : value },
-      1);
-    } }]);return Util;}();var
-
-
-
-Stat = /*#__PURE__*/function (_Util) {_inherits(Stat, _Util);var _super = _createSuper(Stat);_createClass(Stat, null, [{ key: "getInstance", value: function getInstance()
-    {
-      if (!this.instance) {
-        this.instance = new Stat();
-      }
-      return this.instance;
-    } }]);
-  function Stat() {var _this6;_classCallCheck(this, Stat);
-    _this6 = _super.call(this);
-    _this6.instance = null;
-    // 注册拦截器
-    if (typeof uni.addInterceptor === 'function' && "development" !== 'development') {
-      _this6.addInterceptorInit();
-      _this6.interceptLogin();
-      _this6.interceptShare(true);
-      _this6.interceptRequestPayment();
-    }return _this6;
-  }_createClass(Stat, [{ key: "addInterceptorInit", value: function addInterceptorInit()
-
-    {
-      var self = this;
-      uni.addInterceptor('setNavigationBarTitle', {
-        invoke: function invoke(args) {
-          self._navigationBarTitle.page = args.title;
-        } });
-
-    } }, { key: "interceptLogin", value: function interceptLogin()
-
-    {
-      var self = this;
-      uni.addInterceptor('login', {
-        complete: function complete() {
-          self._login();
-        } });
-
-    } }, { key: "interceptShare", value: function interceptShare(
-
-    type) {
-      var self = this;
-      if (!type) {
-        self._share();
-        return;
-      }
-      uni.addInterceptor('share', {
-        success: function success() {
-          self._share();
-        },
-        fail: function fail() {
-          self._share();
-        } });
-
-    } }, { key: "interceptRequestPayment", value: function interceptRequestPayment()
-
-    {
-      var self = this;
-      uni.addInterceptor('requestPayment', {
-        success: function success() {
-          self._payment('pay_success');
-        },
-        fail: function fail() {
-          self._payment('pay_fail');
-        } });
-
-    } }, { key: "report", value: function report(
-
-    options, self) {
-      this.self = self;
-      // if (process.env.NODE_ENV === 'development') {
-      //   console.log('report init');
-      // }
-      setPageResidenceTime();
-      this.__licationShow = true;
-      this._sendReportRequest(options, true);
-    } }, { key: "load", value: function load(
-
-    options, self) {
-      if (!self.$scope && !self.$mp) {
-        var page = getCurrentPages();
-        self.$scope = page[page.length - 1];
-      }
-      this.self = self;
-      this._query = options;
-    } }, { key: "show", value: function show(
-
-    self) {
-      this.self = self;
-      if (getPageTypes(self)) {
-        this._pageShow(self);
-      } else {
-        this._applicationShow(self);
-      }
-    } }, { key: "ready", value: function ready(
-
-    self) {
-      // this.self = self;
-      // if (getPageTypes(self)) {
-      //   this._pageShow(self);
-      // }
-    } }, { key: "hide", value: function hide(
-    self) {
-      this.self = self;
-      if (getPageTypes(self)) {
-        this._pageHide(self);
-      } else {
-        this._applicationHide(self, true);
-      }
-    } }, { key: "error", value: function error(
-    em) {
-      if (this._platform === 'devtools') {
-        if (true) {
-          console.info('当前运行环境为开发者工具，不上报数据。');
-        }
-        // return;
-      }
-      var emVal = '';
-      if (!em.message) {
-        emVal = JSON.stringify(em);
-      } else {
-        emVal = em.stack;
-      }
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '31',
-        ut: this.statData.ut,
-        ch: this.statData.ch,
-        mpsdk: this.statData.mpsdk,
-        mpv: this.statData.mpv,
-        v: this.statData.v,
-        em: emVal,
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options);
-    } }]);return Stat;}(Util);
-
-
-var stat = Stat.getInstance();
-var isHide = false;
-var lifecycle = {
-  onLaunch: function onLaunch(options) {
-    stat.report(options, this);
-  },
-  onReady: function onReady() {
-    stat.ready(this);
-  },
-  onLoad: function onLoad(options) {
-    stat.load(options, this);
-    // 重写分享，获取分享上报事件
-    if (this.$scope && this.$scope.onShareAppMessage) {
-      var oldShareAppMessage = this.$scope.onShareAppMessage;
-      this.$scope.onShareAppMessage = function (options) {
-        stat.interceptShare(false);
-        return oldShareAppMessage.call(this, options);
-      };
-    }
-  },
-  onShow: function onShow() {
-    isHide = false;
-    stat.show(this);
-  },
-  onHide: function onHide() {
-    isHide = true;
-    stat.hide(this);
-  },
-  onUnload: function onUnload() {
-    if (isHide) {
-      isHide = false;
-      return;
-    }
-    stat.hide(this);
-  },
-  onError: function onError(e) {
-    stat.error(e);
-  } };
-
-
-function main() {
-  if (true) {
-    uni.report = function (type, options) {};
-  } else { var Vue; }
-}
-
-main();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 611:
+/***/ 498:
 /*!************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js ***!
   \************************************************************************************/
@@ -19397,7 +18255,7 @@ main();
 
 /***/ }),
 
-/***/ 612:
+/***/ 499:
 /*!**************************************************************************************!*\
   !*** C:/Users/DELL/-health/uni_modules/qiun-data-charts/js_sdk/u-charts/u-charts.js ***!
   \**************************************************************************************/
@@ -26212,7 +25070,18 @@ uCharts;exports.default = _default;
 
 /***/ }),
 
-/***/ 613:
+/***/ 5:
+/*!****************************************!*\
+  !*** C:/Users/DELL/-health/pages.json ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 500:
 /*!********************************************************************************************!*\
   !*** C:/Users/DELL/-health/uni_modules/qiun-data-charts/js_sdk/u-charts/config-ucharts.js ***!
   \********************************************************************************************/
@@ -26827,6 +25696,1137 @@ var cfu = {
 
 
 cfu;exports.default = _default;
+
+/***/ }),
+
+/***/ 515:
+/*!*****************************************************************************************************!*\
+  !*** C:/Users/DELL/-health/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.createAnimation = createAnimation;function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} // const defaultOption = {
+// 	duration: 300,
+// 	timingFunction: 'linear',
+// 	delay: 0,
+// 	transformOrigin: '50% 50% 0'
+// }
+var
+
+
+MPAnimation = /*#__PURE__*/function () {
+  function MPAnimation(options, _this) {_classCallCheck(this, MPAnimation);
+    this.options = options;
+    this.animation = uni.createAnimation(options);
+    this.currentStepAnimates = {};
+    this.next = 0;
+    this.$ = _this;
+
+  }_createClass(MPAnimation, [{ key: "_nvuePushAnimates", value: function _nvuePushAnimates(
+
+    type, args) {
+      var aniObj = this.currentStepAnimates[this.next];
+      var styles = {};
+      if (!aniObj) {
+        styles = {
+          styles: {},
+          config: {} };
+
+      } else {
+        styles = aniObj;
+      }
+      if (animateTypes1.includes(type)) {
+        if (!styles.styles.transform) {
+          styles.styles.transform = '';
+        }
+        var unit = '';
+        if (type === 'rotate') {
+          unit = 'deg';
+        }
+        styles.styles.transform += "".concat(type, "(").concat(args + unit, ") ");
+      } else {
+        styles.styles[type] = "".concat(args);
+      }
+      this.currentStepAnimates[this.next] = styles;
+    } }, { key: "_animateRun", value: function _animateRun()
+    {var styles = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var ref = this.$.$refs['ani'].ref;
+      if (!ref) return;
+      return new Promise(function (resolve, reject) {
+        nvueAnimation.transition(ref, _objectSpread({
+          styles: styles },
+        config),
+        function (res) {
+          resolve();
+        });
+      });
+    } }, { key: "_nvueNextAnimate", value: function _nvueNextAnimate(
+
+    animates) {var _this2 = this;var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;var fn = arguments.length > 2 ? arguments[2] : undefined;
+      var obj = animates[step];
+      if (obj) {var
+
+        styles =
+
+        obj.styles,config = obj.config;
+        this._animateRun(styles, config).then(function () {
+          step += 1;
+          _this2._nvueNextAnimate(animates, step, fn);
+        });
+      } else {
+        this.currentStepAnimates = {};
+        typeof fn === 'function' && fn();
+        this.isEnd = true;
+      }
+    } }, { key: "step", value: function step()
+
+    {var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      this.animation.step(config);
+
+
+
+
+
+
+      return this;
+    } }, { key: "run", value: function run(
+
+    fn) {
+
+      this.$.animationData = this.animation.export();
+      this.$.timer = setTimeout(function () {
+        typeof fn === 'function' && fn();
+      }, this.$.durationTime);
+
+
+
+
+
+
+
+
+    } }]);return MPAnimation;}();
+
+
+
+var animateTypes1 = ['matrix', 'matrix3d', 'rotate', 'rotate3d', 'rotateX', 'rotateY', 'rotateZ', 'scale', 'scale3d',
+'scaleX', 'scaleY', 'scaleZ', 'skew', 'skewX', 'skewY', 'translate', 'translate3d', 'translateX', 'translateY',
+'translateZ'];
+
+var animateTypes2 = ['opacity', 'backgroundColor'];
+var animateTypes3 = ['width', 'height', 'left', 'right', 'top', 'bottom'];
+animateTypes1.concat(animateTypes2, animateTypes3).forEach(function (type) {
+  MPAnimation.prototype[type] = function () {var _this$animation;
+
+    (_this$animation = this.animation)[type].apply(_this$animation, arguments);
+
+
+
+
+    return this;
+  };
+});
+
+function createAnimation(option, _this) {
+  if (!_this) return;
+  clearTimeout(_this.timer);
+  return new MPAnimation(option, _this);
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 6:
+/*!*******************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-stat/dist/index.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var _package = __webpack_require__(/*! ../package.json */ 7);function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = _getPrototypeOf(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+var STAT_VERSION = _package.version;
+var STAT_URL = 'https://tongji.dcloud.io/uni/stat';
+var STAT_H5_URL = 'https://tongji.dcloud.io/uni/stat.gif';
+var PAGE_PVER_TIME = 1800;
+var APP_PVER_TIME = 300;
+var OPERATING_TIME = 10;
+var DIFF_TIME = 60 * 1000 * 60 * 24;
+
+var statConfig = __webpack_require__(/*! uni-stat-config */ 8).default || __webpack_require__(/*! uni-stat-config */ 8);
+var UUID_KEY = '__DC_STAT_UUID';
+var UUID_VALUE = '__DC_UUID_VALUE';
+
+function getUuid() {
+  var uuid = '';
+  if (getPlatformName() === 'n') {
+    try {
+      uuid = plus.runtime.getDCloudId();
+    } catch (e) {
+      uuid = '';
+    }
+    return uuid;
+  }
+
+  try {
+    uuid = uni.getStorageSync(UUID_KEY);
+  } catch (e) {
+    uuid = UUID_VALUE;
+  }
+
+  if (!uuid) {
+    uuid = Date.now() + '' + Math.floor(Math.random() * 1e7);
+    try {
+      uni.setStorageSync(UUID_KEY, uuid);
+    } catch (e) {
+      uni.setStorageSync(UUID_KEY, UUID_VALUE);
+    }
+  }
+  return uuid;
+}
+
+var getSgin = function getSgin(statData) {
+  var arr = Object.keys(statData);
+  var sortArr = arr.sort();
+  var sgin = {};
+  var sginStr = '';
+  for (var i in sortArr) {
+    sgin[sortArr[i]] = statData[sortArr[i]];
+    sginStr += sortArr[i] + '=' + statData[sortArr[i]] + '&';
+  }
+  // const options = sginStr.substr(0, sginStr.length - 1)
+  // sginStr = sginStr.substr(0, sginStr.length - 1) + '&key=' + STAT_KEY;
+  // const si = crypto.createHash('md5').update(sginStr).digest('hex');
+  return {
+    sign: '',
+    options: sginStr.substr(0, sginStr.length - 1) };
+
+};
+
+var getSplicing = function getSplicing(data) {
+  var str = '';
+  for (var i in data) {
+    str += i + '=' + data[i] + '&';
+  }
+  return str.substr(0, str.length - 1);
+};
+
+var getTime = function getTime() {
+  return parseInt(new Date().getTime() / 1000);
+};
+
+var getPlatformName = function getPlatformName() {var _platformList;
+  var aliArr = ['y', 'a', 'p', 'mp-ali'];
+  var platformList = (_platformList = {
+    'app-plus': 'n',
+    'h5': 'h5',
+    'mp-weixin': 'wx' }, _defineProperty(_platformList,
+  aliArr.reverse().join(''), 'ali'), _defineProperty(_platformList,
+  'mp-baidu', 'bd'), _defineProperty(_platformList,
+  'mp-toutiao', 'tt'), _defineProperty(_platformList,
+  'mp-qq', 'qq'), _defineProperty(_platformList,
+  'mp-jd', 'jd'), _defineProperty(_platformList,
+  'quickapp-native', 'qn'), _defineProperty(_platformList,
+  'mp-kuaishou', 'ks'), _platformList);
+
+  return platformList["mp-weixin"];
+};
+
+var getPackName = function getPackName() {
+  var packName = '';
+  if (getPlatformName() === 'wx' || getPlatformName() === 'qq') {
+    // 兼容微信小程序低版本基础库
+    if (uni.canIUse('getAccountInfoSync')) {
+      packName = uni.getAccountInfoSync().miniProgram.appId || '';
+    }
+  }
+  return packName;
+};
+
+var getVersion = function getVersion() {
+  return getPlatformName() === 'n' ? plus.runtime.version : '';
+};
+
+var getChannel = function getChannel() {
+  var platformName = getPlatformName();
+  var channel = '';
+  if (platformName === 'n') {
+    channel = plus.runtime.channel;
+  }
+  return channel;
+};
+
+var getScene = function getScene(options) {
+  var platformName = getPlatformName();
+  var scene = '';
+  if (options) {
+    return options;
+  }
+  if (platformName === 'wx') {
+    scene = uni.getLaunchOptionsSync().scene;
+  }
+  return scene;
+};
+var First__Visit__Time__KEY = 'First__Visit__Time';
+var Last__Visit__Time__KEY = 'Last__Visit__Time';
+
+var getFirstVisitTime = function getFirstVisitTime() {
+  var timeStorge = uni.getStorageSync(First__Visit__Time__KEY);
+  var time = 0;
+  if (timeStorge) {
+    time = timeStorge;
+  } else {
+    time = getTime();
+    uni.setStorageSync(First__Visit__Time__KEY, time);
+    uni.removeStorageSync(Last__Visit__Time__KEY);
+  }
+  return time;
+};
+
+var getLastVisitTime = function getLastVisitTime() {
+  var timeStorge = uni.getStorageSync(Last__Visit__Time__KEY);
+  var time = 0;
+  if (timeStorge) {
+    time = timeStorge;
+  } else {
+    time = '';
+  }
+  uni.setStorageSync(Last__Visit__Time__KEY, getTime());
+  return time;
+};
+
+
+var PAGE_RESIDENCE_TIME = '__page__residence__time';
+var First_Page_residence_time = 0;
+var Last_Page_residence_time = 0;
+
+
+var setPageResidenceTime = function setPageResidenceTime() {
+  First_Page_residence_time = getTime();
+  if (getPlatformName() === 'n') {
+    uni.setStorageSync(PAGE_RESIDENCE_TIME, getTime());
+  }
+  return First_Page_residence_time;
+};
+
+var getPageResidenceTime = function getPageResidenceTime() {
+  Last_Page_residence_time = getTime();
+  if (getPlatformName() === 'n') {
+    First_Page_residence_time = uni.getStorageSync(PAGE_RESIDENCE_TIME);
+  }
+  return Last_Page_residence_time - First_Page_residence_time;
+};
+var TOTAL__VISIT__COUNT = 'Total__Visit__Count';
+var getTotalVisitCount = function getTotalVisitCount() {
+  var timeStorge = uni.getStorageSync(TOTAL__VISIT__COUNT);
+  var count = 1;
+  if (timeStorge) {
+    count = timeStorge;
+    count++;
+  }
+  uni.setStorageSync(TOTAL__VISIT__COUNT, count);
+  return count;
+};
+
+var GetEncodeURIComponentOptions = function GetEncodeURIComponentOptions(statData) {
+  var data = {};
+  for (var prop in statData) {
+    data[prop] = encodeURIComponent(statData[prop]);
+  }
+  return data;
+};
+
+var Set__First__Time = 0;
+var Set__Last__Time = 0;
+
+var getFirstTime = function getFirstTime() {
+  var time = new Date().getTime();
+  Set__First__Time = time;
+  Set__Last__Time = 0;
+  return time;
+};
+
+
+var getLastTime = function getLastTime() {
+  var time = new Date().getTime();
+  Set__Last__Time = time;
+  return time;
+};
+
+
+var getResidenceTime = function getResidenceTime(type) {
+  var residenceTime = 0;
+  if (Set__First__Time !== 0) {
+    residenceTime = Set__Last__Time - Set__First__Time;
+  }
+
+  residenceTime = parseInt(residenceTime / 1000);
+  residenceTime = residenceTime < 1 ? 1 : residenceTime;
+  if (type === 'app') {
+    var overtime = residenceTime > APP_PVER_TIME ? true : false;
+    return {
+      residenceTime: residenceTime,
+      overtime: overtime };
+
+  }
+  if (type === 'page') {
+    var _overtime = residenceTime > PAGE_PVER_TIME ? true : false;
+    return {
+      residenceTime: residenceTime,
+      overtime: _overtime };
+
+  }
+
+  return {
+    residenceTime: residenceTime };
+
+
+};
+
+var getRoute = function getRoute() {
+  var pages = getCurrentPages();
+  var page = pages[pages.length - 1];
+  if (!page) return '';
+  var _self = page.$vm;
+
+  if (getPlatformName() === 'bd') {
+    return _self.$mp && _self.$mp.page.is;
+  } else {
+    return _self.$scope && _self.$scope.route || _self.$mp && _self.$mp.page.route;
+  }
+};
+
+var getPageRoute = function getPageRoute(self) {
+  var pages = getCurrentPages();
+  var page = pages[pages.length - 1];
+  if (!page) return '';
+  var _self = page.$vm;
+  var query = self._query;
+  var str = query && JSON.stringify(query) !== '{}' ? '?' + JSON.stringify(query) : '';
+  // clear
+  self._query = '';
+  if (getPlatformName() === 'bd') {
+    return _self.$mp && _self.$mp.page.is + str;
+  } else {
+    return _self.$scope && _self.$scope.route + str || _self.$mp && _self.$mp.page.route + str;
+  }
+};
+
+var getPageTypes = function getPageTypes(self) {
+  if (self.mpType === 'page' || self.$mp && self.$mp.mpType === 'page' || self.$options.mpType === 'page') {
+    return true;
+  }
+  return false;
+};
+
+var calibration = function calibration(eventName, options) {
+  //  login 、 share 、pay_success 、pay_fail 、register 、title
+  if (!eventName) {
+    console.error("uni.report \u7F3A\u5C11 [eventName] \u53C2\u6570");
+    return true;
+  }
+  if (typeof eventName !== 'string') {
+    console.error("uni.report [eventName] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u7C7B\u578B");
+    return true;
+  }
+  if (eventName.length > 255) {
+    console.error("uni.report [eventName] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
+    return true;
+  }
+
+  if (typeof options !== 'string' && typeof options !== 'object') {
+    console.error("uni.report [options] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u6216 Object \u7C7B\u578B");
+    return true;
+  }
+
+  if (typeof options === 'string' && options.length > 255) {
+    console.error("uni.report [options] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
+    return true;
+  }
+
+  if (eventName === 'title' && typeof options !== 'string') {
+    console.error('uni.report [eventName] 参数为 title 时，[options] 参数只能为 String 类型');
+    return true;
+  }
+};
+
+var Report_Data_Time = 'Report_Data_Time';
+var Report_Status = 'Report_Status';
+var isReportData = function isReportData() {
+  return new Promise(function (resolve, reject) {
+    var start_time = '';
+    var end_time = new Date().getTime();
+    var diff_time = DIFF_TIME;
+    var report_status = 1;
+    try {
+      start_time = uni.getStorageSync(Report_Data_Time);
+      report_status = uni.getStorageSync(Report_Status);
+    } catch (e) {
+      start_time = '';
+      report_status = 1;
+    }
+
+    if (report_status === '') {
+      requestData(function (_ref)
+
+      {var enable = _ref.enable;
+        uni.setStorageSync(Report_Data_Time, end_time);
+        uni.setStorageSync(Report_Status, enable);
+        if (enable === 1) {
+          resolve();
+        }
+      });
+      return;
+    }
+
+    if (report_status === 1) {
+      resolve();
+    }
+
+    if (!start_time) {
+      uni.setStorageSync(Report_Data_Time, end_time);
+      start_time = end_time;
+    }
+
+    if (end_time - start_time > diff_time) {
+      requestData(function (_ref2)
+
+      {var enable = _ref2.enable;
+        uni.setStorageSync(Report_Data_Time, end_time);
+        uni.setStorageSync(Report_Status, enable);
+      });
+    }
+
+  });
+};
+
+var requestData = function requestData(done) {
+  var formData = {
+    usv: STAT_VERSION,
+    conf: JSON.stringify({
+      ak: statConfig.appid }) };
+
+
+  uni.request({
+    url: STAT_URL,
+    method: 'GET',
+    data: formData,
+    success: function success(res) {var
+
+      data =
+      res.data;
+      if (data.ret === 0) {
+        typeof done === 'function' && done({
+          enable: data.enable });
+
+      }
+    },
+    fail: function fail(e) {
+      var report_status_code = 1;
+      try {
+        report_status_code = uni.getStorageSync(Report_Status);
+      } catch (e) {
+        report_status_code = 1;
+      }
+      if (report_status_code === '') {
+        report_status_code = 1;
+      }
+      typeof done === 'function' && done({
+        enable: report_status_code });
+
+    } });
+
+};
+
+var PagesJson = __webpack_require__(/*! uni-pages?{"type":"style"} */ 9).default;
+var statConfig$1 = __webpack_require__(/*! uni-stat-config */ 8).default || __webpack_require__(/*! uni-stat-config */ 8);
+
+var resultOptions = uni.getSystemInfoSync();var
+
+Util = /*#__PURE__*/function () {
+  function Util() {_classCallCheck(this, Util);
+    this.self = '';
+    this._retry = 0;
+    this._platform = '';
+    this._query = {};
+    this._navigationBarTitle = {
+      config: '',
+      page: '',
+      report: '',
+      lt: '' };
+
+    this._operatingTime = 0;
+    this._reportingRequestData = {
+      '1': [],
+      '11': [] };
+
+    this.__prevent_triggering = false;
+
+    this.__licationHide = false;
+    this.__licationShow = false;
+    this._lastPageRoute = '';
+    this.statData = {
+      uuid: getUuid(),
+      ut: getPlatformName(),
+      mpn: getPackName(),
+      ak: statConfig$1.appid,
+      usv: STAT_VERSION,
+      v: getVersion(),
+      ch: getChannel(),
+      cn: '',
+      pn: '',
+      ct: '',
+      t: getTime(),
+      tt: '',
+      p: resultOptions.platform === 'android' ? 'a' : 'i',
+      brand: resultOptions.brand || '',
+      md: resultOptions.model,
+      sv: resultOptions.system.replace(/(Android|iOS)\s/, ''),
+      mpsdk: resultOptions.SDKVersion || '',
+      mpv: resultOptions.version || '',
+      lang: resultOptions.language,
+      pr: resultOptions.pixelRatio,
+      ww: resultOptions.windowWidth,
+      wh: resultOptions.windowHeight,
+      sw: resultOptions.screenWidth,
+      sh: resultOptions.screenHeight };
+
+
+  }_createClass(Util, [{ key: "getIsReportData", value: function getIsReportData()
+
+    {
+      return isReportData();
+    } }, { key: "_applicationShow", value: function _applicationShow()
+
+    {
+      if (this.__licationHide) {
+        getLastTime();
+        var time = getResidenceTime('app');
+        if (time.overtime) {
+          var options = {
+            path: this._lastPageRoute,
+            scene: this.statData.sc };
+
+          this._sendReportRequest(options);
+        }
+        this.__licationHide = false;
+      }
+    } }, { key: "_applicationHide", value: function _applicationHide(
+
+    self, type) {
+
+      this.__licationHide = true;
+      getLastTime();
+      var time = getResidenceTime();
+      getFirstTime();
+      var route = getPageRoute(this);
+      this._sendHideRequest({
+        urlref: route,
+        urlref_ts: time.residenceTime },
+      type);
+    } }, { key: "_pageShow", value: function _pageShow()
+
+    {
+      var route = getPageRoute(this);
+      var routepath = getRoute();
+      this._navigationBarTitle.config = PagesJson &&
+      PagesJson.pages[routepath] &&
+      PagesJson.pages[routepath].titleNView &&
+      PagesJson.pages[routepath].titleNView.titleText ||
+      PagesJson &&
+      PagesJson.pages[routepath] &&
+      PagesJson.pages[routepath].navigationBarTitleText || '';
+
+      if (this.__licationShow) {
+        getFirstTime();
+        this.__licationShow = false;
+        // console.log('这是 onLauch 之后执行的第一次 pageShow ，为下次记录时间做准备');
+        this._lastPageRoute = route;
+        return;
+      }
+
+      getLastTime();
+      this._lastPageRoute = route;
+      var time = getResidenceTime('page');
+      if (time.overtime) {
+        var options = {
+          path: this._lastPageRoute,
+          scene: this.statData.sc };
+
+        this._sendReportRequest(options);
+      }
+      getFirstTime();
+    } }, { key: "_pageHide", value: function _pageHide()
+
+    {
+      if (!this.__licationHide) {
+        getLastTime();
+        var time = getResidenceTime('page');
+        this._sendPageRequest({
+          url: this._lastPageRoute,
+          urlref: this._lastPageRoute,
+          urlref_ts: time.residenceTime });
+
+        this._navigationBarTitle = {
+          config: '',
+          page: '',
+          report: '',
+          lt: '' };
+
+        return;
+      }
+    } }, { key: "_login", value: function _login()
+
+    {
+      this._sendEventRequest({
+        key: 'login' },
+      0);
+    } }, { key: "_share", value: function _share()
+
+    {
+      this._sendEventRequest({
+        key: 'share' },
+      0);
+    } }, { key: "_payment", value: function _payment(
+    key) {
+      this._sendEventRequest({
+        key: key },
+      0);
+    } }, { key: "_sendReportRequest", value: function _sendReportRequest(
+    options) {
+
+      this._navigationBarTitle.lt = '1';
+      var query = options.query && JSON.stringify(options.query) !== '{}' ? '?' + JSON.stringify(options.query) : '';
+      this.statData.lt = '1';
+      this.statData.url = options.path + query || '';
+      this.statData.t = getTime();
+      this.statData.sc = getScene(options.scene);
+      this.statData.fvts = getFirstVisitTime();
+      this.statData.lvts = getLastVisitTime();
+      this.statData.tvc = getTotalVisitCount();
+      if (getPlatformName() === 'n') {
+        this.getProperty();
+      } else {
+        this.getNetworkInfo();
+      }
+    } }, { key: "_sendPageRequest", value: function _sendPageRequest(
+
+    opt) {var
+
+      url =
+
+
+      opt.url,urlref = opt.urlref,urlref_ts = opt.urlref_ts;
+      this._navigationBarTitle.lt = '11';
+      var options = {
+        ak: this.statData.ak,
+        uuid: this.statData.uuid,
+        lt: '11',
+        ut: this.statData.ut,
+        url: url,
+        tt: this.statData.tt,
+        urlref: urlref,
+        urlref_ts: urlref_ts,
+        ch: this.statData.ch,
+        usv: this.statData.usv,
+        t: getTime(),
+        p: this.statData.p };
+
+      this.request(options);
+    } }, { key: "_sendHideRequest", value: function _sendHideRequest(
+
+    opt, type) {var
+
+      urlref =
+
+      opt.urlref,urlref_ts = opt.urlref_ts;
+      var options = {
+        ak: this.statData.ak,
+        uuid: this.statData.uuid,
+        lt: '3',
+        ut: this.statData.ut,
+        urlref: urlref,
+        urlref_ts: urlref_ts,
+        ch: this.statData.ch,
+        usv: this.statData.usv,
+        t: getTime(),
+        p: this.statData.p };
+
+      this.request(options, type);
+    } }, { key: "_sendEventRequest", value: function _sendEventRequest()
+
+
+
+    {var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref3$key = _ref3.key,key = _ref3$key === void 0 ? '' : _ref3$key,_ref3$value = _ref3.value,value = _ref3$value === void 0 ? "" : _ref3$value;
+      var route = this._lastPageRoute;
+      var options = {
+        ak: this.statData.ak,
+        uuid: this.statData.uuid,
+        lt: '21',
+        ut: this.statData.ut,
+        url: route,
+        ch: this.statData.ch,
+        e_n: key,
+        e_v: typeof value === 'object' ? JSON.stringify(value) : value.toString(),
+        usv: this.statData.usv,
+        t: getTime(),
+        p: this.statData.p };
+
+      this.request(options);
+    } }, { key: "getNetworkInfo", value: function getNetworkInfo()
+
+    {var _this = this;
+      uni.getNetworkType({
+        success: function success(result) {
+          _this.statData.net = result.networkType;
+          _this.getLocation();
+        } });
+
+    } }, { key: "getProperty", value: function getProperty()
+
+    {var _this2 = this;
+      plus.runtime.getProperty(plus.runtime.appid, function (wgtinfo) {
+        _this2.statData.v = wgtinfo.version || '';
+        _this2.getNetworkInfo();
+      });
+    } }, { key: "getLocation", value: function getLocation()
+
+    {var _this3 = this;
+      if (statConfig$1.getLocation) {
+        uni.getLocation({
+          type: 'wgs84',
+          geocode: true,
+          success: function success(result) {
+            if (result.address) {
+              _this3.statData.cn = result.address.country;
+              _this3.statData.pn = result.address.province;
+              _this3.statData.ct = result.address.city;
+            }
+
+            _this3.statData.lat = result.latitude;
+            _this3.statData.lng = result.longitude;
+            _this3.request(_this3.statData);
+          } });
+
+      } else {
+        this.statData.lat = 0;
+        this.statData.lng = 0;
+        this.request(this.statData);
+      }
+    } }, { key: "request", value: function request(
+
+    data, type) {var _this4 = this;
+      var time = getTime();
+      var title = this._navigationBarTitle;
+      data.ttn = title.page;
+      data.ttpj = title.config;
+      data.ttc = title.report;
+
+      var requestData = this._reportingRequestData;
+      if (getPlatformName() === 'n') {
+        requestData = uni.getStorageSync('__UNI__STAT__DATA') || {};
+      }
+      if (!requestData[data.lt]) {
+        requestData[data.lt] = [];
+      }
+      requestData[data.lt].push(data);
+
+      if (getPlatformName() === 'n') {
+        uni.setStorageSync('__UNI__STAT__DATA', requestData);
+      }
+      if (getPageResidenceTime() < OPERATING_TIME && !type) {
+        return;
+      }
+      var uniStatData = this._reportingRequestData;
+      if (getPlatformName() === 'n') {
+        uniStatData = uni.getStorageSync('__UNI__STAT__DATA');
+      }
+      // 时间超过，重新获取时间戳
+      setPageResidenceTime();
+      var firstArr = [];
+      var contentArr = [];
+      var lastArr = [];var _loop = function _loop(
+
+      i) {
+        var rd = uniStatData[i];
+        rd.forEach(function (elm) {
+          var newData = getSplicing(elm);
+          if (i === 0) {
+            firstArr.push(newData);
+          } else if (i === 3) {
+            lastArr.push(newData);
+          } else {
+            contentArr.push(newData);
+          }
+        });};for (var i in uniStatData) {_loop(i);
+      }
+
+      firstArr.push.apply(firstArr, contentArr.concat(lastArr));
+      var optionsData = {
+        usv: STAT_VERSION, //统计 SDK 版本号
+        t: time, //发送请求时的时间戮
+        requests: JSON.stringify(firstArr) };
+
+
+      this._reportingRequestData = {};
+      if (getPlatformName() === 'n') {
+        uni.removeStorageSync('__UNI__STAT__DATA');
+      }
+
+      if (data.ut === 'h5') {
+        this.imageRequest(optionsData);
+        return;
+      }
+
+      if (getPlatformName() === 'n' && this.statData.p === 'a') {
+        setTimeout(function () {
+          _this4._sendRequest(optionsData);
+        }, 200);
+        return;
+      }
+      this._sendRequest(optionsData);
+    } }, { key: "_sendRequest", value: function _sendRequest(
+    optionsData) {var _this5 = this;
+      this.getIsReportData().then(function () {
+        uni.request({
+          url: STAT_URL,
+          method: 'POST',
+          // header: {
+          //   'content-type': 'application/json' // 默认值
+          // },
+          data: optionsData,
+          success: function success() {
+            // if (process.env.NODE_ENV === 'development') {
+            //   console.log('stat request success');
+            // }
+          },
+          fail: function fail(e) {
+            if (++_this5._retry < 3) {
+              setTimeout(function () {
+                _this5._sendRequest(optionsData);
+              }, 1000);
+            }
+          } });
+
+      });
+    }
+    /**
+       * h5 请求
+       */ }, { key: "imageRequest", value: function imageRequest(
+    data) {
+      this.getIsReportData().then(function () {
+        var image = new Image();
+        var options = getSgin(GetEncodeURIComponentOptions(data)).options;
+        image.src = STAT_H5_URL + '?' + options;
+      });
+    } }, { key: "sendEvent", value: function sendEvent(
+
+    key, value) {
+      // 校验 type 参数
+      if (calibration(key, value)) return;
+
+      if (key === 'title') {
+        this._navigationBarTitle.report = value;
+        return;
+      }
+      this._sendEventRequest({
+        key: key,
+        value: typeof value === 'object' ? JSON.stringify(value) : value },
+      1);
+    } }]);return Util;}();var
+
+
+
+Stat = /*#__PURE__*/function (_Util) {_inherits(Stat, _Util);var _super = _createSuper(Stat);_createClass(Stat, null, [{ key: "getInstance", value: function getInstance()
+    {
+      if (!this.instance) {
+        this.instance = new Stat();
+      }
+      return this.instance;
+    } }]);
+  function Stat() {var _this6;_classCallCheck(this, Stat);
+    _this6 = _super.call(this);
+    _this6.instance = null;
+    // 注册拦截器
+    if (typeof uni.addInterceptor === 'function' && "development" !== 'development') {
+      _this6.addInterceptorInit();
+      _this6.interceptLogin();
+      _this6.interceptShare(true);
+      _this6.interceptRequestPayment();
+    }return _this6;
+  }_createClass(Stat, [{ key: "addInterceptorInit", value: function addInterceptorInit()
+
+    {
+      var self = this;
+      uni.addInterceptor('setNavigationBarTitle', {
+        invoke: function invoke(args) {
+          self._navigationBarTitle.page = args.title;
+        } });
+
+    } }, { key: "interceptLogin", value: function interceptLogin()
+
+    {
+      var self = this;
+      uni.addInterceptor('login', {
+        complete: function complete() {
+          self._login();
+        } });
+
+    } }, { key: "interceptShare", value: function interceptShare(
+
+    type) {
+      var self = this;
+      if (!type) {
+        self._share();
+        return;
+      }
+      uni.addInterceptor('share', {
+        success: function success() {
+          self._share();
+        },
+        fail: function fail() {
+          self._share();
+        } });
+
+    } }, { key: "interceptRequestPayment", value: function interceptRequestPayment()
+
+    {
+      var self = this;
+      uni.addInterceptor('requestPayment', {
+        success: function success() {
+          self._payment('pay_success');
+        },
+        fail: function fail() {
+          self._payment('pay_fail');
+        } });
+
+    } }, { key: "report", value: function report(
+
+    options, self) {
+      this.self = self;
+      // if (process.env.NODE_ENV === 'development') {
+      //   console.log('report init');
+      // }
+      setPageResidenceTime();
+      this.__licationShow = true;
+      this._sendReportRequest(options, true);
+    } }, { key: "load", value: function load(
+
+    options, self) {
+      if (!self.$scope && !self.$mp) {
+        var page = getCurrentPages();
+        self.$scope = page[page.length - 1];
+      }
+      this.self = self;
+      this._query = options;
+    } }, { key: "show", value: function show(
+
+    self) {
+      this.self = self;
+      if (getPageTypes(self)) {
+        this._pageShow(self);
+      } else {
+        this._applicationShow(self);
+      }
+    } }, { key: "ready", value: function ready(
+
+    self) {
+      // this.self = self;
+      // if (getPageTypes(self)) {
+      //   this._pageShow(self);
+      // }
+    } }, { key: "hide", value: function hide(
+    self) {
+      this.self = self;
+      if (getPageTypes(self)) {
+        this._pageHide(self);
+      } else {
+        this._applicationHide(self, true);
+      }
+    } }, { key: "error", value: function error(
+    em) {
+      if (this._platform === 'devtools') {
+        if (true) {
+          console.info('当前运行环境为开发者工具，不上报数据。');
+        }
+        // return;
+      }
+      var emVal = '';
+      if (!em.message) {
+        emVal = JSON.stringify(em);
+      } else {
+        emVal = em.stack;
+      }
+      var options = {
+        ak: this.statData.ak,
+        uuid: this.statData.uuid,
+        lt: '31',
+        ut: this.statData.ut,
+        ch: this.statData.ch,
+        mpsdk: this.statData.mpsdk,
+        mpv: this.statData.mpv,
+        v: this.statData.v,
+        em: emVal,
+        usv: this.statData.usv,
+        t: getTime(),
+        p: this.statData.p };
+
+      this.request(options);
+    } }]);return Stat;}(Util);
+
+
+var stat = Stat.getInstance();
+var isHide = false;
+var lifecycle = {
+  onLaunch: function onLaunch(options) {
+    stat.report(options, this);
+  },
+  onReady: function onReady() {
+    stat.ready(this);
+  },
+  onLoad: function onLoad(options) {
+    stat.load(options, this);
+    // 重写分享，获取分享上报事件
+    if (this.$scope && this.$scope.onShareAppMessage) {
+      var oldShareAppMessage = this.$scope.onShareAppMessage;
+      this.$scope.onShareAppMessage = function (options) {
+        stat.interceptShare(false);
+        return oldShareAppMessage.call(this, options);
+      };
+    }
+  },
+  onShow: function onShow() {
+    isHide = false;
+    stat.show(this);
+  },
+  onHide: function onHide() {
+    isHide = true;
+    stat.hide(this);
+  },
+  onUnload: function onUnload() {
+    if (isHide) {
+      isHide = false;
+      return;
+    }
+    stat.hide(this);
+  },
+  onError: function onError(e) {
+    stat.error(e);
+  } };
+
+
+function main() {
+  if (true) {
+    uni.report = function (type, options) {};
+  } else { var Vue; }
+}
+
+main();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -32590,7 +32590,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/tabbar": { "navigationBarTitleText": "", "navigationStyle": "custom", "usingComponents": { "xiaobing": "/pages/index/xiaobing", "index": "/pages/index/inedx", "search": "/pages/index/search", "cases": "/pages/index/main", "news": "/pages/index/news", "me": "/pages/index/me" }, "usingAutoImportComponents": {} }, "pages/setinfo/setinfo": { "navigationBarTitleText": "", "navigationStyle": "custom", "usingComponents": { "ec-canvas": "/wxcomponents/ec-canvas/ec-canvas" }, "usingAutoImportComponents": {} }, "pages/breakfast/breakfast": { "navigationBarTitleText": "", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-popup": "/uview-ui/components/u-popup/u-popup" } }, "pages/info/info": { "navigationBarTitleText": "", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/salary": { "navigationBarTitleText": "薪资排行", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/aboutMe": { "navigationBarTitleText": "关于作者", "navigationStyle": "custom", "usingComponents": { "like-fx": "/components/likeFx/likeFx" }, "usingAutoImportComponents": {} }, "pages/me/mentalTest/list": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/mentalTest/index": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-line": "/uview-ui/components/u-line/u-line", "u-icon": "/uview-ui/components/u-icon/u-icon", "u-mask": "/uview-ui/components/u-mask/u-mask" } }, "pages/me/mentalTest/explain": { "navigationBarTitleText": "答题规则说明", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/news/news": { "navigationBarTitleText": "资讯详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/course": { "navigationBarTitleText": "班级课程", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-tabs-swiper": "/uview-ui/components/u-tabs-swiper/u-tabs-swiper", "u-icon": "/uview-ui/components/u-icon/u-icon", "u-line-progress": "/uview-ui/components/u-line-progress/u-line-progress", "u-line": "/uview-ui/components/u-line/u-line", "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore" } }, "pages/video": { "navigationBarTitleText": "视频播放", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon" } }, "pages/project/list": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar" } }, "pages/project/project": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/timeline": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-tabs-swiper": "/uview-ui/components/u-tabs-swiper/u-tabs-swiper" } }, "pages/design": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar", "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall", "u-lazy-load": "/uview-ui/components/u-lazy-load/u-lazy-load", "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore" }, "genericComponents": ["design-u-waterfall-left", "design-u-waterfall-right"] }, "pages/lunch/lunch": { "navigationBarTitleText": "", "enablePullDownRefresh": false, "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/pano": { "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/bggrad": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/bgcolor": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/ancube": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/anloading": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/mimicry": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/mapLocus": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/charts": { "navigationBarTitleText": "图表展示", "usingComponents": {}, "usingAutoImportComponents": { "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar" } }, "tn_components/poster": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/discern": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar" } }, "tn_components/sign": { "navigationBarTitleText": "电子签名", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/district": { "navigationBarTitleText": "行政区图", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/search": { "navigationStyle": "custom", "navigationBarTitleText": "便捷查询", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-search": "/uview-ui/components/u-search/u-search" } }, "tn_components/openDocument": { "navigationStyle": "custom", "navigationBarTitleText": "文档预览", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/company": { "navigationBarTitleText": "自定义相机", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/timeline": { "navigationBarTitleText": "时间轴", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/guide": { "navigationStyle": "custom", "navigationBarTitleText": "引导页面", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/request": { "navigationStyle": "custom", "navigationBarTitleText": "模拟数据加载", "usingComponents": {}, "usingAutoImportComponents": {} }, "tn_components/keyboard": { "navigationStyle": "custom", "usingComponents": { "plate-input": "/components/uni-plate-input/uni-plate-input" }, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/tabbar": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/setinfo/setinfo": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/info/info": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/me/salary": { "navigationBarTitleText": "薪资排行", "navigationStyle": "custom" }, "pages/me/aboutMe": { "navigationBarTitleText": "关于作者", "navigationStyle": "custom" }, "pages/me/mentalTest/list": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom" }, "pages/me/mentalTest/index": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom" }, "pages/me/mentalTest/explain": { "navigationBarTitleText": "答题规则说明" }, "pages/news/news": { "navigationBarTitleText": "资讯详情" }, "pages/me/course": { "navigationBarTitleText": "班级课程", "navigationStyle": "custom" }, "pages/video": { "navigationBarTitleText": "视频播放" }, "pages/project/list": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom" }, "pages/project/project": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom" }, "pages/timeline": { "navigationStyle": "custom" }, "pages/design": { "navigationStyle": "custom" }, "pages/lunch/lunch": { "navigationBarTitleText": "", "enablePullDownRefresh": false }, "tn_components/pano": {}, "tn_components/bggrad": { "navigationStyle": "custom" }, "tn_components/bgcolor": { "navigationStyle": "custom" }, "tn_components/ancube": { "navigationStyle": "custom" }, "tn_components/anloading": { "navigationStyle": "custom" }, "tn_components/mimicry": { "navigationStyle": "custom" }, "tn_components/mapLocus": { "navigationStyle": "custom" }, "tn_components/charts": { "navigationBarTitleText": "图表展示" }, "tn_components/poster": { "navigationStyle": "custom" }, "tn_components/discern": { "navigationStyle": "custom" }, "tn_components/sign": { "navigationBarTitleText": "电子签名" }, "tn_components/district": { "navigationBarTitleText": "行政区图" }, "tn_components/search": { "navigationStyle": "custom", "navigationBarTitleText": "便捷查询" }, "tn_components/openDocument": { "navigationStyle": "custom", "navigationBarTitleText": "文档预览" }, "tn_components/company": { "navigationBarTitleText": "自定义相机" }, "tn_components/timeline": { "navigationBarTitleText": "时间轴" }, "tn_components/guide": { "navigationStyle": "custom", "navigationBarTitleText": "引导页面" }, "tn_components/request": { "navigationStyle": "custom", "navigationBarTitleText": "模拟数据加载" }, "tn_components/keyboard": { "navigationStyle": "custom" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ })
 

@@ -63,7 +63,8 @@
 				<van-grid column-num="3" border="false">
 					<van-grid-item use-slot text="糖分" style="text-align: center;">
 						<view style="height: 160px">
-							<van-circle style="display: block;margin: 5px 0;" :value="current.currentSugar/target.targetSugar*100" size="60"
+							<van-circle style="display: block;margin: 5px 0;"
+								:value="current.currentSugar/target.targetSugar*100" size="60"
 								:text="current.currentSugar" :color="gradientColor[0]" />
 							<text class="gridtext">糖分</text>
 						</view>
@@ -74,16 +75,17 @@
 						<text class="gridtext">脂肪</text> -->
 						<view style="height: 180px;z-index: 1;margin-top: -20px;">
 							<view class="charts-box">
-								<qiun-data-charts type="gauge" :chartData="chartData"
-									:loadingType="4" :errorShow="false" background="none" />
+								<qiun-data-charts type="gauge" :chartData="chartData" :loadingType="4"
+									:errorShow="false" background="none" />
 							</view>
 						</view>
 
 					</van-grid-item>
-					<van-grid-item use-slot text="脂肪"  style="text-align: center;">
+					<van-grid-item use-slot text="脂肪" style="text-align: center;">
 						<view style="height: 160px">
-							<van-circle style="display: block;margin: 5px 0;" :value="current.currentFat/target.targetFat*100" size="60"
-								:text="current.currentFat" :color="gradientColor[2]" />
+							<van-circle style="display: block;margin: 5px 0;"
+								:value="current.currentFat/target.targetFat*100" size="60" :text="current.currentFat"
+								:color="gradientColor[2]" />
 							<text class="gridtext">脂肪</text>
 						</view>
 					</van-grid-item>
@@ -162,10 +164,12 @@
 			</view>
 		</view>
 
-
-
-
 		<view style="height: 140rpx;width: 1rpx;"></view>
+		<u-popup v-model="logion" mode="center" height="320rpx" :mask-close-able="false" width="530rpx"
+			border-radius="10">
+			<view class="sdsfsdfd"> 请登录 </view>
+			<button class="anniudddfd" @click="getUserInfo"> 立即登录 </button>
+		</u-popup>
 	</view>
 </template>
 
@@ -181,6 +185,11 @@
 		},
 		data() {
 			return {
+				//登录测试
+				logion: false,
+				hasUserInfo: false,
+				userInfo: null,
+				//
 				mystylelist: ['primary', 'success', 'danger', 'warning'],
 				show: true,
 				// 仪表盘
@@ -283,14 +292,9 @@
 				dishList: []
 			}
 		},
-		watch: {
-
-		},
 		onLoad() {
-
 		},
 		mounted() {
-			console.log(this.projectList)
 			this.getData();
 			this.$nextTick(function() {
 				console.log(uni.createSelectorQuery().in(this))
@@ -303,15 +307,106 @@
 			_self = this;
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(420);
-			this.getServerData();
+			if (uni.getStorageSync('itemlogin') == '') {
+				this.logion = true
+			} else {
+				this.logion = false
+			}
 		},
 		methods: {
-			getData() {
-				let user = {
-					user_id: '8'
-				}
-				console.log('数据加载')
+			getUserInfo() {
+				this.logion = false
+				wx.getUserProfile({
+					desc: '用于完善会员资料',
+					success: (resinfo) => {
+						console.log(resinfo, "resinfo");
+						wx.login({
+							success: (res) => {
+								console.log(resinfo, "code");
+								if (res.code) {
+									console.log(res.code, "getProfile");
+									this.setCode(res.code, resinfo);
+								} else {
+									console.log(res.errMsg);
+								}
+							},
+							fail: (err) => {
+								console.log(err);
+							}
+						})
+					},
+					fail: (errinfo) => {
+						//console.log(errinfo);
+					}
+				})
+			},
+			
+			// 传code
+			setCode(code, resinfo) {
+				wx.request({
+					// url: 'http://localhost:8088/user/wx/login',
+					url: 'http://47.102.203.108:3306/user/wx/login',
+					method: "POST",
+					header: {
+						'content-type': 'application/x-www-form-urlencoded',
+					},
+					data: {
+						code: code, //临时登录凭证
+						rawData: resinfo.rawData, //用户非敏感信息
+						signature: resinfo.signature, //签名
+						encrypteData: resinfo.encryptedData, //用户敏感信息
+						iv: resinfo.iv //解密算法的向量
+					},
+					success: (loginRes) => {
+						console.log(loginRes, "loginRes");
+						if (loginRes.data.status == 200) {
+							uni.setStorageSync('itemlogin', loginRes.data.data);
+							this.getUserid(loginRes.data.data)
+							console.log(loginRes.data.data)
+						} else {
+							uni.showToast({
+								title: '登录失败',
+								icon: 'none'
+							});
+						}
+					},
+					fail: (loginErr) => {}
+				})
+			},
 
+			getUserid(id) {
+				var that = this
+				uni.request({
+					// url: 'http://localhost:8088/user/findUserId',
+					url: 'http://47.102.203.108:3306/user/findUserId',
+					method: 'GET',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded'
+					},
+					data: {
+						skey: id
+					},
+					success: (res) => {
+						console.log(res, "getUserid")
+						uni.setStorageSync('userId',res.data)
+					}
+				})
+			},
+
+			//测试登录
+			getData() {
+				var user_id = uni.getStorageSync('userId')
+				console.log(user_id,"userId")
+				let user = {
+					user_id
+				}
+				var nowDate = new Date();
+				var year = nowDate.getFullYear();
+				var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+				var day = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+				var timer = year + "-" + month + "-" + day
+				console.log(timer, "dateStrdateStrdateStr")
+				
 				// 获取目标身体状态
 				let optstar = {
 					url: 'user/getUserTarget',
@@ -389,8 +484,8 @@
 					method: 'get',
 				};
 				let datamenu = {
-					user_id: '8',
-					createTime: '2022-3-16'
+					user_id,
+					createTime: timer
 				}
 				request.httpRequest(optsdaymenu, datamenu).then(res => {
 					uni.hideLoading();
@@ -398,11 +493,14 @@
 					if (res.statusCode == 200) {
 						this.dishList = res.data
 						this.help(this.dishList)
+						console.log(this.dishList,"dishlist")
 					} else {}
 				});
 			},
 			help(item) {
+				
 				item.forEach((self, index) => {
+					console.log(self,"item")
 					if (self.ingredients != null) {
 						let ingredients = self.ingredients.slice(1, -1).split(',')
 						let list = []
@@ -494,15 +592,6 @@
 						url: '../me/mentalTest/index?mid=1'
 					})
 				}
-				// if (e.currentTarget.dataset.mid == 1 || e.currentTarget.dataset.mid == 2) {
-				// 	uni.navigateTo({
-				// 		url: '../timeline?mid=' + e.currentTarget.dataset.mid
-				// 	})
-				// } else if (e.currentTarget.dataset.mid == 3) {
-				// 	uni.navigateTo({
-				// 		url: '../project/list'
-				// 	})
-				// }
 			},
 			goProjectList() {
 				uni.navigateTo({
@@ -862,5 +951,32 @@
 	.charts-box {
 		width: 100%;
 		height: 200px;
+	}
+	
+	.sdsfsdfd {
+		height: 50rpx;
+		font-size: 36rpx;
+		font-family: PingFangSC-Medium, PingFang SC;
+		font-weight: 500;
+		color: #333333;
+		line-height: 50rpx;
+		width: 100%;
+		text-align: center;
+		margin-top: 40rpx;
+	}
+	.anniudddfd {
+		width: 250rpx;
+		height: 80rpx;
+		background: #1777FF;
+		box-shadow: 0rpx 4rpx 10rpx -4rpx #1777FF;
+		border-radius: 40rpx;
+		font-size: 28rpx;
+		text-align: center;
+		font-family: PingFangSC-Medium, PingFang SC;
+		font-weight: 500;
+		color: #FFFFFF;
+		margin-top: 126rpx;
+		line-height: 80rpx;
+		margin-left: 140rpx;
 	}
 </style>

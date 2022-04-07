@@ -23,16 +23,7 @@
 					"ec-canvas": "/ec-canvas/ec-canvas"
 				}
 			}
-		}, {
-			"path": "pages/breakfast/breakfast",
-			"style": {
-				"navigationBarTitleText": "",
-				"navigationStyle": "custom",
-				"usingComponents": {
-
-				}
-			}
-		},
+		}, 
 		{
 			"path": "pages/info/info",
 			"style": {
@@ -266,7 +257,9 @@
 			"van-transition": "/wxcomponents/vant/transition/index",
 			"van-loading": "/wxcomponents/vant/loading/index",
 			"van-card": "/wxcomponents/vant/card/index",
-			"van-tag": "/wxcomponents/vant/tag/index"
+			"van-tag": "/wxcomponents/vant/tag/index",
+			"van-stepper": "wxcomponents/vant/stepper/index",
+			"van-divider": "wxcomponents/vant/divider/index"
 		}
 	},
 	"condition": { //模式配置，仅开发期间生效
