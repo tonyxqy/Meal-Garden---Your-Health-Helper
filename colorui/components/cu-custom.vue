@@ -53,8 +53,8 @@
 		methods: {
 			BackPage() {
 				uni.navigateBack({
-					delta: 1
-				});
+					url:'../../pages/index/index'
+				})
 			}
 		}
 	}

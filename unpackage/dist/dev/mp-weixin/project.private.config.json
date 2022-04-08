@@ -9,8 +9,15 @@
             "list": [
                 {
                     "name": "ceshi",
-                    "pathName": "pages/project/list",
+                    "pathName": "pages/menu/breakfast",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "分类菜品",
+                    "pathName": "pages/index/tabbar",
+                    "query": "2",
                     "launchMode": "default",
                     "scene": null
                 }

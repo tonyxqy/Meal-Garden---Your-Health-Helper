@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "早餐",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-popup": "/uview-ui/components/u-popup/u-popup"
+  }
+}

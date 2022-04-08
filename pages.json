@@ -99,14 +99,21 @@
 			}
 		},
 		{
-			"path": "pages/project/list",
+			"path": "pages/menu/breakfast",
+			"style": {
+				"navigationBarTitleText": "早餐",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/menu/lunch",
 			"style": {
 				"navigationBarTitleText": "项目展示",
 				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path": "pages/project/project",
+			"path": "pages/menu/dinner",
 			"style": {
 				"navigationBarTitleText": "项目展示",
 				"navigationStyle": "custom"
@@ -124,15 +131,7 @@
 				"navigationStyle": "custom"
 			}
 		}
-	    ,{
-            "path" : "pages/lunch/lunch",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
+
     ],
 	"subPackages": [{
 		"root": "tn_components",
@@ -262,7 +261,7 @@
 			"van-card": "/wxcomponents/vant/card/index",
 			"van-tag": "/wxcomponents/vant/tag/index",
 			"van-stepper": "wxcomponents/vant/stepper/index",
-			"van-divider": "wxcomponents/vant/divider/index"
+			"van-divider": "wxcomponents/vant/divider/index",
 			"van-notify": "/wxcomponents/vant/notify/index",
 			"van-dialog": "/wxcomponents/vant/dialog/index"
 		}

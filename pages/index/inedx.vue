@@ -134,17 +134,22 @@
 					<text class="text-xl text-bold text-blue text-shadow">我的今日食谱</text>
 					<text class="text-ABC text-blue">Daily recipe</text>
 				</view>
-				<view class="action" @click="goProjectList">
-					<text class="text-lg text-grey text-shadow">更多</text>
+				<view class="action" @click="goBreakfast">
+					<text class="text-lg text-grey text-shadow">早餐</text>
+				</view>
+				<view class="action" @click="goLunch">
+					<text class="text-lg text-grey text-shadow">中餐</text>
+				</view>
+				<view class="action" @click="goDinner">
+					<text class="text-lg text-grey text-shadow">晚餐</text>
 				</view>
 			</view>
 			<!-- <view style="height: 1000px;"> -->
 		</view>
 
 		<view class="cu-card case no-card">
-			<view @click="goProject(item.id)" class="cu-item shadow" v-for="(item, index) in dishList" :key="index">
-				<van-card :tag="item.time" :price="item.taste" currency=" " lazy-load="true" :title="item.menu"
-					:thumb="item.pictureUrl">
+			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in breakfastList" :key="index">
+				<van-card :price="item.taste" currency=" " lazy-load="true" :title="item.menu" :thumb="item.pictureUrl">
 					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
 						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
 							{{item}}
@@ -159,12 +164,97 @@
 					<view slot="bottom" style="float: right;">
 						糖:{{item.sugar}} 脂肪{{item.fat}} 能量{{item.energy}}
 					</view>
+					<view slot="footer">
+						<van-button size="mini" type="danger" @click="deleteMenuBreakfast(item)">删除</van-button>
+					</view>
+				</van-card>
+			</view>
+			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in lunchList" :key="index">
+				<van-card :price="item.taste" currency=" " lazy-load="true" :title="item.menu" :thumb="item.pictureUrl">
+					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
+						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
+							{{item}}
+						</van-tag>
+						<van-tag :type="mystylelist[3-index1]" style="display: block;margin: 2rpx;" v-if="index1==2">
+							{{item}}
+						</van-tag>
+					</view>
+					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
+						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
+					</view>
+					<view slot="bottom" style="float: right;">
+						糖:{{item.sugar}} 脂肪{{item.fat}} 能量{{item.energy}}
+					</view>
+					<view slot="footer">
+						<van-button size="mini" type="danger" @click="deleteMenuLunch(item)">删除</van-button>
+					</view>
+				</van-card>
+			</view>
+			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in dinnerList" :key="index">
+				<van-card :price="item.taste" currency=" " lazy-load="true" :title="item.menu" :thumb="item.pictureUrl">
+					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
+						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
+							{{item}}
+						</van-tag>
+						<van-tag :type="mystylelist[3-index1]" style="display: block;margin: 2rpx;" v-if="index1==2">
+							{{item}}
+						</van-tag>
+					</view>
+					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
+						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
+					</view>
+					<view slot="bottom" style="float: right;">
+						糖:{{item.sugar}} 脂肪{{item.fat}} 能量{{item.energy}}
+					</view>
+					<view slot="footer">
+						<van-button size="mini" type="danger" @click="deleteMenuDinner(item)">删除</van-button>
+					</view>
 				</van-card>
 			</view>
 		</view>
-
-
-
+<!-- 		<u-popup v-model="showT" mode="center" width="690rpx" @close="popupClose" border-radius="20"
+			style=" border: 10rpx;">
+			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
+				<view class="canlass">
+					<view class="aasd" style="padding-left: 20rpx;" @click="showT = false"> 取消 </view>
+					<view class="titileCenter">菜名： {{popArray.menu}} </view>
+					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="showT = false"> 确定
+					</view>
+				</view>
+				<view style="display: flex;flex-direction:row;">
+					<image :src="popArray.pictureUrl" mode="aspectFill"
+						style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;"></image>
+					<view>
+						<view>
+							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
+								v-for="(item,index) in popArray.classifiction">
+								<van-tag color="#D99F3E" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
+									{{item}}
+								</van-tag>
+							</view>
+						</view>
+						<view style="display: flex;flex-direction:column;padding-left:30rpx;color: #304156; ">
+							<view style="display: flex;flex-direction:row; padding-top:15rpx ;">
+								分量
+								<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
+									button-size="20px" bind:change="onChange" />
+							</view>
+							<view style="display:inline-block; text-align: left; padding-top: 10rpx;">
+								<text style="color: #304156;">{{popArray.process}} </text>
+								<text style="color: #304156;padding-left:10rpx ;">{{popArray.time}}</text>
+							</view>
+						</view>
+						<view class="detailsTop">
+							<view slot="desc" v-for="(item, index) in popArray.ingredients">
+								<text>
+									{{item}}
+								</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</u-popup> -->
 		<view style="height: 140rpx;width: 1rpx;"></view>
 		<u-popup v-model="logion" mode="center" height="320rpx" :mask-close-able="false" width="530rpx"
 			border-radius="10">
@@ -185,8 +275,17 @@
 			bodyhelper
 		},
 		data() {
+			var user_id = uni.getStorageSync('userId')
+			console.log(user_id, "userId")
+			var nowDate = new Date();
+			var year = nowDate.getFullYear();
+			var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+			var day = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+			var timer = year + "-" + month + "-" + day
+			console.log(timer, "dateStrdateStrdateStr")
 			return {
 				//登录测试
+				showT: false,
 				logion: false,
 				hasUserInfo: false,
 				userInfo: null,
@@ -287,10 +386,13 @@
 				}],
 				curriculum: [],
 				projectList: [],
-				dishList: []
+				lunchList:[],
+				breakfastList:[],
+				dinnerList:[],
+				popArray: [],
+				timer,
+				user_id
 			}
-		},
-		onLoad() {
 		},
 		mounted() {
 			this.getData();
@@ -309,6 +411,9 @@
 			} else {
 				this.logion = false
 			}
+		},
+		onShow() {
+			console.log("shauxinlem")
 		},
 		methods: {
 			getUserInfo() {
@@ -337,7 +442,7 @@
 					}
 				})
 			},
-			
+
 			// 传code
 			setCode(code, resinfo) {
 				wx.request({
@@ -385,7 +490,7 @@
 					},
 					success: (res) => {
 						console.log(res, "getUserid")
-						uni.setStorageSync('userId',res.data)
+						uni.setStorageSync('userId', res.data)
 					}
 				})
 			},
@@ -393,17 +498,11 @@
 			//测试登录
 			getData() {
 				var user_id = uni.getStorageSync('userId')
-				console.log(user_id,"userId")
+				console.log(user_id, "userId")
 				let user = {
 					user_id
 				}
-				var nowDate = new Date();
-				var year = nowDate.getFullYear();
-				var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
-				var day = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
-				var timer = year + "-" + month + "-" + day
-				console.log(timer, "dateStrdateStrdateStr")
-				
+
 				// 获取目标身体状态
 				let optstar = {
 					url: 'user/getUserTarget',
@@ -478,30 +577,56 @@
 						this.show = false
 					} else {}
 				});
-
+				this.getMenuData()
+			},
+			getMenuData(){
 				//获取今日食谱
-				let optsdaymenu = {
-					url: 'user/dayMeun',
+				let optsBreakfastMenu = {
+					url: 'user/dayMeunBreakfast',
+					method: 'get',
+				};
+				let optsLunchMenu = {
+					url: 'user/dayMeunLunch',
+					method: 'get',
+				};
+				let optsDinnerMenu = {
+					url: 'user/dayMeunDinner',
 					method: 'get',
 				};
 				let datamenu = {
-					user_id,
-					createTime: timer
+					user_id:this.user_id,
+					createTime: this.timer
 				}
-				request.httpRequest(optsdaymenu, datamenu).then(res => {
+				request.httpRequest(optsBreakfastMenu, datamenu).then(res => {
 					uni.hideLoading();
 					this.show = true
 					if (res.statusCode == 200) {
-						this.dishList = res.data
-						this.help(this.dishList)
+						this.breakfastList = res.data
+						this.help(this.breakfastList)
+						this.dishshow = false
+					} else {}
+				});
+				request.httpRequest(optsLunchMenu, datamenu).then(res => {
+					uni.hideLoading();
+					this.show = true
+					if (res.statusCode == 200) {
+						this.lunchList = res.data
+						this.help(this.lunchList)
+						this.dishshow = false
+					} else {}
+				});
+				request.httpRequest(optsDinnerMenu, datamenu).then(res => {
+					uni.hideLoading();
+					this.show = true
+					if (res.statusCode == 200) {
+						this.dinnerList = res.data
+						this.help(this.dinnerList)
 						this.dishshow = false
 					} else {}
 				});
 			},
 			help(item) {
-				
 				item.forEach((self, index) => {
-					console.log(self,"item")
 					if (self.ingredients != null) {
 						let ingredients = self.ingredients.slice(1, -1).split(',')
 						let list = []
@@ -531,6 +656,72 @@
 					}
 				})
 			},
+			bind(item) {
+				this.showT = true
+				this.popArray = item
+				this.help(this.popArray)
+				console.log(this.popArray, "popArray")
+			},
+			deleteMenuBreakfast(item) {
+				var that = this
+				console.log(item.menu, this.user_id, this.timer)
+				uni.request({
+					url: 'http://47.102.203.108:3306/user/deleteTodayMeunbreakfast',
+					method: 'POST',
+					header: {
+						'content-type': 'application/json'
+					},
+					data: {
+						user_id: this.user_id,
+						menu: item.menu,
+						createTime: this.timer,
+					},
+					success: (res) => {
+						console.log(200,"delete menu")
+						this.getMenuData()
+					}
+				})
+			},
+			deleteMenuLunch(item) {
+				var that = this
+				console.log(item.menu, this.user_id, this.timer)
+				uni.request({
+					url: 'http://47.102.203.108:3306/user/deleteTodayMeunlunch',
+					method: 'POST',
+					header: {
+						'content-type': 'application/json'
+					},
+					data: {
+						user_id: this.user_id,
+						menu: item.menu,
+						createTime: this.timer,
+					},
+					success: (res) => {
+						console.log(200,"delete lunch")
+						this.getMenuData()
+					}
+				})
+			},
+			deleteMenuDinner(item) {
+				var that = this
+				console.log(item.menu, this.user_id, this.timer)
+				uni.request({
+					url: 'http://47.102.203.108:3306/user/deleteTodayMeundinner',
+					method: 'POST',
+					header: {
+						'content-type': 'application/json'
+					},
+					data: {
+						user_id: this.user_id,
+						menu: item.menu,
+						createTime: this.timer,
+					},
+					success: (res) => {
+						console.log(200,"delete dinner")
+						this.getMenuData()
+					}
+				})
+			},
 			scroll: function(e) {
 				console.log(e)
 				this.old.scrollTop = e.detail.scrollTop
@@ -543,9 +734,19 @@
 					})
 				}
 			},
-			goProjectList() {
+			goBreakfast() {
 				uni.navigateTo({
-					url: '../project/list'
+					url: '../menu/breakfast'
+				})
+			},
+			goLunch() {
+				uni.navigateTo({
+					url: '../menu/lunch'
+				})
+			},
+			goDinner() {
+				uni.navigateTo({
+					url: '../menu/dinner'
 				})
 			},
 			goProject(id) {
@@ -565,6 +766,38 @@
 	@font-face {
 		font-family: 'iconfont';
 		src: url('@/static/iconfont.ttf?t=1647423422630') format('truetype');
+	}
+
+	.detailsTop {
+		padding: 30rpx;
+		overflow: scroll;
+		line-height: 20px;
+		max-height: 140px;
+		color: #304156;
+		letter-spacing: 2rpx;
+	}
+
+	.titileCenter {
+		width: 70%;
+		height: 88rpx;
+		line-height: 88rpx;
+		text-align: center;
+		font-size: 30rpx;
+		overflow: hidden;
+	}
+
+	.aasd {
+		width: 33.33%;
+		height: 88rpx;
+		line-height: 88rpx;
+	}
+
+	.canlass {
+		height: 88rpx;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: #fefefe;
 	}
 
 	.iconfont {
@@ -902,7 +1135,7 @@
 		width: 100%;
 		height: 200px;
 	}
-	
+
 	.sdsfsdfd {
 		height: 50rpx;
 		font-size: 36rpx;
@@ -914,6 +1147,7 @@
 		text-align: center;
 		margin-top: 40rpx;
 	}
+
 	.anniudddfd {
 		width: 250rpx;
 		height: 80rpx;

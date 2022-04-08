@@ -2,6 +2,7 @@
     "pages": [
         "pages/index/tabbar",
         "pages/setinfo/setinfo",
+        "pages/job/job",
         "pages/info/info",
         "pages/me/salary",
         "pages/me/aboutMe",
@@ -11,13 +12,11 @@
         "pages/news/news",
         "pages/me/course",
         "pages/video",
-        "pages/project/list",
-        "pages/project/project",
+        "pages/menu/breakfast",
+        "pages/menu/lunch",
+        "pages/menu/dinner",
         "pages/timeline",
-        "pages/design",
-        "pages/lunch/lunch",
-        "pages/job/job",
-        "pages/breakfast/breakfast"
+        "pages/design"
     ],
     "subPackages": [
         {
