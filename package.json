@@ -8,7 +8,12 @@
         "弹出层",
         "弹窗",
         "popup",
-        "弹框"
+        "弹框",
+		"上传",
+        "压缩图片",
+        "预览图片",
+        "删除图片",
+        "视频上传"
     ],
 	"repository": "https://github.com/dcloudio/uni-ui",
 	"engines": {
@@ -88,3 +93,4 @@
 		}
 	}
 }
+

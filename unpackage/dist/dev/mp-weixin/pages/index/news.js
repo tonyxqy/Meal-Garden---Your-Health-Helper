@@ -84,25 +84,22 @@ var components
 try {
   components = {
     uTabsSwiper: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 441))
+      return Promise.all(/*! import() | uview-ui/components/u-tabs-swiper/u-tabs-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs-swiper/u-tabs-swiper")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs-swiper/u-tabs-swiper.vue */ 447))
     },
     uNoticeBar: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-notice-bar/u-notice-bar */ "uview-ui/components/u-notice-bar/u-notice-bar").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-notice-bar/u-notice-bar.vue */ 469))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-notice-bar/u-notice-bar */ "uview-ui/components/u-notice-bar/u-notice-bar").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-notice-bar/u-notice-bar.vue */ 468))
     },
     uWaterfall: function() {
-      return Promise.all(/*! import() | uview-ui/components/u-waterfall/u-waterfall */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-waterfall/u-waterfall")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-waterfall/u-waterfall.vue */ 476))
+      return Promise.all(/*! import() | uview-ui/components/u-waterfall/u-waterfall */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-waterfall/u-waterfall")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-waterfall/u-waterfall.vue */ 475))
     },
     uLazyLoad: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-lazy-load/u-lazy-load */ "uview-ui/components/u-lazy-load/u-lazy-load").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-lazy-load/u-lazy-load.vue */ 483))
-    },
-    uIcon: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 413))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-lazy-load/u-lazy-load */ "uview-ui/components/u-lazy-load/u-lazy-load").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-lazy-load/u-lazy-load.vue */ 482))
     },
     mpVideoSwiper: function() {
-      return Promise.resolve(/*! import() */).then(__webpack_require__.t.bind(null, /*! @/wxcomponents/video-swiper/index */ 389, 7))
+      return Promise.resolve(/*! import() */).then(__webpack_require__.t.bind(null, /*! @/wxcomponents/video-swiper/index */ 398, 7))
     },
     uLoadmore: function() {
-      return __webpack_require__.e(/*! import() | uview-ui/components/u-loadmore/u-loadmore */ "uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loadmore/u-loadmore.vue */ 455))
+      return __webpack_require__.e(/*! import() | uview-ui/components/u-loadmore/u-loadmore */ "uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loadmore/u-loadmore.vue */ 461))
     }
   }
 } catch (e) {
@@ -244,8 +241,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _uiImg = _interopRequireDefault(__webpack_require__(/*! @/common/uiImg.js */ 188));
-var _videoSwiper = _interopRequireDefault(__webpack_require__(/*! @/wxcomponents/video-swiper */ 389));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.js */ 64));
+var _uiImg = _interopRequireDefault(__webpack_require__(/*! @/common/uiImg.js */ 199));
+var _videoSwiper = _interopRequireDefault(__webpack_require__(/*! @/wxcomponents/video-swiper */ 398));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
 //
@@ -329,11 +327,33 @@ var _videoSwiper = _interopRequireDefault(__webpack_require__(/*! @/wxcomponents
 //
 //
 //
-var _default = { comments: { mpVideoSwiper: _videoSwiper.default }, data: function data() {return { pageName: '动态', listBar: ['赶快发布自己的动态吧,来这里标记我们的生活！'], loadStatus: 'loadmore', flowList: [], list: null, tablist: [{ name: '推荐' }, { name: '视频' }], current: 0, swiperCurrent: 0, tabsHeight: 0, dx: 0, urls: ['https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218114723HDu3hhxqIT.mp4', 'https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218093206z8V1JuPlpe.mp4', 'https://stream7.iqilu.com/10339/article/202002/18/2fca1c77730e54c7b500573c2437003f.mp4', 'https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218025702PSiVKDB5ap.mp4', 'https://stream7.iqilu.com/10339/upload_transcode/202002/18/202002181038474liyNnnSzz.mp4', 'https://stream7.iqilu.com/10339/article/202002/18/02319a81c80afed90d9a2b9dc47f85b9.mp4', 'http://stream4.iqilu.com/ksd/video/2020/02/17/c5e02420426d58521a8783e754e9f4e6.mp4', 'http://stream4.iqilu.com/ksd/video/2020/02/17/87d03387a05a0e8aa87370fb4c903133.mp4'] };}, computed: { videoList: function videoList() {return this.urls.map(function (url, index) {return { id: index + 1, url: url };});} }, mounted: function mounted() {this.list = _uiImg.default[0].appImg;console.log(this.list);this.pageName = '动态';this.addRandomData();console.log(this.videoList);}, reachBottom: function reachBottom() {var _this = this;this.loadStatus = 'loading'; // 模拟数据加载
-    setTimeout(function () {_this.addRandomData();_this.loadStatus = 'loadmore';}, 1000);}, methods: { onPlay: function onPlay(e) {}, onPause: function onPause(e) {//  console.log('pause', e.detail.activeId)
-    }, onEnded: function onEnded(e) {}, onError: function onError(e) {}, onWaiting: function onWaiting(e) {}, onTimeUpdate: function onTimeUpdate(e) {}, onProgress: function onProgress(e) {}, onLoadedMetaData: function onLoadedMetaData(e) {console.log('LoadedMetaData', e);}, // tab栏切换
-    change: function change(index) {this.swiperCurrent = index; // this.getOrderList(index);
-    }, transition: function transition(_ref)
+var _default = { comments: { mpVideoSwiper: _videoSwiper.default }, data: function data() {return { pageName: '动态', listBar: ['赶快发布自己的动态吧,来这里标记我们的生活！'], loadStatus: 'loadmore', flowList: [], list: null, tablist: [{ name: '推荐' }, { name: '视频' }], current: 0, swiperCurrent: 0, tabsHeight: 0, dx: 0, urls: [] };}, computed: { videoList: function videoList() {return this.urls.map(function (url, index) {return { id: index + 1, url: url };});} }, mounted: function mounted() {var _this = this;var optstar = { url: 'forum/forums', method: 'get' };uni.showLoading({ title: '加载中' });_request.default.httpRequest(optstar).then(function (res) {console.log(res); // uni.hideLoading();
+      if (res.statusCode == 200) {_this.list = res.data;_this.pageName = '动态';_this.addRandomData();} else {}});var optvideo = { url: 'forum/videos', method: 'get' };uni.showLoading({ title: '加载中' });_request.default.httpRequest(optvideo).then(function (res) {console.log(res);uni.hideLoading();if (res.statusCode == 200) {console.log(res.data);res.data.forEach(function (item) {_this.urls.push(item.photourl);});} else {}});}, methods: { reachBottom: function reachBottom() {var _this2 = this;this.loadStatus = 'loading'; // 模拟数据加载
+      setTimeout(function () {_this2.addRandomData();_this2.loadStatus = 'loadmore';}, 1000);}, onPlay: function onPlay(e) {}, onPause: function onPause(e) {
+      //  console.log('pause', e.detail.activeId)
+    },
+
+    onEnded: function onEnded(e) {},
+
+    onError: function onError(e) {},
+
+    onWaiting: function onWaiting(e) {},
+
+    onTimeUpdate: function onTimeUpdate(e) {},
+
+    onProgress: function onProgress(e) {},
+
+    onLoadedMetaData: function onLoadedMetaData(e) {
+      console.log('LoadedMetaData', e);
+    },
+    // tab栏切换
+    change: function change(index) {
+      this.swiperCurrent = index;
+      // this.getOrderList(index);
+    },
+    transition: function transition(_ref)
+
+
 
     {var dx = _ref.detail.dx;
       this.$refs.tabs.setDx(dx);
@@ -348,12 +368,14 @@ var _default = { comments: { mpVideoSwiper: _videoSwiper.default }, data: functi
       this.current = current;
     },
     addRandomData: function addRandomData() {
+      console.log(this.list.length);
       for (var i = 0; i < 8; i++) {
         var index = this.$u.random(0, this.list.length - 1);
         // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
         var item = JSON.parse(JSON.stringify(this.list[index]));
         item.id = this.$u.guid();
         this.flowList.push(item);
+        console.log('****', this.flowList);
       }
     },
     remove: function remove(id) {

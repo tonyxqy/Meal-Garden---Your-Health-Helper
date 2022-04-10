@@ -1,46 +1,51 @@
 <template>
-	<view class="u-wrap">
-		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
-			<!-- <block slot="backText">返回</block> -->
-			<block slot="content">职业选择</block>
-		</cu-custom>
-
-		<view class="u-search-box">
-			<view class="u-search-inner">
-				<u-icon name="search" color="#909399" :size="28"></u-icon>
-				<input v-model="input" class="u-search-text" placeholder="你的职业是？"></text>
-			</view>
-		</view>
-		<view class="u-menu-wrap">
-			<scroll-view scroll-y scroll-with-animation class="u-tab-view menu-scroll-view" :scroll-top="scrollTop">
-				<view v-for="(item,index) in tables" :key="index" class="u-tab-item"
-					:class="[current==index ? 'u-tab-item-active' : '']" :data-current="index"
-					@tap.stop="swichMenu(index)">
-					<text class="u-line-1">{{item.name}}</text>
+	<view >
+		<view class="u-wrap">
+			<cu-custom bgColor="bg-gradual-blue" :isBack="false">
+				<!-- <block slot="backText">返回</block> -->
+				<block slot="content">职业选择</block>
+			</cu-custom>
+		
+			<view class="u-search-box">
+				<view class="u-search-inner">
+					<u-icon name="search" color="#909399" :size="28"></u-icon>
+					<input v-model="input" class="u-search-text" placeholder="你的职业是？"></text>
 				</view>
-			</scroll-view>
-			<block v-for="(item,index) in tables" :key="index">
-				<scroll-view scroll-y class="right-box" v-if="current==index">
-					<view class="page-view">
-						<view class="class-item">
-							<view class="item-title">
-								<text>{{item.name}}</text>
-							</view>
-							<view class="item-container">
-								<view class="thumb-box" v-for="(item1, index1) in item.foods" :key="index1">
-									<image class="item-menu-image" :src="item1.icon" mode=""></image>
-									<view class="item-menu-name margin-top-sm">{{item1.name}}</view>
+			</view>
+			<view class="u-menu-wrap">
+				<scroll-view scroll-y scroll-with-animation class="u-tab-view menu-scroll-view" :scroll-top="scrollTop">
+					<view v-for="(item,index) in tables" :key="index" class="u-tab-item"
+						:class="[current==index ? 'u-tab-item-active' : '']" :data-current="index"
+						@tap.stop="swichMenu(index)">
+						<text class="u-line-1">{{item.name}}</text>
+					</view>
+				</scroll-view>
+				<block v-for="(item,index) in tables" :key="index">
+					<scroll-view scroll-y class="right-box" v-if="current==index">
+						<view class="page-view">
+							<view class="class-item">
+								<view class="item-title">
+									<text>{{item.name}}</text>
+								</view>
+								<view class="item-container">
+									<view class="thumb-box" v-for="(item1, index1) in item.foods" :key="index1"
+									@click="choosejob(item1)"
+									>
+										<image class="item-menu-image" :src="item1.icon" mode=""></image>
+										<view class="item-menu-name margin-top-sm">{{item1.name}}</view>
+									</view>
 								</view>
 							</view>
 						</view>
-					</view>
-				</scroll-view>
-			</block>
+					</scroll-view>
+				</block>
+			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import request from '@/common/request.js';
 	import classifyData from "@/common/jobclassify.js";
 	export default {
 		data() {
@@ -75,6 +80,42 @@
 
 		},
 		methods: {
+			choosejob(item){
+				uni.showLoading({
+						title: '加载中'
+					})
+					let now = new Date()
+					let nowStr = now.getFullYear() + "-"
+					 + (now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-"
+					 + (now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " "
+					uni.request({
+						url: 'http://47.102.203.108:3306/user/updateJobById?user_id=35&job='+item.name+'&time='+nowStr,
+						method: 'POST',
+						success: (res) => { //成功
+							uni.hideLoading();
+							console.log(res.data)
+							let user = {
+								user_id: '35'
+							}					
+							// 获取目标身体状态
+							let optstar = {
+								url: 'user/jobinfo',
+								method: 'get',
+							};
+							uni.showLoading({
+								title: '加载中'
+							})
+							request.httpRequest(optstar, user).then(res => {
+								uni.hideLoading();
+								if (res.statusCode == 200) {
+									console.log(res.data)
+								} else {}
+							});
+							
+							// http://47.102.203.108:3306/user/jobinfo
+						},
+					});
+				},
 			getImg() {
 				return Math.floor(Math.random() * 35);
 			},

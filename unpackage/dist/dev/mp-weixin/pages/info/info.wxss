@@ -331,7 +331,7 @@ image {
 		border: none;
 }
 .jq22-flex-box text {
-		font-size: 0.9rem;
+		font-size: 1.1rem;
 		color: #000000;
 		font-weight: 500;
 }

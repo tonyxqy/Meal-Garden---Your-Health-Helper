@@ -1,4 +1,4 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["tn_components/anloading"],{
+require('./common/vendor.js');(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["tn_components/anloading"],{
 
 /***/ 223:
 /*!**************************************************************************!*\

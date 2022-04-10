@@ -10,7 +10,7 @@
 "use strict";
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 5);__webpack_require__(/*! @dcloudio/uni-stat */ 6);
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
-var _setinfo = _interopRequireDefault(__webpack_require__(/*! ./pages/setinfo/setinfo.vue */ 57));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
+var _setinfo = _interopRequireDefault(__webpack_require__(/*! ./pages/setinfo/setinfo.vue */ 68));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 createPage(_setinfo.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
@@ -21,12 +21,6 @@ createPage(_setinfo.default);
   !*** C:/Users/DELL/-health/pages/setinfo/setinfo.vue ***!
   \*******************************************************/
 /*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _setinfo_vue_vue_type_template_id_a1aeb5b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setinfo.vue?vue&type=template&id=a1aeb5b0&scoped=true& */ 58);
-/* harmony import */ var _setinfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setinfo.vue?vue&type=script&lang=js& */ 60);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _setinfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _setinfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _setinfo_vue_vue_type_style_index_0_id_a1aeb5b0_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./setinfo.vue?vue&type=style&index=0&id=a1aeb5b0&lang=scss&scoped=true& */ 63);
 /* harmony import */ var _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 15);
@@ -97,6 +91,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l1 = _vm.__map([0, 1, 2, 3, 4, 5, 6, 7], function(item, index) {
+    var $orig = _vm.__get_orig(item)
+
+    var l0 = _vm.__map(_vm.TabList[_vm.currentTab].timeList, function(
+      item,
+      index1
+    ) {
+      var $orig = _vm.__get_orig(item)
+
+      var g0 = item.time.substr(0, 10)
+      return {
+        $orig: $orig,
+        g0: g0
+      }
+    })
+
+    return {
+      $orig: $orig,
+      l0: l0
+    }
+  })
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l1: l1
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -211,132 +235,168 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-charts/u-charts.js */ 62));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var ecCanvas = function ecCanvas() {__webpack_require__.e(/*! require.ensure | wxcomponents/ec-canvas/ec-canvas */ "common/vendor").then((function () {return resolve(__webpack_require__(/*! @/wxcomponents/ec-canvas/ec-canvas */ 410));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
-var _self;
-var canvaArea = null;
 
-var app = getApp();var _default =
-{
-  components: {
-    ecCanvas: ecCanvas },
+var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/components/u-charts/u-charts.js */ 73));
+var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.js */ 64));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _self;var canvaArea = null;var app = getApp();var _default = { components: {}, data: function data() {return { cWidth: '', cHeight: '', pixelRatio: 1, Area: { categories: [], series: [{ name: '', data: [], color: '' }] }, unit: ['cm', 'kg', '%', 'mmHG', 'mmol/L', '', 'bpm'], ec: { lazyLoad: true }, inputValue: true, winHeight: '', //窗口高度
+      currentTab: 0, //预设当前项的值
+      scrollLeft: 0, //tab标题的滚动条位置
+      TabList: [] // [{
+      // 		name: '身高',
+      // 		timeList: [{
+      // 				// value:'请添加你的第一条身高记录',
+      // 				// time:'ヽ(✿ﾟ▽ﾟ)ノ',
+      // 				value: 180,
+      // 				time: '2021/9/21'
+      // 			},
+      // 			{
+      // 				value: 190,
+      // 				time: '2021/9/30'
+      // 			},
+      // 			{
+      // 				value: 199,
+      // 				time: '2021/10/7'
+      // 			}
+      // 		]
+      // 	},
+      // 	{
+      // 		name: '体重',
+      // 		timeList: [{
+      // 			value: '请添加你的第一条体重记录',
+      // 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+      // 		}]
+      // 	},
+      // 	{
+      // 		name: '体脂率',
+      // 		timeList: [{
+      // 			value: '请添加你的第一条体脂率记录',
+      // 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+      // 		}]
+      // 	},
+      // 	{
+      // 		name: '血压',
+      // 		timeList: [{
+      // 			value: '请添加你的第一条血压记录',
+      // 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+      // 		}]
+      // 	},
+      // 	{
+      // 		name: '血糖',
+      // 		timeList: [{
+      // 			value: '请添加你的第一条血糖记录',
+      // 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+      // 		}]
+      // 	},
+      // 	{
+      // 		name: 'bmi',
+      // 		timeList: [{
+      // 			value: '还没有欸',
+      // 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+      // 		}]
+      // 	},
+      // 	{
+      // 		name: '静息心率',
+      // 		timeList: [{
+      // 			value: '请添加你的第一条静息心率',
+      // 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+      // 		}]
+      // 	}
+      // ]
+    };}, mounted: function mounted(options) {_self = this;uni.getSystemInfo({ success: function success(res) {var clientHeight = res.windowHeight;var clientWidth = res.windowWidth;var rpxR = 750 / clientWidth;var calc = clientHeight * rpxR - 180;console.log(calc); // this.currentTab=options.currentTab,
+        _self.winHeight = calc;} });this.cWidth = uni.upx2px(750);this.cHeight = uni.upx2px(420);this.getServerData();}, methods: { uploadData: function uploadData(name, value, time) {uni.showLoading({ title: '加载中' });var now = time;var nowStr = now.getFullYear() + "-" + (now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-" + (now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " ";var data = { name: name, value: value, time: nowStr, user_id: 35 };var optstar = { url: 'body/update', method: 'post' };_request.default.httpRequest(optstar, data).then(function (res) {uni.hideLoading();if (res.statusCode == 200) {console.log(res.data);} else {}});}, getServerData: function getServerData() {var _this = this;uni.showLoading({ title: '加载中' });var user = { user_id: '35' };var optstar = {
+        url: 'body/all',
+        method: 'get' };
 
-  data: function data() {
-    return {
-      cWidth: '',
-      cHeight: '',
-      pixelRatio: 1,
-      Area: {
-        categories: ['6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-        series: [{
-          name: '学习前端',
-          data: [100, 80, 95, 150, 112, 132, 151],
-          color: '#facc14' },
-        {
-          name: '学习后台',
-          data: [70, 40, 65, 100, 44, 68, 78],
-          color: '#2fc25b' },
-        {
-          name: '学习设计',
-          data: [35, 20, 25, 37, 4, 20, 39],
-          color: '#1890ff' }] },
-
-
-      unit: ['cm', 'kg', '%', 'mmHG', 'mmol/L', '', 'bpm'],
-      ec: {
-        lazyLoad: true },
-
-      inputValue: true,
-      winHeight: '',
-      //窗口高度
-      currentTab: 0,
-      //预设当前项的值
-      scrollLeft: 0,
-      //tab标题的滚动条位置
-      TabList: [{
-        name: '身高',
-        TimeList: [{
-          // value:'请添加你的第一条身高记录',
-          // time:'ヽ(✿ﾟ▽ﾟ)ノ',
-          value: 180,
-          time: '2021/9/21' },
-
-        {
-          value: 190,
-          time: '2021/9/30' },
-
-        {
-          value: 199,
-          time: '2021/10/7' }] },
-
-
-
-      {
-        name: '体重',
-        TimeList: [{
-          value: '请添加你的第一条体重记录',
-          time: 'ヽ(✿ﾟ▽ﾟ)ノ' }] },
-
-
-      {
-        name: '体脂率',
-        TimeList: [{
-          value: '请添加你的第一条体脂率记录',
-          time: 'ヽ(✿ﾟ▽ﾟ)ノ' }] },
-
-
-      {
-        name: '血压',
-        TimeList: [{
-          value: '请添加你的第一条血压记录',
-          time: 'ヽ(✿ﾟ▽ﾟ)ノ' }] },
-
-
-      {
-        name: '血糖',
-        TimeList: [{
-          value: '请添加你的第一条血糖记录',
-          time: 'ヽ(✿ﾟ▽ﾟ)ノ' }] },
-
-
-      {
-        name: 'bmi',
-        TimeList: [{
-          value: '还没有欸',
-          time: 'ヽ(✿ﾟ▽ﾟ)ノ' }] },
-
-
-      {
-        name: '静息心率',
-        TimeList: [{
-          value: '请添加你的第一条静息心率',
-          time: 'ヽ(✿ﾟ▽ﾟ)ノ' }] }] };
-
-
-
-
-  },
-  onLoad: function onLoad(options) {
-    _self = this;
-    uni.getSystemInfo({
-      success: function success(res) {
-        var clientHeight = res.windowHeight;
-        var clientWidth = res.windowWidth;
-        var rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR - 180;
-        console.log(calc);
-        // this.currentTab=options.currentTab,
-        _self.winHeight = calc;
-      } });
-
-    this.cWidth = uni.upx2px(750);
-    this.cHeight = uni.upx2px(420);
-    this.setEchartval();
-    this.getServerData();
-  },
-
-  methods: {
-    getServerData: function getServerData() {
-      _self.showArea("canvasArea", this.chartData);
+      _request.default.httpRequest(optstar, user).then(function (res) {
+        console.log(res);
+        uni.hideLoading();
+        if (res.statusCode == 200) {
+          _this.TabList = res.data;
+          console.log(_this.TabList);
+          _this.setEchartval();
+          _self.showArea("canvasArea", _this.chartData);
+        } else {}
+      });
     },
     showArea: function showArea(canvasId, chartData) {
       canvaArea = new _uCharts.default({
@@ -395,13 +455,21 @@ var app = getApp();var _default =
       var myDate = new Date();
       var myDateMonth = myDate.toLocaleDateString();
       var i = 0;
-      if (TabList[currval].TimeList[i].time != 'ヽ(✿ﾟ▽ﾟ)ノ')
-      for (i; i < TabList[currval].TimeList.length; i++) {
-        console.log(TabList[currval].TimeList[i].time);
-        categories.push(TabList[currval].TimeList[i].time);
-        datas.push(TabList[currval].TimeList[i].value);
-      } else
+      console.log(TabList[currval].timeList.length === 0);
+      if (TabList[currval].timeList.length === 0) {
+        var data = {
+          value: '请添加你的第一条身高记录',
+          time: 'ヽ(✿ﾟ▽ﾟ)ノ' };
 
+        TabList[currval].timeList.push(data);
+        console.log(TabList[currval].timeList);
+      }
+      if (TabList[currval].timeList[i].time != 'ヽ(✿ﾟ▽ﾟ)ノ')
+      for (i; i < TabList[currval].timeList.length; i++) {
+        console.log(TabList[currval].timeList[i].time);
+        categories.push(TabList[currval].timeList[i].time.substr(0, 10));
+        datas.push(TabList[currval].timeList[i].value);
+      } else
       {
         categories.push();
         datas.push(0);
@@ -426,22 +494,22 @@ var app = getApp();var _default =
       var value = e.detail.value;
       var myDate = new Date();
       var myDateMonth = myDate.toLocaleDateString();
-
-      if (TabList[currval].TimeList[0].time == 'ヽ(✿ﾟ▽ﾟ)ノ') {
-        TabList[currval].TimeList[0].value = parseInt(value.myvalue);
-        TabList[currval].TimeList[0].time = myDateMonth;
+      this.uploadData(this.TabList[currval].name, value.myvalue, myDate);
+      if (TabList[currval].timeList[0].time == 'ヽ(✿ﾟ▽ﾟ)ノ') {
+        TabList[currval].timeList[0].value = parseInt(value.myvalue);
+        TabList[currval].timeList[0].time = myDateMonth;
       } else {
-        TabList[currval].TimeList.push({
+        TabList[currval].timeList.push({
           value: value.myvalue,
           time: myDateMonth });
 
       }
       this.inputValue = !temp,
       this.TabList = TabList;
-      app.globalData.echarts = this.TabList[currval].TimeList;
-      console.log(this.TabList[currval].TimeList);
-      this.setEchartval();
+      app.globalData.echarts = this.TabList[currval].timeList;
+      console.log(this.TabList[currval].timeList);
       this.getServerData();
+      // this.setEchartval();
     },
 
     inputcover: function inputcover() {
@@ -453,7 +521,7 @@ var app = getApp();var _default =
     switchTab: function switchTab(e) {
       this.currentTab = e.detail.current;
       this.checkCor();
-      this.setEchartval();
+      // this.setEchartval();
       this.getServerData();
     },
 
@@ -512,5 +580,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[[56,"common/runtime","common/vendor"]]]);
+},[[67,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/setinfo/setinfo.js.map

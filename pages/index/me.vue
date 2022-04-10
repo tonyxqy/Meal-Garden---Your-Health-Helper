@@ -69,19 +69,19 @@
 		<block>
 			<view class='padding flex text-center text-grey bg-white shadow-warp-my'>
 				<view class='flex flex-sub flex-direction solid-right'>
-					<view class="text-xxl text-orange">xxx</view>
+					<view class="text-xxl text-orange">{{ansList[0]}}cm</view>
 					<view class="margin-top-sm">
-						<text class='cuIcon-hot'></text> 访客</view>
+						<text ></text> 身高</view>
 				</view>
 				<view class='flex flex-sub flex-direction solid-right'>
-					<view class="text-xxl text-blue">xxx</view>
+					<view class="text-xxl text-blue">{{ansList[1]}}kg</view>
 					<view class="margin-top-sm">
-						<text class='cuIcon-share'></text> 分享</view>
+						<text ></text> 体重</view>
 				</view>
 				<view class='flex flex-sub flex-direction'>
-					<view class="text-xxl text-red">xxx</view>
+					<view class="text-xxl text-red">{{ansList[2]}}%</view>
 					<view class="margin-top-sm">
-						<text class='cuIcon-like'></text> 点赞</view>
+						<text ></text> BMI</view>
 				</view>
 			</view>
 
@@ -107,16 +107,10 @@
 				<view class="cu-item " @click="mentalTest">
 					<button class='content cu-btn'>
 						<image src='../../static/me/icon/bianqian.png' class='png' mode='aspectFit'></image>
-						<text class='text-lg margin-sm'>体制小测试</text>
+						<text class='text-lg margin-sm'>体质小测试</text>
 					</button>
-<!-- 					<view class="action">
-						<view class="cu-tag round bg-orange light">技术</view>
-						<view class="cu-tag round bg-olive light">性格</view>
-						<view class="cu-tag round bg-blue light">星座</view>
-					</view> -->
 				</view>
 
-				<!-- 听歌 -->
 				<!-- <view class="cu-item " bindtap="">
 					<button class='content cu-btn'>
 						<image src='../../static/me/icon/youxi.png' class='png' mode='aspectFit'></image>
@@ -131,8 +125,8 @@
 						</view>
 						<text class="text-grey text-sm">共4款</text>
 					</view>
-				</view> -->
-
+				</view>
+ -->
 				<view class="cu-item">
 					<button class='content cu-btn' open-type="share">
 						<image src='../../static/me/icon/lvhang.png' class='png' mode='aspectFit'></image>
@@ -196,6 +190,7 @@
 </template>
 
 <script>
+	import request from '@/common/request.js';
 	export default {
 		data() {
 			return {
@@ -203,6 +198,8 @@
 				// CustomBar: this.CustomBar,
 				spaceShow:true,
 				modalName: null,
+				TabList: [],
+				ansList:[],
 				picName: '流星之夜',
 				pic: [{
 					link: 'https://cdn.zhoukaiwen.com/zjx_me_bg1.jpeg',
@@ -273,8 +270,34 @@
 			// 	icon: 'none',
 			//     duration: 2000
 			// });
+			this.getServerData()
 		},
 		methods: {
+			getServerData() {
+				uni.showLoading({
+					title: '加载中'
+				})
+				let user = {
+					user_id: '22'
+				}
+				let optstar = {
+					url: 'body/all',
+					method: 'get',
+				};
+				request.httpRequest(optstar, user).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.TabList = res.data
+						console.log(this.TabList)
+						for(let i=0  ;i<this.TabList.length;i++){
+							console.log(this.TabList[i].timeList[this.TabList[i].timeList.length-1].value)
+							this.ansList.push(this.TabList[i].timeList[this.TabList[i].timeList.length-1].value);
+						}
+						console.log(this.ansList)
+					} else {}
+				});
+			},
 			switchImage(index, name) {
 				this.topBackGroupImageIndex = index;
 				this.modalName = null;

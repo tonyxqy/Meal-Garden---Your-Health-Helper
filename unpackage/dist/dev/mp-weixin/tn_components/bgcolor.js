@@ -1,4 +1,4 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["tn_components/bgcolor"],{
+require('./common/vendor.js');(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["tn_components/bgcolor"],{
 
 /***/ 207:
 /*!************************************************************************!*\

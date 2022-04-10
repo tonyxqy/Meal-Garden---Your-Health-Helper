@@ -1,10 +1,9 @@
 {
 	"easycom": {
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue",
-		"mp-video-swiper": "@/wxcomponents/video-swiper/index",
-		"ec-canvas": "@/wxcomponents/ec-canvas/ec-canvas"
+		"mp-video-swiper": "@/wxcomponents/video-swiper/index"
 	},
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [ 
 		{
 			"path": "pages/index/tabbar",
 			"style": {
@@ -14,7 +13,20 @@
 					"mp-video-swiper": "/wxcomponents/video-swiper/index"
 				}
 			}
-		}, {
+		},{
+			"path": "pages/upload/upload",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/upload/uploadvideo",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},  {
 			"path": "pages/setinfo/setinfo",
 			"style": {
 				"navigationBarTitleText": "",
@@ -26,15 +38,18 @@
 				"navigationBarTitleText": "",
 				"navigationStyle": "custom"
 			}
-		}, 
+		}, {
+			"path": "pages/breakfast/breakfast",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},
 		{
 			"path": "pages/info/info",
 			"style": {
 				"navigationBarTitleText": "",
-				"navigationStyle": "custom",
-				"usingComponents": {
-
-				}
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -90,12 +105,7 @@
 		{
 			"path": "pages/video",
 			"style": {
-				"navigationBarTitleText": "视频播放",
-				"usingComponents": {
-					// #ifdef  MP-WEIXIN 
-					"txv-video": "plugin://tencentvideo/video"
-					// #endif
-				}
+				"navigationBarTitleText": "视频播放"
 			}
 		},
 		{
@@ -263,7 +273,10 @@
 			"van-stepper": "wxcomponents/vant/stepper/index",
 			"van-divider": "wxcomponents/vant/divider/index",
 			"van-notify": "/wxcomponents/vant/notify/index",
-			"van-dialog": "/wxcomponents/vant/dialog/index"
+			"van-dialog": "/wxcomponents/vant/dialog/index",
+			 "van-uploader": "/wxcomponents/vant/uploader/index",
+			 "van-field": "/wxcomponents/vant/field/index",
+			 "van-picker": "/wxcomponents/vant/picker/index"
 		}
 	}
 }

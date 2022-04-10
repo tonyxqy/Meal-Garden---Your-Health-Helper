@@ -196,7 +196,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jobclassify = _interopRequireDefault(__webpack_require__(/*! @/common/jobclassify.js */ 71));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
+
+
+
+
+var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.js */ 64));
+var _jobclassify = _interopRequireDefault(__webpack_require__(/*! @/common/jobclassify.js */ 82));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
 {
   data: function data() {
     return {
@@ -230,6 +235,42 @@ var _jobclassify = _interopRequireDefault(__webpack_require__(/*! @/common/jobcl
 
 
   methods: {
+    choosejob: function choosejob(item) {
+      uni.showLoading({
+        title: '加载中' });
+
+      var now = new Date();
+      var nowStr = now.getFullYear() + "-" + (
+      now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-" + (
+      now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " ";
+      uni.request({
+        url: 'http://47.102.203.108:3306/user/updateJobById?user_id=35&job=' + item.name + '&time=' + nowStr,
+        method: 'POST',
+        success: function success(res) {//成功
+          uni.hideLoading();
+          console.log(res.data);
+          var user = {
+            user_id: '35' };
+
+          // 获取目标身体状态
+          var optstar = {
+            url: 'user/jobinfo',
+            method: 'get' };
+
+          uni.showLoading({
+            title: '加载中' });
+
+          _request.default.httpRequest(optstar, user).then(function (res) {
+            uni.hideLoading();
+            if (res.statusCode == 200) {
+              console.log(res.data);
+            } else {}
+          });
+
+          // http://47.102.203.108:3306/user/jobinfo
+        } });
+
+    },
     getImg: function getImg() {
       return Math.floor(Math.random() * 35);
     },

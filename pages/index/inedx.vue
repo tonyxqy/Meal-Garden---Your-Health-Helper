@@ -728,6 +728,16 @@
 			},
 			goCategorieslist: function(e) {
 				// console.log(e.currentTarget.dataset.mid)
+				if (e.currentTarget.dataset.mid == 3) {
+					uni.navigateTo({
+						url: '../upload/upload'
+					})
+				}
+				if (e.currentTarget.dataset.mid == 4) {
+					uni.navigateTo({
+						url: '../upload/uploadvideo'
+					})
+				}
 				if (e.currentTarget.dataset.mid == 2) {
 					uni.navigateTo({
 						url: '../me/mentalTest/index?mid=1'

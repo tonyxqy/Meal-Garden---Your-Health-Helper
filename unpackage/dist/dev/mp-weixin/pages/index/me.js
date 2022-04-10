@@ -114,7 +114,199 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.js */ 64));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
 //
@@ -305,131 +497,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  data: function data() {
-    return {
-      // Custom: this.Custom,
+var _default = { data: function data() {return { // Custom: this.Custom,
       // CustomBar: this.CustomBar,
-      spaceShow: true,
-      modalName: null,
-      picName: '流星之夜',
-      pic: [{
-        link: 'https://cdn.zhoukaiwen.com/zjx_me_bg1.jpeg',
-        name: '春天' },
-      {
-        link: 'https://cdn.zhoukaiwen.com/zjx_me_bg2.jpeg',
-        name: '夏天' },
-      {
-        link: 'https://cdn.zhoukaiwen.com/zjx_me_bg3.jpeg',
-        name: '秋天' },
-      {
-        link: 'https://cdn.zhoukaiwen.com/zjx_me_bg4.jpeg',
-        name: '冬天' },
-      {
-        link: 'https://cdn.zhoukaiwen.com/zjx_me_bg5.jpeg',
-        name: '幽静' },
-      {
-        link: 'https://cdn.zhoukaiwen.com/zjx_me_bg6.jpg',
-        name: '天空' }],
-
-      topBackGroupImageIndex: 5,
-      inter: [{
-        title: 'mimicry',
-        name: '活力春天',
-        color: '' },
-      {
-        title: 'theme',
-        name: '清爽夏日',
-        color: '' },
-      {
-        title: 'theme',
-        name: '金秋之韵',
-        color: '' },
-      {
-        title: 'theme',
-        name: '冬日之阳',
-        color: '' },
-      {
-        title: 'theme',
-        name: '幽兰星空',
-        color: '' },
-      {
-        title: 'theme',
-        name: '流星之夜',
-        color: '' }] };
-
-
-  },
-  // 分享小程序
-  onShareAppMessage: function onShareAppMessage(res) {
-    return {
-      title: '看看这个小程序多好玩～' };
-
-  },
-  watch: {
-    topBackGroupImageIndex: function topBackGroupImageIndex(val) {
-      console.log(val);
-      if (val == 4 || val == 5) {
-        this.spaceShow = true;
-      } else {
-        this.spaceShow = false;
-      }
-    } },
-
-  mounted: function mounted() {
-    // uni.showToast({
+      spaceShow: true, modalName: null, TabList: [], ansList: [], picName: '流星之夜', pic: [{ link: 'https://cdn.zhoukaiwen.com/zjx_me_bg1.jpeg', name: '春天' }, { link: 'https://cdn.zhoukaiwen.com/zjx_me_bg2.jpeg', name: '夏天' }, { link: 'https://cdn.zhoukaiwen.com/zjx_me_bg3.jpeg', name: '秋天' }, { link: 'https://cdn.zhoukaiwen.com/zjx_me_bg4.jpeg', name: '冬天' }, { link: 'https://cdn.zhoukaiwen.com/zjx_me_bg5.jpeg', name: '幽静' }, { link: 'https://cdn.zhoukaiwen.com/zjx_me_bg6.jpg', name: '天空' }], topBackGroupImageIndex: 5, inter: [{ title: 'mimicry', name: '活力春天', color: '' }, { title: 'theme', name: '清爽夏日', color: '' }, { title: 'theme', name: '金秋之韵', color: '' }, { title: 'theme', name: '冬日之阳', color: '' }, { title: 'theme', name: '幽兰星空', color: '' }, { title: 'theme', name: '流星之夜', color: '' }] };}, // 分享小程序
+  onShareAppMessage: function onShareAppMessage(res) {return { title: '看看这个小程序多好玩～' };}, watch: { topBackGroupImageIndex: function topBackGroupImageIndex(val) {console.log(val);if (val == 4 || val == 5) {this.spaceShow = true;} else {this.spaceShow = false;}} }, mounted: function mounted() {// uni.showToast({
     //     title: '暂未开放,敬请期待',
     // 	icon: 'none',
     //     duration: 2000
     // });
-  },
-  methods: {
-    switchImage: function switchImage(index, name) {
-      this.topBackGroupImageIndex = index;
-      this.modalName = null;
-      this.picName = name;
-    },
-    showModal: function showModal(e) {
-      this.modalName = e.currentTarget.dataset.target;
-    },
-
-    // 答题测试
-    mentalTest: function mentalTest() {
-      uni.navigateTo({
-        url: '../me/mentalTest/list' });
-
-    },
-    //拨打固定电话
-    callPhoneNumber: function callPhoneNumber() {
-      uni.makePhoneCall({
-        phoneNumber: "18629591093" });
-
-    },
-    // 关于作者
-    goAboutMe: function goAboutMe() {
-      uni.navigateTo({
-        url: '../me/aboutMe' });
-
-    },
-    // 薪资排名
-    goSalary: function goSalary() {
-      uni.navigateTo({
-        url: '../me/salary' });
-
-    },
-    // 课班信息
-    goCourse: function goCourse() {
-      uni.navigateTo({
-        url: '../info/info' });
-
-    } } };exports.default = _default;
+    this.getServerData();}, methods: { getServerData: function getServerData() {var _this = this;uni.showLoading({ title: '加载中' });var user = { user_id: '22' };var optstar = { url: 'body/all', method: 'get' };_request.default.httpRequest(optstar, user).then(function (res) {console.log(res);uni.hideLoading();if (res.statusCode == 200) {_this.TabList = res.data;console.log(_this.TabList);for (var i = 0; i < _this.TabList.length; i++) {console.log(_this.TabList[i].timeList[_this.TabList[i].timeList.length - 1].value);_this.ansList.push(_this.TabList[i].timeList[_this.TabList[i].timeList.length - 1].value);}console.log(_this.ansList);} else {}});}, switchImage: function switchImage(index, name) {this.topBackGroupImageIndex = index;this.modalName = null;this.picName = name;}, showModal: function showModal(e) {this.modalName = e.currentTarget.dataset.target;}, // 答题测试
+    mentalTest: function mentalTest() {uni.navigateTo({ url: '../me/mentalTest/list' });}, //拨打固定电话
+    callPhoneNumber: function callPhoneNumber() {uni.makePhoneCall({ phoneNumber: "18629591093" });}, // 关于作者
+    goAboutMe: function goAboutMe() {uni.navigateTo({ url: '../me/aboutMe' });}, // 薪资排名
+    goSalary: function goSalary() {uni.navigateTo({ url: '../me/salary' });}, // 课班信息
+    goCourse: function goCourse() {uni.navigateTo({ url: '../info/info' });} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

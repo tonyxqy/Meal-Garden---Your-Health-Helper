@@ -10,7 +10,7 @@
 "use strict";
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 5);__webpack_require__(/*! @dcloudio/uni-stat */ 6);
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
-var _course = _interopRequireDefault(__webpack_require__(/*! ./pages/me/course.vue */ 131));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
+var _course = _interopRequireDefault(__webpack_require__(/*! ./pages/me/course.vue */ 150));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 createPage(_course.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
@@ -25,8 +25,8 @@ createPage(_course.default);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _course_vue_vue_type_template_id_1ac58349_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./course.vue?vue&type=template&id=1ac58349&scoped=true& */ 132);
-/* harmony import */ var _course_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./course.vue?vue&type=script&lang=js& */ 134);
+/* harmony import */ var _course_vue_vue_type_template_id_1ac58349_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./course.vue?vue&type=template&id=1ac58349&scoped=true& */ 151);
+/* harmony import */ var _course_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./course.vue?vue&type=script&lang=js& */ 153);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _course_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _course_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _course_vue_vue_type_style_index_0_id_1ac58349_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./course.vue?vue&type=style&index=0&id=1ac58349&lang=scss&scoped=true& */ 136);
 /* harmony import */ var _course_vue_vue_type_style_index_1_id_1ac58349_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./course.vue?vue&type=style&index=1&id=1ac58349&lang=scss&scoped=true& */ 138);
@@ -528,5 +528,5 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[[130,"common/runtime","common/vendor"]]]);
+},[[149,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/me/course.js.map

@@ -42,12 +42,12 @@
 					:style="'height:' + winHeight * 0.50 + 'rpx'">
 					<swiper-item v-for="(item, index) in [0, 1, 2, 3, 4, 5, 6, 7]" :key="index">
 						<scroll-view :scroll-y="true" class="scoll-h">
-							<block v-for="(item, index1) in TabList[currentTab].TimeList" :key="index1">
+							<block v-for="(item, index1) in TabList[currentTab].timeList" :key="index1">
 								<view class="item-ans">
 									<view class="avatar"></view>
 									<view class="expertInfo">
 										<view class="name">{{ item.value }}{{ unit[currentTab] }}</view>
-										<view class="tag">{{ item.time }}</view>
+										<view class="tag">{{ item.time.substr(0,10) }}</view>
 										<view class="answerHistory"></view>
 									</view>
 									<navigator url="/pages/askExpert/expertDetail" class="askBtn">目前没用</navigator>
@@ -71,42 +71,34 @@
 				<view id="bg" class="login-bg" :style="'display:' + (inputValue == true ? 'none' : 'block') + ';'">
 				</view>
 				<button class="bg-gradual-green" style="position: fixed; bottom: 0; width: 100%; z-index: -10"
-					@tap="inputcover">记录{{ TabList[currentTab].name }}</button>
+					v-if="TabList[currentTab].name!='体脂率'" @tap="inputcover">记录{{ TabList[currentTab].name }}</button>
+				<button class="bg-gradual-green" style="position: fixed; bottom: 0; width: 100%; z-index: -10"
+					v-if="TabList[currentTab].name=='体脂率'">由系统根据身高体重计算欧</button>
 			</block>
 		</view>
 	</view>
 </template>
 
 <script>
-	import ecCanvas from '@/wxcomponents/ec-canvas/ec-canvas';
 	import uCharts from "@/components/u-charts/u-charts.js";
+	import request from '@/common/request.js';
 	var _self;
 	var canvaArea = null;
 
 	var app = getApp();
 	export default {
-		components: {
-			ecCanvas
-		},
+		components: {},
 		data() {
 			return {
 				cWidth: '',
 				cHeight: '',
 				pixelRatio: 1,
 				Area: {
-					categories: ['6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+					categories: [],
 					series: [{
-						name: '学习前端',
-						data: [100, 80, 95, 150, 112, 132, 151],
-						color: '#facc14'
-					}, {
-						name: '学习后台',
-						data: [70, 40, 65, 100, 44, 68, 78],
-						color: '#2fc25b'
-					}, {
-						name: '学习设计',
-						data: [35, 20, 25, 37, 4, 20, 39],
-						color: '#1890ff'
+						name: '',
+						data: [],
+						color: ''
 					}]
 				},
 				unit: ['cm', 'kg', '%', 'mmHG', 'mmol/L', '', 'bpm'],
@@ -120,70 +112,71 @@
 				//预设当前项的值
 				scrollLeft: 0,
 				//tab标题的滚动条位置
-				TabList: [{
-						name: '身高',
-						TimeList: [{
-								// value:'请添加你的第一条身高记录',
-								// time:'ヽ(✿ﾟ▽ﾟ)ノ',
-								value: 180,
-								time: '2021/9/21'
-							},
-							{
-								value: 190,
-								time: '2021/9/30'
-							},
-							{
-								value: 199,
-								time: '2021/10/7'
-							}
-						]
-					},
-					{
-						name: '体重',
-						TimeList: [{
-							value: '请添加你的第一条体重记录',
-							time: 'ヽ(✿ﾟ▽ﾟ)ノ'
-						}]
-					},
-					{
-						name: '体脂率',
-						TimeList: [{
-							value: '请添加你的第一条体脂率记录',
-							time: 'ヽ(✿ﾟ▽ﾟ)ノ'
-						}]
-					},
-					{
-						name: '血压',
-						TimeList: [{
-							value: '请添加你的第一条血压记录',
-							time: 'ヽ(✿ﾟ▽ﾟ)ノ'
-						}]
-					},
-					{
-						name: '血糖',
-						TimeList: [{
-							value: '请添加你的第一条血糖记录',
-							time: 'ヽ(✿ﾟ▽ﾟ)ノ'
-						}]
-					},
-					{
-						name: 'bmi',
-						TimeList: [{
-							value: '还没有欸',
-							time: 'ヽ(✿ﾟ▽ﾟ)ノ'
-						}]
-					},
-					{
-						name: '静息心率',
-						TimeList: [{
-							value: '请添加你的第一条静息心率',
-							time: 'ヽ(✿ﾟ▽ﾟ)ノ'
-						}]
-					}
-				]
+				TabList: []
+				// [{
+				// 		name: '身高',
+				// 		timeList: [{
+				// 				// value:'请添加你的第一条身高记录',
+				// 				// time:'ヽ(✿ﾟ▽ﾟ)ノ',
+				// 				value: 180,
+				// 				time: '2021/9/21'
+				// 			},
+				// 			{
+				// 				value: 190,
+				// 				time: '2021/9/30'
+				// 			},
+				// 			{
+				// 				value: 199,
+				// 				time: '2021/10/7'
+				// 			}
+				// 		]
+				// 	},
+				// 	{
+				// 		name: '体重',
+				// 		timeList: [{
+				// 			value: '请添加你的第一条体重记录',
+				// 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+				// 		}]
+				// 	},
+				// 	{
+				// 		name: '体脂率',
+				// 		timeList: [{
+				// 			value: '请添加你的第一条体脂率记录',
+				// 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+				// 		}]
+				// 	},
+				// 	{
+				// 		name: '血压',
+				// 		timeList: [{
+				// 			value: '请添加你的第一条血压记录',
+				// 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+				// 		}]
+				// 	},
+				// 	{
+				// 		name: '血糖',
+				// 		timeList: [{
+				// 			value: '请添加你的第一条血糖记录',
+				// 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+				// 		}]
+				// 	},
+				// 	{
+				// 		name: 'bmi',
+				// 		timeList: [{
+				// 			value: '还没有欸',
+				// 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+				// 		}]
+				// 	},
+				// 	{
+				// 		name: '静息心率',
+				// 		timeList: [{
+				// 			value: '请添加你的第一条静息心率',
+				// 			time: 'ヽ(✿ﾟ▽ﾟ)ノ'
+				// 		}]
+				// 	}
+				// ]
 			}
 		},
-		onLoad: function(options) {
+		mounted: function(options) {
 			_self = this;
 			uni.getSystemInfo({
 				success(res) {
@@ -198,13 +191,56 @@
 			});
 			this.cWidth = uni.upx2px(750);
 			this.cHeight = uni.upx2px(420);
-			this.setEchartval();
 			this.getServerData();
 		},
 
 		methods: {
+			uploadData(name, value, time) {
+				uni.showLoading({
+					title: '加载中'
+				})
+				let now = time
+				let nowStr = now.getFullYear() + "-"
+				 + (now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-"
+				 + (now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " "
+				let data = {
+					name: name,
+					value: value,
+					time: nowStr,
+					user_id: 35
+				}
+				let optstar = {
+					url: 'body/update',
+					method: 'post',
+				};
+				request.httpRequest(optstar, data).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						console.log(res.data)
+					} else {}
+				});
+			},
 			getServerData() {
-				_self.showArea("canvasArea", this.chartData);
+				uni.showLoading({
+					title: '加载中'
+				})
+				let user = {
+					user_id: '35'
+				}
+				let optstar = {
+					url: 'body/all',
+					method: 'get',
+				};
+				request.httpRequest(optstar, user).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.TabList = res.data
+						console.log(this.TabList)
+						this.setEchartval();
+						_self.showArea("canvasArea", this.chartData);
+					} else {}
+				});
 			},
 			showArea(canvasId, chartData) {
 				canvaArea = new uCharts({
@@ -263,18 +299,26 @@
 				var myDate = new Date();
 				var myDateMonth = myDate.toLocaleDateString();
 				let i = 0;
-				if (TabList[currval].TimeList[i].time != 'ヽ(✿ﾟ▽ﾟ)ノ')
-					for (i; i < TabList[currval].TimeList.length; i++) {
-						console.log(TabList[currval].TimeList[i].time);
-						categories.push(TabList[currval].TimeList[i].time);
-						datas.push(TabList[currval].TimeList[i].value);
+				console.log(TabList[currval].timeList.length === 0)
+				if (TabList[currval].timeList.length === 0) {
+					let data = {
+						value: '请添加你的第一条身高记录',
+						time: 'ヽ(✿ﾟ▽ﾟ)ノ'
 					}
-				else
-				    {
-						categories.push();
-						datas.push(0);
-						categories.push(myDateMonth);
+					TabList[currval].timeList.push(data)
+					console.log(TabList[currval].timeList)
+				}
+				if (TabList[currval].timeList[i].time != 'ヽ(✿ﾟ▽ﾟ)ノ')
+					for (i; i < TabList[currval].timeList.length; i++) {
+						console.log(TabList[currval].timeList[i].time);
+						categories.push(TabList[currval].timeList[i].time.substr(0,10));
+						datas.push(TabList[currval].timeList[i].value);
 					}
+				else {
+					categories.push();
+					datas.push(0);
+					categories.push(myDateMonth);
+				}
 
 				series.push({
 					name: names,
@@ -294,22 +338,22 @@
 				let value = e.detail.value;
 				var myDate = new Date();
 				var myDateMonth = myDate.toLocaleDateString();
-
-				if (TabList[currval].TimeList[0].time == 'ヽ(✿ﾟ▽ﾟ)ノ') {
-					TabList[currval].TimeList[0].value = parseInt(value.myvalue);
-					TabList[currval].TimeList[0].time = myDateMonth;
+				this.uploadData(this.TabList[currval].name, value.myvalue, myDate)
+				if (TabList[currval].timeList[0].time == 'ヽ(✿ﾟ▽ﾟ)ノ') {
+					TabList[currval].timeList[0].value = parseInt(value.myvalue);
+					TabList[currval].timeList[0].time = myDateMonth;
 				} else {
-					TabList[currval].TimeList.push({
+					TabList[currval].timeList.push({
 						value: value.myvalue,
 						time: myDateMonth
 					});
 				}
 				this.inputValue = !temp,
 					this.TabList = TabList
-				app.globalData.echarts = this.TabList[currval].TimeList;
-				console.log(this.TabList[currval].TimeList);
-				this.setEchartval();
+				app.globalData.echarts = this.TabList[currval].timeList;
+				console.log(this.TabList[currval].timeList);
 				this.getServerData();
+				// this.setEchartval();
 			},
 
 			inputcover: function() {
@@ -321,7 +365,7 @@
 			switchTab: function(e) {
 				this.currentTab = e.detail.current
 				this.checkCor();
-				this.setEchartval();
+				// this.setEchartval();
 				this.getServerData();
 			},
 
@@ -469,7 +513,11 @@
 	}
 
 	.login-input-content {
-		margin-top: 2rem;
+		// margin-top: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);    
 	}
 
 	.login-input {
@@ -483,7 +531,7 @@
 		margin: auto;
 		margin-top: 0.8rem;
 		margin-bottom: 0;
-		width: 25%;
+		width: 60%;
 		border-bottom: 1px solid #b6b0bb;
 	}
 
