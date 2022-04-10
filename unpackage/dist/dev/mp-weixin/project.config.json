@@ -5,12 +5,12 @@
   },
   "setting": {
     "urlCheck": false,
-    "minified": false,
+    "minified": true,
     "es6": true
   },
   "compileType": "miniprogram",
   "libVersion": "",
-  "appid": "touristappid",
+  "appid": "wxb8aa404bd39c0c70",
   "projectname": "营养助手",
   "condition": {
     "search": {

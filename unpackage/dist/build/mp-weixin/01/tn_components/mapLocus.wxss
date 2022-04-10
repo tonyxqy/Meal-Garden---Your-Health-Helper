@@ -1,0 +1,1 @@
+@import "../common/main.wxss";.container.data-v-c431f28e{position:relative}.btnBox.data-v-c431f28e{width:750rpx;position:absolute;bottom:60rpx;z-index:99;display:flex;justify-content:space-around}

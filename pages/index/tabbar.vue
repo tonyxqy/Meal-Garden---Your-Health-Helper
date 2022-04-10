@@ -22,7 +22,7 @@
 						<image v-if="PageCur=='search'" src="../../static/tabBar/shop_cur.png"></image>
 						<image v-if="PageCur != 'search'" src="../../static/tabBar/shop.png"></image>
 					</view>
-					<view :class="PageCur=='search'?'color_main':'text-gray'">职业食谱</view>
+					<view :class="PageCur=='search'?'color_main':'text-gray'">分类食谱</view>
 				</view>
 
 				<view @click="NavChange" class="action text-gray add-action" data-cur="cases">

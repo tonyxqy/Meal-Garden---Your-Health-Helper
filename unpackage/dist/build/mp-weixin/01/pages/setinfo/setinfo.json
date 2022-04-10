@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "ec-canvas": "../../wxcomponents/ec-canvas/ec-canvas"
+  }
+}

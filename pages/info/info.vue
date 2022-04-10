@@ -33,7 +33,7 @@
 							<text class="text-gray text-shadow">男</text>
 						</view>
 					</navigator>
-					<navigator url="/pages/setinfo/setinfo" class="jq22-flex">
+					<navigator url="/pages/job/job" class="jq22-flex">
 						<view class="jq22-cou-img">
 							<image src="/static/pages/info/images/icon-item-001.png" alt=""></image>
 						</view>
@@ -41,10 +41,10 @@
 							<text class="text-black">职业</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">医生</text>
+							<text class="text-blue text-shadow">获取推荐微量元素与食谱</text>
 						</view>
 					</navigator>
-					<navigator url="/pages/setinfo/setinfo" class="jq22-flex">
+<!-- 					<navigator url="/pages/setinfo/setinfo" class="jq22-flex">
 						<view class="jq22-cou-img">
 							<image src="/static/pages/info/images/icon-item-002.png" alt=""></image>
 						</view>
@@ -54,8 +54,8 @@
 						<view class="jq22-arrow">
 							<text class="text-gray text-shadow">1996-08-03</text>
 						</view>
-					</navigator>
-					<navigator url="/pages/setinfo/setinfo" class="jq22-flex b-line">
+					</navigator> -->
+<!-- 					<navigator url="/pages/setinfo/setinfo" class="jq22-flex b-line">
 						<view class="jq22-cou-img">
 							<image src="/static/pages/info/images/icon-item-008.png" alt=""></image>
 						</view>
@@ -65,7 +65,7 @@
 						<view class="jq22-arrow">
 							<text class="text-gray text-shadow">中</text>
 						</view>
-					</navigator>
+					</navigator> -->
 					<view class="viewHeight"></view>
 					<navigator url="/pages/setinfo/setinfo?currentTab=0" class="jq22-flex b-line">
 						<view class="jq22-cou-img">
@@ -75,7 +75,7 @@
 							<text class="text-black">身高</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">cm</text>
+							<text class="text-gray text-shadow">{{ansList[0]}}cm</text>
 						</view>
 					</navigator>
 					<navigator url="/pages/setinfo/setinfo?currentTab=1" class="jq22-flex b-line">
@@ -86,7 +86,7 @@
 							<text class="text-black">体重</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">60kg</text>
+							<text class="text-gray text-shadow">{{ansList[1]}}kg</text>
 						</view>
 					</navigator>
 					<navigator url="/pages/setinfo/setinfo?currentTab=2" class="jq22-flex b-line">
@@ -97,7 +97,7 @@
 							<text class="text-black">体脂率</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">17%</text>
+							<text class="text-gray text-shadow">{{ansList[2]}}%</text>
 						</view>
 					</navigator>
 					<navigator url="/pages/setinfo/setinfo?currentTab=3" class="jq22-flex b-line">
@@ -108,7 +108,7 @@
 							<text class="text-black">血压</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">115mmHG/75mmHG</text>
+							<text class="text-gray text-shadow">{{ansList[3]}}mmHG</text>
 						</view>
 					</navigator>
 					<navigator url="/pages/setinfo/setinfo?currentTab=4" class="jq22-flex b-line">
@@ -119,7 +119,7 @@
 							<text class="text-black">血糖</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">5.0mmol/L</text>
+							<text class="text-gray text-shadow">{{ansList[4]}}mmol/L</text>
 						</view>
 					</navigator>
 					<navigator url="/pages/setinfo/setinfo?currentTab=5" class="jq22-flex b-line">
@@ -130,7 +130,7 @@
 							<text class="text-black">bmi</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">20.8</text>
+							<text class="text-gray text-shadow">{{ansList[5]}}</text>
 						</view>
 					</navigator>
 					<navigator url="/pages/setinfo/setinfo?currentTab=6" class="jq22-flex b-line">
@@ -141,7 +141,7 @@
 							<text class="text-black">静息心率</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">bpm</text>
+							<text class="text-gray text-shadow">{{ansList[6]}}</text>
 						</view>
 					</navigator>
 					<view class="viewHeight"></view>
@@ -153,11 +153,14 @@
 
 <script>
 	// pages/info.js
+	import request from '@/common/request.js';
 	export default {
 		data() {
 			return {
 				//是否已经获取过了
 				num: 0,
+				TabList: [],
+				ansList:[],
 				numList: [{
 						name: '目标'
 					},
@@ -199,8 +202,35 @@
 			};
 		},
 		onShareAppMessage(o) {},
+		mounted() {
+			this.getServerData();
+		},
 		methods: {
-
+			getServerData() {
+				uni.showLoading({
+					title: '加载中'
+				})
+				let user = {
+					user_id: '22'
+				}
+				let optstar = {
+					url: 'body/all',
+					method: 'get',
+				};
+				request.httpRequest(optstar, user).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.TabList = res.data
+						console.log(this.TabList)
+						for(let i=0  ;i<this.TabList.length;i++){
+							console.log(this.TabList[i].timeList[this.TabList[i].timeList.length-1].value)
+							this.ansList.push(this.TabList[i].timeList[this.TabList[i].timeList.length-1].value);
+						}
+						console.log(this.ansList)
+					} else {}
+				});
+			},
 		}
 	};
 </script>
@@ -655,7 +685,7 @@
 	}
 
 	.jq22-flex-box text {
-		font-size: 0.9rem;
+		font-size: 1.1rem;
 		color: #000000;
 		font-weight: 500;
 	}

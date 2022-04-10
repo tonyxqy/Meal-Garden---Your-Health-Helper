@@ -1,0 +1,10 @@
+require('../../common/runtime.js');require('../../common/vendor.js');require('../../common/main.js');(global["webpackJsonp_01"]=global["webpackJsonp_01"]||[]).push([["components/TnCustom/TnCustom"],{"0440":function(t,n,a){"use strict";var e=a("97ac"),u=a.n(e);u.a},"0713":function(t,n,a){"use strict";a.r(n);var e=a("7cd4"),u=a("813c");for(var c in u)"default"!==c&&function(t){a.d(n,t,(function(){return u[t]}))}(c);a("0440");var r,o=a("f0c5"),i=Object(o["a"])(u["default"],e["b"],e["c"],!1,null,"668b00ce",null,!1,e["a"],r);n["default"]=i.exports},"7cd4":function(t,n,a){"use strict";var e;a.d(n,"b",(function(){return u})),a.d(n,"c",(function(){return c})),a.d(n,"a",(function(){return e}));var u=function(){var t=this,n=t.$createElement;t._self._c},c=[]},"813c":function(t,n,a){"use strict";a.r(n);var e=a("c2dc"),u=a.n(e);for(var c in e)"default"!==c&&function(t){a.d(n,t,(function(){return e[t]}))}(c);n["default"]=u.a},"97ac":function(t,n,a){},c2dc:function(t,n,a){"use strict";(function(t){function a(t){throw new Error('"'+t+'" is read-only')}Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var e={name:"TnCustom",data:function(){return{StatusBar:this.StatusBar,CustomBar:this.CustomBar}},computed:{style:function(){var t=this.StatusBar,n=this.CustomBar,e=this.bgImage,u="height:".concat(n,"px;padding-top:").concat(t,"px;");return this.bgImage&&(a("style"),u="".concat(u,"background-image:url(").concat(e,");")),u}},props:{bgColor:{type:String,default:""},isBack:{type:[Boolean,String],default:!1},isLeft:{type:[Boolean,String],default:!1},bgImage:{type:String,default:""}},methods:{BackPage:function(){t.navigateBack({delta:1})}}};n.default=e}).call(this,a("543d")["default"])}}]);
+;(global["webpackJsonp_01"] = global["webpackJsonp_01"] || []).push([
+    'components/TnCustom/TnCustom-create-component',
+    {
+        'components/TnCustom/TnCustom-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("0713"))
+        })
+    },
+    [['components/TnCustom/TnCustom-create-component']]
+]);

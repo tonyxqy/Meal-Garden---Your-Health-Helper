@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "qiun-data-charts": "../../uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts",
+    "add-tip": "../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip",
+    "bodyhelper": "./bodyhelper"
+  }
+}

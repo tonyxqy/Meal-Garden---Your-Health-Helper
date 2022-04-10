@@ -18,26 +18,26 @@
 					<u-waterfall v-model="flowList" ref="uWaterfall">
 						<template v-slot:left="{leftList}">
 							<view class="demo-warter" v-for="(item, index) in leftList" :key="index"
-								@click="seeImg(item.image)">
-								<u-lazy-load threshold="-450" border-radius="10" :image="item.image" :index="index">
+								@click="seeImg(item.photourl)">
+								<u-lazy-load threshold="-450" border-radius="10" :image="item.photourl" :index="index">
 								</u-lazy-load>
 								<view class="demo-title">
-									{{item.title}}
+									{{item.words}}
 								</view>
 								<view class="demo-tag">
 									<view class="demo-tag-owner">
-										{{item.yhdj}}
+										{{item.sign1}}
 									</view>
 									<view class="demo-tag-text">
-										{{item.type}}
+										{{item.sign2}}
 									</view>
 								</view>
 								<view class="demo-shop">
-									{{item.shop}}
+									{{item.nickname}}
 								</view>
-								<u-icon name="close-circle-fill" color="#ff55ff" size="34" class="u-close"
+<!-- 								<u-icon name="close-circle-fill" color="#ff55ff" size="34" class="u-close"
 									@click="remove(item.id)">
-								</u-icon>
+								</u-icon> -->
 							</view>
 						</template>
 						<template v-slot:right="{rightList}">
@@ -59,9 +59,9 @@
 								<view class="demo-shop">
 									{{item.shop}}
 								</view>
-								<u-icon name="close-circle-fill" color="#ff55ff" size="34" class="u-close"
+<!-- 								<u-icon name="close-circle-fill" color="#ff55ff" size="34" class="u-close"
 									@click="remove(item.id)">
-								</u-icon>
+								</u-icon> -->
 							</view>
 						</template>
 					</u-waterfall>
@@ -71,7 +71,7 @@
 			<swiper-item class="swiper-item">
 				<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
 					<mp-video-swiper class="video-swiper" :video-list="videoList"  bindplay="onPlay" bindpause="onPause"
-						bindtimeupdate="onTimeUpdate" bindended="onEnded" binderror="onError" bindwaiting="onWaiting"
+					 bindended="onEnded" binderror="onError" bindwaiting="onWaiting"
 						bindprogress="onProgress" bindloadedmetadata="onLoadedMetaData">
 					</mp-video-swiper>
 				</scroll-view>
@@ -83,6 +83,7 @@
 </template>
 
 <script>
+	import request from '@/common/request.js';
 	import imgData from "@/common/uiImg.js";
 	import mpVideoSwiper from "@/wxcomponents/video-swiper"
 	export default {
@@ -110,14 +111,7 @@
 				tabsHeight: 0,
 				dx: 0,
 				urls: [
-					'https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218114723HDu3hhxqIT.mp4',
-					'https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218093206z8V1JuPlpe.mp4',
-					'https://stream7.iqilu.com/10339/article/202002/18/2fca1c77730e54c7b500573c2437003f.mp4',
-					'https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218025702PSiVKDB5ap.mp4',
-					'https://stream7.iqilu.com/10339/upload_transcode/202002/18/202002181038474liyNnnSzz.mp4',
-					'https://stream7.iqilu.com/10339/article/202002/18/02319a81c80afed90d9a2b9dc47f85b9.mp4',
-					'http://stream4.iqilu.com/ksd/video/2020/02/17/c5e02420426d58521a8783e754e9f4e6.mp4',
-					'http://stream4.iqilu.com/ksd/video/2020/02/17/87d03387a05a0e8aa87370fb4c903133.mp4'
+					
 				]
 			}
 		},
@@ -130,22 +124,51 @@
 			}
 		},
 		mounted() {
-			this.list = imgData[0].appImg;
-			console.log(this.list)
-			this.pageName = '动态';
-			this.addRandomData();
-			console.log(this.videoList)
-		},
-		reachBottom() {
-			this.loadStatus = 'loading';
-			// 模拟数据加载
-			setTimeout(() => {
-				this.addRandomData();
-				this.loadStatus = 'loadmore';
-			}, 1000)
-		},
-		methods: {
 			
+			let optstar = {
+				url: 'forum/forums',
+				method: 'get',
+			};
+			uni.showLoading({
+				title: '加载中'
+			})
+			request.httpRequest(optstar).then(res => {
+				console.log(res);
+				// uni.hideLoading();
+				if (res.statusCode == 200) {
+					this.list =res.data
+					this.pageName = '动态';
+					this.addRandomData();
+				} else {}
+			});
+			let optvideo = {
+				url: 'forum/videos',
+				method: 'get',
+			};
+			uni.showLoading({
+				title: '加载中'
+			})
+			request.httpRequest(optvideo).then(res => {
+				console.log(res);
+				uni.hideLoading();
+				if (res.statusCode == 200) {
+					console.log(res.data)
+					res.data.forEach(item=>{
+						this.urls.push(item.photourl)
+					})
+				} else {}
+			});
+		},
+
+		methods: {
+			reachBottom() {
+				this.loadStatus = 'loading';
+				// 模拟数据加载
+				setTimeout(() => {
+					this.addRandomData();
+					this.loadStatus = 'loadmore';
+				}, 1000)
+			},
 			    onPlay(e) {},
 			  
 			    onPause(e) {
@@ -187,12 +210,14 @@
 				this.current = current;
 			},
 			addRandomData() {
+				console.log(this.list.length)
 				for (let i = 0; i < 8; i++) {
-					let index = this.$u.random(0, this.list.length - 1);
+					let index = this.$u.random(0, this.list.length-1);
 					// 先转成字符串再转成对象，避免数组对象引用导致数据混乱
 					let item = JSON.parse(JSON.stringify(this.list[index]))
 					item.id = this.$u.guid();
 					this.flowList.push(item);
+					console.log('****',this.flowList)
 				}
 			},
 			remove(id) {

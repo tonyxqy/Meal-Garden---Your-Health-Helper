@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/tabbar",
+    "pages/upload/upload",
+    "pages/upload/uploadvideo",
     "pages/setinfo/setinfo",
     "pages/job/job",
     "pages/breakfast/breakfast",
@@ -70,6 +72,9 @@
     "van-tag": "/wxcomponents/vant/tag/index",
     "van-notify": "/wxcomponents/vant/notify/index",
     "van-dialog": "/wxcomponents/vant/dialog/index",
+    "van-uploader": "/wxcomponents/vant/uploader/index",
+    "van-field": "/wxcomponents/vant/field/index",
+    "van-picker": "/wxcomponents/vant/picker/index",
     "cu-custom": "/colorui/components/cu-custom",
     "tn-custom": "/components/TnCustom/TnCustom"
   }

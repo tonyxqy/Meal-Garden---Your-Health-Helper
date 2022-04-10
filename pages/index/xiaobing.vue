@@ -32,18 +32,19 @@
 								<div id="ev_zo_img" class="ev_zo_img"></div>
 								<div class="ev_zo_msg"><span data-bm="47">这回你又要找我聊什么呀？</span></div>
 							</div>
-							<div class="ev_msg_wrapper" v-for="(item,index) in topiclist" :key="index" >
+							<div class="ev_msg_wrapper" v-for="(item,index) in topiclist" :key="index">
 								<div id="ev_zo_img" class="ev_zo_img" v-if="item.from=='AI'"></div>
-								<div class="ev_zo_msg" v-if="item.from=='AI'"><span data-bm="49">{{item.value}}</span></div>
-								<img 	v-if="item.from=='user'"
-										class="ev_my_img"
-										src="https://storage.live.com/users/0x98ead897b1c496b2/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1&amp;ex=720&amp;sid=209E835C4E0369373781923A4F656894&amp;fofoff=1">
+								<div class="ev_zo_msg" v-if="item.from=='AI'"><span data-bm="49">{{item.value}}</span>
+								</div>
+								<img v-if="item.from=='user'" class="ev_my_img"
+									src="https://storage.live.com/users/0x98ead897b1c496b2/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1&amp;ex=720&amp;sid=209E835C4E0369373781923A4F656894&amp;fofoff=1">
 								<div v-if="item.from=='user'" class="ev_my_msg">{{item.value}}</div>
 							</div>
 						</span>
 					</scroll-view>
 					<div id="ev_send_input" class="ev_send_input">
-						<textarea id="ev_send_text" class="ev_send_text" type="text" v-model="word" placeholder="来说点什么吧">
+						<textarea id="ev_send_text" class="ev_send_text" type="text" v-model="word"
+							placeholder="来说点什么吧">
 					</textarea>
 						<div id="ev_send_button" class="ev_send_button" @click="send">
 							<div id="ev_send_button_img" class="ev_send_button_img">
@@ -57,34 +58,60 @@
 </template>
 
 <script>
+	import request from '@/common/request.js';
 	export default {
 		data() {
 			return {
 				xiaobing: true,
-				word:"",
-				topiclist:[
-				],
+				word: "",
+				topiclist: [],
 			};
 		},
 		created() {},
 		methods: {
-			send(){
+			send() {
+				let opt = {
+					url: 'question/',
+					method: 'post',
+				};
+				uni.showLoading({
+					title: '加载中'
+				})
+
+				let user = {
+					from: "user",
+					value:  this.word
+				}
 				let val = {
-					from:"user",
-					value:this.word
+					a1: this.word
 				}
 				console.log(val)
-				this.topiclist.push(val)
-				let ans = {
-					from:"AI",
-					value:"让我想想吖，请稍等"
-				}
-				this.topiclist.push(ans)
-				let anss = {
-					from:"AI",
-					value:"呜呜呜，小冰可怜可怜你，但是你应该不用吃什么了"
-				}
-				this.topiclist.push(anss)
+				this.topiclist.push(user)
+				uni.request({
+					header: {
+						'Content-type': 'application/x-www-form-urlencoded' //注意这里对应的是用Java搭建的服务器
+					},
+					url: 'http://47.102.203.108:8000/question/',
+					method: 'POST',
+					dataType: 'json', //返回值类型
+					data: val,
+					success: (res) => { //成功
+						console.log(res.data)
+						this.topiclist.push(res.data);
+					},
+				});
+				this.word=''
+
+				// let ans = {
+				// 	from: "AI",
+				// 	value: "让我想想吖，请稍等"
+				// }
+				// this.topiclist.push(ans)
+				// let anss = {
+				// 	from: "AI",
+				// 	value: "呜呜呜，小冰可怜可怜你，但是你应该不用吃什么了"
+				// }
+				// this.topiclist.push(anss)
 			},
 			talking: function() {
 				this.xiaobing = !this.xiaobing
