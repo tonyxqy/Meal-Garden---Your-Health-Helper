@@ -15,7 +15,7 @@
 		<div class="parent">
 			<div class="child">
 				<view class="padding text-blue text-xl text-bold">
-					<image class="trans_fade_image" src="../../static/pages/upload/厨房.png" mode=""></image>
+					<image class="trans_fade_image" src="../../static/pages/upload/kitchen.png" mode=""></image>
 				</view>
 
 			</div>
@@ -25,7 +25,7 @@
 			<image src='../../static/logo.png' class='share-img png round shadow-lg bg-white'>
 			</image>
 		</van-uploader>
-		<van-button size="large" color="linear-gradient(to right, #4bb0ff, #6149f6)" @click="upload">
+		<van-button size="large" color="linear-gradient(to right, #4bb0ff, #6149f6)" @click="upload" v-show="show">
 			发布
 		</van-button>
 		<!-- </button> -->
@@ -46,7 +46,8 @@
 				fileList: [],
 				animation_timer: null, // 动画定时器
 				width: 375,
-				height: 1920
+				height: 1920,
+				show:false
 			}
 		},
 		onLoad() {
@@ -70,6 +71,7 @@
 				that.fileList.push({
 					...file,
 				});
+				this.show = true
 			},
 			upload() {
 				var that = this;

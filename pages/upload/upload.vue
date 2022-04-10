@@ -33,7 +33,7 @@
 						<view>
 							<van-grid column-num="2" border="false" direction="horizontal">
 								<van-grid-item use-slot>
-									<image style="width: 2rem;height: 2rem;" src="../../static/pages/upload/标签.png" />
+									<image style="width: 2rem;height: 2rem;" src="../../static/pages/upload/label.png" />
 									<picker @change="bindPickerChange1" :value="index1" :range="array1"
 										range-key="name">
 										<view style="padding: 20rpx;background-color: white;">{{ array1[index1].name }}
@@ -41,7 +41,7 @@
 									</picker>
 								</van-grid-item>
 								<van-grid-item use-slot>
-									<image style="width: 2rem;height: 2rem;" src="../../static/pages/upload/标签.png" />
+									<image style="width: 2rem;height: 2rem;" src="../../static/pages/upload/label.png" />
 									<picker @change="bindPickerChange2" :value="index2" :range="array2"
 										range-key="name">
 										<view style="padding: 20rpx;background-color: white;">{{ array2[index2].name }}

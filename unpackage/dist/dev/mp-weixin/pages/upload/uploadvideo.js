@@ -178,7 +178,8 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
       fileList: [],
       animation_timer: null, // 动画定时器
       width: 375,
-      height: 1920 };
+      height: 1920,
+      show: false };
 
   },
   onLoad: function onLoad() {
@@ -202,6 +203,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
       that.fileList.push(_objectSpread({},
       file));
 
+      this.show = true;
     },
     upload: function upload() {
       var that = this;
