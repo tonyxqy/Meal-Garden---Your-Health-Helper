@@ -292,7 +292,6 @@ var _default =
     bindIt: function bindIt(e) {
       this.showT = true;
       this.popArray = e;
-      console.log(this.popArray, "popup");
       this.img = e.pictureUrl;
       this.menu = e.menu;
       this.help(this.popArray);
@@ -356,8 +355,9 @@ var _default =
         } });
 
     },
-    submitMenu: function submitMenu() {var _this3 = this;
+    submitMenu: function submitMenu() {
       var that = this;
+      this.showT = false;
       console.log(this.menu, this.user_id, this.timer, this.volume);
       uni.request({
         url: 'http://47.102.203.108:3306/user/addTodayMenudinner',
@@ -372,11 +372,12 @@ var _default =
           createTime: this.timer },
 
         success: function success(res) {
-          console.log(200);
-          _this3.showT = false;
+          console.log(200, "addsuccess");
         } });
 
-
+    },
+    popupClose: function popupClose() {
+      this.showT = false;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

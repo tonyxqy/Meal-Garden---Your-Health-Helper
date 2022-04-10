@@ -37,7 +37,7 @@
 				</view>
 
 				<view style="display: flex;flex-direction:row;">
-					<image :src="img" mode="aspectFill" style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;"></image>
+					<image :src="img" mode="aspectFill" style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;border-radius: 20rpx;"></image>
 					<view>
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
@@ -112,7 +112,7 @@
 				foodArray: [],
 				img: "",
 				menu: "",
-				volume: 1,
+				volume: 2,
 				user_id,
 				timer,
 			}
@@ -125,7 +125,6 @@
 			bindIt(e) {
 				this.showT = true
 				this.popArray = e
-				console.log(this.popArray, "popup")
 				this.img = e.pictureUrl
 				this.menu = e.menu
 				this.help(this.popArray)
@@ -190,6 +189,7 @@
 			},
 			submitMenu() {
 				var that = this
+				this.showT=false
 				console.log(this.menu,this.user_id,this.timer,this.volume)
 				uni.request({
 					url: 'http://47.102.203.108:3306/user/addTodayMenubreakfast',
@@ -204,10 +204,12 @@
 						createTime:this.timer,
 					},
 					success: (res) => {
-						console.log(200)
-						this.showT=false
+						console.log(200,"addsuccess")
 					}
 				})
+			},
+			popupClose(){
+				this.showT=false
 			}
 		}
 	}
