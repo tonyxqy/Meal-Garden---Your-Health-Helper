@@ -216,6 +216,7 @@
 
 
 
+
 /* 展示框第一行 超出截断 */
 .taText {
 	overflow: hidden;
@@ -248,6 +249,10 @@
 	max-height: 140px;
 	color: #304156;
 	letter-spacing:2rpx;
+
+	display: flex;
+	flex-direction:row;
+	flex-wrap: wrap;
 }
 .details {
 	display: flex;

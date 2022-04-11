@@ -149,7 +149,7 @@
 
 		<view class="cu-card case no-card">
 			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in breakfastList" :key="index">
-				<van-card :price="item.taste" currency=" " lazy-load="true" :title="item.menu" :thumb="item.pictureUrl">
+				<van-card currency=" " lazy-load="true" :thumb="item.pictureUrl">
 					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
 						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
 							{{item}}
@@ -158,6 +158,8 @@
 							{{item}}
 						</van-tag>
 					</view>
+					<view slot="title"class=""style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
+					<view slot="price"style="padding-top: 10rpx;" >{{item.taste}}</view>
 					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
 						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
 					</view>
@@ -170,7 +172,7 @@
 				</van-card>
 			</view>
 			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in lunchList" :key="index">
-				<van-card :price="item.taste" currency=" " lazy-load="true" :title="item.menu" :thumb="item.pictureUrl">
+				<van-card currency=" " lazy-load="true"  :thumb="item.pictureUrl">
 					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
 						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
 							{{item}}
@@ -179,6 +181,8 @@
 							{{item}}
 						</van-tag>
 					</view>
+					<view slot="title"class=""style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
+					<view slot="price"style="padding-top: 10rpx;" >{{item.taste}}</view>
 					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
 						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
 					</view>
@@ -191,7 +195,7 @@
 				</van-card>
 			</view>
 			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in dinnerList" :key="index">
-				<van-card :price="item.taste" currency=" " lazy-load="true" :title="item.menu" :thumb="item.pictureUrl">
+				<van-card  currency=" " lazy-load="true"  :thumb="item.pictureUrl">
 					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
 						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
 							{{item}}
@@ -200,6 +204,8 @@
 							{{item}}
 						</van-tag>
 					</view>
+					<view slot="title"class=""style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
+					<view slot="price"style="padding-top: 10rpx;" >{{item.taste}}</view>
 					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
 						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
 					</view>
@@ -290,7 +296,7 @@
 				hasUserInfo: false,
 				userInfo: null,
 				//
-				mystylelist: ['primary', 'success', 'danger', 'warning'],
+				mystylelist: ['primary','primary','primary','primary'],
 				show: true,
 				// 仪表盘
 				gaugeWidth: 10,

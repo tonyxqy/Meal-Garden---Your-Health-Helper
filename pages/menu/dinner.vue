@@ -18,7 +18,7 @@
 				<image class="swiper_con_view" v-if="item.pictureUrl" :src="item.pictureUrl" mode="widthFix" lazy-load="true"
 					style="width:100%"></image>
 				<view class="taText" style="width:90%;display:inline-block;">
-					<van-tag color="#D99F3E" style="padding: 10rpx; vertical-align: middle;">{{item.taste}}</van-tag>
+					<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;">{{item.taste}}</van-tag>
 					<text class="meText">{{item.menu}}</text>
 				</view>
 				<view style="width:90%;display:inline-block;">
@@ -42,7 +42,7 @@
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
 								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#D99F3E" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
+								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
 									{{item}}
 								</van-tag>
 							</view>

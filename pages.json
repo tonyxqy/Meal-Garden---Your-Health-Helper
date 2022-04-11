@@ -38,13 +38,7 @@
 				"navigationBarTitleText": "",
 				"navigationStyle": "custom"
 			}
-		}, {
-			"path": "pages/breakfast/breakfast",
-			"style": {
-				"navigationBarTitleText": "",
-				"navigationStyle": "custom"
-			}
-		},
+		}, 
 		{
 			"path": "pages/info/info",
 			"style": {

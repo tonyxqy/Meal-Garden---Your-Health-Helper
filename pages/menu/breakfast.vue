@@ -18,7 +18,7 @@
 				<image class="swiper_con_view" v-if="item.pictureUrl" :src="item.pictureUrl" mode="widthFix" lazy-load="true"
 					style="width:100%"></image>
 				<view class="taText" style="width:90%;display:inline-block;">
-					<van-tag color="#D99F3E" style="padding: 10rpx; vertical-align: middle;">{{item.taste}}</van-tag>
+					<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;">{{item.taste}}</van-tag>
 					<text class="meText">{{item.menu}}</text>
 				</view>
 				<view style="width:90%;display:inline-block;">
@@ -36,13 +36,13 @@
 					</view>
 				</view>
 
-				<view style="display: flex;flex-direction:row;">
+				<view style="column-count: 2;">
 					<image :src="img" mode="aspectFill" style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;border-radius: 20rpx;"></image>
 					<view>
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
 								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#D99F3E" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
+								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
 									{{item}}
 								</van-tag>
 							</view>
@@ -60,7 +60,7 @@
 						</view>
 						<view class="detailsTop">
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text>
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;">
 									{{item}}
 								</text>
 							</view>
@@ -132,7 +132,8 @@
 			},
 			help(self) {
 				if (self.ingredients != null) {
-					let ingredients = self.ingredients.slice(1, -1).split(',')
+					let sep = /\,|\:/
+					let ingredients = self.ingredients.slice(1, -1).split(sep)
 					let list = []
 					ingredients.forEach((self, index) => {
 						let change = self.trim().replace(/\'/g, "");
@@ -252,6 +253,10 @@
 		max-height: 140px;
 		color: #304156;
 		letter-spacing:2rpx;
+	
+		display: flex;
+		flex-direction:row;
+		flex-wrap: wrap;
 	}
 
 	.details {
