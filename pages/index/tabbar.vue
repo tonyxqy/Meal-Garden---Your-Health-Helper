@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<index v-if="PageCur=='index'"></index>
+		<index v-if="PageCur=='index'" ref="index"></index>
 		<search v-if="PageCur=='search'"></search>
 		<cases v-if="PageCur=='cases'"></cases>
 		<news v-if="PageCur=='news'"></news>
@@ -94,15 +94,10 @@
 				title: '你的健康助手，欢迎来使用吖',
 			};
 		},
-		onLoad() {
-			//获取退出时的tabbar记录
-			// uni.getStorage({
-			// 	key: 'PageCur',
-			// 	success: function(res) {
-			// 		that.PageCur = res.data;
-			// 	},
-			// 	fail: function(res) {}
-			// });
+		onShow() {
+			this.$refs.index.getData();
+			this.$refs.index.getMenuData()
+			console.log('12e3214214')
 		},
 		methods: {
 			NavChange: function(e) {

@@ -96,9 +96,9 @@
 					<text class="text-xl text-bold text-blue text-shadow">每日推荐</text>
 					<text class="text-ABC text-blue">recommendation</text>
 				</view>
-				<view class="action" @click="goVideo">
+<!-- 				<view class="action" @click="goVideo">
 					<text class="text-lg text-grey text-shadow">更多</text>
-				</view>
+				</view> -->
 			</view>
 
 			<view class="skill-sequence-panel-content-wrapper">
@@ -271,7 +271,7 @@
 </template>
 
 <script>
-	import uCharts from "@/components/u-charts/u-charts.js";
+	import uCharts from "@/uni_modules/qiun-data-charts/js_sdk/u-charts/u-charts.js";
 	import request from '@/common/request.js';
 	import addTip from "../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue"
 	import bodyhelper from "./bodyhelper.vue"
@@ -400,7 +400,11 @@
 				user_id
 			}
 		},
+		activated(){
+			console.log('((((((((((()))))))))))')
+		},
 		mounted() {
+			if(uni.getStorageSync('userId'))
 			this.getData();
 			this.$nextTick(function() {
 				console.log(uni.createSelectorQuery().in(this))
@@ -481,7 +485,6 @@
 					fail: (loginErr) => {}
 				})
 			},
-
 			getUserid(id) {
 				var that = this
 				uni.request({
@@ -496,7 +499,14 @@
 					},
 					success: (res) => {
 						console.log(res, "getUserid")
-						uni.setStorageSync('userId', res.data)
+						uni.setStorage({
+							key: 'userId',
+							data: res.data,
+							success: function () {
+								that.getData();
+							}
+						});
+						// uni.setStorageSync('userId', res.data)
 					}
 				})
 			},
@@ -504,6 +514,7 @@
 			//测试登录
 			getData() {
 				var user_id = uni.getStorageSync('userId')
+				this.user_id = user_id
 				console.log(user_id, "userId")
 				let user = {
 					user_id
@@ -736,33 +747,33 @@
 				// console.log(e.currentTarget.dataset.mid)
 				if (e.currentTarget.dataset.mid == 3) {
 					uni.navigateTo({
-						url: '../upload/upload'
+						url: '../../page_upload/upload'
 					})
 				}
 				if (e.currentTarget.dataset.mid == 4) {
 					uni.navigateTo({
-						url: '../upload/uploadvideo'
+						url: '../../page_upload/uploadvideo'
 					})
 				}
 				if (e.currentTarget.dataset.mid == 2) {
 					uni.navigateTo({
-						url: '../me/mentalTest/index?mid=1'
+						url: '../../page_me/mentalTest/index?mid=1'
 					})
 				}
 			},
 			goBreakfast() {
 				uni.navigateTo({
-					url: '../menu/breakfast'
+					url: '../../page_menu/breakfast'
 				})
 			},
 			goLunch() {
 				uni.navigateTo({
-					url: '../menu/lunch'
+					url: '../../page_menu/lunch'
 				})
 			},
 			goDinner() {
 				uni.navigateTo({
-					url: '../menu/dinner'
+					url: '../../page_menu/dinner'
 				})
 			},
 			goProject(id) {
@@ -772,7 +783,7 @@
 			},
 			goVideo() {
 				uni.navigateTo({
-					url: '../video'
+					// url: '../video'
 				})
 			}
 		}

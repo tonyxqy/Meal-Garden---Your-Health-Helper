@@ -20,7 +20,6 @@
 						<view :class="'rain rain-' + stages" :data-index="index" :data-value="value" @tap="rainFun"
 							v-for="(value, index) in rainArr" :key="index">
 							{{ value }}
-
 							<text>g</text>
 						</view>
 						<image :src="'/static/image/tree-' + stages + '.png'"

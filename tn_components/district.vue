@@ -20,10 +20,10 @@
 </template>
 
 <script>
-	import uCharts from '@/components/u-charts/u-charts.js';
-	import {
-		isJSON
-	} from '@/components/u-charts/checker.js';
+	import uCharts from "@/uni_modules/qiun-data-charts/js_sdk/u-charts/u-charts.js";
+	// import {
+	// 	isJSON
+	// } from '@/components/u-charts/checker.js';
 	var _self;
 	var canvaMap = null;
 

@@ -88,7 +88,8 @@
 
 <script>
 	// 图表
-	import uCharts from "@/components/u-charts/u-charts.js";
+	
+	import uCharts from "@/uni_modules/qiun-data-charts/js_sdk/u-charts/u-charts.js";
 	var _self;
 	var canvaRing = null;
 	var canvaArea = null;
