@@ -97,6 +97,7 @@
 		onShow() {
 			this.$refs.index.getData();
 			this.$refs.index.getMenuData()
+			uni.$emit('bodyhelper')
 			console.log('12e3214214')
 		},
 		methods: {

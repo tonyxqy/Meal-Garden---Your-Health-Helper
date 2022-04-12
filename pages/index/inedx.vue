@@ -39,7 +39,7 @@
 					<text>{{item.name}}</text>
 				</view>
 			</view>
-			<van-sticky offset-top="80 ">
+			<!-- <van-sticky offset-top="80 "> -->
 				<view class="cu-bar bg-white margin-top-xs">
 					<view class="action sub-title">
 						<text class="text-xl text-bold text-blue text-shadow">今日能量</text>
@@ -66,30 +66,33 @@
 				<van-grid column-num="3" border="false">
 					<van-grid-item use-slot text="糖分" style="text-align: center;">
 						<view style="height: 160px">
-							<van-circle style="display: block;margin: 5px 0;"
-								:value="current.currentSugar/target.targetSugar*100" size="60"
-								:text="current.currentSugar" :color="gradientColor[0]" />
+							<van-circle style="display: block;margin: 5px 0; z-index: -1;"
+							    v-show="hide"
+								:value="Math.floor(current.currentSugar/target.targetSugar*100)" size="60"
+								:text="Math.floor(current.currentSugar)" :color="gradientColor[0]" />
 							<text class="gridtext">糖分</text>
 						</view>
 					</van-grid-item>
 					<van-grid-item use-slot text="热量">
-						<view style="height: 180px;z-index: 1;margin-top: -20px;">
+						<view style="height: 180px;z-index: 0;margin-top: -20px;">
 							<view class="charts-box">
 								<qiun-data-charts type="gauge" :chartData="chartData" :loadingType="4"
+								v-show="hide"
 									:errorShow="false" background="none" />
 							</view>
 						</view>
 					</van-grid-item>
 					<van-grid-item use-slot text="脂肪" style="text-align: center;">
 						<view style="height: 160px">
-							<van-circle style="display: block;margin: 5px 0;"
-								:value="current.currentFat/target.targetFat*100" size="60" :text="current.currentFat"
+							<van-circle style="display: block;margin: 5px 0;z-index: -1;"
+								:value="current.currentFat/target.targetFat*100" size="60" :text="Math.floor(current.currentFat)"
+								v-show="hide"
 								:color="gradientColor[2]" />
 							<text class="gridtext">脂肪</text>
 						</view>
 					</van-grid-item>
 				</van-grid>
-			</van-sticky>
+			<!-- </van-sticky> -->
 
 			<view class="cu-bar bg-white margin-top-xs">
 				<view class="action sub-title">
@@ -105,7 +108,7 @@
 				<!--右边虚化-->
 				<view class="hide-content-box hide-content-box-right"></view>
 				<scroll-view scroll-x="true" class="kite-classify-scroll">
-					<div class="loader" v-if="show">
+					<div class="loader" v-if="loadshow">
 						<div class="dot"></div>
 						<div class="dot"></div>
 						<div class="dot"></div>
@@ -288,6 +291,7 @@
 			var timer = year + "-" + month + "-" + day
 			console.log(timer, "dateStrdateStrdateStr")
 			return {
+				hide:true,
 				//登录测试
 				showT: false,
 				logion: false,
@@ -295,7 +299,7 @@
 				userInfo: null,
 				//
 				mystylelist: ['primary','primary','primary','primary'],
-				show: true,
+				loadshow: true,
 				// 仪表盘
 				gaugeWidth: 10,
 				chartData: {
@@ -403,6 +407,7 @@
 			console.log('((((((((((()))))))))))')
 		},
 		mounted() {
+			uni.$on('hidebox',this.hidebox);
 			if(uni.getStorageSync('userId'))
 			this.getData();
 			this.$nextTick(function() {
@@ -422,6 +427,9 @@
 			}
 		},
 		methods: {
+			hidebox(){
+				this.hide=!this.hide;
+			},
 			getUserInfo() {
 				this.logion = false
 				wx.getUserProfile({
@@ -500,6 +508,7 @@
 							data: res.data,
 							success: function () {
 								that.getData();
+								uni.$emit('bodyhelper')
 							}
 						});
 						// uni.setStorageSync('userId', res.data)
@@ -548,7 +557,7 @@
 							name: "完成率",
 							data: this.current.currentFat / this.target.targetFat
 						}
-
+						console.log('aaaaaaaaaaa',ans.data)
 						this.chartData.series.push(ans)
 					} else {}
 				});
@@ -568,26 +577,29 @@
 				};
 				request.httpRequest(optsbreak, user).then(res => {
 					uni.hideLoading();
-					this.show = true
+					// this.show = true
+					this.loadshow = false
 					if (res.statusCode == 200) {
 						this.curriculum = this.curriculum.concat(res.data)
-						this.show = false
+						this.loadshow = false
 					} else {}
 				});
 				request.httpRequest(optslunch, user).then(res => {
 					uni.hideLoading();
-					this.show = true
+					// this.show = true
+					this.loadshow = false
 					if (res.statusCode == 200) {
 						this.curriculum = this.curriculum.concat(res.data)
-						this.show = false
+						this.loadshow = false
 					} else {}
 				});
 				request.httpRequest(optsdinner, user).then(res => {
 					uni.hideLoading();
-					this.show = true
+					// this.show = true
+					this.loadshow = false
 					if (res.statusCode == 200) {
 						this.curriculum = this.curriculum.concat(res.data)
-						this.show = false
+						this.loadshow = false
 					} else {}
 				});
 				this.getMenuData()

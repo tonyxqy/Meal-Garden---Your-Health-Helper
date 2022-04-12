@@ -210,8 +210,9 @@
 				uni.showLoading({
 					title: '加载中'
 				})
+				let user_id = uni.getStorageSync('userId')
 				let user = {
-					user_id: '22'
+					user_id
 				}
 				let optstar = {
 					url: 'body/all',

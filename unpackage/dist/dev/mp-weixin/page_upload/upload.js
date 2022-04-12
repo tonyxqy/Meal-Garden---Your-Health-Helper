@@ -230,8 +230,11 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
         name: '西式料理' }],
 
       index1: 0,
-      index2: 0 };
+      index2: 0,
+      user_id: '' };
 
+  },
+  mounted: function mounted() {
   },
   methods: {
     bindPickerChange1: function bindPickerChange1(e) {
@@ -252,12 +255,13 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
     },
     upload: function upload() {
       var that = this;
+      var user_id = uni.getStorageSync('userId');
       uni.uploadFile({
         url: 'http://47.102.203.108:3306/forum/add_forum',
         filePath: this.file.url,
         name: 'file',
         formData: {
-          user_id: 8,
+          user_id: user_id,
           words: this.words,
           sign1: this.sign1,
           sign2: this.sign2,

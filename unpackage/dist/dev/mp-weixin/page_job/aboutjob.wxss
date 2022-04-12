@@ -1,0 +1,111 @@
+
+.gridtext.data-v-7f0de634 {
+	color: #888;
+	font-size: 26rpx;
+	line-height: 26rpx;
+}
+.ingrid.data-v-7f0de634 {
+	float: left;
+}
+.gridtext1.data-v-7f0de634 {
+	float: left;
+	color: #888;
+	font-size: 26rpx;
+	line-height: 26rpx;
+}
+.titleZ.data-v-7f0de634 {
+	width: 750rpx;
+	font-size: 52rpx;
+	margin-top: 60rpx;
+}
+.contentZ.data-v-7f0de634 {
+	width: 650rpx;
+	margin: 10rpx auto 0;
+	text-align: left;
+}
+.insidebox.data-v-7f0de634{
+	background:rgba(255,255,255,0);
+}
+.about-bg.data-v-7f0de634 {
+	background-size: cover;
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	flex-direction: column;
+	color: #fff;
+}
+.edit-fixed.data-v-7f0de634 {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	z-index: 1024;
+	box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+.detail-imgs image.data-v-7f0de634 {
+	width: 100%;
+	float: left;
+	/* height:400rpx; 不定高了*/
+	border: 0;
+	padding: 0;
+	margin: 0
+}
+.share-img.data-v-7f0de634 {
+	position: fixed;
+	padding: 10rpx;
+	width: 100rpx;
+	height: 100rpx;
+	/* top: 680rpx; */
+	bottom: 200rpx;
+	right: 20rpx;
+	z-index: 1024;
+	opacity: 0.8;
+	box-shadow: 0rpx 8rpx 30rpx 0rpx rgba(0, 0, 0, 0.3);
+	border: none;
+}
+.about.data-v-7f0de634 {
+	margin: 0;
+	width: 100%;
+	height: 100vh;
+	padding-top: 20%;
+	color: #fff;
+	background: linear-gradient(-120deg, #F15BB5, #9A5CE5, #01BEFF, #00F5D4);
+	/* background: linear-gradient(-120deg, #0976ea, #c471f5, #f956b6, #ea7e0a); */
+	background-size: 500% 500%;
+	-webkit-animation: gradientBG-data-v-7f0de634 15s ease infinite;
+	        animation: gradientBG-data-v-7f0de634 15s ease infinite;
+}
+@-webkit-keyframes gradientBG-data-v-7f0de634 {
+0% {
+		background-position: 0% 50%;
+}
+50% {
+		background-position: 100% 50%;
+}
+100% {
+		background-position: 0% 50%;
+}
+}
+@keyframes gradientBG-data-v-7f0de634 {
+0% {
+		background-position: 0% 50%;
+}
+50% {
+		background-position: 100% 50%;
+}
+100% {
+		background-position: 0% 50%;
+}
+}
+.container.data-v-7f0de634 {
+	width: 100%;
+	position: absolute;
+	text-align: center;
+}
+.like-fx.data-v-7f0de634 {
+	position: fixed;
+	right: 0;
+	z-index: 1024;
+	pointer-events: none;
+	/* background-color: red; */
+}
+

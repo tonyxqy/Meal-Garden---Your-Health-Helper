@@ -243,14 +243,15 @@ var _jobclassify = _interopRequireDefault(__webpack_require__(/*! @/common/jobcl
       var nowStr = now.getFullYear() + "-" + (
       now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-" + (
       now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " ";
+      var user_id = uni.getStorageSync('userId');
       uni.request({
-        url: 'http://47.102.203.108:3306/user/updateJobById?user_id=35&job=' + item.name + '&time=' + nowStr,
+        url: 'http://47.102.203.108:3306/user/updateJobById?user_id=' + user_id + '&job=' + item.name + '&time=' + nowStr,
         method: 'POST',
         success: function success(res) {//成功
           uni.hideLoading();
           console.log(res.data);
           var user = {
-            user_id: '35' };
+            user_id: user_id };
 
           // 获取目标身体状态
           var optstar = {
@@ -264,6 +265,15 @@ var _jobclassify = _interopRequireDefault(__webpack_require__(/*! @/common/jobcl
             uni.hideLoading();
             if (res.statusCode == 200) {
               console.log(res.data);
+              uni.setStorage({
+                key: 'job',
+                data: res.data,
+                success: function success() {
+                  uni.redirectTo({
+                    url: 'aboutjob' });
+
+                } });
+
             } else {}
           });
 

@@ -179,7 +179,11 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
       animation_timer: null, // 动画定时器
       width: 375,
       height: 1920,
-      show: false };
+      show: false,
+      user_id: ',' };
+
+  },
+  mounted: function mounted() {
 
   },
   onLoad: function onLoad() {
@@ -207,12 +211,13 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
     },
     upload: function upload() {
       var that = this;
+      var user_id = uni.getStorageSync('userId');
       uni.uploadFile({
         url: 'http://47.102.203.108:3306/forum/add_forum',
         filePath: this.file.url,
         name: 'file',
         formData: {
-          user_id: 8,
+          user_id: user_id,
           words: this.words,
           sign1: this.sign1,
           sign2: this.sign2,

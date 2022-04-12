@@ -259,7 +259,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
 var _default = { data: function data() {return { xiaobing: true, word: "", topiclist: [] };}, created: function created() {}, methods: { send: function send() {var _this = this;var opt = { url: 'question/', method: 'post' };uni.showLoading({ title: '加载中' });var user = { from: "user", value: this.word };var val = { a1: this.word };console.log(val);this.topiclist.push(user);uni.request({ header: { 'Content-type': 'application/x-www-form-urlencoded' //注意这里对应的是用Java搭建的服务器
         }, url: 'http://47.102.203.108:8000/question/', method: 'POST', dataType: 'json', //返回值类型
         data: val, success: function success(res) {//成功
-          console.log(res.data);_this.topiclist.push(res.data);} });this.word = ''; // let ans = {
+          uni.hideLoading();console.log(res.data);_this.topiclist.push(res.data);} });this.word = ''; // let ans = {
       // 	from: "AI",
       // 	value: "让我想想吖，请稍等"
       // }
@@ -269,7 +269,7 @@ var _default = { data: function data() {return { xiaobing: true, word: "", topic
       // 	value: "呜呜呜，小冰可怜可怜你，但是你应该不用吃什么了"
       // }
       // this.topiclist.push(anss)
-    }, talking: function talking() {this.xiaobing = !this.xiaobing;} } };exports.default = _default;
+    }, talking: function talking() {this.xiaobing = !this.xiaobing;uni.$emit('hidebox');} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

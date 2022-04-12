@@ -219,6 +219,12 @@
 				"style": {
 					"navigationStyle": "custom"
 				}
+			},
+			{
+				"path": "aboutjob",
+				"style": {
+					"navigationStyle": "custom"
+				}
 			}]
 		}
 	],

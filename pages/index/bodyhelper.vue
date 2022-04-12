@@ -37,10 +37,12 @@
 					targetEnergy: 2000,
 					targetFat: 55
 				},
+				user_id:''
 			}
 		},
 		mounted(){
 			this.getData()
+			uni.$on('bodyhelper',this.getData)
 		},
 		methods: {
 			bodyhelpermethod() {
@@ -56,8 +58,9 @@
 				});
 			},
 			getData() {
+				let user_id = uni.getStorageSync('userId')
 				let user = {
-					user_id: '8'
+					user_id: user_id
 				}
 				console.log('数据加载')
 

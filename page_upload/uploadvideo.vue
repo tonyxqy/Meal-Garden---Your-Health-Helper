@@ -22,7 +22,7 @@
 		s</div>
 		<!-- <button class='' style="background-color: rgba(0,0,0,-1); border: 0px;" > -->
 		<van-uploader accept="video" preview-size="200px" :file-list="fileList" max-count="1" @after-read="afterRead">
-			<image src='../../static/logo.png' class='share-img png round shadow-lg bg-white'>
+			<image src='/static/logo.png' class='share-img png round shadow-lg bg-white'>
 			</image>
 		</van-uploader>
 		<van-button size="large" color="linear-gradient(to right, #4bb0ff, #6149f6)" @click="upload" v-show="show">
@@ -47,8 +47,12 @@
 				animation_timer: null, // 动画定时器
 				width: 375,
 				height: 1920,
-				show:false
+				show:false,
+				user_id:','
 			}
+		},
+		mounted() {
+			
 		},
 		onLoad() {
 			this._startLikeAnimation();
@@ -75,12 +79,13 @@
 			},
 			upload() {
 				var that = this;
+				let user_id = uni.getStorageSync('userId')
 				uni.uploadFile({
 					url: 'http://47.102.203.108:3306/forum/add_forum',
 					filePath: this.file.url,
 					name: 'file',
 					formData: {
-						user_id: 8,
+						user_id: user_id,
 						words: this.words,
 						sign1: this.sign1,
 						sign2: this.sign2,

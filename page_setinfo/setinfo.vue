@@ -204,11 +204,12 @@
 				let nowStr = now.getFullYear() + "-"
 				 + (now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-"
 				 + (now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " "
+				let user_id = uni.getStorageSync('userId')
 				let data = {
 					name: name,
 					value: value,
 					time: nowStr,
-					user_id: 35
+					user_id: user_id
 				}
 				let optstar = {
 					url: 'body/update',
@@ -225,8 +226,9 @@
 				uni.showLoading({
 					title: '加载中'
 				})
+				let user_id = uni.getStorageSync('userId')
 				let user = {
-					user_id: '35'
+					user_id
 				}
 				let optstar = {
 					url: 'body/all',

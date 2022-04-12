@@ -88,14 +88,15 @@
 					let nowStr = now.getFullYear() + "-"
 					 + (now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-"
 					 + (now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " "
+					 let user_id = uni.getStorageSync('userId')
 					uni.request({
-						url: 'http://47.102.203.108:3306/user/updateJobById?user_id=35&job='+item.name+'&time='+nowStr,
+						url: 'http://47.102.203.108:3306/user/updateJobById?user_id='+user_id+'&job='+item.name+'&time='+nowStr,
 						method: 'POST',
 						success: (res) => { //成功
 							uni.hideLoading();
 							console.log(res.data)
 							let user = {
-								user_id: '35'
+								user_id
 							}					
 							// 获取目标身体状态
 							let optstar = {
@@ -109,6 +110,15 @@
 								uni.hideLoading();
 								if (res.statusCode == 200) {
 									console.log(res.data)
+									uni.setStorage({
+										key: 'job',
+										data: res.data,
+										success: function () {
+											uni.redirectTo({
+													url: 'aboutjob'
+											})
+										}
+									});
 								} else {}
 							});
 							

@@ -107,6 +107,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var g0 = Math.floor((_vm.current.currentSugar / _vm.target.targetSugar) * 100)
+  var g1 = Math.floor(_vm.current.currentSugar)
+  var g2 = Math.floor(_vm.current.currentFat)
+
   if (!_vm._isMounted) {
     _vm.e0 = function($event) {
       _vm.showT = false
@@ -116,6 +120,17 @@ var render = function() {
       _vm.showT = false
     }
   }
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        g0: g0,
+        g1: g1,
+        g2: g2
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -420,6 +435,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/qiun-data-charts/js_sdk/u-charts/u-charts.js */ 116));
 var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.js */ 201));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var addTip = function addTip() {__webpack_require__.e(/*! require.ensure | components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip */ "components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip").then((function () {return resolve(__webpack_require__(/*! ../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue */ 431));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var bodyhelper = function bodyhelper() {Promise.all(/*! require.ensure | pages/index/bodyhelper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/index/bodyhelper")]).then((function () {return resolve(__webpack_require__(/*! ./bodyhelper.vue */ 438));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
@@ -439,6 +457,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
     var timer = year + "-" + month + "-" + day;
     console.log(timer, "dateStrdateStrdateStr");
     return _defineProperty({
+      hide: true,
       //登录测试
       showT: false,
       logion: false,
@@ -446,7 +465,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
       userInfo: null,
       //
       mystylelist: ['primary', 'primary', 'primary', 'primary'],
-      show: true,
+      loadshow: true,
       // 仪表盘
       gaugeWidth: 10,
       chartData: {
@@ -554,6 +573,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
     console.log('((((((((((()))))))))))');
   },
   mounted: function mounted() {
+    uni.$on('hidebox', this.hidebox);
     if (uni.getStorageSync('userId'))
     this.getData();
     this.$nextTick(function () {var _this = this;
@@ -573,6 +593,9 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
     }
   },
   methods: {
+    hidebox: function hidebox() {
+      this.hide = !this.hide;
+    },
     getUserInfo: function getUserInfo() {var _this2 = this;
       this.logion = false;
       wx.getUserProfile({
@@ -651,6 +674,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
             data: res.data,
             success: function success() {
               that.getData();
+              uni.$emit('bodyhelper');
             } });
 
           // uni.setStorageSync('userId', res.data)
@@ -699,7 +723,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
             name: "完成率",
             data: _this4.current.currentFat / _this4.target.targetFat };
 
-
+          console.log('aaaaaaaaaaa', ans.data);
           _this4.chartData.series.push(ans);
         } else {}
       });
@@ -719,26 +743,29 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/common/request.j
 
       _request.default.httpRequest(optsbreak, user).then(function (res) {
         uni.hideLoading();
-        _this4.show = true;
+        // this.show = true
+        _this4.loadshow = false;
         if (res.statusCode == 200) {
           _this4.curriculum = _this4.curriculum.concat(res.data);
-          _this4.show = false;
+          _this4.loadshow = false;
         } else {}
       });
       _request.default.httpRequest(optslunch, user).then(function (res) {
         uni.hideLoading();
-        _this4.show = true;
+        // this.show = true
+        _this4.loadshow = false;
         if (res.statusCode == 200) {
           _this4.curriculum = _this4.curriculum.concat(res.data);
-          _this4.show = false;
+          _this4.loadshow = false;
         } else {}
       });
       _request.default.httpRequest(optsdinner, user).then(function (res) {
         uni.hideLoading();
-        _this4.show = true;
+        // this.show = true
+        _this4.loadshow = false;
         if (res.statusCode == 200) {
           _this4.curriculum = _this4.curriculum.concat(res.data);
-          _this4.show = false;
+          _this4.loadshow = false;
         } else {}
       });
       this.getMenuData();

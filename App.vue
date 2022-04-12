@@ -1,6 +1,9 @@
 <script>
 	import Vue from 'vue'
 	export default {
+		beforeCreate() {
+			Vue.prototype.$bus = this
+		},
 		onLaunch: function() {
 			uni.getSystemInfo({
 				success: function(e) {

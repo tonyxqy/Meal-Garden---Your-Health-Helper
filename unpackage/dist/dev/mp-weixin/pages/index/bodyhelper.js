@@ -174,12 +174,14 @@ var _default = { data: function data() {return { bodyhelper: { "series": [] }, c
         targetHeight: 0,
         targetSugar: 50,
         targetEnergy: 2000,
-        targetFat: 55 } };
+        targetFat: 55 },
 
+      user_id: '' };
 
   },
   mounted: function mounted() {
     this.getData();
+    uni.$on('bodyhelper', this.getData);
   },
   methods: {
     bodyhelpermethod: function bodyhelpermethod() {
@@ -195,8 +197,9 @@ var _default = { data: function data() {return { bodyhelper: { "series": [] }, c
       });
     },
     getData: function getData() {var _this = this;
+      var user_id = uni.getStorageSync('userId');
       var user = {
-        user_id: '8' };
+        user_id: user_id };
 
       console.log('数据加载');
 
