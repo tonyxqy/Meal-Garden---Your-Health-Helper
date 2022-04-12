@@ -947,7 +947,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -3804,44 +3804,6 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 207:
-/*!*********************************************!*\
-  !*** C:/Users/DELL/-health/common/uiImg.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = [
-{
-  // app设计
-  "appImg": [
-  {
-    price: 1,
-    title: '高热量放纵一次',
-    shop: '不知名用户',
-    yhdj: '高能博主',
-    type: '生活分享',
-    image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.jUNSLqUHW8YX9cbwl2NQAgHaEo?w=254&h=180&c=7&r=0&o=5&pid=1.7' },
-
-  {
-    price: 2,
-    title: '汉堡汉堡我的最爱',
-    shop: '不知名用户',
-    yhdj: '新人菜鸡',
-    type: '生活分享',
-    image: 'https://tse1-mm.cn.bing.net/th/id/R-C.45ad520bbba5c81dc0c330fe47a273da?rik=OgPiiCNILKOORA&riu=http%3a%2f%2fup.36992.com%2fpic%2f96%2f2a%2fb5%2f962ab52a61036be5ecf6a10595b3ae11.jpg&ehk=leUA8uAv9Jd7PsHtBosNcRzlmT6imOMAkXULc3a5gsM%3d&risl=&pid=ImgRaw&r=0' },
-
-  {
-    price: 3,
-    title: '第一天减肥餐爱了爱了',
-    shop: '不知名用户',
-    yhdj: '新人菜鸡',
-    type: '生活分享',
-    image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.sMMPuStdqooqM0R5ScKeyQHaF_?w=241&h=196&c=7&r=0&o=5&pid=1.7' }] }];exports.default = _default;
-
-/***/ }),
-
 /***/ 21:
 /*!************************************************************!*\
   !*** C:/Users/DELL/-health/uview-ui/libs/request/index.js ***!
@@ -4020,6 +3982,44 @@ Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
 
 new Request();exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 215:
+/*!*********************************************!*\
+  !*** C:/Users/DELL/-health/common/uiImg.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = [
+{
+  // app设计
+  "appImg": [
+  {
+    price: 1,
+    title: '高热量放纵一次',
+    shop: '不知名用户',
+    yhdj: '高能博主',
+    type: '生活分享',
+    image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.jUNSLqUHW8YX9cbwl2NQAgHaEo?w=254&h=180&c=7&r=0&o=5&pid=1.7' },
+
+  {
+    price: 2,
+    title: '汉堡汉堡我的最爱',
+    shop: '不知名用户',
+    yhdj: '新人菜鸡',
+    type: '生活分享',
+    image: 'https://tse1-mm.cn.bing.net/th/id/R-C.45ad520bbba5c81dc0c330fe47a273da?rik=OgPiiCNILKOORA&riu=http%3a%2f%2fup.36992.com%2fpic%2f96%2f2a%2fb5%2f962ab52a61036be5ecf6a10595b3ae11.jpg&ehk=leUA8uAv9Jd7PsHtBosNcRzlmT6imOMAkXULc3a5gsM%3d&risl=&pid=ImgRaw&r=0' },
+
+  {
+    price: 3,
+    title: '第一天减肥餐爱了爱了',
+    shop: '不知名用户',
+    yhdj: '新人菜鸡',
+    type: '生活分享',
+    image: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.sMMPuStdqooqM0R5ScKeyQHaF_?w=241&h=196&c=7&r=0&o=5&pid=1.7' }] }];exports.default = _default;
 
 /***/ }),
 
@@ -10861,7 +10861,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -10882,14 +10882,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -10975,7 +10975,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"营养助手","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -11880,7 +11880,7 @@ trim;exports.default = _default;
 
 /***/ }),
 
-/***/ 391:
+/***/ 399:
 /*!*****************************************************!*\
   !*** C:/Users/DELL/-health/common/classify.data.js ***!
   \*****************************************************/
@@ -13166,7 +13166,65 @@ toast;exports.default = _default;
 
 /***/ }),
 
-/***/ 406:
+/***/ 41:
+/*!*****************************************************************!*\
+  !*** C:/Users/DELL/-health/uview-ui/libs/function/getParent.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = getParent; // 获取父组件的参数，因为支付宝小程序不支持provide/inject的写法
+// this.$parent在非H5中，可以准确获取到父组件，但是在H5中，需要多次this.$parent.$parent.xxx
+function getParent(name, keys) {
+  var parent = this.$parent;
+  // 通过while历遍，这里主要是为了H5需要多层解析的问题
+  while (parent) {
+    // 父组件
+    if (parent.$options.name !== name) {
+      // 如果组件的name不相等，继续上一级寻找
+      parent = parent.$parent;
+    } else {var _ret = function () {
+        var data = {};
+        // 判断keys是否数组，如果传过来的是一个数组，那么直接使用数组元素值当做键值去父组件寻找
+        if (Array.isArray(keys)) {
+          keys.map(function (val) {
+            data[val] = parent[val] ? parent[val] : '';
+          });
+        } else {
+          // 历遍传过来的对象参数
+          for (var i in keys) {
+            // 如果子组件有此值则用，无此值则用父组件的值
+            // 判断是否空数组，如果是，则用父组件的值，否则用子组件的值
+            if (Array.isArray(keys[i])) {
+              if (keys[i].length) {
+                data[i] = keys[i];
+              } else {
+                data[i] = parent[i];
+              }
+            } else if (keys[i].constructor === Object) {
+              // 判断是否对象，如果是对象，且有属性，那么使用子组件的值，否则使用父组件的值
+              if (Object.keys(keys[i]).length) {
+                data[i] = keys[i];
+              } else {
+                data[i] = parent[i];
+              }
+            } else {
+              // 只要子组件有传值，即使是false值，也是“传值”了，也需要覆盖父组件的同名参数
+              data[i] = keys[i] || keys[i] === false ? keys[i] : parent[i];
+            }
+          }
+        }
+        return { v: data };}();if (typeof _ret === "object") return _ret.v;
+    }
+  }
+
+  return {};
+}
+
+/***/ }),
+
+/***/ 414:
 /*!****************************************************************!*\
   !*** C:/Users/DELL/-health/wxcomponents/video-swiper/index.js ***!
   \****************************************************************/
@@ -13430,64 +13488,6 @@ module.exports =
 
 /***/ }),
 
-/***/ 41:
-/*!*****************************************************************!*\
-  !*** C:/Users/DELL/-health/uview-ui/libs/function/getParent.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = getParent; // 获取父组件的参数，因为支付宝小程序不支持provide/inject的写法
-// this.$parent在非H5中，可以准确获取到父组件，但是在H5中，需要多次this.$parent.$parent.xxx
-function getParent(name, keys) {
-  var parent = this.$parent;
-  // 通过while历遍，这里主要是为了H5需要多层解析的问题
-  while (parent) {
-    // 父组件
-    if (parent.$options.name !== name) {
-      // 如果组件的name不相等，继续上一级寻找
-      parent = parent.$parent;
-    } else {var _ret = function () {
-        var data = {};
-        // 判断keys是否数组，如果传过来的是一个数组，那么直接使用数组元素值当做键值去父组件寻找
-        if (Array.isArray(keys)) {
-          keys.map(function (val) {
-            data[val] = parent[val] ? parent[val] : '';
-          });
-        } else {
-          // 历遍传过来的对象参数
-          for (var i in keys) {
-            // 如果子组件有此值则用，无此值则用父组件的值
-            // 判断是否空数组，如果是，则用父组件的值，否则用子组件的值
-            if (Array.isArray(keys[i])) {
-              if (keys[i].length) {
-                data[i] = keys[i];
-              } else {
-                data[i] = parent[i];
-              }
-            } else if (keys[i].constructor === Object) {
-              // 判断是否对象，如果是对象，且有属性，那么使用子组件的值，否则使用父组件的值
-              if (Object.keys(keys[i]).length) {
-                data[i] = keys[i];
-              } else {
-                data[i] = parent[i];
-              }
-            } else {
-              // 只要子组件有传值，即使是false值，也是“传值”了，也需要覆盖父组件的同名参数
-              data[i] = keys[i] || keys[i] === false ? keys[i] : parent[i];
-            }
-          }
-        }
-        return { v: data };}();if (typeof _ret === "object") return _ret.v;
-    }
-  }
-
-  return {};
-}
-
-/***/ }),
-
 /***/ 42:
 /*!***************************************************************!*\
   !*** C:/Users/DELL/-health/uview-ui/libs/function/$parent.js ***!
@@ -13684,7 +13684,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 523:
+/***/ 531:
 /*!************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js ***!
   \************************************************************************************/
@@ -13697,7 +13697,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 524:
+/***/ 532:
 /*!**************************************************************************************!*\
   !*** C:/Users/DELL/-health/uni_modules/qiun-data-charts/js_sdk/u-charts/u-charts.js ***!
   \**************************************************************************************/
@@ -20512,7 +20512,7 @@ uCharts;exports.default = _default;
 
 /***/ }),
 
-/***/ 525:
+/***/ 533:
 /*!********************************************************************************************!*\
   !*** C:/Users/DELL/-health/uni_modules/qiun-data-charts/js_sdk/u-charts/config-ucharts.js ***!
   \********************************************************************************************/
@@ -21130,7 +21130,7 @@ cfu;exports.default = _default;
 
 /***/ }),
 
-/***/ 540:
+/***/ 548:
 /*!****************************************************************!*\
   !*** C:/Users/DELL/-health/wxcomponents/vant/dialog/dialog.js ***!
   \****************************************************************/
@@ -21216,7 +21216,7 @@ Dialog;exports.default = _default;
 
 /***/ }),
 
-/***/ 548:
+/***/ 556:
 /*!*****************************************************************************************************!*\
   !*** C:/Users/DELL/-health/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
   \*****************************************************************************************************/
@@ -28330,7 +28330,7 @@ if ( true && typeof module.exports === "object") {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/tabbar": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/upload/upload": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/upload/uploadvideo": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/setinfo/setinfo": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/job/job": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/info/info": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/me/salary": { "navigationBarTitleText": "薪资排行", "navigationStyle": "custom" }, "pages/me/aboutMe": { "navigationBarTitleText": "关于作者", "navigationStyle": "custom" }, "pages/me/mentalTest/list": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom" }, "pages/me/mentalTest/index": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom" }, "pages/me/mentalTest/explain": { "navigationBarTitleText": "答题规则说明" }, "pages/news/news": { "navigationBarTitleText": "资讯详情" }, "pages/me/course": { "navigationBarTitleText": "班级课程", "navigationStyle": "custom" }, "pages/video": { "navigationBarTitleText": "视频播放" }, "pages/menu/breakfast": { "navigationBarTitleText": "早餐", "navigationStyle": "custom" }, "pages/menu/lunch": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom" }, "pages/menu/dinner": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom" }, "pages/timeline": { "navigationStyle": "custom" }, "pages/design": { "navigationStyle": "custom" }, "tn_components/pano": {}, "tn_components/bggrad": { "navigationStyle": "custom" }, "tn_components/bgcolor": { "navigationStyle": "custom" }, "tn_components/ancube": { "navigationStyle": "custom" }, "tn_components/anloading": { "navigationStyle": "custom" }, "tn_components/mimicry": { "navigationStyle": "custom" }, "tn_components/mapLocus": { "navigationStyle": "custom" }, "tn_components/charts": { "navigationBarTitleText": "图表展示" }, "tn_components/poster": { "navigationStyle": "custom" }, "tn_components/discern": { "navigationStyle": "custom" }, "tn_components/sign": { "navigationBarTitleText": "电子签名" }, "tn_components/district": { "navigationBarTitleText": "行政区图" }, "tn_components/search": { "navigationStyle": "custom", "navigationBarTitleText": "便捷查询" }, "tn_components/openDocument": { "navigationStyle": "custom", "navigationBarTitleText": "文档预览" }, "tn_components/company": { "navigationBarTitleText": "自定义相机" }, "tn_components/timeline": { "navigationBarTitleText": "时间轴" }, "tn_components/guide": { "navigationStyle": "custom", "navigationBarTitleText": "引导页面" }, "tn_components/request": { "navigationStyle": "custom", "navigationBarTitleText": "模拟数据加载" }, "tn_components/keyboard": { "navigationStyle": "custom" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/tabbar": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/upload/upload": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/upload/uploadvideo": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/setinfo/setinfo": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/job/job": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/info/info": { "navigationBarTitleText": "", "navigationStyle": "custom" }, "pages/me/salary": { "navigationBarTitleText": "薪资排行", "navigationStyle": "custom" }, "pages/me/aboutMe": { "navigationBarTitleText": "关于作者", "navigationStyle": "custom" }, "pages/me/mentalTest/list": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom" }, "pages/me/mentalTest/index": { "navigationBarTitleText": "答题测试", "navigationStyle": "custom" }, "pages/me/mentalTest/explain": { "navigationBarTitleText": "答题规则说明" }, "pages/news/news": { "navigationBarTitleText": "资讯详情" }, "pages/me/course": { "navigationBarTitleText": "班级课程", "navigationStyle": "custom" }, "pages/video": { "navigationBarTitleText": "视频播放" }, "pages/menu/breakfast": { "navigationBarTitleText": "早餐", "navigationStyle": "custom" }, "pages/menu/lunch": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom" }, "pages/menu/dinner": { "navigationBarTitleText": "项目展示", "navigationStyle": "custom" }, "pages/menu/menu": { "navigationBarTitleText": "菜谱", "navigationStyle": "custom" }, "pages/timeline": { "navigationStyle": "custom" }, "pages/design": { "navigationStyle": "custom" }, "tn_components/pano": {}, "tn_components/bggrad": { "navigationStyle": "custom" }, "tn_components/bgcolor": { "navigationStyle": "custom" }, "tn_components/ancube": { "navigationStyle": "custom" }, "tn_components/anloading": { "navigationStyle": "custom" }, "tn_components/mimicry": { "navigationStyle": "custom" }, "tn_components/mapLocus": { "navigationStyle": "custom" }, "tn_components/charts": { "navigationBarTitleText": "图表展示" }, "tn_components/poster": { "navigationStyle": "custom" }, "tn_components/discern": { "navigationStyle": "custom" }, "tn_components/sign": { "navigationBarTitleText": "电子签名" }, "tn_components/district": { "navigationBarTitleText": "行政区图" }, "tn_components/search": { "navigationStyle": "custom", "navigationBarTitleText": "便捷查询" }, "tn_components/openDocument": { "navigationStyle": "custom", "navigationBarTitleText": "文档预览" }, "tn_components/company": { "navigationBarTitleText": "自定义相机" }, "tn_components/timeline": { "navigationBarTitleText": "时间轴" }, "tn_components/guide": { "navigationStyle": "custom", "navigationBarTitleText": "引导页面" }, "tn_components/request": { "navigationStyle": "custom", "navigationBarTitleText": "模拟数据加载" }, "tn_components/keyboard": { "navigationStyle": "custom" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 

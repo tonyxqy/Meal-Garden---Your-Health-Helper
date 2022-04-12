@@ -124,6 +124,13 @@
 			}
 		},
 		{
+			"path": "pages/menu/menu",
+			"style": {
+				"navigationBarTitleText": "菜谱",
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/timeline",
 			"style": {
 				"navigationStyle": "custom"

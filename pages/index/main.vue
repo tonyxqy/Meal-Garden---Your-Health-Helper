@@ -584,7 +584,7 @@
 		flex-direction: row;
 		justify-content: flex-end;
 		width: 100%;
-		height: 700rpx;
+		height: 300rpx;
 	}
 
 	.canvas .kettle .kettls {

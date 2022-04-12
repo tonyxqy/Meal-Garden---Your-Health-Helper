@@ -765,11 +765,6 @@
 					url: '../menu/dinner'
 				})
 			},
-			goProject(id) {
-				uni.navigateTo({
-					url: '../project/project?proId=' + id
-				})
-			},
 			goVideo() {
 				uni.navigateTo({
 					url: '../video'

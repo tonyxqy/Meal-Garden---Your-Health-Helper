@@ -17,6 +17,7 @@
     "pages/menu/breakfast",
     "pages/menu/lunch",
     "pages/menu/dinner",
+    "pages/menu/menu",
     "pages/timeline",
     "pages/design"
   ],
