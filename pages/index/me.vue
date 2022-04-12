@@ -310,7 +310,7 @@
 			// 答题测试
 			mentalTest() {
 				uni.navigateTo({
-					url: '../me/mentalTest/list'
+					url: '../../page_me/mentalTest/list'
 				})
 			},
 			//拨打固定电话
@@ -322,19 +322,13 @@
 			// 关于作者
 			goAboutMe() {
 				uni.navigateTo({
-					url: '../me/aboutMe'
-				})
-			},
-			// 薪资排名
-			goSalary() {
-				uni.navigateTo({
-					url: '../me/salary'
+					url: '../../page_me/aboutMe'
 				})
 			},
 			// 课班信息
 			goCourse() {
 				uni.navigateTo({
-					url: '../info/info'
+					url: '../../page_info/info'
 				})
 			}
 		}
@@ -571,7 +565,7 @@
 		border-radius: 12upx;
 		width: 45%;
 		margin: 0 2.5% 40upx;
-		background-image: url(../../static/me/NyU04x.png);
+		background-image: url(https://s1.328888.xyz/2022/04/12/fplgJ.png);
 		background-size: cover;
 		background-position: center;
 		position: relative;

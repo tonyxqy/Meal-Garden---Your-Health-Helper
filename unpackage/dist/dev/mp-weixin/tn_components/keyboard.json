@@ -1,6 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "plate-input": "/components/uni-plate-input/uni-plate-input"
-  }
-}

@@ -296,7 +296,7 @@
 			},
 			history() {
 				uni.navigateTo({
-					url: 'timeline'
+					// url: 'timeline'
 				})
 			}
 		}

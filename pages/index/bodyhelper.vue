@@ -12,7 +12,7 @@
 
 <script>
 	import Dialog from '@/wxcomponents/vant/dialog/dialog';
-	import uCharts from "@/components/u-charts/u-charts.js";
+	import uCharts from "@/uni_modules/qiun-data-charts/js_sdk/u-charts/u-charts.js";
 	import request from '@/common/request.js';
 	export default {
 		data() {
@@ -116,7 +116,7 @@
 	.charts-box1 {
 		width: 100%;
 		height: 100px;
-		z-index: 100;
+		z-index: 200;
 	}
 
 	.bodyhelper {
@@ -125,6 +125,6 @@
 		left: 0;
 		height: 60px;
 		width: 60px;
-		z-index: 1;
+		z-index: 10;
 	}
 </style>

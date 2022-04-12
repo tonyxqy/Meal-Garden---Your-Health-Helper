@@ -232,30 +232,30 @@ const cfu = {
 			},
 		}
 	},
-	"arcbar": {
-		"type": "arcbar",
-		"color": color,
-		"title": {
-			"name": "百分比",
-			"fontSize": 25,
-			"color": "#00FF00"
-		},
-		"subtitle": {
-			"name": "默认标题",
-			"fontSize": 15,
-			"color": "#666666"
-		},
-		"extra": {
-			"arcbar": {
-				"type": "default",
-				"width": 12,
-				"backgroundColor": "#E9E9E9",
-				"startAngle": 0.75,
-				"endAngle": 0.25,
-				"gap": 2
-			}
-		}
-	},
+	// "arcbar": {
+	// 	"type": "arcbar",
+	// 	"color": color,
+	// 	"title": {
+	// 		"name": "百分比",
+	// 		"fontSize": 25,
+	// 		"color": "#00FF00"
+	// 	},
+	// 	"subtitle": {
+	// 		"name": "默认标题",
+	// 		"fontSize": 15,
+	// 		"color": "#666666"
+	// 	},
+	// 	"extra": {
+	// 		"arcbar": {
+	// 			"type": "default",
+	// 			"width": 12,
+	// 			"backgroundColor": "#E9E9E9",
+	// 			"startAngle": 0.75,
+	// 			"endAngle": 0.25,
+	// 			"gap": 2
+	// 		}
+	// 	}
+	// },
 	"line": {
 		"type": "line",
 		"color": color,
@@ -413,8 +413,56 @@ const cfu = {
 			},
 		}
 	},
+	"arcbar":{
+	    "type": "arcbar",
+	    "canvasId": "",
+	    "canvas2d": false,
+	    "background": "none",
+	    "animation": true,
+	    "timing": "easeOut",
+	    "duration": 2000,
+	    "rotate": false,
+	    "errorReload": true,
+	    "fontSize": 13,
+	    "fontColor": "#666666",
+	    "enableScroll": false,
+	    "touchMoveLimit": 60,
+	    "enableMarkLine": false,
+	    "dataLabel": true,
+	    "dataPointShape": true,
+	    "dataPointShapeType": "solid",
+	    "tapLegend": true,
+	    "title": {
+	        "name": " ",
+	        "fontSize": 20,
+	        "color": "#00FF00",
+	        "offsetX": 0,
+	        "offsetY": 0
+	    },
+	    "subtitle": {
+	        "name": "",
+	        "fontSize": 15,
+	        "color": "#666666",
+	        "offsetX": 0,
+	        "offsetY": 0
+	    },
+	    "extra": {
+	        "arcbar": {
+	            "type": "circle",
+	            "width": 5,
+	            "backgroundColor": "#E9E9E9",
+	            "startAngle": 1.5,
+	            "endAngle": 1.5,
+	            "gap": 2,
+	            "centerX": 0,
+	            "centerY": 0,
+	            "linearType": "custom"
+	        }
+	    }
+	},
 	"gauge": {
 		"type": "gauge",
+		"color": color,
 		"canvasId": "",
 		"canvas2d": false,
 		"background": "none",
