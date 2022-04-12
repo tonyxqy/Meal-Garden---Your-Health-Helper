@@ -65,7 +65,8 @@
     {
       "root": "page_job",
       "pages": [
-        "job"
+        "job",
+        "aboutjob"
       ]
     }
   ],

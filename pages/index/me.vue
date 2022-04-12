@@ -141,7 +141,7 @@
 				<view class="cu-item ">
 					<button class='content cu-btn' @click="goSalary">
 						<image src='../../static/me/icon/jisuanqi.png' class='png' mode='aspectFit'></image>
-						<text class='text-lg margin-sm'>留空</text>
+						<text class='text-lg margin-sm'>我的职业</text>
 					</button>
 				</view>
 				<view class="cu-item " @click="goCourse">
@@ -274,11 +274,12 @@
 		},
 		methods: {
 			getServerData() {
+				let user_id = uni.getStorageSync('userId')
 				uni.showLoading({
 					title: '加载中'
 				})
 				let user = {
-					user_id: '22'
+					user_id: user_id
 				}
 				let optstar = {
 					url: 'body/all',
@@ -318,6 +319,11 @@
 				uni.makePhoneCall({
 					phoneNumber: "18629591093",
 				});
+			},
+			goSalary(){
+				uni.navigateTo({
+					url: '../../page_job/aboutjob'
+				})
 			},
 			// 关于作者
 			goAboutMe() {

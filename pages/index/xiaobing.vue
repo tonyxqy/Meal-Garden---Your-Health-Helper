@@ -96,6 +96,7 @@
 					dataType: 'json', //返回值类型
 					data: val,
 					success: (res) => { //成功
+					uni.hideLoading();
 						console.log(res.data)
 						this.topiclist.push(res.data);
 					},
@@ -115,6 +116,7 @@
 			},
 			talking: function() {
 				this.xiaobing = !this.xiaobing
+				uni.$emit('hidebox')
 			},
 		}
 	}
@@ -126,6 +128,7 @@
 		height: 38px;
 		display: inline-block;
 		vertical-align: top;
+	z-index: 99;
 	}
 
 	.ev_my_img,
@@ -136,6 +139,7 @@
 		background-size: contain !important;
 		display: inline-block;
 		vertical-align: top;
+	z-index: 99;
 	}
 
 	.ev_my_msg {
@@ -147,15 +151,18 @@
 		border-radius: 8px 2px 8px 8px;
 		margin-right: 8px;
 		max-width: 193px;
+	z-index: 99;
 	}
 
 	.ev_my_img {
 		float: right;
+	z-index: 99;
 	}
 
 	.ev_msg_wrapper>* {
 		display: inline-block;
 		vertical-align: top;
+	z-index: 99;
 	}
 
 	.ev_send_button {
@@ -170,10 +177,13 @@
 		background-color: transparent;
 		padding: 0;
 		float: right;
+	z-index: 99;
 	}
+	
 
 	.ev_send_button_img {
 		background: url(https://cn.bing.com/rp/kfOlUlZWFmmvOElW-pmNhjCSNfI.png);
+	z-index: 99;
 	}
 
 	.ev_send_button_img {
@@ -182,6 +192,7 @@
 		cursor: pointer;
 		outline: none;
 		background-size: contain !important;
+	z-index: 99;
 	}
 
 	.ev_send_text {
@@ -199,6 +210,7 @@
 		white-space: nowrap;
 		// text-overflow: ellipsis;
 		float: left;
+	z-index: 99;
 	}
 
 	.ev_send_input {
@@ -208,21 +220,25 @@
 		padding: 10px 0 9px 8px;
 		border-radius: 0 0 6px 6px;
 		height: 55px;
+	z-index: 99;
 	}
 
 	.ev_zo_img {
 		background: url(https://cn.bing.com/rp/ar_9isCNU2Q-VG1yEDDHnx8HAFQ.png
 ) no-repeat center;
+	z-index: 99;
 	}
 
 	.ev_msg_wrapper {
 		margin: 0 16px 16px;
 		overflow: hidden;
+		z-index: 99;
 	}
 
 	.ev_msg_wrapper>* {
 		display: inline-block;
 		vertical-align: top;
+		z-index: 99;
 	}
 
 	.ev_zo_msg,
@@ -235,6 +251,7 @@
 		white-space: pre-wrap;
 		display: inline-block;
 		vertical-align: top;
+		z-index: 99;
 	}
 
 	.ev_zo_msg {
@@ -244,6 +261,7 @@
 		max-width: 216px;
 		border-radius: 2px 8px 8px 8px;
 		margin-left: 8px;
+		z-index: 99;
 	}
 
 	.ev_my_img,
@@ -254,11 +272,13 @@
 		background-size: contain !important;
 		display: inline-block;
 		vertical-align: top;
+		z-index: 99;
 	}
 
 	.ev_default_talk {
 		background: #f5f5f6;
 		border-radius: 0 0 6px 6px;
+		z-index: 99;
 	}
 
 	.ev_talkbox_max {
@@ -269,7 +289,7 @@
 		border-radius: 6px;
 		border: 1px solid #f5f5f6;
 		height: 530px;
-		z-index: 1000;
+		z-index: 99;
 	}
 
 	#ev_talkbox {

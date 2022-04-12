@@ -14,7 +14,7 @@
 		<view class="padding">
 			<view class="mainBox radius shadow-warp bg-white margin-top relative">
 				<view class="userHeard cu-avatar lg round"
-					style="background-image:url(../../../static/health.png);"></view>
+					style="background-image:url(/static/logo.png);"></view>
 				<view v-show="hasData">
 					<view class="animation-reverse shadow" :class="animation" data-class="slide-rights" setData>
 						<view class="mentalTitle text-xl text-black text-bold">
