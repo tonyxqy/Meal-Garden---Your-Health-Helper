@@ -96,9 +96,7 @@
 					<text class="text-xl text-bold text-blue text-shadow">每日推荐</text>
 					<text class="text-ABC text-blue">recommendation</text>
 				</view>
-<!-- 				<view class="action" @click="goVideo">
-					<text class="text-lg text-grey text-shadow">更多</text>
-				</view> -->
+
 			</view>
 
 			<view class="skill-sequence-panel-content-wrapper">
@@ -114,7 +112,7 @@
 						<div class="dot"></div>
 						<div class="dot"></div>
 					</div>
-					<view class="kite-classify-cell shadow" v-for="(item, index) in curriculum" :key="index">
+					<view @click="bindIt(item)"class="kite-classify-cell shadow" v-for="(item, index) in curriculum" :key="index">
 						<view :class="'nav-li bg-index' + ((index%6)+1)">
 							<view class="nav-name">{{item.menu}}</view>
 						</view>
@@ -218,7 +216,7 @@
 				</van-card>
 			</view>
 		</view>
-<!-- 		<u-popup v-model="showT" mode="center" width="690rpx" @close="popupClose" border-radius="20"
+		<u-popup v-model="showT" mode="center" width="690rpx" height="680rpx"@close="popupClose" border-radius="20"
 			style=" border: 10rpx;">
 			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
 				<view class="canlass">
@@ -227,14 +225,14 @@
 					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="showT = false"> 确定
 					</view>
 				</view>
-				<view style="display: flex;flex-direction:row;">
+				<view style="column-count: 2;">
 					<image :src="popArray.pictureUrl" mode="aspectFill"
 						style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;"></image>
 					<view>
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
 								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#D99F3E" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
+								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
 									{{item}}
 								</van-tag>
 							</view>
@@ -252,7 +250,7 @@
 						</view>
 						<view class="detailsTop">
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text>
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;">
 									{{item}}
 								</text>
 							</view>
@@ -260,7 +258,7 @@
 					</view>
 				</view>
 			</view>
-		</u-popup> -->
+		</u-popup>
 		<view style="height: 140rpx;width: 1rpx;"></view>
 		<u-popup v-model="logion" mode="center" height="320rpx" :mask-close-able="false" width="530rpx"
 			border-radius="10">
@@ -397,7 +395,8 @@
 				dinnerList:[],
 				popArray: [],
 				timer,
-				user_id
+				user_id,
+				showT:false
 			}
 		},
 		activated(){
@@ -421,9 +420,6 @@
 			} else {
 				this.logion = false
 			}
-		},
-		onShow() {
-			console.log("shauxinlem")
 		},
 		methods: {
 			getUserInfo() {
@@ -644,40 +640,49 @@
 			},
 			help(item) {
 				item.forEach((self, index) => {
-					if (self.ingredients != null) {
-						let ingredients = self.ingredients.slice(1, -1).split(',')
-						let list = []
-						ingredients.forEach((self, index) => {
-							let change = self.trim().replace(/\'/g, "");
-							list.push(change)
-						})
-						self.ingredients = list
-					}
-					if (self.classifiction != null) {
-						let classifiction = self.classifiction.slice(1, -1).split(',')
-						let list = []
-						classifiction.forEach((self, index) => {
-							let change = self.trim().replace(/\'/g, "");
-							list.push(change)
-						})
-						self.classifiction = list
-					}
-					if (self.practice != null) {
-						let practice = self.practice.slice(1, -1).split(',')
-						let list = []
-						practice.forEach((self, index) => {
-							let change = self.trim().replace(/\'/g, "");
-							list.push(change)
-						})
-						self.practice = list
-					}
+					this.helpIt(self)
 				})
 			},
 			bind(item) {
-				this.showT = true
 				this.popArray = item
 				this.help(this.popArray)
 				console.log(this.popArray, "popArray")
+			},
+			bindIt(item){
+				this.showT = true
+				this.popArray = item
+				this.helpIt(this.popArray)
+				console.log(this.popArray, "popArray")
+			},
+			helpIt(self) {
+				if (self.ingredients != null) {
+					let sep = /\,/
+					let ingredients = self.ingredients.slice(1, -1).split(sep)
+					let list = []
+					ingredients.forEach((self, index) => {
+						let change = self.trim().replace(/\'/g, "");
+						list.push(change)
+					})
+					self.ingredients = list
+				}
+				if (self.classifiction != null) {
+					let classifiction = self.classifiction.slice(1, -1).split(',')
+					let list = []
+					classifiction.forEach((self, index) => {
+						let change = self.trim().replace(/\'/g, "");
+						list.push(change)
+					})
+					self.classifiction = list
+				}
+				if (self.practice != null) {
+					let practice = self.practice.slice(1, -1).split(',')
+					let list = []
+					practice.forEach((self, index) => {
+						let change = self.trim().replace(/\'/g, "");
+						list.push(change)
+					})
+					self.practice = list
+				}
 			},
 			deleteMenuBreakfast(item) {
 				var that = this
@@ -696,6 +701,11 @@
 					success: (res) => {
 						console.log(200,"delete menu")
 						this.getMenuData()
+						wx.showToast({
+						  title: '删除成功',
+						  icon: 'success',
+						  duration: 2000//持续的时间
+						})
 					}
 				})
 			},
@@ -716,6 +726,11 @@
 					success: (res) => {
 						console.log(200,"delete lunch")
 						this.getMenuData()
+						wx.showToast({
+						  title: '删除成功',
+						  icon: 'success',
+						  duration: 2000//持续的时间
+						})
 					}
 				})
 			},
@@ -736,6 +751,11 @@
 					success: (res) => {
 						console.log(200,"delete dinner")
 						this.getMenuData()
+						wx.showToast({
+						  title: '删除成功',
+						  icon: 'success',
+						  duration: 2000//持续的时间
+						})
 					}
 				})
 			},
@@ -789,16 +809,33 @@
 		font-family: 'iconfont';
 		src: url('@/static/iconfont.ttf?t=1647423422630') format('truetype');
 	}
-
+	
 	.detailsTop {
 		padding: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
 		max-height: 140px;
 		color: #304156;
-		letter-spacing: 2rpx;
+		letter-spacing:2rpx;
+		display: flex;
+		flex-direction:row;
+		flex-wrap: wrap;
 	}
-
+	
+	.details {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		text-align: left;
+		padding: 20rpx;
+		padding-left:30rpx ;
+		overflow: scroll;
+		line-height: 20px;
+		max-height: 200px;
+		color: #304156;
+		letter-spacing:2rpx;
+	}
+	
 	.titileCenter {
 		width: 70%;
 		height: 88rpx;
@@ -807,15 +844,15 @@
 		font-size: 30rpx;
 		overflow: hidden;
 	}
-
+	
 	.aasd {
 		width: 33.33%;
 		height: 88rpx;
 		line-height: 88rpx;
 	}
-
+	
 	.canlass {
-		height: 88rpx;
+		height: 100rpx;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;

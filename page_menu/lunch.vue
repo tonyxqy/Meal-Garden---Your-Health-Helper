@@ -36,7 +36,7 @@
 					</view>
 				</view>
 
-				<view style="display: flex;flex-direction:row;">
+				<view style="column-count: 2;">
 					<image :src="img" mode="aspectFill" style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;"></image>
 					<view>
 						<view>
@@ -60,7 +60,7 @@
 						</view>
 						<view class="detailsTop">
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text>
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;">
 									{{item}}
 								</text>
 							</view>
@@ -132,7 +132,8 @@
 			},
 			help(self) {
 				if (self.ingredients != null) {
-					let ingredients = self.ingredients.slice(1, -1).split(',')
+					let sep = /\,|\:/
+					let ingredients = self.ingredients.slice(1, -1).split(sep)
 					let list = []
 					ingredients.forEach((self, index) => {
 						let change = self.trim().replace(/\'/g, "");
@@ -172,7 +173,6 @@
 			},
 			onLoad() {
 				this.getBreakfast()
-				
 			},
 			setIdx() {
 				this.idx = this.index
@@ -206,6 +206,11 @@
 					},
 					success: (res) => {
 						console.log(200,"addsuccess")
+						        wx.showToast({
+						          title: '提交成功',
+						          icon: 'success',
+						          duration: 2000//持续的时间
+						        })
 					}
 				})
 			},
@@ -253,6 +258,10 @@
 		max-height: 140px;
 		color: #304156;
 		letter-spacing:2rpx;
+	
+		display: flex;
+		flex-direction:row;
+		flex-wrap: wrap;
 	}
 
 	.details {

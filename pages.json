@@ -155,6 +155,12 @@
 					"style": {
 						"navigationStyle": "custom"
 					}
+				},
+				{
+					"path": "menu",
+					"style": {
+						"navigationStyle": "custom"
+					}
 				}
 			]
 		},

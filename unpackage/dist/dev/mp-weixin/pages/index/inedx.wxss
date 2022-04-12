@@ -35,6 +35,22 @@
   max-height: 140px;
   color: #304156;
   letter-spacing: 2rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.details.data-v-079d618e {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  padding: 20rpx;
+  padding-left: 30rpx;
+  overflow: scroll;
+  line-height: 20px;
+  max-height: 200px;
+  color: #304156;
+  letter-spacing: 2rpx;
 }
 .titileCenter.data-v-079d618e {
   width: 70%;
@@ -50,7 +66,7 @@
   line-height: 88rpx;
 }
 .canlass.data-v-079d618e {
-  height: 88rpx;
+  height: 100rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;

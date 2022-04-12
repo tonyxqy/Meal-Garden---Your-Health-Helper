@@ -206,6 +206,11 @@
 					},
 					success: (res) => {
 						console.log(200,"addsuccess")
+						wx.showToast({
+						  title: '提交成功',
+						  icon: 'success',
+						  duration: 2000//持续的时间
+						})
 					}
 				})
 			},
@@ -253,7 +258,6 @@
 		max-height: 140px;
 		color: #304156;
 		letter-spacing:2rpx;
-	
 		display: flex;
 		flex-direction:row;
 		flex-wrap: wrap;

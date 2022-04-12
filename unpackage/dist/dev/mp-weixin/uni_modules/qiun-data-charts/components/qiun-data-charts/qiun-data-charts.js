@@ -1,10 +1,1356 @@
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts"],{414:function(t,e,a){"use strict";a.r(e);var i=a(415),o=a(417);for(var n in o)"default"!==n&&function(t){a.d(e,t,(function(){return o[t]}))}(n);a(421);var r,s=a(15),c=Object(s["default"])(o["default"],i["render"],i["staticRenderFns"],!1,null,"fe947b98",null,!1,i["components"],r);c.options.__file="uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue",e["default"]=c.exports},415:function(t,e,a){"use strict";a.r(e);var i=a(416);a.d(e,"render",(function(){return i["render"]})),a.d(e,"staticRenderFns",(function(){return i["staticRenderFns"]})),a.d(e,"recyclableRender",(function(){return i["recyclableRender"]})),a.d(e,"components",(function(){return i["components"]}))},416:function(t,e,a){"use strict";var i;a.r(e),a.d(e,"render",(function(){return o})),a.d(e,"staticRenderFns",(function(){return r})),a.d(e,"recyclableRender",(function(){return n})),a.d(e,"components",(function(){return i}));try{i={qiunLoading:function(){return a.e("uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading").then(a.bind(null,486))},qiunError:function(){return a.e("uni_modules/qiun-data-charts/components/qiun-error/qiun-error").then(a.bind(null,491))}}}catch(s){if(-1===s.message.indexOf("Cannot find module")||-1===s.message.indexOf(".vue"))throw s;console.error(s.message),console.error("1. 排查组件名称拼写是否正确"),console.error("2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"),console.error("3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件")}var o=function(){var t=this,e=t.$createElement;t._self._c},n=!1,r=[];o._withStripped=!0},417:function(t,e,a){"use strict";a.r(e);var i=a(418),o=a.n(i);for(var n in i)"default"!==n&&function(t){a.d(e,t,(function(){return i[t]}))}(n);e["default"]=o.a},418:function(t,e,a){"use strict";(function(t,i){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var o=r(a(116)),n=r(a(420));function r(t){return t&&t.__esModule?t:{default:t}}function s(){for(var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=arguments.length,a=new Array(e>1?e-1:0),i=1;i<e;i++)a[i-1]=arguments[i];for(var o in a)for(var n in a[o])a[o].hasOwnProperty(n)&&(t[n]=a[o][n]&&"object"===typeof a[o][n]?s(Array.isArray(a[o][n])?[]:{},t[n],a[o][n]):a[o][n]);return t}function c(t,e){for(var a in t)null!==t[a]&&"object"===typeof t[a]?c(t[a],e):"format"===a&&"string"===typeof t[a]&&(t["formatter"]=e[t[a]]?e[t[a]]:void 0);return t}function l(t){var e="-",a=t.getFullYear(),i=t.getMonth()+1,o=t.getDate();i>=1&&i<=9&&(i="0"+i),o>=0&&o<=9&&(o="0"+o);var n=a+e+i+e+o;return n}var h=null;function u(t,e){var a=!1;return function(){var i=arguments,o=this;clearTimeout(a),a&&clearTimeout(a),a=setTimeout((function(){a=!1,t.apply(o,i)}),e)}}var d={name:"qiun-data-charts",mixins:[t.mixinDatacom],props:{type:{type:String,default:null},canvasId:{type:String,default:"uchartsid"},canvas2d:{type:Boolean,default:!1},background:{type:String,default:"rgba(0,0,0,0)"},animation:{type:Boolean,default:!0},chartData:{type:Object,default:function(){return{categories:[],series:[]}}},opts:{type:Object,default:function(){return{}}},eopts:{type:Object,default:function(){return{}}},loadingType:{type:Number,default:2},errorShow:{type:Boolean,default:!0},errorReload:{type:Boolean,default:!0},errorMessage:{type:String,default:null},inScrollView:{type:Boolean,default:!1},reshow:{type:Boolean,default:!1},reload:{type:Boolean,default:!1},disableScroll:{type:Boolean,default:!1},ontap:{type:Boolean,default:!0},ontouch:{type:Boolean,default:!1},onmouse:{type:Boolean,default:!0},onmovetip:{type:Boolean,default:!1},echartsH5:{type:Boolean,default:!1},echartsApp:{type:Boolean,default:!1},tooltipShow:{type:Boolean,default:!0},tooltipFormat:{type:String,default:void 0},tooltipCustom:{type:Object,default:void 0},startDate:{type:String,default:void 0},endDate:{type:String,default:void 0},textEnum:{type:Array,default:function(){return[]}},groupEnum:{type:Array,default:function(){return[]}},pageScrollTop:{type:Number,default:0},directory:{type:String,default:"/"},tapLegend:{type:Boolean,default:!0},menus:{type:Array,default:function(){return[]}}},data:function(){return{cid:"uchartsid",inWx:!1,inAli:!1,inTt:!1,inBd:!1,inH5:!1,inApp:!1,inWin:!1,type2d:!0,disScroll:!1,openmouse:!1,pixel:1,cWidth:375,cHeight:250,showchart:!1,echarts:!1,echartsResize:!1,uchartsOpts:{},echartsOpts:{},drawData:{},lastDrawTime:null}},created:function(){if(this.cid=this.canvasId,"uchartsid"==this.canvasId||""==this.canvasId){for(var t="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",e=t.length,a="",o=0;o<32;o++)a+=t.charAt(Math.floor(Math.random()*e));this.cid=a}var n=i.getSystemInfoSync();"windows"!==n.platform&&"mac"!==n.platform||(this.inWin=!0),this.inWx=!0,!1===this.canvas2d||"windows"===n.platform||"mac"===n.platform?this.type2d=!1:(this.pixel=n.pixelRatio,"uchartsid"!==this.canvasId&&""!=this.canvasId||console.log("[uCharts]:开启canvas2d模式，必须指定canvasId，否则会出现偶尔获取不到dom节点的问题！")),this.disScroll=this.disableScroll},mounted:function(){var t=this;this.$nextTick((function(){t.beforeInit()}));var e=this.inH5?500:200,a=this;i.onWindowResize(u((function(t){if(1!=a.mixinDatacomLoading){var e=a.mixinDatacomErrorMessage;null!==e&&"null"!==e&&""!==e||(a.echarts?a.echartsResize=!a.echartsResize:a.resizeHandler())}}),e))},destroyed:function(){!0===this.echarts?(delete cfe.option[this.cid],delete cfe.instance[this.cid]):(delete n.default.option[this.cid],delete n.default.instance[this.cid]),i.offWindowResize((function(){}))},watch:{chartDataProps:{handler:function(t,e){"object"===typeof t?JSON.stringify(t)!==JSON.stringify(e)&&(t.series&&t.series.length>0?this.beforeInit():(this.mixinDatacomLoading=!0,this._clearChart(),this.showchart=!1,this.mixinDatacomErrorMessage=null)):(this.mixinDatacomLoading=!1,this._clearChart(),this.showchart=!1,this.mixinDatacomErrorMessage="参数错误：chartData数据类型错误")},immediate:!1,deep:!0},localdata:{handler:function(t,e){JSON.stringify(t)!==JSON.stringify(e)&&(t.length>0?this.beforeInit():(this.mixinDatacomLoading=!0,this._clearChart(),this.showchart=!1,this.mixinDatacomErrorMessage=null))},immediate:!1,deep:!0},optsProps:{handler:function(t,e){"object"===typeof t?JSON.stringify(t)!==JSON.stringify(e)&&!1===this.echarts&&this.checkData(this.drawData):(this.mixinDatacomLoading=!1,this._clearChart(),this.showchart=!1,this.mixinDatacomErrorMessage="参数错误：opts数据类型错误")},immediate:!1,deep:!0},eoptsProps:{handler:function(t,e){"object"===typeof t?JSON.stringify(t)!==JSON.stringify(e)&&!0===this.echarts&&this.checkData(this.drawData):(this.mixinDatacomLoading=!1,this.showchart=!1,this.mixinDatacomErrorMessage="参数错误：eopts数据类型错误")},immediate:!1,deep:!0},reshow:function(t,e){var a=this;!0===t&&!1===this.mixinDatacomLoading&&setTimeout((function(){a.mixinDatacomErrorMessage=null,a.echartsResize=!a.echartsResize,a.checkData(a.drawData)}),200)},reload:function(t,e){!0===t&&(this.showchart=!1,this.mixinDatacomErrorMessage=null,this.reloading())},mixinDatacomErrorMessage:function(t,e){t&&(this.emitMsg({name:"error",params:{type:"error",errorShow:this.errorShow,msg:t,id:this.cid}}),this.errorShow&&console.log("[秋云图表组件]"+t))},errorMessage:function(t,e){t&&this.errorShow&&null!==t&&"null"!==t&&""!==t?(this.showchart=!1,this.mixinDatacomLoading=!1,this.mixinDatacomErrorMessage=t):(this.showchart=!1,this.mixinDatacomErrorMessage=null,this.reloading())}},computed:{optsProps:function(){return JSON.parse(JSON.stringify(this.opts))},eoptsProps:function(){return JSON.parse(JSON.stringify(this.eopts))},chartDataProps:function(){return JSON.parse(JSON.stringify(this.chartData))}},methods:{beforeInit:function(){this.mixinDatacomErrorMessage=null,"object"===typeof this.chartData&&null!=this.chartData&&void 0!==this.chartData.series&&this.chartData.series.length>0?(this.drawData=s({},this.chartData),this.mixinDatacomLoading=!1,this.showchart=!0,this.checkData(this.chartData)):this.localdata.length>0?(this.mixinDatacomLoading=!1,this.showchart=!0,this.localdataInit(this.localdata)):""!==this.collection?(this.mixinDatacomLoading=!1,this.getCloudData()):this.mixinDatacomLoading=!0},localdataInit:function(t){if(this.groupEnum.length>0)for(var e=0;e<t.length;e++)for(var a=0;a<this.groupEnum.length;a++)t[e].group===this.groupEnum[a].value&&(t[e].group=this.groupEnum[a].text);if(this.textEnum.length>0)for(var i=0;i<t.length;i++)for(var o=0;o<this.textEnum.length;o++)t[i].text===this.textEnum[o].value&&(t[i].text=this.textEnum[o].text);var r=!1,c={categories:[],series:[]},h=[],u=[];if(r=!0===this.echarts?cfe.categories.includes(this.type):n.default.categories.includes(this.type),!0===r){if(this.chartData&&this.chartData.categories&&this.chartData.categories.length>0)h=this.chartData.categories;else if(this.startDate&&this.endDate){var d=new Date(this.startDate),f=new Date(this.endDate);while(d<=f)h.push(l(d)),d=d.setDate(d.getDate()+1),d=new Date(d)}else{var p={};t.map((function(t,e){void 0==t.text||p[t.text]||(h.push(t.text),p[t.text]=!0)}))}c.categories=h}var m={};if(t.map((function(t,e){void 0==t.group||m[t.group]||(u.push({name:t.group,data:[]}),m[t.group]=!0)})),0==u.length)if(u=[{name:"默认分组",data:[]}],!0===r)for(var g=0;g<h.length;g++){for(var x=0,v=0;v<t.length;v++)t[v].text==h[g]&&(x=t[v].value);u[0].data.push(x)}else for(var D=0;D<t.length;D++)u[0].data.push({name:t[D].text,value:t[D].value});else for(var y=0;y<u.length;y++)if(h.length>0)for(var w=0;w<h.length;w++){for(var S=0,T=0;T<t.length;T++)u[y].name==t[T].group&&t[T].text==h[w]&&(S=t[T].value);u[y].data.push(S)}else for(var b=0;b<t.length;b++)u[y].name==t[b].group&&u[y].data.push(t[b].value);c.series=u,this.drawData=s({},c),this.checkData(c)},reloading:function(){!1!==this.errorReload&&(this.showchart=!1,this.mixinDatacomErrorMessage=null,""!==this.collection?(this.mixinDatacomLoading=!1,this.onMixinDatacomPropsChange(!0)):this.beforeInit())},checkData:function(t){var e=this,a=this.cid;!0===this.echarts?(cfe.option[a]=s({},this.eopts),cfe.option[a].id=a,cfe.option[a].type=this.type):this.type&&n.default.type.includes(this.type)?(n.default.option[a]=s({},n.default[this.type],this.opts),n.default.option[a].canvasId=a):(this.mixinDatacomLoading=!1,this.showchart=!1,this.mixinDatacomErrorMessage="参数错误：props参数中type类型不正确");var i=s({},t);void 0!==i.series&&i.series.length>0&&(this.mixinDatacomErrorMessage=null,!0===this.echarts?(cfe.option[a].chartData=i,this.$nextTick((function(){e.init()}))):(n.default.option[a].categories=i.categories,n.default.option[a].series=i.series,this.$nextTick((function(){e.init()}))))},resizeHandler:function(){var t=this,e=Date.now(),a=this.lastDrawTime?this.lastDrawTime:e-3e3,o=e-a;if(!(o<1e3))i.createSelectorQuery().in(this).select("#ChartBoxId"+this.cid).boundingClientRect((function(e){t.showchart=!0,e.width>0&&e.height>0&&(e.width===t.cWidth&&e.height===t.cHeight||t.checkData(t.drawData))})).exec()},getCloudData:function(){var t=this;1!=this.mixinDatacomLoading&&(this.mixinDatacomLoading=!0,this.mixinDatacomGet().then((function(e){t.mixinDatacomResData=e.result.data,t.localdataInit(t.mixinDatacomResData)})).catch((function(e){t.mixinDatacomLoading=!1,t.showchart=!1,t.mixinDatacomErrorMessage="请求错误："+e})))},onMixinDatacomPropsChange:function(t,e){1==t&&""!==this.collection&&(this.showchart=!1,this.mixinDatacomErrorMessage=null,this._clearChart(),this.getCloudData())},_clearChart:function(){var t=this.cid;if(!0!==this.echrts){var e=i.createCanvasContext(t,this);e.clearRect(0,0,this.cWidth,this.cHeight),e.draw()}},init:function(){var t=this,e=this.cid;i.createSelectorQuery().in(this).select("#ChartBoxId"+e).boundingClientRect((function(a){a.width>0&&a.height>0?(t.mixinDatacomLoading=!1,t.showchart=!0,t.lastDrawTime=Date.now(),t.cWidth=a.width,t.cHeight=a.height,!0!==t.echarts&&(n.default.option[e].background="rgba(0,0,0,0)"==t.background?"#FFFFFF":t.background,n.default.option[e].canvas2d=t.type2d,n.default.option[e].pixelRatio=t.pixel,n.default.option[e].animation=t.animation,n.default.option[e].width=a.width*t.pixel,n.default.option[e].height=a.height*t.pixel,n.default.option[e].ontap=t.ontap,n.default.option[e].ontouch=t.ontouch,n.default.option[e].onmouse=t.openmouse,n.default.option[e].onmovetip=t.onmovetip,n.default.option[e].tooltipShow=t.tooltipShow,n.default.option[e].tooltipFormat=t.tooltipFormat,n.default.option[e].tooltipCustom=t.tooltipCustom,n.default.option[e].inScrollView=t.inScrollView,n.default.option[e].lastDrawTime=t.lastDrawTime,n.default.option[e].tapLegend=t.tapLegend),t.inH5||t.inApp?1==t.echarts?(cfe.option[e].ontap=t.ontap,cfe.option[e].onmouse=t.openmouse,cfe.option[e].tooltipShow=t.tooltipShow,cfe.option[e].tooltipFormat=t.tooltipFormat,cfe.option[e].tooltipCustom=t.tooltipCustom,cfe.option[e].lastDrawTime=t.lastDrawTime,t.echartsOpts=s({},cfe.option[e])):(n.default.option[e].rotateLock=n.default.option[e].rotate,t.uchartsOpts=s({},n.default.option[e])):(n.default.option[e]=c(n.default.option[e],n.default.formatter),t.mixinDatacomErrorMessage=null,t.mixinDatacomLoading=!1,t.showchart=!0,t.$nextTick((function(){if(!0===t.type2d){var o=i.createSelectorQuery().in(t);o.select("#"+e).fields({node:!0,size:!0}).exec((function(i){if(i[0]){var o=i[0].node,r=o.getContext("2d");n.default.option[e].context=r,o.width=a.width*t.pixel,o.height=a.height*t.pixel,o._width=a.width*t.pixel,o._height=a.height*t.pixel,n.default.option[e].rotateLock=n.default.option[e].rotate,n.default.instance[e]&&n.default.option[e]&&!0===n.default.option[e].update?t._updataUChart(e):setTimeout((function(){n.default.option[e].context.restore(),n.default.option[e].context.save(),t._newChart(e)}),100)}else t.showchart=!1,t.mixinDatacomErrorMessage="参数错误：开启2d模式后，未获取到dom节点，canvas-id:"+e}))}else t.inAli&&(n.default.option[e].rotateLock=n.default.option[e].rotate),n.default.option[e].context=i.createCanvasContext(e,t),n.default.instance[e]&&n.default.option[e]&&!0===n.default.option[e].update?t._updataUChart(e):setTimeout((function(){n.default.option[e].context.restore(),n.default.option[e].context.save(),t._newChart(e)}),100)})))):(t.mixinDatacomLoading=!1,t.showchart=!1,1==t.reshow&&(t.mixinDatacomErrorMessage="布局错误：未获取到父元素宽高尺寸！canvas-id:"+e))})).exec()},saveImage:function(){i.canvasToTempFilePath({canvasId:this.cid,success:function(t){i.saveImageToPhotosAlbum({filePath:t.tempFilePath,success:function(){i.showToast({title:"保存成功",duration:2e3})}})}},this)},_newChart:function(t){var e=this;1!=this.mixinDatacomLoading&&(this.showchart=!0,n.default.instance[t]=new o.default(n.default.option[t]),n.default.instance[t].addEventListener("renderComplete",(function(){e.emitMsg({name:"complete",params:{type:"complete",complete:!0,id:t}}),n.default.instance[t].delEventListener("renderComplete")})),n.default.instance[t].addEventListener("scrollLeft",(function(){e.emitMsg({name:"scrollLeft",params:{type:"scrollLeft",scrollLeft:!0,id:t}})})),n.default.instance[t].addEventListener("scrollRight",(function(){e.emitMsg({name:"scrollRight",params:{type:"scrollRight",scrollRight:!0,id:t}})})))},_updataUChart:function(t){n.default.instance[t].updateData(n.default.option[t])},_tooltipDefault:function(t,e,a,i){if(e){var o=t.data;return"object"===typeof t.data&&(o=t.data.value),e+" "+t.name+":"+o}return t.properties&&t.properties.name?t.properties.name:t.name+":"+t.data},_showTooltip:function(t){var e=this,a=this.cid,i=n.default.option[a].tooltipCustom;if(i&&void 0!==i&&null!==i){var o=void 0;i.x>=0&&i.y>=0&&(o={x:i.x,y:i.y+10}),n.default.instance[a].showToolTip(t,{index:i.index,offset:o,textList:i.textList,formatter:function(t,i,o,r){return"string"===typeof n.default.option[a].tooltipFormat&&n.default.formatter[n.default.option[a].tooltipFormat]?n.default.formatter[n.default.option[a].tooltipFormat](t,i,o,r):e._tooltipDefault(t,i,o,r)}})}else n.default.instance[a].showToolTip(t,{formatter:function(t,i,o,r){return"string"===typeof n.default.option[a].tooltipFormat&&n.default.formatter[n.default.option[a].tooltipFormat]?n.default.formatter[n.default.option[a].tooltipFormat](t,i,o,r):e._tooltipDefault(t,i,o,r)}})},_tap:function(t,e){var a=this,o=this.cid,r=null,s=null;if(!0===this.inScrollView||this.inAli)i.createSelectorQuery().in(this).select("#ChartBoxId"+o).boundingClientRect((function(i){t.changedTouches=[],a.inAli?t.changedTouches.unshift({x:t.detail.clientX-i.left,y:t.detail.clientY-i.top}):t.changedTouches.unshift({x:t.detail.x-i.left,y:t.detail.y-i.top-a.pageScrollTop}),e?!0===a.tooltipShow&&a._showTooltip(t):(r=n.default.instance[o].getCurrentDataIndex(t),s=n.default.instance[o].getLegendDataIndex(t),!0===a.tapLegend&&n.default.instance[o].touchLegend(t),!0===a.tooltipShow&&a._showTooltip(t),a.emitMsg({name:"getIndex",params:{type:"getIndex",event:{x:t.detail.x-i.left,y:t.detail.y-i.top},currentIndex:r,legendIndex:s,id:o,opts:n.default.instance[o].opts}}))})).exec();else e?!0===this.tooltipShow&&this._showTooltip(t):(t.changedTouches=[],t.changedTouches.unshift({x:t.detail.x-t.currentTarget.offsetLeft,y:t.detail.y-t.currentTarget.offsetTop}),r=n.default.instance[o].getCurrentDataIndex(t),s=n.default.instance[o].getLegendDataIndex(t),!0===this.tapLegend&&n.default.instance[o].touchLegend(t),!0===this.tooltipShow&&this._showTooltip(t),this.emitMsg({name:"getIndex",params:{type:"getIndex",event:{x:t.detail.x,y:t.detail.y-t.currentTarget.offsetTop},currentIndex:r,legendIndex:s,id:o,opts:n.default.instance[o].opts}}))},_touchStart:function(t){var e=this.cid;h=Date.now(),!0===n.default.option[e].enableScroll&&n.default.instance[e].scrollStart(t),this.emitMsg({name:"getTouchStart",params:{type:"touchStart",event:t.changedTouches[0],id:e}})},_touchMove:function(t){var e=this.cid,a=Date.now(),i=a-h;i<Math.floor(1e3/60)||(h=a,!0===n.default.option[e].enableScroll&&n.default.instance[e].scroll(t),this.emitMsg({name:"getTouchMove",params:{type:"touchMove",event:t.changedTouches[0],id:e}}),!0===this.ontap&&!1===n.default.option[e].enableScroll&&!0===this.onmovetip&&this._tap(t,!0))},_touchEnd:function(t){var e=this.cid;!0===n.default.option[e].enableScroll&&n.default.instance[e].scrollEnd(t),this.emitMsg({name:"getTouchEnd",params:{type:"touchEnd",event:t.changedTouches[0],id:e}}),!0===this.ontap&&!1===n.default.option[e].enableScroll&&!0===this.onmovetip&&this._tap(t,!0)},_error:function(t){this.mixinDatacomErrorMessage=t.detail.errMsg},emitMsg:function(t){this.$emit(t.name,t.params)},getRenderType:function(){!0===this.echarts&&!1===this.mixinDatacomLoading&&this.beforeInit()},toJSON:function(){return this}}};e.default=d}).call(this,a(419)["default"],a(1)["default"])},421:function(t,e,a){"use strict";a.r(e);var i=a(422),o=a.n(i);for(var n in i)"default"!==n&&function(t){a.d(e,t,(function(){return i[t]}))}(n);e["default"]=o.a},422:function(t,e,a){}}]);
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts"],{
+
+/***/ 422:
+/*!***********************************************************************************************************!*\
+  !*** C:/Users/DELL/-health/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue ***!
+  \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _qiun_data_charts_vue_vue_type_template_id_fe947b98_scoped_true_filter_modules_eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0_3D___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./qiun-data-charts.vue?vue&type=template&id=fe947b98&scoped=true&filter-modules=eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0%3D& */ 423);
+/* harmony import */ var _qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./qiun-data-charts.vue?vue&type=script&lang=js& */ 425);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _qiun_data_charts_vue_vue_type_style_index_0_id_fe947b98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./qiun-data-charts.vue?vue&type=style&index=0&id=fe947b98&scoped=true&lang=css& */ 429);
+/* harmony import */ var _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 15);
+
+var renderjs
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _qiun_data_charts_vue_vue_type_template_id_fe947b98_scoped_true_filter_modules_eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0_3D___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _qiun_data_charts_vue_vue_type_template_id_fe947b98_scoped_true_filter_modules_eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0_3D___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "fe947b98",
+  null,
+  false,
+  _qiun_data_charts_vue_vue_type_template_id_fe947b98_scoped_true_filter_modules_eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0_3D___WEBPACK_IMPORTED_MODULE_0__["components"],
+  renderjs
+)
+
+component.options.__file = "uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ 423:
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/DELL/-health/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue?vue&type=template&id=fe947b98&scoped=true&filter-modules=eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0%3D& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_16_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_template_id_fe947b98_scoped_true_filter_modules_eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0_3D___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./qiun-data-charts.vue?vue&type=template&id=fe947b98&scoped=true&filter-modules=eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0%3D& */ 424);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_16_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_template_id_fe947b98_scoped_true_filter_modules_eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0_3D___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_16_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_template_id_fe947b98_scoped_true_filter_modules_eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0_3D___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_16_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_template_id_fe947b98_scoped_true_filter_modules_eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0_3D___WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_16_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_template_id_fe947b98_scoped_true_filter_modules_eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0_3D___WEBPACK_IMPORTED_MODULE_0__["components"]; });
+
+
+
+/***/ }),
+
+/***/ 424:
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/DELL/-health/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue?vue&type=template&id=fe947b98&scoped=true&filter-modules=eyJyZGNoYXJ0cyI6eyJ0eXBlIjoicmVuZGVyanMiLCJjb250ZW50IjoiIiwic3RhcnQiOjM3MjU4LCJhdHRycyI6eyJtb2R1bGUiOiJyZGNoYXJ0cyIsImxhbmciOiJqcyJ9LCJlbmQiOjUxOTM1fX0%3D& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+var components
+try {
+  components = {
+    qiunLoading: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading */ "uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading").then(__webpack_require__.bind(null, /*! @/uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading.vue */ 494))
+    },
+    qiunError: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/qiun-data-charts/components/qiun-error/qiun-error */ "uni_modules/qiun-data-charts/components/qiun-error/qiun-error").then(__webpack_require__.bind(null, /*! @/uni_modules/qiun-data-charts/components/qiun-error/qiun-error.vue */ 499))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ 425:
+/*!************************************************************************************************************************************!*\
+  !*** C:/Users/DELL/-health/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./qiun-data-charts.vue?vue&type=script&lang=js& */ 426);
+/* harmony import */ var _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ 426:
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/DELL/-health/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uniCloud, uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _uCharts = _interopRequireDefault(__webpack_require__(/*! ../../js_sdk/u-charts/u-charts.js */ 116));
+var _configUcharts = _interopRequireDefault(__webpack_require__(/*! ../../js_sdk/u-charts/config-ucharts.js */ 428));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+function deepCloneAssign() {var origin = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {args[_key - 1] = arguments[_key];}for (var i in args) {for (var key in args[i]) {if (args[i].hasOwnProperty(key)) {origin[key] = args[i][key] && typeof args[i][key] === 'object' ? deepCloneAssign(Array.isArray(args[i][key]) ? [] : {}, origin[key], args[i][key]) : args[i][key];}}}return origin;}function formatterAssign(args, formatter) {for (var key in args) {if (args[key] !== null && typeof args[key] === 'object') {formatterAssign(args[key], formatter);} else if (key === 'format' && typeof args[key] === 'string') {args['formatter'] = formatter[args[key]] ? formatter[args[key]] : undefined;}}return args;} // 时间转换函数，为了匹配uniClinetDB读取出的时间与categories不同
+function getFormatDate(date) {var seperator = "-";var year = date.getFullYear();var month = date.getMonth() + 1;var strDate = date.getDate();if (month >= 1 && month <= 9) {month = "0" + month;}if (strDate >= 0 && strDate <= 9) {strDate = "0" + strDate;}var currentdate = year + seperator + month + seperator + strDate;return currentdate;}var lastMoveTime = null; /**
+                                                                                                                                                                                                                                                                                                                                                                            * 防抖
+                                                                                                                                                                                                                                                                                                                                                                            *
+                                                                                                                                                                                                                                                                                                                                                                            * @param { Function } fn 要执行的方法
+                                                                                                                                                                                                                                                                                                                                                                            * @param { Number } wait  防抖多少毫秒
+                                                                                                                                                                                                                                                                                                                                                                            *
+                                                                                                                                                                                                                                                                                                                                                                            * 在 vue 中使用（注意：不能使用箭头函数，否则this指向不对，并且不能再次封装如：
+                                                                                                                                                                                                                                                                                                                                                                            * move(){  // 错误调用方式
+                                                                                                                                                                                                                                                                                                                                                                            *   debounce(function () {
+                                                                                                                                                                                                                                                                                                                                                                            *   console.log(this.title);
+                                                                                                                                                                                                                                                                                                                                                                            * }, 1000)}）;
+                                                                                                                                                                                                                                                                                                                                                                            * 应该直接使用：// 正确调用方式
+                                                                                                                                                                                                                                                                                                                                                                            * move: debounce(function () {
+                                                                                                                                                                                                                                                                                                                                                                            *   console.log(this.title);
+                                                                                                                                                                                                                                                                                                                                                                            * }, 1000)
+                                                                                                                                                                                                                                                                                                                                                                            */function debounce(fn, wait) {var timer = false;return function () {var _arguments = arguments,_this2 = this;clearTimeout(timer);timer && clearTimeout(timer);timer = setTimeout(function () {timer = false;fn.apply(_this2, _arguments); // 把参数传进去
+    }, wait);};}var _default2 = { name: 'qiun-data-charts', mixins: [uniCloud.mixinDatacom], props: { type: { type: String, default: null }, canvasId: { type: String, default: 'uchartsid' }, canvas2d: { type: Boolean, default: false }, background: { type: String, default: 'rgba(0,0,0,0)' }, animation: { type: Boolean, default: true }, chartData: { type: Object, default: function _default() {return { categories: [], series: [] };} }, opts: { type: Object, default: function _default() {return {};} }, eopts: { type: Object, default: function _default() {return {};} }, loadingType: { type: Number, default: 2 }, errorShow: { type: Boolean, default: true }, errorReload: { type: Boolean, default: true }, errorMessage: { type: String, default: null }, inScrollView: { type: Boolean, default: false }, reshow: { type: Boolean, default: false }, reload: { type: Boolean, default: false }, disableScroll: { type: Boolean, default: false }, ontap: { type: Boolean, default: true }, ontouch: { type: Boolean, default: false }, onmouse: { type: Boolean, default: true }, onmovetip: { type: Boolean, default: false }, echartsH5: { type: Boolean, default: false }, echartsApp: { type: Boolean, default: false }, tooltipShow: { type: Boolean,
+      default: true },
+
+    tooltipFormat: {
+      type: String,
+      default: undefined },
+
+    tooltipCustom: {
+      type: Object,
+      default: undefined },
+
+    startDate: {
+      type: String,
+      default: undefined },
+
+    endDate: {
+      type: String,
+      default: undefined },
+
+    textEnum: {
+      type: Array,
+      default: function _default() {
+        return [];
+      } },
+
+    groupEnum: {
+      type: Array,
+      default: function _default() {
+        return [];
+      } },
+
+    pageScrollTop: {
+      type: Number,
+      default: 0 },
+
+    directory: {
+      type: String,
+      default: '/' },
+
+    tapLegend: {
+      type: Boolean,
+      default: true },
+
+    menus: {
+      type: Array,
+      default: function _default() {
+        return [];
+      } } },
+
+
+  data: function data() {
+    return {
+      cid: 'uchartsid',
+      inWx: false,
+      inAli: false,
+      inTt: false,
+      inBd: false,
+      inH5: false,
+      inApp: false,
+      inWin: false,
+      type2d: true,
+      disScroll: false,
+      openmouse: false,
+      pixel: 1,
+      cWidth: 375,
+      cHeight: 250,
+      showchart: false,
+      echarts: false,
+      echartsResize: false,
+      uchartsOpts: {},
+      echartsOpts: {},
+      drawData: {},
+      lastDrawTime: null };
+
+  },
+  created: function created() {
+    this.cid = this.canvasId;
+    if (this.canvasId == 'uchartsid' || this.canvasId == '') {
+      var t = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+      var len = t.length;
+      var id = '';
+      for (var i = 0; i < 32; i++) {
+        id += t.charAt(Math.floor(Math.random() * len));
+      }
+      this.cid = id;
+    }
+    var systemInfo = uni.getSystemInfoSync();
+    if (systemInfo.platform === 'windows' || systemInfo.platform === 'mac') {
+      this.inWin = true;
+    }
+
+    this.inWx = true;
+    if (this.canvas2d === false || systemInfo.platform === 'windows' || systemInfo.platform === 'mac') {
+      this.type2d = false;
+    } else {
+      this.pixel = systemInfo.pixelRatio;
+      if (this.canvasId === 'uchartsid' || this.canvasId == '') {
+        console.log('[uCharts]:开启canvas2d模式，必须指定canvasId，否则会出现偶尔获取不到dom节点的问题！');
+      }
+    }
+
+    //非微信小程序端强制关闭canvas2d模式
+
+
+
+
+
+
+
+
+
+
+
+
+
+    this.disScroll = this.disableScroll;
+  },
+  mounted: function mounted() {var _this3 = this;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    this.$nextTick(function () {
+      _this3.beforeInit();
+    });
+
+    var time = this.inH5 ? 500 : 200;
+    var _this = this;
+    uni.onWindowResize(
+    debounce(function (res) {
+      if (_this.mixinDatacomLoading == true) {
+        return;
+      }
+      var errmsg = _this.mixinDatacomErrorMessage;
+      if (errmsg !== null && errmsg !== 'null' && errmsg !== '') {
+        return;
+      }
+      if (_this.echarts) {
+        _this.echartsResize = !_this.echartsResize;
+      } else {
+        _this.resizeHandler();
+      }
+    }, time));
+
+
+  },
+  destroyed: function destroyed() {
+    if (this.echarts === true) {
+      delete cfe.option[this.cid];
+      delete cfe.instance[this.cid];
+    } else {
+      delete _configUcharts.default.option[this.cid];
+      delete _configUcharts.default.instance[this.cid];
+    }
+
+    uni.offWindowResize(function () {});
+
+  },
+  watch: {
+    chartDataProps: {
+      handler: function handler(val, oldval) {
+        if (typeof val === 'object') {
+          if (JSON.stringify(val) !== JSON.stringify(oldval)) {
+            if (val.series && val.series.length > 0) {
+              this.beforeInit();
+            } else {
+              this.mixinDatacomLoading = true;
+              this._clearChart();
+              this.showchart = false;
+              this.mixinDatacomErrorMessage = null;
+            }
+          }
+        } else {
+          this.mixinDatacomLoading = false;
+          this._clearChart();
+          this.showchart = false;
+          this.mixinDatacomErrorMessage = '参数错误：chartData数据类型错误';
+        }
+      },
+      immediate: false,
+      deep: true },
+
+    localdata: {
+      handler: function handler(val, oldval) {
+        if (JSON.stringify(val) !== JSON.stringify(oldval)) {
+          if (val.length > 0) {
+            this.beforeInit();
+          } else {
+            this.mixinDatacomLoading = true;
+            this._clearChart();
+            this.showchart = false;
+            this.mixinDatacomErrorMessage = null;
+          }
+        }
+      },
+      immediate: false,
+      deep: true },
+
+    optsProps: {
+      handler: function handler(val, oldval) {
+        if (typeof val === 'object') {
+          if (JSON.stringify(val) !== JSON.stringify(oldval) && this.echarts === false) {
+            this.checkData(this.drawData);
+          }
+        } else {
+          this.mixinDatacomLoading = false;
+          this._clearChart();
+          this.showchart = false;
+          this.mixinDatacomErrorMessage = '参数错误：opts数据类型错误';
+        }
+      },
+      immediate: false,
+      deep: true },
+
+    eoptsProps: {
+      handler: function handler(val, oldval) {
+        if (typeof val === 'object') {
+          if (JSON.stringify(val) !== JSON.stringify(oldval) && this.echarts === true) {
+            this.checkData(this.drawData);
+          }
+        } else {
+          this.mixinDatacomLoading = false;
+          this.showchart = false;
+          this.mixinDatacomErrorMessage = '参数错误：eopts数据类型错误';
+        }
+      },
+      immediate: false,
+      deep: true },
+
+    reshow: function reshow(val, oldval) {var _this4 = this;
+      if (val === true && this.mixinDatacomLoading === false) {
+        setTimeout(function () {
+          _this4.mixinDatacomErrorMessage = null;
+          _this4.echartsResize = !_this4.echartsResize;
+          _this4.checkData(_this4.drawData);
+        }, 200);
+      }
+    },
+    reload: function reload(val, oldval) {
+      if (val === true) {
+        this.showchart = false;
+        this.mixinDatacomErrorMessage = null;
+        this.reloading();
+      }
+    },
+    mixinDatacomErrorMessage: function mixinDatacomErrorMessage(val, oldval) {
+      if (val) {
+        this.emitMsg({ name: 'error', params: { type: "error", errorShow: this.errorShow, msg: val, id: this.cid } });
+        if (this.errorShow) {
+          console.log('[秋云图表组件]' + val);
+        }
+      }
+    },
+    errorMessage: function errorMessage(val, oldval) {
+      if (val && this.errorShow && val !== null && val !== 'null' && val !== '') {
+        this.showchart = false;
+        this.mixinDatacomLoading = false;
+        this.mixinDatacomErrorMessage = val;
+      } else {
+        this.showchart = false;
+        this.mixinDatacomErrorMessage = null;
+        this.reloading();
+      }
+    } },
+
+  computed: {
+    optsProps: function optsProps() {
+      return JSON.parse(JSON.stringify(this.opts));
+    },
+    eoptsProps: function eoptsProps() {
+      return JSON.parse(JSON.stringify(this.eopts));
+    },
+    chartDataProps: function chartDataProps() {
+      return JSON.parse(JSON.stringify(this.chartData));
+    } },
+
+  methods: {
+    beforeInit: function beforeInit() {
+      this.mixinDatacomErrorMessage = null;
+      if (typeof this.chartData === 'object' && this.chartData != null && this.chartData.series !== undefined && this.chartData.series.length > 0) {
+        //拷贝一下chartData，为了opts变更后统一数据来源
+        this.drawData = deepCloneAssign({}, this.chartData);
+        this.mixinDatacomLoading = false;
+        this.showchart = true;
+        this.checkData(this.chartData);
+      } else if (this.localdata.length > 0) {
+        this.mixinDatacomLoading = false;
+        this.showchart = true;
+        this.localdataInit(this.localdata);
+      } else if (this.collection !== '') {
+        this.mixinDatacomLoading = false;
+        this.getCloudData();
+      } else {
+        this.mixinDatacomLoading = true;
+      }
+    },
+    localdataInit: function localdataInit(resdata) {
+      //替换enum类型为正确的描述
+      if (this.groupEnum.length > 0) {
+        for (var i = 0; i < resdata.length; i++) {
+          for (var j = 0; j < this.groupEnum.length; j++) {
+            if (resdata[i].group === this.groupEnum[j].value) {
+              resdata[i].group = this.groupEnum[j].text;
+            }
+          }
+        }
+      }
+      if (this.textEnum.length > 0) {
+        for (var _i = 0; _i < resdata.length; _i++) {
+          for (var _j = 0; _j < this.textEnum.length; _j++) {
+            if (resdata[_i].text === this.textEnum[_j].value) {
+              resdata[_i].text = this.textEnum[_j].text;
+            }
+          }
+        }
+      }
+      var needCategories = false;
+      var tmpData = { categories: [], series: [] };
+      var tmpcategories = [];
+      var tmpseries = [];
+      //拼接categories
+      if (this.echarts === true) {
+        needCategories = cfe.categories.includes(this.type);
+      } else {
+        needCategories = _configUcharts.default.categories.includes(this.type);
+      }
+      if (needCategories === true) {
+        //如果props中的chartData带有categories，则优先使用chartData的categories
+        if (this.chartData && this.chartData.categories && this.chartData.categories.length > 0) {
+          tmpcategories = this.chartData.categories;
+        } else {
+          //如果是日期类型的数据，不管是本地数据还是云数据，都按起止日期自动拼接categories
+          if (this.startDate && this.endDate) {
+            var idate = new Date(this.startDate);
+            var edate = new Date(this.endDate);
+            while (idate <= edate) {
+              tmpcategories.push(getFormatDate(idate));
+              idate = idate.setDate(idate.getDate() + 1);
+              idate = new Date(idate);
+            }
+            //否则从结果中去重并拼接categories
+          } else {
+            var tempckey = {};
+            resdata.map(function (item, index) {
+              if (item.text != undefined && !tempckey[item.text]) {
+                tmpcategories.push(item.text);
+                tempckey[item.text] = true;
+              }
+            });
+          }
+        }
+        tmpData.categories = tmpcategories;
+      }
+      //拼接series
+      var tempskey = {};
+      resdata.map(function (item, index) {
+        if (item.group != undefined && !tempskey[item.group]) {
+          tmpseries.push({ name: item.group, data: [] });
+          tempskey[item.group] = true;
+        }
+      });
+      //如果没有获取到分组名称(可能是带categories的数据，也可能是不带的饼图类)
+      if (tmpseries.length == 0) {
+        tmpseries = [{ name: '默认分组', data: [] }];
+        //如果是需要categories的图表类型
+        if (needCategories === true) {
+          for (var _j2 = 0; _j2 < tmpcategories.length; _j2++) {
+            var seriesdata = 0;
+            for (var _i2 = 0; _i2 < resdata.length; _i2++) {
+              if (resdata[_i2].text == tmpcategories[_j2]) {
+                seriesdata = resdata[_i2].value;
+              }
+            }
+            tmpseries[0].data.push(seriesdata);
+          }
+          //如果是饼图类的图表类型
+        } else {
+          for (var _i3 = 0; _i3 < resdata.length; _i3++) {
+            tmpseries[0].data.push({ "name": resdata[_i3].text, "value": resdata[_i3].value });
+          }
+        }
+        //如果有分组名
+      } else {
+        for (var k = 0; k < tmpseries.length; k++) {
+          //如果有categories
+          if (tmpcategories.length > 0) {
+            for (var _j3 = 0; _j3 < tmpcategories.length; _j3++) {
+              var _seriesdata = 0;
+              for (var _i4 = 0; _i4 < resdata.length; _i4++) {
+                if (tmpseries[k].name == resdata[_i4].group && resdata[_i4].text == tmpcategories[_j3]) {
+                  _seriesdata = resdata[_i4].value;
+                }
+              }
+              tmpseries[k].data.push(_seriesdata);
+            }
+            //如果传了group而没有传text，即没有categories（正常情况下这种数据是不符合数据要求规范的）
+          } else {
+            for (var _i5 = 0; _i5 < resdata.length; _i5++) {
+              if (tmpseries[k].name == resdata[_i5].group) {
+                tmpseries[k].data.push(resdata[_i5].value);
+              }
+            }
+          }
+        }
+      }
+      tmpData.series = tmpseries;
+      //拷贝一下chartData，为了opts变更后统一数据来源
+      this.drawData = deepCloneAssign({}, tmpData);
+      this.checkData(tmpData);
+    },
+    reloading: function reloading() {
+      if (this.errorReload === false) {
+        return;
+      }
+      this.showchart = false;
+      this.mixinDatacomErrorMessage = null;
+      if (this.collection !== '') {
+        this.mixinDatacomLoading = false;
+        this.onMixinDatacomPropsChange(true);
+      } else {
+        this.beforeInit();
+      }
+    },
+    checkData: function checkData(anyData) {var _this5 = this;
+      var cid = this.cid;
+      //复位opts或eopts
+      if (this.echarts === true) {
+        cfe.option[cid] = deepCloneAssign({}, this.eopts);
+        cfe.option[cid].id = cid;
+        cfe.option[cid].type = this.type;
+      } else {
+        if (this.type && _configUcharts.default.type.includes(this.type)) {
+          _configUcharts.default.option[cid] = deepCloneAssign({}, _configUcharts.default[this.type], this.opts);
+          _configUcharts.default.option[cid].canvasId = cid;
+        } else {
+          this.mixinDatacomLoading = false;
+          this.showchart = false;
+          this.mixinDatacomErrorMessage = '参数错误：props参数中type类型不正确';
+        }
+      }
+      //挂载categories和series
+      var newData = deepCloneAssign({}, anyData);
+      if (newData.series !== undefined && newData.series.length > 0) {
+        this.mixinDatacomErrorMessage = null;
+        if (this.echarts === true) {
+          cfe.option[cid].chartData = newData;
+          this.$nextTick(function () {
+            _this5.init();
+          });
+        } else {
+          _configUcharts.default.option[cid].categories = newData.categories;
+          _configUcharts.default.option[cid].series = newData.series;
+          this.$nextTick(function () {
+            _this5.init();
+          });
+        }
+      }
+    },
+    resizeHandler: function resizeHandler() {var _this6 = this;
+      //渲染防抖
+      var currTime = Date.now();
+      var lastDrawTime = this.lastDrawTime ? this.lastDrawTime : currTime - 3000;
+      var duration = currTime - lastDrawTime;
+      if (duration < 1000) return;
+      var chartdom = uni.
+      createSelectorQuery().
+
+      in(this).
+
+      select('#ChartBoxId' + this.cid).
+      boundingClientRect(function (data) {
+        _this6.showchart = true;
+        if (data.width > 0 && data.height > 0) {
+          if (data.width !== _this6.cWidth || data.height !== _this6.cHeight) {
+            _this6.checkData(_this6.drawData);
+          }
+        }
+      }).
+      exec();
+    },
+    getCloudData: function getCloudData() {var _this7 = this;
+      if (this.mixinDatacomLoading == true) {
+        return;
+      }
+      this.mixinDatacomLoading = true;
+      this.mixinDatacomGet().
+      then(function (res) {
+        _this7.mixinDatacomResData = res.result.data;
+        _this7.localdataInit(_this7.mixinDatacomResData);
+      }).
+      catch(function (err) {
+        _this7.mixinDatacomLoading = false;
+        _this7.showchart = false;
+        _this7.mixinDatacomErrorMessage = '请求错误：' + err;
+      });
+    },
+    onMixinDatacomPropsChange: function onMixinDatacomPropsChange(needReset, changed) {
+      if (needReset == true && this.collection !== '') {
+        this.showchart = false;
+        this.mixinDatacomErrorMessage = null;
+        this._clearChart();
+        this.getCloudData();
+      }
+    },
+    _clearChart: function _clearChart() {
+      var cid = this.cid;
+      if (this.echrts !== true) {
+        var ctx = uni.createCanvasContext(cid, this);
+        ctx.clearRect(0, 0, this.cWidth, this.cHeight);
+        ctx.draw();
+      }
+    },
+    init: function init() {var _this8 = this;
+      var cid = this.cid;
+      var chartdom = uni.
+      createSelectorQuery().
+
+      in(this).
+
+      select('#ChartBoxId' + cid).
+      boundingClientRect(function (data) {
+        if (data.width > 0 && data.height > 0) {
+          _this8.mixinDatacomLoading = false;
+          _this8.showchart = true;
+          _this8.lastDrawTime = Date.now();
+          _this8.cWidth = data.width;
+          _this8.cHeight = data.height;
+          if (_this8.echarts !== true) {
+            _configUcharts.default.option[cid].background = _this8.background == 'rgba(0,0,0,0)' ? '#FFFFFF' : _this8.background;
+            _configUcharts.default.option[cid].canvas2d = _this8.type2d;
+            _configUcharts.default.option[cid].pixelRatio = _this8.pixel;
+            _configUcharts.default.option[cid].animation = _this8.animation;
+            _configUcharts.default.option[cid].width = data.width * _this8.pixel;
+            _configUcharts.default.option[cid].height = data.height * _this8.pixel;
+            _configUcharts.default.option[cid].ontap = _this8.ontap;
+            _configUcharts.default.option[cid].ontouch = _this8.ontouch;
+            _configUcharts.default.option[cid].onmouse = _this8.openmouse;
+            _configUcharts.default.option[cid].onmovetip = _this8.onmovetip;
+            _configUcharts.default.option[cid].tooltipShow = _this8.tooltipShow;
+            _configUcharts.default.option[cid].tooltipFormat = _this8.tooltipFormat;
+            _configUcharts.default.option[cid].tooltipCustom = _this8.tooltipCustom;
+            _configUcharts.default.option[cid].inScrollView = _this8.inScrollView;
+            _configUcharts.default.option[cid].lastDrawTime = _this8.lastDrawTime;
+            _configUcharts.default.option[cid].tapLegend = _this8.tapLegend;
+          }
+          //如果是H5或者App端，采用renderjs渲染图表
+          if (_this8.inH5 || _this8.inApp) {
+            if (_this8.echarts == true) {
+              cfe.option[cid].ontap = _this8.ontap;
+              cfe.option[cid].onmouse = _this8.openmouse;
+              cfe.option[cid].tooltipShow = _this8.tooltipShow;
+              cfe.option[cid].tooltipFormat = _this8.tooltipFormat;
+              cfe.option[cid].tooltipCustom = _this8.tooltipCustom;
+              cfe.option[cid].lastDrawTime = _this8.lastDrawTime;
+              _this8.echartsOpts = deepCloneAssign({}, cfe.option[cid]);
+            } else {
+              _configUcharts.default.option[cid].rotateLock = _configUcharts.default.option[cid].rotate;
+              _this8.uchartsOpts = deepCloneAssign({}, _configUcharts.default.option[cid]);
+            }
+            //如果是小程序端，采用uCharts渲染
+          } else {
+            _configUcharts.default.option[cid] = formatterAssign(_configUcharts.default.option[cid], _configUcharts.default.formatter);
+            _this8.mixinDatacomErrorMessage = null;
+            _this8.mixinDatacomLoading = false;
+            _this8.showchart = true;
+            _this8.$nextTick(function () {
+              if (_this8.type2d === true) {
+                var query = uni.createSelectorQuery().in(_this8);
+                query.
+                select('#' + cid).
+                fields({ node: true, size: true }).
+                exec(function (res) {
+                  if (res[0]) {
+                    var canvas = res[0].node;
+                    var ctx = canvas.getContext('2d');
+                    _configUcharts.default.option[cid].context = ctx;
+                    canvas.width = data.width * _this8.pixel;
+                    canvas.height = data.height * _this8.pixel;
+                    canvas._width = data.width * _this8.pixel;
+                    canvas._height = data.height * _this8.pixel;
+                    _configUcharts.default.option[cid].rotateLock = _configUcharts.default.option[cid].rotate;
+                    if (_configUcharts.default.instance[cid] && _configUcharts.default.option[cid] && _configUcharts.default.option[cid].update === true) {
+                      _this8._updataUChart(cid);
+                    } else {
+                      setTimeout(function () {
+                        _configUcharts.default.option[cid].context.restore();
+                        _configUcharts.default.option[cid].context.save();
+                        _this8._newChart(cid);
+                      }, 100);
+                    }
+                  } else {
+                    _this8.showchart = false;
+                    _this8.mixinDatacomErrorMessage = '参数错误：开启2d模式后，未获取到dom节点，canvas-id:' + cid;
+                  }
+                });
+              } else {
+                if (_this8.inAli) {
+                  _configUcharts.default.option[cid].rotateLock = _configUcharts.default.option[cid].rotate;
+                }
+                _configUcharts.default.option[cid].context = uni.createCanvasContext(cid, _this8);
+                if (_configUcharts.default.instance[cid] && _configUcharts.default.option[cid] && _configUcharts.default.option[cid].update === true) {
+                  _this8._updataUChart(cid);
+                } else {
+                  setTimeout(function () {
+                    _configUcharts.default.option[cid].context.restore();
+                    _configUcharts.default.option[cid].context.save();
+                    _this8._newChart(cid);
+                  }, 100);
+                }
+              }
+            });
+          }
+        } else {
+          _this8.mixinDatacomLoading = false;
+          _this8.showchart = false;
+          if (_this8.reshow == true) {
+            _this8.mixinDatacomErrorMessage = '布局错误：未获取到父元素宽高尺寸！canvas-id:' + cid;
+          }
+        }
+      }).
+      exec();
+    },
+    saveImage: function saveImage() {
+      uni.canvasToTempFilePath({
+        canvasId: this.cid,
+        success: function success(res) {
+
+
+
+
+
+
+
+
+          uni.saveImageToPhotosAlbum({
+            filePath: res.tempFilePath,
+            success: function success() {
+              uni.showToast({
+                title: '保存成功',
+                duration: 2000 });
+
+            } });
+
+
+        } },
+      this);
+    },
+
+    _newChart: function _newChart(cid) {var _this9 = this;
+      if (this.mixinDatacomLoading == true) {
+        return;
+      }
+      this.showchart = true;
+      _configUcharts.default.instance[cid] = new _uCharts.default(_configUcharts.default.option[cid]);
+      _configUcharts.default.instance[cid].addEventListener('renderComplete', function () {
+        _this9.emitMsg({ name: 'complete', params: { type: "complete", complete: true, id: cid } });
+        _configUcharts.default.instance[cid].delEventListener('renderComplete');
+      });
+      _configUcharts.default.instance[cid].addEventListener('scrollLeft', function () {
+        _this9.emitMsg({ name: 'scrollLeft', params: { type: "scrollLeft", scrollLeft: true, id: cid } });
+      });
+      _configUcharts.default.instance[cid].addEventListener('scrollRight', function () {
+        _this9.emitMsg({ name: 'scrollRight', params: { type: "scrollRight", scrollRight: true, id: cid } });
+      });
+    },
+    _updataUChart: function _updataUChart(cid) {
+      _configUcharts.default.instance[cid].updateData(_configUcharts.default.option[cid]);
+    },
+    _tooltipDefault: function _tooltipDefault(item, category, index, opts) {
+      if (category) {
+        var data = item.data;
+        if (typeof item.data === "object") {
+          data = item.data.value;
+        }
+        return category + ' ' + item.name + ':' + data;
+      } else {
+        if (item.properties && item.properties.name) {
+          return item.properties.name;
+        } else {
+          return item.name + ':' + item.data;
+        }
+      }
+    },
+    _showTooltip: function _showTooltip(e) {var _this10 = this;
+      var cid = this.cid;
+      var tc = _configUcharts.default.option[cid].tooltipCustom;
+      if (tc && tc !== undefined && tc !== null) {
+        var offset = undefined;
+        if (tc.x >= 0 && tc.y >= 0) {
+          offset = { x: tc.x, y: tc.y + 10 };
+        }
+        _configUcharts.default.instance[cid].showToolTip(e, {
+          index: tc.index,
+          offset: offset,
+          textList: tc.textList,
+          formatter: function formatter(item, category, index, opts) {
+            if (typeof _configUcharts.default.option[cid].tooltipFormat === 'string' && _configUcharts.default.formatter[_configUcharts.default.option[cid].tooltipFormat]) {
+              return _configUcharts.default.formatter[_configUcharts.default.option[cid].tooltipFormat](item, category, index, opts);
+            } else {
+              return _this10._tooltipDefault(item, category, index, opts);
+            }
+          } });
+
+      } else {
+        _configUcharts.default.instance[cid].showToolTip(e, {
+          formatter: function formatter(item, category, index, opts) {
+            if (typeof _configUcharts.default.option[cid].tooltipFormat === 'string' && _configUcharts.default.formatter[_configUcharts.default.option[cid].tooltipFormat]) {
+              return _configUcharts.default.formatter[_configUcharts.default.option[cid].tooltipFormat](item, category, index, opts);
+            } else {
+              return _this10._tooltipDefault(item, category, index, opts);
+            }
+          } });
+
+      }
+    },
+    _tap: function _tap(e, move) {var _this11 = this;
+      var cid = this.cid;
+      var currentIndex = null;
+      var legendIndex = null;
+      if (this.inScrollView === true || this.inAli) {
+        var chartdom = uni.
+        createSelectorQuery().
+
+        in(this).
+        select('#ChartBoxId' + cid).
+
+
+
+
+        boundingClientRect(function (data) {
+          e.changedTouches = [];
+          if (_this11.inAli) {
+            e.changedTouches.unshift({ x: e.detail.clientX - data.left, y: e.detail.clientY - data.top });
+          } else {
+            e.changedTouches.unshift({ x: e.detail.x - data.left, y: e.detail.y - data.top - _this11.pageScrollTop });
+          }
+          if (move) {
+            if (_this11.tooltipShow === true) {
+              _this11._showTooltip(e);
+            }
+          } else {
+            currentIndex = _configUcharts.default.instance[cid].getCurrentDataIndex(e);
+            legendIndex = _configUcharts.default.instance[cid].getLegendDataIndex(e);
+            if (_this11.tapLegend === true) {
+              _configUcharts.default.instance[cid].touchLegend(e);
+            }
+            if (_this11.tooltipShow === true) {
+              _this11._showTooltip(e);
+            }
+            _this11.emitMsg({ name: 'getIndex', params: { type: "getIndex", event: { x: e.detail.x - data.left, y: e.detail.y - data.top }, currentIndex: currentIndex, legendIndex: legendIndex, id: cid, opts: _configUcharts.default.instance[cid].opts } });
+          }
+        }).
+        exec();
+      } else {
+        if (move) {
+          if (this.tooltipShow === true) {
+            this._showTooltip(e);
+          }
+        } else {
+          e.changedTouches = [];
+          e.changedTouches.unshift({ x: e.detail.x - e.currentTarget.offsetLeft, y: e.detail.y - e.currentTarget.offsetTop });
+          currentIndex = _configUcharts.default.instance[cid].getCurrentDataIndex(e);
+          legendIndex = _configUcharts.default.instance[cid].getLegendDataIndex(e);
+          if (this.tapLegend === true) {
+            _configUcharts.default.instance[cid].touchLegend(e);
+          }
+          if (this.tooltipShow === true) {
+            this._showTooltip(e);
+          }
+          this.emitMsg({ name: 'getIndex', params: { type: "getIndex", event: { x: e.detail.x, y: e.detail.y - e.currentTarget.offsetTop }, currentIndex: currentIndex, legendIndex: legendIndex, id: cid, opts: _configUcharts.default.instance[cid].opts } });
+        }
+      }
+    },
+    _touchStart: function _touchStart(e) {
+      var cid = this.cid;
+      lastMoveTime = Date.now();
+      if (_configUcharts.default.option[cid].enableScroll === true) {
+        _configUcharts.default.instance[cid].scrollStart(e);
+      }
+      this.emitMsg({ name: 'getTouchStart', params: { type: "touchStart", event: e.changedTouches[0], id: cid } });
+    },
+    _touchMove: function _touchMove(e) {
+      var cid = this.cid;
+      var currMoveTime = Date.now();
+      var duration = currMoveTime - lastMoveTime;
+      if (duration < Math.floor(1000 / 60)) return; //每秒60帧
+      lastMoveTime = currMoveTime;
+      if (_configUcharts.default.option[cid].enableScroll === true) {
+        _configUcharts.default.instance[cid].scroll(e);
+      }
+      this.emitMsg({ name: 'getTouchMove', params: { type: "touchMove", event: e.changedTouches[0], id: cid } });
+      if (this.ontap === true && _configUcharts.default.option[cid].enableScroll === false && this.onmovetip === true) {
+        this._tap(e, true);
+      }
+    },
+    _touchEnd: function _touchEnd(e) {
+      var cid = this.cid;
+      if (_configUcharts.default.option[cid].enableScroll === true) {
+        _configUcharts.default.instance[cid].scrollEnd(e);
+      }
+      this.emitMsg({ name: 'getTouchEnd', params: { type: "touchEnd", event: e.changedTouches[0], id: cid } });
+      if (this.ontap === true && _configUcharts.default.option[cid].enableScroll === false && this.onmovetip === true) {
+        this._tap(e, true);
+      }
+    },
+
+    _error: function _error(e) {
+      this.mixinDatacomErrorMessage = e.detail.errMsg;
+    },
+    emitMsg: function emitMsg(msg) {
+      this.$emit(msg.name, msg.params);
+    },
+    getRenderType: function getRenderType() {
+      //防止如果开启echarts且父元素为v-if的情况renderjs监听不到prop变化的问题
+      if (this.echarts === true && this.mixinDatacomLoading === false) {
+        this.beforeInit();
+      }
+    },
+    toJSON: function toJSON() {
+      return this;
+    } } };exports.default = _default2;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 427)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 429:
+/*!********************************************************************************************************************************************************************!*\
+  !*** C:/Users/DELL/-health/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue?vue&type=style&index=0&id=fe947b98&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_style_index_0_id_fe947b98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./qiun-data-charts.vue?vue&type=style&index=0&id=fe947b98&scoped=true&lang=css& */ 430);
+/* harmony import */ var _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_style_index_0_id_fe947b98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_style_index_0_id_fe947b98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_style_index_0_id_fe947b98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_style_index_0_id_fe947b98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_F_HBuilderX_3_3_11_20220209_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_qiun_data_charts_vue_vue_type_style_index_0_id_fe947b98_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ 430:
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/DELL/-health/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue?vue&type=style&index=0&id=fe947b98&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ })
+
+}]);
 //# sourceMappingURL=../../../../../.sourcemap/mp-weixin/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.js.map
 ;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
     'uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts-create-component',
     {
         'uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts-create-component':(function(module, exports, __webpack_require__){
-            __webpack_require__('1')['createComponent'](__webpack_require__(414))
+            __webpack_require__('1')['createComponent'](__webpack_require__(422))
         })
     },
     [['uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts-create-component']]

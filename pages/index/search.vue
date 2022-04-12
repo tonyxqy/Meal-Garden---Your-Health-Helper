@@ -110,7 +110,7 @@
 			},
 			getMenu(tag){
 				uni.navigateTo({
-					url:'../menu/menu?tag='+tag
+					url:'../../page_menu/menu?tag='+tag
 				})
 				console.log(tag)
 			}
