@@ -317,13 +317,19 @@
 			//拨打固定电话
 			callPhoneNumber() {
 				uni.makePhoneCall({
-					phoneNumber: "18629591093",
+					phoneNumber: "18301912104",
 				});
 			},
 			goSalary(){
+				if(uni.getStorageSync('job'))
 				uni.navigateTo({
 					url: '../../page_job/aboutjob'
 				})
+				else{
+					uni.navigateTo({
+						url: '../../page_job/job'
+					})
+				}
 			},
 			// 关于作者
 			goAboutMe() {

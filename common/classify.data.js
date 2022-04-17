@@ -795,36 +795,5 @@ export default [{
 			
         }
 		]
-	},
-	{
-		"name": "餐饮行业",
-		"foods": [{
-				"name": "服务员",
-				"key": "服务员",
-				"icon": "../../static/job/22.png",
-				"cat": 3
-			},
-			{
-				"name": "厨师",
-				"key": "厨师",
-				"icon": "../../static/job/11.png",
-				"cat": 3
-			},
-			{
-				"name": "面点师",
-				"key": "面点师",
-				"icon": "../../static/job/43.png",
-				"cat": 3
-			}
-		]
-	},
-	{
-		"name": "无职业",
-		"foods": [{
-			"name": "学生",
-			"key": "学生",
-			"icon": "../../static/job/15.png",
-			"cat": 3
-		}]
 	}
 ]

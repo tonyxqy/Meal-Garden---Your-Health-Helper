@@ -24,7 +24,7 @@
 	text-align: left;
 }
 .insidebox.data-v-7f0de634{
-	background:rgba(255,255,255,0);
+	background-color: #000000;
 }
 .about-bg.data-v-7f0de634 {
 	background-size: cover;

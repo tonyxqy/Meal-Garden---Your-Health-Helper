@@ -7,8 +7,8 @@
 		<view class="titleZ text-center align-center">
 			<text class="text-bold">{{bodydata.occupation_name}}</text>
 			<view class="contentZ">
-					<van-grid column-num="2" border="false" direction="horizontal" :custom-style="{background:'rgba(255,255,255,0)'}">
-						<van-grid-item use-slot border="false" :content-class="insidebox" v-for="(item,index) in bodydata.menuclassification_set">
+					<van-grid column-num="2" border="false" direction="horizontal" custom-class="insidebox">
+						<van-grid-item use-slot border="false" custom-class="insidebox" content-class="insidebox" v-for="(item,index) in bodydata.menuclassification_set">
 							<text class="gridtext1">{{bodydata.menuclassification_set[index]}}</text>
 						</van-grid-item>
 						</van-grid>
@@ -173,7 +173,7 @@
 	}
 	
 	.insidebox{
-		background:rgba(255,255,255,0);
+		background-color: #000000;
 	}
 	
 	.about-bg {

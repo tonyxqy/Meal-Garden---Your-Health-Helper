@@ -372,7 +372,7 @@
 					color: 'red',
 					badge: '推荐',
 					mid: '1',
-					name: '餐谱推荐'
+					name: '舌诊检测'
 				}, {
 					cuIcon: 'selection',
 					color: 'orange',
@@ -461,7 +461,7 @@
 			setCode(code, resinfo) {
 				wx.request({
 					// url: 'http://localhost:8088/user/wx/login',
-					url: 'http://47.102.203.108:3306/user/wx/login',
+					url: 'https://47.102.203.108:3306/user/wx/login',
 					method: "POST",
 					header: {
 						'content-type': 'application/x-www-form-urlencoded',
@@ -493,7 +493,7 @@
 				var that = this
 				uni.request({
 					// url: 'http://localhost:8088/user/findUserId',
-					url: 'http://47.102.203.108:3306/user/findUserId',
+					url: 'https://47.102.203.108:3306/user/findUserId',
 					method: 'GET',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'
@@ -660,7 +660,11 @@
 				this.help(this.popArray)
 				console.log(this.popArray, "popArray")
 			},
+			popupClose(){
+				uni.$emit('hidebox')
+			},
 			bindIt(item){
+				uni.$emit('hidebox')
 				this.showT = true
 				this.popArray = item
 				this.helpIt(this.popArray)
@@ -700,7 +704,7 @@
 				var that = this
 				console.log(item.menu, this.user_id, this.timer)
 				uni.request({
-					url: 'http://47.102.203.108:3306/user/deleteTodayMeunbreakfast',
+					url: 'https://47.102.203.108:3306/user/deleteTodayMeunbreakfast',
 					method: 'POST',
 					header: {
 						'content-type': 'application/json'
@@ -725,7 +729,7 @@
 				var that = this
 				console.log(item.menu, this.user_id, this.timer)
 				uni.request({
-					url: 'http://47.102.203.108:3306/user/deleteTodayMeunlunch',
+					url: 'https://47.102.203.108:3306/user/deleteTodayMeunlunch',
 					method: 'POST',
 					header: {
 						'content-type': 'application/json'
@@ -750,7 +754,7 @@
 				var that = this
 				console.log(item.menu, this.user_id, this.timer)
 				uni.request({
-					url: 'http://47.102.203.108:3306/user/deleteTodayMeundinner',
+					url: 'https://47.102.203.108:3306/user/deleteTodayMeundinner',
 					method: 'POST',
 					header: {
 						'content-type': 'application/json'
@@ -777,12 +781,12 @@
 			},
 			goCategorieslist: function(e) {
 				// console.log(e.currentTarget.dataset.mid)
-				if (e.currentTarget.dataset.mid == 3) {
+				if (e.currentTarget.dataset.mid == 4) {
 					uni.navigateTo({
 						url: '../../page_upload/upload'
 					})
 				}
-				if (e.currentTarget.dataset.mid == 4) {
+				if (e.currentTarget.dataset.mid == 3) {
 					uni.navigateTo({
 						url: '../../page_upload/uploadvideo'
 					})

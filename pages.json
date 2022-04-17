@@ -62,23 +62,12 @@
 					"style": {
 						"navigationStyle": "custom"
 					}
-				},
-				{
-					"path": "discern",
-					"style": {
-						"navigationStyle": "custom"
-					}
 				}, {
 					"path": "sign",
 					"style": {
 						"navigationBarTitleText": "电子签名"
 					}
-				}, {
-					"path": "district",
-					"style": {
-						"navigationBarTitleText": "行政区图"
-					}
-				},
+				}, 
 				{
 					"path": "search",
 					"style": {
@@ -91,12 +80,6 @@
 					"style": {
 						"navigationStyle": "custom",
 						"navigationBarTitleText": "文档预览"
-					}
-				},
-				{
-					"path": "company",
-					"style": {
-						"navigationBarTitleText": "自定义相机"
 					}
 				},
 				{

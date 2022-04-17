@@ -1,5 +1,5 @@
 <template>
-	<view class="wrap">
+	<view class="wrap" v-if="checkdata">
 		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">分享</block>
@@ -100,9 +100,11 @@
 				index1: 0,
 				index2: 0,
 				user_id: '',
+				checkdata:false,
 			}
 		},
 		mounted() {
+			check()
 		},
 		methods: {
 			bindPickerChange1: function(e) {
@@ -121,11 +123,25 @@
 				} = event.detail;
 				Toast(`当前值：${value}, 当前索引：${index}`);
 			},
+			check(){
+				let opt = {
+					url: 'forum/false',
+					method: 'get',
+				};
+				request.httpRequest(optsBreakfastMenu).then(res => {
+					if (res.statusCode == 200) {
+						this.checkdata = res.data
+					} else {}
+				});
+			},
 			upload() {
+				uni.showLoading({
+					title: '加载中'
+				})
 				var that = this;
 				let user_id = uni.getStorageSync('userId')
 				uni.uploadFile({
-					url: 'http://47.102.203.108:3306/forum/add_forum',
+					url: 'https://47.102.203.108:3306/forum/add_forum',
 					filePath: this.file.url,
 					name: 'file',
 					formData: {
@@ -137,6 +153,10 @@
 					},
 					success(res) {
 						console.log(res)
+						uni.hideLoading();
+						uni.navigateBack({
+							url:'/pages/index/index'
+						})
 					},
 				});
 			},

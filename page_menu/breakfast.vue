@@ -15,8 +15,8 @@
 
 		<view class='swiper_con' wx:if="foodList">
 			<view class='swiper_con_view' v-for="(item,index) of foodArray" :key="index" @click="bindIt(item)">
-				<image class="swiper_con_view" v-if="item.pictureUrl" :src="item.pictureUrl" mode="widthFix" lazy-load="true"
-					style="width:100%"></image>
+				<image class="swiper_con_view" v-if="item.pictureUrl" :src="item.pictureUrl" mode="widthFix"
+					lazy-load="true" style="width:100%"></image>
 				<view class="taText" style="width:90%;display:inline-block;">
 					<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;">{{item.taste}}</van-tag>
 					<text class="meText">{{item.menu}}</text>
@@ -27,7 +27,8 @@
 				</view>
 			</view>
 		</view>
-		<u-popup v-model="showT" mode="center" width="690rpx" @close="popupClose" border-radius="20" style=" border: 10rpx;" >
+		<u-popup v-model="showT" mode="center" width="690rpx" @close="popupClose" border-radius="20"
+			style=" border: 10rpx;">
 			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
 				<view class="canlass">
 					<view class="aasd" style="padding-left: 20rpx;" @click="showT = false"> 取消 </view>
@@ -37,7 +38,9 @@
 				</view>
 
 				<view style="column-count: 2;">
-					<image :src="img" mode="aspectFill" style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;border-radius: 20rpx;"></image>
+					<image :src="img" mode="aspectFill"
+						style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;border-radius: 20rpx;">
+					</image>
 					<view>
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
@@ -51,7 +54,7 @@
 							<view style="display: flex;flex-direction:row; padding-top:15rpx ;">
 								分量
 								<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
-									button-size="20px" bind:change="onChange"  />
+									button-size="20px" bind:change="onChange" />
 							</view>
 							<view style="display:inline-block; text-align: left; padding-top: 10rpx;">
 								<text style="color: #304156;">{{popArray.process}} </text>
@@ -68,7 +71,7 @@
 					</view>
 				</view>
 				<view class="details">
-						<text class="text-xl text-bold text-shadow">步骤：</text>
+					<text class="text-xl text-bold text-shadow">步骤：</text>
 					<view slot="desc" v-for="(item, index) in popArray.practice">
 						<text style="line-height: 30rpx;">
 							{{item}}
@@ -82,11 +85,12 @@
 </template>
 
 <script>
+	import request from '@/common/request.js';
 	export default {
 
 		data() {
 			var user_id = uni.getStorageSync('userId')
-			console.log(user_id,"userId")
+			console.log(user_id, "userId")
 			var nowDate = new Date();
 			var year = nowDate.getFullYear();
 			var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
@@ -162,14 +166,17 @@
 			},
 			getBreakfast() {
 				var that = this
-				uni.request({
-					url: 'http://47.102.203.108:3306/dish/breakfast',
-					success: (res) => {
+				let opt = {
+					url: 'dish/breakfast',
+				};
+				request.httpRequest(opt).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
 						console.log(res.data[1])
 						this.foodArray = res.data
 						console.log(this.foodArray[0].pictureUrl)
-					}
-				})
+					} else {}
+				});
 			},
 			onLoad() {
 				this.getBreakfast()
@@ -178,44 +185,57 @@
 				this.idx = this.index
 			},
 			getmenu() {
+				uni.showLoading({
+					title: '加载中'
+				})
 				var that = this
-				uni.request({
-					url: 'http://47.102.203.108:3306/dish/dish?menu=' + this.foodText,
-					success: (res) => {
+				let user = {
+					user_id
+				}
+				// 获取目标身体状态
+				let opt = {
+					url: 'dish/dish?menu=' + this.foodText,
+				};
+				request.httpRequest(opt).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
 						console.log(res.data[1])
 						this.foodArray = res.data
 						console.log(this.foodArray[0].pictureUrl)
-					}
-				})
+					} else {}
+				});
 			},
 			submitMenu() {
 				var that = this
-				this.showT=false
-				console.log(this.menu,this.user_id,this.timer,this.volume)
-				uni.request({
-					url: 'http://47.102.203.108:3306/user/addTodayMenubreakfast',
-					method: 'POST',
-					header: {
-						'content-type': 'application/json'
-					},
-					data: {
-						user_id:this.user_id,
-						menu: this.menu,
-						foodnumber:this.volume,
-						createTime:this.timer,
-					},
-					success: (res) => {
-						console.log(200,"addsuccess")
+				this.showT = false
+				console.log(this.menu, this.user_id, this.timer, this.volume)
+				uni.showLoading({
+						title: '上传中'
+					})
+				let opt = {
+					url: 'user/addTodayMenubreakfast',
+					method: 'POST'
+				};
+				let data = {
+					user_id: this.user_id,
+					menu: this.menu,
+					foodnumber: this.volume,
+					createTime: this.timer,
+				};
+				request.httpRequest(opt, data).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						console.log(200, "addsuccess")
 						wx.showToast({
-						  title: '提交成功',
-						  icon: 'success',
-						  duration: 2000//持续的时间
+							title: '提交成功',
+							icon: 'success',
+							duration: 2000 //持续的时间
 						})
-					}
-				})
+					} else {}
+				});
 			},
-			popupClose(){
-				this.showT=false
+			popupClose() {
+				this.showT = false
 			}
 		}
 	}
@@ -257,9 +277,9 @@
 		line-height: 20px;
 		max-height: 140px;
 		color: #304156;
-		letter-spacing:2rpx;
+		letter-spacing: 2rpx;
 		display: flex;
-		flex-direction:row;
+		flex-direction: row;
 		flex-wrap: wrap;
 	}
 
@@ -269,12 +289,12 @@
 		width: 100%;
 		text-align: left;
 		padding: 20rpx;
-		padding-left:30rpx ;
+		padding-left: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
 		max-height: 200px;
 		color: #304156;
-		letter-spacing:2rpx;
+		letter-spacing: 2rpx;
 	}
 
 	.titileCenter {

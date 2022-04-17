@@ -1,6 +1,6 @@
 <!-- 关于本程序 -->
 <template>
-	<view class="about">
+	<view class="about"  v-if="checkdata">
 
 		<canvas canvas-id="bubble" :style="'width:' + width + 'px;height:' + height + 'px'" class="like-fx"></canvas>
 		<like-fx ref="likeFx" :width="width" :height="height"></like-fx>
@@ -22,7 +22,7 @@
 		s</div>
 		<!-- <button class='' style="background-color: rgba(0,0,0,-1); border: 0px;" > -->
 		<van-uploader accept="video" preview-size="200px" :file-list="fileList" max-count="1" @after-read="afterRead">
-			<image src='/static/logo.png' class='share-img png round shadow-lg bg-white'>
+			<image src='/page_upload/static/pages/upload/plus.png' class='share-img png round shadow-lg bg-white'>
 			</image>
 		</van-uploader>
 		<van-button size="large" color="linear-gradient(to right, #4bb0ff, #6149f6)" @click="upload" v-show="show">
@@ -52,7 +52,7 @@
 			}
 		},
 		mounted() {
-			
+			check()
 		},
 		onLoad() {
 			this._startLikeAnimation();
@@ -64,6 +64,17 @@
 			}
 		},
 		methods: {
+			check(){
+				let opt = {
+					url: 'forum/false',
+					method: 'get',
+				};
+				request.httpRequest(optsBreakfastMenu).then(res => {
+					if (res.statusCode == 200) {
+						this.checkdata = res.data
+					} else {}
+				});
+			},
 			afterRead(event) {
 				var that = this;
 				const {
@@ -80,8 +91,11 @@
 			upload() {
 				var that = this;
 				let user_id = uni.getStorageSync('userId')
+				uni.showLoading({
+					title: '加载中'
+				})
 				uni.uploadFile({
-					url: 'http://47.102.203.108:3306/forum/add_forum',
+					url: 'https://47.102.203.108:3306/forum/add_forum',
 					filePath: this.file.url,
 					name: 'file',
 					formData: {
@@ -93,6 +107,10 @@
 					},
 					success(res) {
 						console.log(res)
+						uni.hideLoading();
+						uni.navigateBack({
+							url:'/pages/index/index'
+						})
 					},
 				});
 			},

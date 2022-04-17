@@ -89,9 +89,9 @@
 				this.topiclist.push(user)
 				uni.request({
 					header: {
-						'Content-type': 'application/x-www-form-urlencoded' //注意这里对应的是用Java搭建的服务器
+						'Content-type': 'application/x-www-form-urlencoded' 
 					},
-					url: 'http://47.102.203.108:8000/question/',
+					url: 'https://47.102.203.108:8000/question/',
 					method: 'POST',
 					dataType: 'json', //返回值类型
 					data: val,
