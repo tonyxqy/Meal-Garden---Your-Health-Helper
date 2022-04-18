@@ -13,6 +13,12 @@
 					"mp-video-swiper": "/wxcomponents/video-swiper/index"
 				}
 			}
+		},
+		{
+			"path": "pages/index/diagnose",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"subPackages": [{
@@ -158,6 +164,12 @@
 				},
 				{
 					"path": "menu",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "dentify",
 					"style": {
 						"navigationStyle": "custom"
 					}

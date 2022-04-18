@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/tabbar"
+    "pages/index/tabbar",
+    "pages/index/diagnose"
   ],
   "subPackages": [
     {
@@ -39,7 +40,8 @@
         "breakfast",
         "dinner",
         "lunch",
-        "menu"
+        "menu",
+        "dentify"
       ]
     },
     {
@@ -104,5 +106,6 @@
     "van-picker": "/wxcomponents/vant/picker/index",
     "cu-custom": "/colorui/components/cu-custom",
     "tn-custom": "/components/TnCustom/TnCustom"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

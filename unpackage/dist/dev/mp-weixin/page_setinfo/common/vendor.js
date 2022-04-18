@@ -1,6 +1,6 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["page_setinfo/common/vendor"],{
 
-/***/ 300:
+/***/ 320:
 /*!**************************************************************************!*\
   !*** C:/Users/DELL/-health/page_setinfo/components/u-charts/u-charts.js ***!
   \**************************************************************************/

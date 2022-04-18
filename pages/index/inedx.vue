@@ -792,6 +792,11 @@
 						url: '../../page_me/mentalTest/index?mid=1'
 					})
 				}
+				if (e.currentTarget.dataset.mid == 1) {
+					uni.navigateTo({
+						url: '../../pages/index/diagnose'
+					})
+				}
 			},
 			goBreakfast() {
 				uni.navigateTo({

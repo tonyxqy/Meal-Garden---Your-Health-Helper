@@ -10,7 +10,7 @@
 				<input v-model="foodText"></input>
 			</view>
 			<text @click="getmenu()">搜索</text>
-			<u-icon name="camera" color="#999fab" size="28"></u-icon>
+			<u-icon @click="goDentify" name="camera" color="#999fab" size="28"></u-icon>
 		</view>
 
 		<view class='swiper_con' wx:if="foodList">
@@ -117,7 +117,6 @@
 				timer,
 			}
 		},
-
 		methods: {
 			onChange(event) {
 				console.log(event.detail);
@@ -171,8 +170,16 @@
 					}
 				})
 			},
-			onLoad() {
+			onLoad(id) {
 				this.getBreakfast()
+				console.log(id,"id")
+				let tag = JSON.stringify(id);
+				tag=tag.trim().replace(/\"|\{|\}/g, "");
+				console.log(tag,"tag")
+				var key=tag.split(":");
+				console.log(key,"key")
+				console.log(key[1],"key1")
+				this.foodText=key[1]
 			},
 			setIdx() {
 				this.idx = this.index
@@ -216,7 +223,13 @@
 			},
 			popupClose(){
 				this.showT=false
+			},
+			goDentify(){
+				uni.redirectTo({
+					url:'../page_menu/dentify'
+				})
 			}
+			
 		}
 	}
 </script>
