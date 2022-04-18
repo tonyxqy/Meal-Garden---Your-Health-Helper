@@ -1,4 +1,4 @@
-<!-- 项目展示 -->
+
 <template>
 	<view>
 		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
@@ -82,6 +82,7 @@
 </template>
 
 <script>
+	import request from '@/common/request.js';
 	export default {
 
 		data() {
@@ -94,7 +95,6 @@
 			var timer = year + "-" + month + "-" + day
 			console.log(timer, "dateStrdateStrdateStr")
 			const array = [1, 2, 3]
-			const mea = ["碗", "个"]
 			return {
 				title: 'picker-view',
 				array,
@@ -161,23 +161,23 @@
 			},
 			getBreakfast() {
 				var that = this
-				uni.request({
-					url: 'http://47.102.203.108:3306/dish/breakfast',
-					success: (res) => {
+				let opt = {
+					url: 'dish/breakfast',
+				};
+				request.httpRequest(opt).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
 						console.log(res.data[1])
 						this.foodArray = res.data
 						console.log(this.foodArray[0].pictureUrl)
-					}
-				})
+					} else {}
+				});
 			},
 			onLoad(id) {
 				this.getBreakfast()
-				console.log(id,"id")
 				let tag = JSON.stringify(id);
 				tag=tag.trim().replace(/\"|\{|\}/g, "");
-				console.log(tag,"tag")
 				var key=tag.split(":");
-				console.log(key,"key")
 				console.log(key[1],"key1")
 				this.foodText=key[1]
 			},
@@ -185,41 +185,50 @@
 				this.idx = this.index
 			},
 			getmenu() {
+				uni.showLoading({
+					title: '加载中'
+				})
 				var that = this
-				uni.request({
-					url: 'http://47.102.203.108:3306/dish/dish?menu=' + this.foodText,
-					success: (res) => {
+				let opt = {
+					url: 'dish/dish?menu=' + this.foodText,
+				};
+				request.httpRequest(opt).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
 						console.log(res.data[1])
 						this.foodArray = res.data
 						console.log(this.foodArray[0].pictureUrl)
-					}
-				})
+					} else {}
+				});
 			},
 			submitMenu() {
 				var that = this
 				this.showT=false
 				console.log(this.menu,this.user_id,this.timer,this.volume)
-				uni.request({
-					url: 'http://47.102.203.108:3306/user/addTodayMenubreakfast',
-					method: 'POST',
-					header: {
-						'content-type': 'application/json'
-					},
-					data: {
-						user_id:this.user_id,
-						menu: this.menu,
-						foodnumber:this.volume,
-						createTime:this.timer,
-					},
-					success: (res) => {
-						console.log(200,"addsuccess")
-						wx.showToast({
-						  title: '提交成功',
-						  icon: 'success',
-						  duration: 2000//持续的时间
-						})
-					}
+				uni.showLoading({
+						title: '上传中'
 				})
+				let opt = {
+					url: 'user/addTodayMenubreakfast',
+					method: 'POST'
+				};
+				let data = {
+					user_id: this.user_id,
+					menu: this.menu,
+					foodnumber: this.volume,
+					createTime: this.timer,
+				};
+				request.httpRequest(opt, data).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						console.log(200, "addsuccess")
+						wx.showToast({
+							title: '提交成功',
+							icon: 'success',
+							duration: 2000 //持续的时间
+						})
+					} else {}
+				});
 			},
 			popupClose(){
 				this.showT=false
@@ -248,20 +257,6 @@
 		font-weight: bold;
 		padding: 10rpx;
 		vertical-align: middle;
-	}
-
-	.good {
-		width: 650rpx;
-		margin: 0 auto;
-		margin-top: 20rpx;
-	}
-
-	.wenben {
-		width: 100%;
-		height: 88rpx;
-		background-color: #FFFFFF;
-		margin-top: 25rpx;
-		padding-left: 20rpx;
 	}
 
 	.detailsTop {
@@ -313,15 +308,6 @@
 		background-color: #fefefe;
 	}
 
-	.top {
-		width: 100%;
-		background-color: #f7f7f7;
-	}
-
-	.sbar {
-		position: fixed;
-		top: 0;
-	}
 
 	.topsearch {
 		width: 100%;
@@ -346,37 +332,6 @@
 		width: 10%;
 		margin-left: 5%;
 		color: #a8a7a7fa;
-	}
-
-	.history {
-		background-color: white;
-		padding: 4%;
-	}
-
-	.history_title {
-		font-size: 30rpx;
-		display: flex;
-		justify-content: space-between;
-		color: #a8a7a7fa;
-		align-items: center;
-	}
-
-	.history_text {
-		padding: 4% 0;
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	.history_text>text {
-		background-color: #f7f7f7;
-		padding: 1% 3%;
-		margin: 2%;
-		border-radius: 40rpx;
-		font-size: 30rpx;
-	}
-
-	.history_text>text:first-child {
-		margin-left: 0;
 	}
 
 	.none {
@@ -425,4 +380,3 @@
 		justify-content: center;
 		text-align: center;
 	}
-</style>

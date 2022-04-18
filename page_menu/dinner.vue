@@ -163,7 +163,7 @@
 			getBreakfast() {
 				var that = this
 				uni.request({
-					url: 'http://47.102.203.108:3306/dish/dinner',
+					url: 'https://47.102.203.108:3306/dish/dinner',
 					success: (res) => {
 						console.log(res.data[1])
 						this.foodArray = res.data
@@ -181,7 +181,7 @@
 			getmenu() {
 				var that = this
 				uni.request({
-					url: 'http://47.102.203.108:3306/dish/dish?menu=' + this.foodText,
+					url: 'https://47.102.203.108:3306/dish/dish?menu=' + this.foodText,
 					success: (res) => {
 						console.log(res.data[1])
 						this.foodArray = res.data
@@ -194,7 +194,7 @@
 				this.showT=false
 				console.log(this.menu,this.user_id,this.timer,this.volume)
 				uni.request({
-					url: 'http://47.102.203.108:3306/user/addTodayMenudinner',
+					url: 'https://47.102.203.108:3306/user/addTodayMenudinner',
 					method: 'POST',
 					header: {
 						'content-type': 'application/json'

@@ -46,6 +46,7 @@
 		},
 		methods: {
 			bodyhelpermethod() {
+				uni.$emit('hidebox')
 				console.log('123')
 				Dialog.alert({
 					context: this,
@@ -55,6 +56,7 @@
 					theme: 'round-button',
 				}).then(() => {
 					// on close
+					uni.$emit('hidebox')
 				});
 			},
 			getData() {

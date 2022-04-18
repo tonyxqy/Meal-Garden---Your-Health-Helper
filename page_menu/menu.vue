@@ -174,7 +174,7 @@
 				key[1]=parseInt(key[1])
 				console.log(key[1],"tag")
 				uni.request({
-					url: 'http://47.102.203.108:3306/dish/classification',
+					url: 'https://47.102.203.108:3306/dish/classification',
 					method: 'GET',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'

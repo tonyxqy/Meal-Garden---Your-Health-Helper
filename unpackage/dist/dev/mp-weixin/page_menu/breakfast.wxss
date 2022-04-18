@@ -235,6 +235,13 @@
 
 
 
+
+
+
+
+
+
+
 /* 展示框第一行 超出截断 */
 .taText {
 	overflow: hidden;
@@ -266,9 +273,9 @@
 	line-height: 20px;
 	max-height: 140px;
 	color: #304156;
-	letter-spacing:2rpx;
+	letter-spacing: 2rpx;
 	display: flex;
-	flex-direction:row;
+	flex-direction: row;
 	flex-wrap: wrap;
 }
 .details {
@@ -277,12 +284,12 @@
 	width: 100%;
 	text-align: left;
 	padding: 20rpx;
-	padding-left:30rpx ;
+	padding-left: 30rpx;
 	overflow: scroll;
 	line-height: 20px;
 	max-height: 200px;
 	color: #304156;
-	letter-spacing:2rpx;
+	letter-spacing: 2rpx;
 }
 .titileCenter {
 	width: 70%;

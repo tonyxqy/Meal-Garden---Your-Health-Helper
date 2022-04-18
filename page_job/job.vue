@@ -89,23 +89,21 @@
 					 + (now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-"
 					 + (now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " "
 					 let user_id = uni.getStorageSync('userId')
-					uni.request({
-						url: 'http://47.102.203.108:3306/user/updateJobById?user_id='+user_id+'&job='+item.name+'&time='+nowStr,
-						method: 'POST',
-						success: (res) => { //成功
-							uni.hideLoading();
-							console.log(res.data)
-							let user = {
-								user_id
-							}					
-							// 获取目标身体状态
-							let optstar = {
-								url: 'user/jobinfo',
-								method: 'get',
-							};
-							uni.showLoading({
-								title: '加载中'
-							})
+					 
+					 let jobobt = {
+						 url: 'user/updateJobById?user_id='+user_id+'&job='+item.name+'&time='+nowStr,
+						 method: 'POST',
+					 }
+					 request.httpRequest(jobobt).then(res => {
+					 	if (res.statusCode == 200) {
+					 		let user = {
+					 			user_id
+					 		}					
+					 		// 获取目标身体状态
+					 		let optstar = {
+					 			url: 'user/jobinfo',
+					 			method: 'get',
+					 		};
 							request.httpRequest(optstar, user).then(res => {
 								uni.hideLoading();
 								if (res.statusCode == 200) {
@@ -121,10 +119,8 @@
 									});
 								} else {}
 							});
-							
-							// http://47.102.203.108:3306/user/jobinfo
-						},
-					});
+					 	} else {}
+					 });
 				},
 			getImg() {
 				return Math.floor(Math.random() * 35);
