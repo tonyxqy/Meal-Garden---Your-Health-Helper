@@ -91,7 +91,7 @@
 					header: {
 						'Content-type': 'application/x-www-form-urlencoded' 
 					},
-					url: 'https://47.102.203.108:8000/question/',
+					url: 'http://47.102.203.108:8000/question/',
 					method: 'POST',
 					dataType: 'json', //返回值类型
 					data: val,
@@ -356,7 +356,7 @@
 	.friend {
 		position: fixed;
 		right: 0;
-		top: 70%;
+		top: 50%;
 		width: 150rpx;
 		height: 300rpx;
 	}

@@ -798,7 +798,7 @@
 				}
 				if (e.currentTarget.dataset.mid == 1) {
 					uni.navigateTo({
-						url: '../../pages/index/diagnose'
+						url: '../../page_me/diagnose'
 					})
 				}
 			},

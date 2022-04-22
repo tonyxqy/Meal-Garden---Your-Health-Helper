@@ -242,6 +242,8 @@
 
 
 
+
+
 /* 展示框第一行 超出截断 */
 .taText {
 	overflow: hidden;
@@ -255,27 +257,15 @@
 	padding: 10rpx;
 	vertical-align: middle;
 }
-.good {
-	width: 650rpx;
-	margin: 0 auto;
-	margin-top: 20rpx;
-}
-.wenben {
-	width: 100%;
-	height: 88rpx;
-	background-color: #FFFFFF;
-	margin-top: 25rpx;
-	padding-left: 20rpx;
-}
 .detailsTop {
 	padding: 30rpx;
 	overflow: scroll;
 	line-height: 20px;
 	max-height: 140px;
 	color: #304156;
-	letter-spacing: 2rpx;
+	letter-spacing:2rpx;
 	display: flex;
-	flex-direction: row;
+	flex-direction:row;
 	flex-wrap: wrap;
 }
 .details {
@@ -284,12 +274,12 @@
 	width: 100%;
 	text-align: left;
 	padding: 20rpx;
-	padding-left: 30rpx;
+	padding-left:30rpx ;
 	overflow: scroll;
 	line-height: 20px;
 	max-height: 200px;
 	color: #304156;
-	letter-spacing: 2rpx;
+	letter-spacing:2rpx;
 }
 .titileCenter {
 	width: 70%;
@@ -311,14 +301,6 @@
 	justify-content: space-between;
 	background-color: #fefefe;
 }
-.top {
-	width: 100%;
-	background-color: #f7f7f7;
-}
-.sbar {
-	position: fixed;
-	top: 0;
-}
 .topsearch {
 	width: 100%;
 	display: flex;
@@ -339,32 +321,6 @@
 	width: 10%;
 	margin-left: 5%;
 	color: #a8a7a7fa;
-}
-.history {
-	background-color: white;
-	padding: 4%;
-}
-.history_title {
-	font-size: 30rpx;
-	display: flex;
-	justify-content: space-between;
-	color: #a8a7a7fa;
-	align-items: center;
-}
-.history_text {
-	padding: 4% 0;
-	display: flex;
-	flex-wrap: wrap;
-}
-.history_text>text {
-	background-color: #f7f7f7;
-	padding: 1% 3%;
-	margin: 2%;
-	border-radius: 40rpx;
-	font-size: 30rpx;
-}
-.history_text>text:first-child {
-	margin-left: 0;
 }
 .none {
 	margin-top: 10%;

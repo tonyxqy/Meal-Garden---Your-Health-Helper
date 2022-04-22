@@ -196,7 +196,7 @@
 .friend {
 		position: fixed;
 		right: 0;
-		top: 70%;
+		top: 50%;
 		width: 150rpx;
 		height: 300rpx;
 }
