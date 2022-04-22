@@ -13,12 +13,6 @@
 					"mp-video-swiper": "/wxcomponents/video-swiper/index"
 				}
 			}
-		},
-		{
-			"path": "pages/index/diagnose",
-			"style": {
-				"navigationStyle": "custom"
-			}
 		}
 	],
 	"subPackages": [{
@@ -186,6 +180,12 @@
 					"style": {
 						"navigationBarTitleText": "答题规则说明"
 					}
+				},
+				{
+					"path": "diagnose",
+					"style": {
+						"navigationStyle": "custom"
+					}
 				}
 			]
 		},
@@ -229,7 +229,7 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
 		"usingComponents": {
-			"van-sticky": "/wxcomponents/vant/sticky/index",
+			// "van-sticky": "/wxcomponents/vant/sticky/index",
 			"van-button": "/wxcomponents/vant/button/index",
 			"van-circle": "/wxcomponents/vant/circle/index",
 			"van-grid": "/wxcomponents/vant/grid/index",

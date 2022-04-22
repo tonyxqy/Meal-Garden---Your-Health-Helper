@@ -80,7 +80,7 @@
 </template>
 
 <script>
-	import md5 from '../../common/md5.js'
+	import md5 from '../common/md5.js'
 	export default {
 		data() {
 			return {
@@ -169,7 +169,7 @@
 				console.log(time, "md5tim2")
 				console.log(sign, "md5tim2")
 				uni.request({
-					url: 'http://www.aibayes.cn/api/analysis',
+					url: 'https://www.aibayes.cn/api/analysis',
 					method: 'POST',
 					header: {
 						// 'content-type': 'multipart/form-data'

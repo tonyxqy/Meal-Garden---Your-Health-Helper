@@ -65,14 +65,14 @@
 								<text>{{ unit[currentTab] }}</text>
 							</view>
 						</view>
-						<button class="login-button bg-gradual-green" form-type="submit">提交</button>
+						<button class="login-button bg-gradual-blue" form-type="submit">提交</button>
 					</form>
 				</view>
 				<view id="bg" class="login-bg" :style="'display:' + (inputValue == true ? 'none' : 'block') + ';'">
 				</view>
-				<button class="bg-gradual-green" style="position: fixed; bottom: 0; width: 100%; z-index: -10"
+				<button class="bg-gradual-blue" style="position: fixed; bottom: 0; width: 100%; z-index: -10"
 					v-if="TabList[currentTab].name!='体脂率'" @tap="inputcover">记录{{ TabList[currentTab].name }}</button>
-				<button class="bg-gradual-green" style="position: fixed; bottom: 0; width: 100%; z-index: -10"
+				<button class="bg-gradual-blue" style="position: fixed; bottom: 0; width: 100%; z-index: -10"
 					v-if="TabList[currentTab].name=='体脂率'">由系统根据身高体重计算欧</button>
 			</block>
 		</view>

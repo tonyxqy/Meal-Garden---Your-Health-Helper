@@ -1,7 +1,6 @@
 {
   "pages": [
-    "pages/index/tabbar",
-    "pages/index/diagnose"
+    "pages/index/tabbar"
   ],
   "subPackages": [
     {
@@ -47,7 +46,8 @@
         "aboutMe",
         "mentalTest/list",
         "mentalTest/index",
-        "mentalTest/explain"
+        "mentalTest/explain",
+        "diagnose"
       ]
     },
     {
@@ -85,7 +85,6 @@
     "enable": true
   },
   "usingComponents": {
-    "van-sticky": "/wxcomponents/vant/sticky/index",
     "van-button": "/wxcomponents/vant/button/index",
     "van-circle": "/wxcomponents/vant/circle/index",
     "van-grid": "/wxcomponents/vant/grid/index",
