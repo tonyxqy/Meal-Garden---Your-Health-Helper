@@ -95,9 +95,9 @@
 				<view class="action sub-title">
 					<text class="text-xl text-bold text-blue text-shadow">每日推荐</text>
 					<text class="text-ABC text-blue">recommendation</text>
-					<button>早餐</button>
+<!-- 					<button>早餐</button>
 					<button>中餐</button>
-					<button>晚餐</button>
+					<button>晚餐</button> -->
 				</view>
 
 			</view>
@@ -220,7 +220,7 @@
 				</van-card>
 			</view>
 		</view>
-		<u-popup v-model="showT" mode="center" width="690rpx" height="800rpx" @close="popupClose" border-radius="20"
+		<u-popup v-model="showT" mode="center" width="690rpx" height="810rpx" @close="popupClose" border-radius="20"
 			style=" border: 10rpx;">
 			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
 				<view class="canlass">
@@ -236,23 +236,24 @@
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
 								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
+								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;"size="large" v-if="index<4">
 									{{item}}
 								</van-tag>
 							</view>
 						</view>
 						<view class="displayCol" style="padding-left:30rpx;color: #304156; ">
-							<view style="display: flex;flex-direction:row; padding-top:15rpx ;">
-								分量
+							<view style="display: flex;flex-direction:row; padding-top:5rpx ;padding-bottom: 20rpx;">
+								<text class="text-lg text-black text-blue">分量</text>
 								<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
 									button-size="20px" bind:change="onChange" />
 							</view>
 							<view style="display:inline-block; text-align: left; padding-top: 10rpx;">
-								<text style="color: #304156;">{{popArray.process}} </text>
+								<text class="text-lg text-black text-blue">{{popArray.process}} </text>
 								<text style="color: #304156;padding-left:10rpx ;">{{popArray.time}}</text>
 							</view>
 						</view>
 						<view class="detailsTop">
+							<text class="text-lg text-black text-blue" style="padding-bottom: 20rpx;">所需食材：</text>
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
 								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;">
 									{{item}}
@@ -262,7 +263,7 @@
 					</view>
 				</view>
 				<view class="displayCol"
-					style="padding: 15rpx;padding-left: 30rpx;line-height: 35px;letter-spacing: 2rpx;">
+					style="padding: 10rpx;padding-left: 30rpx;line-height: 35px;letter-spacing: 2rpx;">
 					<text class="text-lg text-black">您想将其添加至</text>
 					<van-radio-group value="radio" @change="onChange()" direction="horizontal">
 						<van-radio name="1">早餐</van-radio>
@@ -720,8 +721,8 @@
 							icon: 'success',
 							duration: 2000 //持续的时间
 						})
+						this.getMenuData()
 					} else {
-						console.log(data)
 					}
 				});
 			},
@@ -905,7 +906,7 @@
 		padding: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
-		max-height: 140px;
+		max-height: 130px;
 		color: #304156;
 		letter-spacing: 2rpx;
 		display: flex;

@@ -19,7 +19,7 @@
 					<view class="tree" :style="'height:' + winHeight+ 'rpx'">
 						<view :class="'rain rain-' + stages" :data-index="index" :data-value="value" @tap="rainFun"
 							v-for="(value, index) in rainArr" :key="index">
-							{{ value }}
+							{{ value.rain }}
 							<text>g</text>
 						</view>
 						<image :src="'/static/image/tree-' + stages + '.png'"
@@ -31,7 +31,7 @@
 					<view class="kettle">
 						<view class="kettls" @tap="water" hover-class="none"></view>
 						<view :class="'flasks ' + (watercss ? 'water' : '')" v-if="watercss"></view>
-						<view class="flasms" @tap="water" @click="getPluss()" v-if="!watercss" hover-class="none">
+						<view class="flasms" @tap="water" @click="postPluss()" v-if="!watercss" hover-class="none">
 						</view>
 						<view class="waters" v-if="waterdom"></view>
 					</view>
@@ -166,7 +166,7 @@
 			this.getUserInfo(user_id),
 			this.getStage(user_id),
 			this.getRain(user_id),
-			this.getPluss(user_id)
+			this.postPluss(user_id)
 		},
 		onLoad() {
 			var that = this;
@@ -265,7 +265,7 @@
 					}
 				})
 			},
-			getPluss(user_id) {
+			postPluss(user_id) {
 				var nowDate = new Date();
 				var year = nowDate.getFullYear();
 				var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
@@ -301,7 +301,9 @@
 						user_id
 					},
 					success: (res) => {
-						console.log(res, "getRain")
+						
+						this.rainArr=res.data
+						console.log(this.rainArr, "getRain")
 					}
 				})
 			},
@@ -351,6 +353,8 @@
 				} = e.currentTarget.dataset;
 				let info = this.info;
 				let rainArr = this.rainArr;
+				value=value.rain
+				console.log(value)
 				info.votes = Number(this.info.votes) + (value - 0);
 				rainArr.splice(index, 1);
 				this.setData({

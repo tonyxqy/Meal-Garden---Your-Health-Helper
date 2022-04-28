@@ -84,7 +84,7 @@
 	export default {
 		data() {
 			return {
-				img: "https://s1.328888.xyz/2022/04/11/fqyMq.png",
+				img:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fss2.meipian.me%2Fusers%2F3098536%2F18cef48a8ddef00a315aa6feccb246d0.jpg%3Fmeipian-raw%2Fbucket%2Fivwen%2Fkey%2FdXNlcnMvMzA5ODUzNi8xOGNlZjQ4YThkZGVmMDBhMzE1YWE2ZmVjY2IyNDZkMC5qcGc%3D%2Fsign%2Fa645af5a6d6268b11621acd0fd8b67ba.jpg&refer=http%3A%2F%2Fss2.meipian.me&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653758942&t=5c1c6a40f3516e158a10dd1abdcf824a',
 				content: '',
 				showT: false,
 				imgUrl: '',

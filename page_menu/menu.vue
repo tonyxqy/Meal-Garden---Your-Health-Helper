@@ -91,8 +91,8 @@
 </template>
 
 <script>
+	import request from '@/common/request.js'
 	export default {
-
 		data() {
 			var user_id = uni.getStorageSync('userId')
 			console.log(user_id,"userId")
@@ -209,28 +209,24 @@
 				uni.showLoading({
 					title: '上传中'
 				})
-				// if (this.radio == 1) {
-				// 	var opt = {
-				// 		url: 'user/addTodayMenubreakfast',
-				// 		method: 'POST'
-				// 	}
-				// };
-				// if (this.radio == 2) {
-				// 	var opt = {
-				// 		url: 'user/addTodayMenulunch',
-				// 		method: 'POST'
-				// 	}
-				// };
-				// if (this.radio == 3) {
-				// 	var opt = {
-				// 		url: 'user/addTodayMenudinner',
-				// 		method: 'POST'
-				// 	}
-				// };
+				if (this.radio == 1) {
+					var opt = {
+						url: 'user/addTodayMenubreakfast',
+						method: 'POST'
+					}
+				};
+				if (this.radio == 2) {
+					var opt = {
+						url: 'user/addTodayMenulunch',
+						method: 'POST'
+					}
+				};
+				if (this.radio == 3) {
 					var opt = {
 						url: 'user/addTodayMenudinner',
 						method: 'POST'
 					}
+				};
 				let data = {
 					user_id: this.user_id,
 					menu: this.menu,
