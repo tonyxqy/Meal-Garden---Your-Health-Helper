@@ -51,7 +51,7 @@
 							<view style="display: flex;flex-direction:row; padding-top:15rpx ;">
 								分量
 								<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
-									button-size="20px" bind:change="onChange"  />
+									button-size="20px" />
 							</view>
 							<view style="display:inline-block; text-align: left; padding-top: 10rpx;">
 								<text style="color: #304156;">{{popArray.process}} </text>
@@ -75,6 +75,16 @@
 						</text>
 					</view>
 				</view>
+				<view class="displayCol"
+					style="padding: 15rpx;padding-left: 30rpx;line-height: 35px;letter-spacing: 2rpx;">
+					<text class="text-lg text-black">您想将其添加至</text>
+					<van-radio-group value="radio" @change="onChange()" direction="horizontal">
+						<van-radio name="1">早餐</van-radio>
+						<van-radio name="2">中餐</van-radio>
+						<van-radio name="3">晚餐</van-radio>
+					</van-radio-group>
+				</view>
+				<van-button type="default" block @click="submitMenu()">提交</van-button>
 			</view>
 		</u-popup>
 	</view>
@@ -112,15 +122,13 @@
 				img: "",
 				menu: "",
 				volume: 2,
+				radio:1,
 				user_id,
 				timer,
 			}
 		},
 
 		methods: {
-			onChange(event) {
-				console.log(event.detail,"onchange");
-			},
 			bindIt(e) {
 				this.showT = true
 				this.popArray = e
@@ -189,6 +197,59 @@
 						console.log(this.foodArray[0])
 					}
 				})
+			},
+			onChange(event) {
+				this.radio = parseInt(event.detail)
+				console.log(this.radio, "onchange早中晚餐的绑定")
+			},
+			submitMenu() {
+				var that = this
+				this.showT = false
+				console.log(this.radio,this.menu, this.user_id, this.timer, this.volume)
+				uni.showLoading({
+					title: '上传中'
+				})
+				// if (this.radio == 1) {
+				// 	var opt = {
+				// 		url: 'user/addTodayMenubreakfast',
+				// 		method: 'POST'
+				// 	}
+				// };
+				// if (this.radio == 2) {
+				// 	var opt = {
+				// 		url: 'user/addTodayMenulunch',
+				// 		method: 'POST'
+				// 	}
+				// };
+				// if (this.radio == 3) {
+				// 	var opt = {
+				// 		url: 'user/addTodayMenudinner',
+				// 		method: 'POST'
+				// 	}
+				// };
+					var opt = {
+						url: 'user/addTodayMenudinner',
+						method: 'POST'
+					}
+				let data = {
+					user_id: this.user_id,
+					menu: this.menu,
+					foodnumber: this.volume,
+					createTime: this.timer,
+				};
+				request.httpRequest(opt, data).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						console.log(200, "addsuccess")
+						wx.showToast({
+							title: '提交成功',
+							icon: 'success',
+							duration: 2000 //持续的时间
+						})
+					} else {
+						console.log(data)
+					}
+				});
 			},
 			popupClose(){
 				this.showT=false

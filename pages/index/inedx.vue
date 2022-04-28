@@ -40,64 +40,64 @@
 				</view>
 			</view>
 			<!-- <van-sticky offset-top="80 "> -->
-				<view class="cu-bar bg-white margin-top-xs">
-					<view class="action sub-title">
-						<text class="text-xl text-bold text-blue text-shadow">今日能量</text>
-						<text class="text-ABC text-blue">energy</text>
-					</view>
+			<view class="cu-bar bg-white margin-top-xs">
+				<view class="action sub-title">
+					<text class="text-xl text-bold text-blue text-shadow">今日能量</text>
+					<text class="text-ABC text-blue">energy</text>
 				</view>
-				<van-grid column-num="3" border="false" direction="horizontal">
-					<van-grid-item use-slot text="糖分" border="false">
-						<span class="iconfont">&#xe62d;</span>
+			</view>
+			<van-grid column-num="3" border="false" direction="horizontal">
+				<van-grid-item use-slot text="糖分" border="false">
+					<span class="iconfont">&#xe62d;</span>
+					<text class="gridtext">糖分</text>
+					<text class="gridtext1">:{{target.targetSugar}}g</text>
+				</van-grid-item>
+				<van-grid-item use-slot text="能量" border="false">
+					<span class="iconfont">&#xe61b;</span>
+					<text class="gridtext">能量</text>
+					<text class="gridtext1">:{{target.targetEnergy}}cal</text>
+				</van-grid-item>
+				<van-grid-item use-slot text="脂肪" border="false">
+					<span class="iconfont">&#xe725;</span>
+					<text class="gridtext">脂肪</text>
+					<text class="gridtext1">:{{target.targetFat}}g</text>
+				</van-grid-item>
+			</van-grid>
+			<van-grid column-num="3" border="false">
+				<van-grid-item use-slot text="糖分" style="text-align: center;">
+					<view style="height: 160px">
+						<van-circle style="display: block;margin: 5px 0; z-index: -1;" v-show="hide"
+							:value="Math.floor(current.currentSugar/target.targetSugar*100)" size="60"
+							:text="Math.floor(current.currentSugar)" :color="gradientColor[0]" />
 						<text class="gridtext">糖分</text>
-						<text class="gridtext1">:{{target.targetSugar}}g</text>
-					</van-grid-item>
-					<van-grid-item use-slot text="能量" border="false">
-						<span class="iconfont">&#xe61b;</span>
-						<text class="gridtext">能量</text>
-						<text class="gridtext1">:{{target.targetEnergy}}cal</text>
-					</van-grid-item>
-					<van-grid-item use-slot text="脂肪" border="false">
-						<span class="iconfont">&#xe725;</span>
+					</view>
+				</van-grid-item>
+				<van-grid-item use-slot text="热量">
+					<view style="height: 180px;z-index: 0;margin-top: -20px;">
+						<view class="charts-box">
+							<qiun-data-charts type="gauge" :chartData="chartData" :loadingType="4" v-show="hide"
+								:errorShow="false" background="none" />
+						</view>
+					</view>
+				</van-grid-item>
+				<van-grid-item use-slot text="脂肪" style="text-align: center;">
+					<view style="height: 160px">
+						<van-circle style="display: block;margin: 5px 0;z-index: -1;"
+							:value="current.currentFat/target.targetFat*100" size="60"
+							:text="Math.floor(current.currentFat)" v-show="hide" :color="gradientColor[2]" />
 						<text class="gridtext">脂肪</text>
-						<text class="gridtext1">:{{target.targetFat}}g</text>
-					</van-grid-item>
-				</van-grid>
-				<van-grid column-num="3" border="false">
-					<van-grid-item use-slot text="糖分" style="text-align: center;">
-						<view style="height: 160px">
-							<van-circle style="display: block;margin: 5px 0; z-index: -1;"
-							    v-show="hide"
-								:value="Math.floor(current.currentSugar/target.targetSugar*100)" size="60"
-								:text="Math.floor(current.currentSugar)" :color="gradientColor[0]" />
-							<text class="gridtext">糖分</text>
-						</view>
-					</van-grid-item>
-					<van-grid-item use-slot text="热量">
-						<view style="height: 180px;z-index: 0;margin-top: -20px;">
-							<view class="charts-box">
-								<qiun-data-charts type="gauge" :chartData="chartData" :loadingType="4"
-								v-show="hide"
-									:errorShow="false" background="none" />
-							</view>
-						</view>
-					</van-grid-item>
-					<van-grid-item use-slot text="脂肪" style="text-align: center;">
-						<view style="height: 160px">
-							<van-circle style="display: block;margin: 5px 0;z-index: -1;"
-								:value="current.currentFat/target.targetFat*100" size="60" :text="Math.floor(current.currentFat)"
-								v-show="hide"
-								:color="gradientColor[2]" />
-							<text class="gridtext">脂肪</text>
-						</view>
-					</van-grid-item>
-				</van-grid>
+					</view>
+				</van-grid-item>
+			</van-grid>
 			<!-- </van-sticky> -->
 
 			<view class="cu-bar bg-white margin-top-xs">
 				<view class="action sub-title">
 					<text class="text-xl text-bold text-blue text-shadow">每日推荐</text>
 					<text class="text-ABC text-blue">recommendation</text>
+					<button>早餐</button>
+					<button>中餐</button>
+					<button>晚餐</button>
 				</view>
 
 			</view>
@@ -115,7 +115,8 @@
 						<div class="dot"></div>
 						<div class="dot"></div>
 					</div>
-					<view @click="bindIt(item)"class="kite-classify-cell shadow" v-for="(item, index) in curriculum" :key="index">
+					<view @click="bindIt(item)" class="kite-classify-cell shadow" v-for="(item, index) in curriculum"
+						:key="index">
 						<view :class="'nav-li bg-index' + ((index%6)+1)">
 							<view class="nav-name">{{item.menu}}</view>
 						</view>
@@ -159,8 +160,8 @@
 							{{item}}
 						</van-tag>
 					</view>
-					<view slot="title"class=""style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
-					<view slot="price"style="padding-top: 10rpx;" >{{item.taste}}</view>
+					<view slot="title" class="" style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
+					<view slot="price" style="padding-top: 10rpx;">{{item.taste}}</view>
 					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
 						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
 					</view>
@@ -173,7 +174,7 @@
 				</van-card>
 			</view>
 			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in lunchList" :key="index">
-				<van-card currency=" " lazy-load="true"  :thumb="item.pictureUrl">
+				<van-card currency=" " lazy-load="true" :thumb="item.pictureUrl">
 					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
 						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
 							{{item}}
@@ -182,8 +183,8 @@
 							{{item}}
 						</van-tag>
 					</view>
-					<view slot="title"class=""style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
-					<view slot="price"style="padding-top: 10rpx;" >{{item.taste}}</view>
+					<view slot="title" class="" style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
+					<view slot="price" style="padding-top: 10rpx;">{{item.taste}}</view>
 					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
 						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
 					</view>
@@ -196,7 +197,7 @@
 				</van-card>
 			</view>
 			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in dinnerList" :key="index">
-				<van-card  currency=" " lazy-load="true"  :thumb="item.pictureUrl">
+				<van-card currency=" " lazy-load="true" :thumb="item.pictureUrl">
 					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
 						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
 							{{item}}
@@ -205,8 +206,8 @@
 							{{item}}
 						</van-tag>
 					</view>
-					<view slot="title"class=""style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
-					<view slot="price"style="padding-top: 10rpx;" >{{item.taste}}</view>
+					<view slot="title" class="" style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
+					<view slot="price" style="padding-top: 10rpx;">{{item.taste}}</view>
 					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
 						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
 					</view>
@@ -219,7 +220,7 @@
 				</van-card>
 			</view>
 		</view>
-		<u-popup v-model="showT" mode="center" width="690rpx" height="680rpx"@close="popupClose" border-radius="20"
+		<u-popup v-model="showT" mode="center" width="690rpx" height="800rpx" @close="popupClose" border-radius="20"
 			style=" border: 10rpx;">
 			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
 				<view class="canlass">
@@ -240,7 +241,7 @@
 								</van-tag>
 							</view>
 						</view>
-						<view style="display: flex;flex-direction:column;padding-left:30rpx;color: #304156; ">
+						<view class="displayCol" style="padding-left:30rpx;color: #304156; ">
 							<view style="display: flex;flex-direction:row; padding-top:15rpx ;">
 								分量
 								<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
@@ -260,6 +261,16 @@
 						</view>
 					</view>
 				</view>
+				<view class="displayCol"
+					style="padding: 15rpx;padding-left: 30rpx;line-height: 35px;letter-spacing: 2rpx;">
+					<text class="text-lg text-black">您想将其添加至</text>
+					<van-radio-group value="radio" @change="onChange()" direction="horizontal">
+						<van-radio name="1">早餐</van-radio>
+						<van-radio name="2">中餐</van-radio>
+						<van-radio name="3">晚餐</van-radio>
+					</van-radio-group>
+				</view>
+				<van-button type="default" block @click="submitMenu()">提交</van-button>
 			</view>
 		</u-popup>
 		<view style="height: 140rpx;width: 1rpx;"></view>
@@ -291,15 +302,19 @@
 			var timer = year + "-" + month + "-" + day
 			console.log(timer, "dateStrdateStrdateStr")
 			return {
-				hide:true,
+				hide: true,
 				//登录测试
 				showT: false,
 				logion: false,
 				hasUserInfo: false,
 				userInfo: null,
 				//
-				mystylelist: ['primary','primary','primary','primary'],
+				mystylelist: ['primary', 'primary', 'primary', 'primary'],
 				loadshow: true,
+				//
+				volume: 1,
+				//
+				radio: 1,
 				// 仪表盘
 				gaugeWidth: 10,
 				chartData: {
@@ -394,22 +409,22 @@
 				}],
 				curriculum: [],
 				projectList: [],
-				lunchList:[],
-				breakfastList:[],
-				dinnerList:[],
+				lunchList: [],
+				breakfastList: [],
+				dinnerList: [],
 				popArray: [],
 				timer,
 				user_id,
-				showT:false
+				showT: false
 			}
 		},
-		activated(){
+		activated() {
 			console.log('((((((((((()))))))))))')
 		},
 		mounted() {
-			uni.$on('hidebox',this.hidebox);
-			if(uni.getStorageSync('userId'))
-			this.getData();
+			uni.$on('hidebox', this.hidebox);
+			if (uni.getStorageSync('userId'))
+				this.getData();
 			this.$nextTick(function() {
 				console.log(uni.createSelectorQuery().in(this))
 				const query = uni.createSelectorQuery().in(this)
@@ -426,9 +441,10 @@
 				this.logion = false
 			}
 		},
+
 		methods: {
-			hidebox(){
-				this.hide=!this.hide;
+			hidebox() {
+				this.hide = !this.hide;
 			},
 			getUserInfo() {
 				this.logion = false
@@ -506,7 +522,7 @@
 						uni.setStorage({
 							key: 'userId',
 							data: res.data,
-							success: function () {
+							success: function() {
 								that.getData();
 								uni.$emit('bodyhelper')
 							}
@@ -557,7 +573,7 @@
 							name: "完成率",
 							data: this.current.currentFat / this.target.targetFat
 						}
-						console.log('aaaaaaaaaaa',ans.data)
+						console.log('aaaaaaaaaaa', ans.data)
 						this.chartData.series.push(ans)
 					} else {}
 				});
@@ -604,7 +620,7 @@
 				});
 				this.getMenuData()
 			},
-			getMenuData(){
+			getMenuData() {
 				//获取今日食谱
 				let optsBreakfastMenu = {
 					url: 'user/dayMeunBreakfast',
@@ -619,7 +635,7 @@
 					method: 'get',
 				};
 				let datamenu = {
-					user_id:this.user_id,
+					user_id: this.user_id,
 					createTime: this.timer
 				}
 				request.httpRequest(optsBreakfastMenu, datamenu).then(res => {
@@ -660,10 +676,59 @@
 				this.help(this.popArray)
 				console.log(this.popArray, "popArray")
 			},
-			popupClose(){
+			onChange(event) {
+				this.radio = parseInt(event.detail)
+				console.log(this.radio, "onchange早中晚餐的绑定")
+			},
+			submitMenu() {
+				var that = this
+				this.showT = false
+				console.log(this.radio,this.popArray.menu, this.user_id, this.timer, this.volume)
+				uni.showLoading({
+					title: '上传中'
+				})
+				if (this.radio == 1) {
+					var opt = {
+						url: 'user/addTodayMenubreakfast',
+						method: 'POST'
+					}
+				};
+				if (this.radio == 2) {
+					var opt = {
+						url: 'user/addTodayMenulunch',
+						method: 'POST'
+					}
+				};
+				if (this.radio == 3) {
+					var opt = {
+						url: 'user/addTodayMenudinner',
+						method: 'POST'
+					}
+				};
+				let data = {
+					user_id: this.user_id,
+					menu: this.popArray.menu,
+					foodnumber: this.volume,
+					createTime: this.timer,
+				};
+				request.httpRequest(opt, data).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						console.log(200, "addsuccess")
+						wx.showToast({
+							title: '提交成功',
+							icon: 'success',
+							duration: 2000 //持续的时间
+						})
+					} else {
+						console.log(data)
+					}
+				});
+			},
+			popupClose() {
 				uni.$emit('hidebox')
 			},
-			bindIt(item){
+			bindIt(item) {
 				uni.$emit('hidebox')
 				this.showT = true
 				this.popArray = item
@@ -715,12 +780,12 @@
 						createTime: this.timer,
 					},
 					success: (res) => {
-						console.log(200,"delete menu")
+						console.log(200, "delete menu")
 						this.getMenuData()
 						wx.showToast({
-						  title: '删除成功',
-						  icon: 'success',
-						  duration: 2000//持续的时间
+							title: '删除成功',
+							icon: 'success',
+							duration: 2000 //持续的时间
 						})
 					}
 				})
@@ -740,12 +805,12 @@
 						createTime: this.timer,
 					},
 					success: (res) => {
-						console.log(200,"delete lunch")
+						console.log(200, "delete lunch")
 						this.getMenuData()
 						wx.showToast({
-						  title: '删除成功',
-						  icon: 'success',
-						  duration: 2000//持续的时间
+							title: '删除成功',
+							icon: 'success',
+							duration: 2000 //持续的时间
 						})
 					}
 				})
@@ -765,12 +830,12 @@
 						createTime: this.timer,
 					},
 					success: (res) => {
-						console.log(200,"delete dinner")
+						console.log(200, "delete dinner")
 						this.getMenuData()
 						wx.showToast({
-						  title: '删除成功',
-						  icon: 'success',
-						  duration: 2000//持续的时间
+							title: '删除成功',
+							icon: 'success',
+							duration: 2000 //持续的时间
 						})
 					}
 				})
@@ -830,33 +895,38 @@
 		font-family: 'iconfont';
 		src: url('@/static/iconfont.ttf?t=1647423422630') format('truetype');
 	}
-	
+
+	.displayCol {
+		display: flex;
+		flex-direction: column;
+	}
+
 	.detailsTop {
 		padding: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
 		max-height: 140px;
 		color: #304156;
-		letter-spacing:2rpx;
+		letter-spacing: 2rpx;
 		display: flex;
-		flex-direction:row;
+		flex-direction: row;
 		flex-wrap: wrap;
 	}
-	
+
 	.details {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
 		text-align: left;
 		padding: 20rpx;
-		padding-left:30rpx ;
+		padding-left: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
 		max-height: 200px;
 		color: #304156;
-		letter-spacing:2rpx;
+		letter-spacing: 2rpx;
 	}
-	
+
 	.titileCenter {
 		width: 70%;
 		height: 88rpx;
@@ -865,13 +935,13 @@
 		font-size: 30rpx;
 		overflow: hidden;
 	}
-	
+
 	.aasd {
 		width: 33.33%;
 		height: 88rpx;
 		line-height: 88rpx;
 	}
-	
+
 	.canlass {
 		height: 100rpx;
 		display: flex;
