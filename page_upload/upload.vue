@@ -141,7 +141,7 @@
 				var that = this;
 				let user_id = uni.getStorageSync('userId')
 				uni.uploadFile({
-					url: 'https://47.102.203.108:3306/forum/add_forum',
+					url: 'https://xuyq.xyz:3306/forum/add_forum',
 					filePath: this.file.url,
 					name: 'file',
 					formData: {

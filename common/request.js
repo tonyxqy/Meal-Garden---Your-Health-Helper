@@ -1,5 +1,5 @@
 
-const baseUrl = 'https://47.102.203.108:3306/';
+const baseUrl = 'https://xuyq.xyz:3306/';
 
 // 不带token请求
 const httpRequest = (opts, data) => {

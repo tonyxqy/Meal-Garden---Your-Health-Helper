@@ -478,7 +478,7 @@
 			setCode(code, resinfo) {
 				wx.request({
 					// url: 'http://localhost:8088/user/wx/login',
-					url: 'https://47.102.203.108:3306/user/wx/login',
+					url: 'https://xuyq.xyz:3306/user/wx/login',
 					method: "POST",
 					header: {
 						'content-type': 'application/x-www-form-urlencoded',
@@ -510,7 +510,7 @@
 				var that = this
 				uni.request({
 					// url: 'http://localhost:8088/user/findUserId',
-					url: 'https://47.102.203.108:3306/user/findUserId',
+					url: 'https://xuyq.xyz:3306/user/findUserId',
 					method: 'GET',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'
@@ -770,7 +770,7 @@
 				var that = this
 				console.log(item.menu, this.user_id, this.timer)
 				uni.request({
-					url: 'https://47.102.203.108:3306/user/deleteTodayMeunbreakfast',
+					url: 'https://xuyq.xyz:3306/user/deleteTodayMeunbreakfast',
 					method: 'POST',
 					header: {
 						'content-type': 'application/json'
@@ -795,7 +795,7 @@
 				var that = this
 				console.log(item.menu, this.user_id, this.timer)
 				uni.request({
-					url: 'https://47.102.203.108:3306/user/deleteTodayMeunlunch',
+					url: 'https://xuyq.xyz:3306/user/deleteTodayMeunlunch',
 					method: 'POST',
 					header: {
 						'content-type': 'application/json'
@@ -820,7 +820,7 @@
 				var that = this
 				console.log(item.menu, this.user_id, this.timer)
 				uni.request({
-					url: 'https://47.102.203.108:3306/user/deleteTodayMeundinner',
+					url: 'https://xuyq.xyz:3306/user/deleteTodayMeundinner',
 					method: 'POST',
 					header: {
 						'content-type': 'application/json'

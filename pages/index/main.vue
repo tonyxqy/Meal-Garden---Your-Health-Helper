@@ -212,7 +212,7 @@
 			getvotes(user_id) {
 				var that = this
 				uni.request({
-					url: 'https://47.102.203.108:3306/tree/getVotes',
+					url: 'https://xuyq.xyz:3306/tree/getVotes',
 					method: 'GET',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'
@@ -229,7 +229,7 @@
 			getUserInfo(user_id) {
 				var that = this
 				uni.request({
-					url: 'https://47.102.203.108:3306/tree/userInfo',
+					url: 'https://xuyq.xyz:3306/tree/userInfo',
 					method: 'GET',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'
@@ -252,7 +252,7 @@
 			getStage(user_id) {
 				var that = this
 				uni.request({
-					url: 'https://47.102.203.108:3306/tree/getStages',
+					url: 'https://xuyq.xyz:3306/tree/getStages',
 					method: 'GET',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'
@@ -274,7 +274,7 @@
 				console.log(timer, "dateStrdateStrdateStr")
 				var that = this
 				uni.request({
-					url: 'https://47.102.203.108:3306/tree/pluss',
+					url: 'https://xuyq.xyz:3306/tree/pluss',
 					method: 'POST',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'
@@ -292,7 +292,7 @@
 			getRain(user_id) {
 				var that = this
 				uni.request({
-					url: 'https://47.102.203.108:3306/tree/getRainTime',
+					url: 'https://xuyq.xyz:3306/tree/getRainTime',
 					method: 'GET',
 					header: {
 						'content-type': 'application/x-www-form-urlencoded'
