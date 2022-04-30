@@ -1,7 +1,9 @@
 <!-- 个人中心 -->
 <template>
 	<view class="components-theme">
-		<navigator target="miniProgram" app-id='wx307a52ca028d3c07' version='release' hover-class="none">
+		
+		<navigator target="miniProgram" app-id='wxdd194d285cb574b1' version='release' hover-class="none">
+		<!-- <navigator target="miniProgram" app-id='wx307a52ca028d3c07' version='release' hover-class="none"> -->
 			<view class="dong">
 				<view class="monster">
 					<view class="monster__face">

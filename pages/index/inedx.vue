@@ -456,6 +456,12 @@
 						wx.login({
 							success: (res) => {
 								console.log(resinfo, "code");
+								console.log(resinfo.userInfo.avatarUrl,resinfo.userInfo.nickName)
+								uni.setStorageSync('avatarUrl', resinfo.userInfo.avatarUrl);
+								uni.setStorageSync('nikeName', resinfo.userInfo.nikeName);
+								const  nikeName = uni.getStorageSync('nikeName')
+								const avatarUrl = uni.getStorageSync('avatarUrl')
+								console.log(nickName,avatarUrl,"name")
 								if (res.code) {
 									console.log(res.code, "getProfile");
 									this.setCode(res.code, resinfo);
