@@ -355,12 +355,13 @@
 				let rainArr = this.rainArr;
 				value=value.rain
 				console.log(value)
-				info.votes = Number(this.info.votes) + (value - 0);
+				// info.votes = Number(this.info.votes) + (value - 0);
+				info.votes = Number(this.info.votes);
 				rainArr.splice(index, 1);
 				this.setData({
-					plussNum: value,
+					// plussNum: value,
 					info,
-					pluss: true,
+					// pluss: true,
 					treemove: true
 				});
 				setTimeout(() => {

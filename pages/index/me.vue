@@ -91,7 +91,7 @@
 					</view>
 				</view>
 				<view class='flex flex-sub flex-direction'>
-					<view class="text-xxl text-red">{{ansList[2]}}%</view>
+					<view class="text-xxl text-red">{{parseInt(ansList[5])}}</view>
 					<view class="margin-top-sm">
 						<text></text> BMI
 					</view>
@@ -282,11 +282,6 @@
 			}
 		},
 		mounted() {
-			// uni.showToast({
-			//     title: '暂未开放,敬请期待',
-			// 	icon: 'none',
-			//     duration: 2000
-			// });
 			this.getServerData()
 			this.nickName = uni.getStorageSync('nickName')
 			this.avatarUrl = uni.getStorageSync('avatarUrl')

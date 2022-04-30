@@ -91,7 +91,7 @@
 					header: {
 						'Content-type': 'application/x-www-form-urlencoded' 
 					},
-					url: 'https://xuyq.xyz:8000/question/',
+					url: 'https://xuyq.xyz/question/',
 					method: 'POST',
 					dataType: 'json', //返回值类型
 					data: val,
