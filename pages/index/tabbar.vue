@@ -1,11 +1,11 @@
 <template>
 	<view>
-		<index v-if="PageCur=='index'" ref="index"></index>
+		<index v-if="PageCur=='index'" ref="index"/>
 		<search v-if="PageCur=='search'"></search>
-		<cases v-if="PageCur=='cases'"></cases>
+		<cases v-if="PageCur=='cases'" ></cases>
 		<news v-if="PageCur=='news'"></news>
-		<me v-if="PageCur=='me'"></me>
-		<xiaobing />
+		<me v-if="PageCur=='me'" ref="me"></me>
+		<xiaobing/>
 		
 		<view class="box">
 			<view class="cu-bar tabbar bg-white shadow foot">
@@ -95,10 +95,13 @@
 			};
 		},
 		onShow() {
-			this.$refs.index.getData();
-			this.$refs.index.getMenuData()
+			if(this.$refs.index){
+				this.$refs.index.getData();
+				this.$refs.index.getMenuData()
+			}
+			if(this.$refs.me)
+			this.$refs.me.getServerData()
 			uni.$emit('bodyhelper')
-			console.log('12e3214214')
 		},
 		methods: {
 			NavChange: function(e) {
@@ -117,14 +120,6 @@
 				} else if (this.PageCur == 'me') {
 					// document.title = '个人中心'
 				}
-
-				// uni.setStorage({
-				// 	key: 'PageCur',
-				// 	data: this.PageCur,
-				// 	success: function() {
-				// 		console.log('保存成功！');
-				// 	}
-				// });
 			},
 			NavChange_xd: function() {
 				uni.navigateTo({

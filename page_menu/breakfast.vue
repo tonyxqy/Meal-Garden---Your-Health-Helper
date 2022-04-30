@@ -160,6 +160,9 @@
 				}
 			},
 			getBreakfast() {
+				uni.showLoading({
+					title: '加载中'
+				})
 				var that = this
 				let opt = {
 					url: 'dish/breakfast',

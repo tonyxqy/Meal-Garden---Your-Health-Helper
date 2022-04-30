@@ -218,7 +218,7 @@
 				request.httpRequest(optstar, data).then(res => {
 					uni.hideLoading();
 					if (res.statusCode == 200) {
-						console.log(res.data)
+						this.getServerData();
 					} else {}
 				});
 			},
@@ -352,10 +352,8 @@
 					});
 				}
 				this.inputValue = !temp,
-					this.TabList = TabList
+				this.TabList = TabList
 				app.globalData.echarts = this.TabList[currval].timeList;
-				console.log(this.TabList[currval].timeList);
-				this.getServerData();
 			},
 
 			inputcover: function() {

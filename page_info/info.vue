@@ -209,9 +209,13 @@
 				ageValue: [20]
 			};
 		},
+		onShow() {
+			this.getServerData();
+		},
 		onShareAppMessage(o) {},
 		mounted() {
 			this.getServerData();
+			uni.$on('infoData',this.getServerData)
 		},
 		methods: {
 			chooseman(){
@@ -229,7 +233,6 @@
 					method: 'post',
 				};
 				request.httpRequest(opt, user).then(res => {
-					console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
 						this.gender=1
@@ -252,7 +255,6 @@
 					method: 'post',
 				};
 				request.httpRequest(opt, user).then(res => {
-					console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
 						this.gender=0
@@ -263,7 +265,6 @@
 			showPopup() {
 				this.show = true;
 			},
-
 			onClose() {
 				this.show = false;
 			},
@@ -280,16 +281,18 @@
 					method: 'get',
 				};
 				request.httpRequest(optstar, user).then(res => {
-					console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
 						this.TabList = res.data
-						console.log(this.TabList)
+						this.ansList = []
+						console.log("TabList",this.TabList)
 						for (let i = 0; i < this.TabList.length; i++) {
-							console.log(this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value)
-							this.ansList.push(this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value);
+							let ans = this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value
+							console.log(ans)
+							this.ansList.push(ans);
+							console.log(this.ansList)
 						}
-						console.log(this.ansList)
+						console.log("ansList",this.ansList)
 					} else {}
 				});
 
@@ -301,7 +304,6 @@
 					method: 'get',
 				};
 				request.httpRequest(optgender, user).then(res => {
-					console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
 						this.gender = res.data.gender

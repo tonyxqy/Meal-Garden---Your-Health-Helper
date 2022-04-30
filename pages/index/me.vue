@@ -286,6 +286,7 @@
 			this.nickName = uni.getStorageSync('nickName')
 			this.avatarUrl = uni.getStorageSync('avatarUrl')
 			console.log(this.nickName, this.avatarUrl, "name")
+			uni.$on('meData',this.getServerData)
 		},
 		methods: {
 			getServerData() {
@@ -301,11 +302,11 @@
 					method: 'get',
 				};
 				request.httpRequest(optstar, user).then(res => {
-					console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
 						this.TabList = res.data
-						console.log(this.TabList)
+						// console.log(this.TabList)
+						this.ansList = []
 						for (let i = 0; i < this.TabList.length; i++) {
 							console.log(this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value)
 							this.ansList.push(this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value);

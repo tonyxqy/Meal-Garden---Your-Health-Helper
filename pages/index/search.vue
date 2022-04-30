@@ -2,13 +2,13 @@
 	<view class="u-wrap">
 		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
 			<!-- <block slot="backText">返回</block> -->
-			<block slot="content">职业选择</block>
+			<block slot="content">菜谱选单</block>
 		</cu-custom>
 
 		<view class="u-search-box">
 			<view class="u-search-inner">
 				<u-icon name="search" color="#909399" :size="28"></u-icon>
-				<input v-model="input" class="u-search-text" placeholder="你的职业是？"></text>
+				<input v-model="input" class="u-search-text" placeholder="输入你想要查询的菜谱？"></text>
 			</view>
 		</view>
 		<view class="u-menu-wrap">

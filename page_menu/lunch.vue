@@ -164,6 +164,9 @@
 				}
 			},
 			getBreakfast() {
+				uni.showLoading({
+					title: '加载中'
+				})
 				var that = this
 				uni.request({
 					url: 'https://xuyq.xyz:3306/dish/lunch',
@@ -182,6 +185,9 @@
 				this.idx = this.index
 			},
 			getmenu() {
+				uni.showLoading({
+					title: '加载中'
+				})
 				var that = this
 				uni.request({
 					url: 'https://xuyq.xyz:3306/dish/dish?menu=' + this.foodText,
@@ -197,6 +203,9 @@
 				var that = this
 				this.showT = false
 				console.log(this.menu, this.user_id, this.timer, this.volume)
+				uni.showLoading({
+						title: '上传中'
+				})
 				uni.request({
 					url: 'https://xuyq.xyz:3306/user/addTodayMenulunch',
 					method: 'POST',
