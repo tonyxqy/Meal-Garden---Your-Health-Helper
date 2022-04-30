@@ -71,9 +71,9 @@
 				<view id="bg" class="login-bg" :style="'display:' + (inputValue == true ? 'none' : 'block') + ';'">
 				</view>
 				<button class="bg-gradual-blue" style="position: fixed; bottom: 0; width: 100%; z-index: -10"
-					v-if="TabList[currentTab].name!='体脂率'" @tap="inputcover">记录{{ TabList[currentTab].name }}</button>
+					v-if="TabList[currentTab].name!='BMI'" @tap="inputcover">记录{{ TabList[currentTab].name }}</button>
 				<button class="bg-gradual-blue" style="position: fixed; bottom: 0; width: 100%; z-index: -10"
-					v-if="TabList[currentTab].name=='体脂率'">由系统根据身高体重计算欧</button>
+					v-if="TabList[currentTab].name=='BMI'">由系统根据身高体重计算欧</button>
 			</block>
 		</view>
 	</view>
@@ -356,7 +356,6 @@
 				app.globalData.echarts = this.TabList[currval].timeList;
 				console.log(this.TabList[currval].timeList);
 				this.getServerData();
-				// this.setEchartval();
 			},
 
 			inputcover: function() {
@@ -525,21 +524,21 @@
 
 	.login-input {
 		margin: auto;
-		font-size: 1rem;
+		font-size: 0.8rem;
 		text-align: center;
 	}
 
 	.login-input input {
 		display: inline-block;
 		margin: auto;
-		margin-top: 0.8rem;
+		margin-top: 0.7rem;
 		margin-bottom: 0;
 		width: 60%;
 		border-bottom: 1px solid #b6b0bb;
 	}
 
 	.login-input text {
-		margin-left: 0.5rem;
+		margin-left: 0.4rem;
 	}
 
 	.login-button {

@@ -22,7 +22,7 @@
 				</view>
 				<view class="viewHeight"></view>
 				<view class="jq22-mine-list">
-					<navigator url="/page_setinfo/setinfo" class="jq22-flex">
+					<navigator url="#" class="jq22-flex" @click="showPopup">
 						<view class="jq22-cou-img">
 							<image src="/page_info/static/pages/info/images/icon-item-000.png" alt=""></image>
 						</view>
@@ -30,7 +30,7 @@
 							<text class="text-black">性别</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">男</text>
+							<text class="text-gray text-shadow">{{gender!=0?'男':'女'}}</text>
 						</view>
 					</navigator>
 					<navigator url="/page_job/job" class="jq22-flex">
@@ -44,7 +44,7 @@
 							<text class="text-blue text-shadow">获取推荐微量元素与食谱</text>
 						</view>
 					</navigator>
-<!-- 					<navigator url="/pages/setinfo/setinfo" class="jq22-flex">
+					<!-- 					<navigator url="/pages/setinfo/setinfo" class="jq22-flex">
 						<view class="jq22-cou-img">
 							<image src="/static/pages/info/images/icon-item-002.png" alt=""></image>
 						</view>
@@ -55,7 +55,7 @@
 							<text class="text-gray text-shadow">1996-08-03</text>
 						</view>
 					</navigator> -->
-<!-- 					<navigator url="/pages/setinfo/setinfo" class="jq22-flex b-line">
+					<!-- 					<navigator url="/pages/setinfo/setinfo" class="jq22-flex b-line">
 						<view class="jq22-cou-img">
 							<image src="/static/pages/info/images/icon-item-008.png" alt=""></image>
 						</view>
@@ -130,7 +130,7 @@
 							<text class="text-black">bmi</text>
 						</view>
 						<view class="jq22-arrow">
-							<text class="text-gray text-shadow">{{ansList[5]}}</text>
+							<text class="text-gray text-shadow">{{Math.floor(ansList[5])}}</text>
 						</view>
 					</navigator>
 					<navigator url="/page_setinfo/setinfo" class="jq22-flex b-line">
@@ -148,6 +148,12 @@
 				</view>
 			</view>
 		</view>
+		<van-popup :show="show" round position="bottom" custom-style="height: 20%" bind:close="onClose">
+			<view style="display: flex;justify-content: center;align-items: center;">
+				<van-button type="default" style="margin-top: 2rem;" @click="chooseman">男</van-button>
+				<van-button type="default" style="margin-top: 2rem;" @click="choosewoman">女</van-button>
+			</view>
+		</van-popup>
 	</view>
 </template>
 
@@ -158,9 +164,11 @@
 		data() {
 			return {
 				//是否已经获取过了
+				show: false,
+				gender: 0,
 				num: 0,
 				TabList: [],
-				ansList:[],
+				ansList: [],
 				numList: [{
 						name: '目标'
 					},
@@ -206,6 +214,59 @@
 			this.getServerData();
 		},
 		methods: {
+			chooseman(){
+				let now = new Date()
+				let user_id = uni.getStorageSync('userId')
+				let user = {
+					user_id,
+					gender:'1',
+					time: now.getFullYear() + "-"
+				 + (now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-"
+				 + (now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " "
+				}
+				let opt = {
+					url: `user/updateGenderById?user_id=${user.user_id}&gender=${user.gender}&time=${user.time}`,
+					method: 'post',
+				};
+				request.httpRequest(opt, user).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.gender=1
+						this.onClose()
+					} else {}
+				});
+			},
+			choosewoman(){
+				let now = new Date()
+				let user_id = uni.getStorageSync('userId')
+				let user = {
+					user_id,
+					gender:'0',
+					time: now.getFullYear() + "-"
+				 + (now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1) + "-"
+				 + (now.getDate() < 10 ? "0" + now.getDate() : now.getDate()) + " "
+				}
+				let opt = {
+					url: `user/updateGenderById?user_id=${user.user_id}&gender=${user.gender}&time=${user.time}`,
+					method: 'post',
+				};
+				request.httpRequest(opt, user).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.gender=0
+						this.onClose()
+					} else {}
+				});
+			},
+			showPopup() {
+				this.show = true;
+			},
+
+			onClose() {
+				this.show = false;
+			},
 			getServerData() {
 				uni.showLoading({
 					title: '加载中'
@@ -224,13 +285,30 @@
 					if (res.statusCode == 200) {
 						this.TabList = res.data
 						console.log(this.TabList)
-						for(let i=0  ;i<this.TabList.length;i++){
-							console.log(this.TabList[i].timeList[this.TabList[i].timeList.length-1].value)
-							this.ansList.push(this.TabList[i].timeList[this.TabList[i].timeList.length-1].value);
+						for (let i = 0; i < this.TabList.length; i++) {
+							console.log(this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value)
+							this.ansList.push(this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value);
 						}
 						console.log(this.ansList)
 					} else {}
 				});
+
+				uni.showLoading({
+					title: '加载中'
+				})
+				let optgender = {
+					url: 'tree/userInfo',
+					method: 'get',
+				};
+				request.httpRequest(optgender, user).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.gender = res.data.gender
+					} else {}
+				});
+
+
 			},
 		}
 	};

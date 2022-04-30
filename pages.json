@@ -246,7 +246,8 @@
 			"van-field": "/wxcomponents/vant/field/index",
 			"van-picker": "/wxcomponents/vant/picker/index",
 			"van-radio": "/wxcomponents/vant/radio/index",
-			"van-radio-group": "/wxcomponents/vant/radio-group/index"
+			"van-radio-group": "/wxcomponents/vant/radio-group/index",
+			"van-popup": "/wxcomponents/vant/popup/index"
 		}
 	}
 }

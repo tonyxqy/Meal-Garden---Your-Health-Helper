@@ -52,7 +52,7 @@
 			}
 		},
 		mounted() {
-			check()
+			this.check()
 		},
 		onLoad() {
 			this._startLikeAnimation();
@@ -69,7 +69,7 @@
 					url: 'forum/false',
 					method: 'get',
 				};
-				request.httpRequest(optsBreakfastMenu).then(res => {
+				request.httpRequest(opt).then(res => {
 					if (res.statusCode == 200) {
 						this.checkdata = res.data
 					} else {}

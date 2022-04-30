@@ -104,7 +104,7 @@
 			}
 		},
 		mounted() {
-			check()
+			this.check()
 		},
 		methods: {
 			bindPickerChange1: function(e) {
@@ -124,11 +124,11 @@
 				Toast(`当前值：${value}, 当前索引：${index}`);
 			},
 			check(){
-				let opt = {
+				let optBreakfastMenu = {
 					url: 'forum/false',
 					method: 'get',
 				};
-				request.httpRequest(optsBreakfastMenu).then(res => {
+				request.httpRequest(optBreakfastMenu).then(res => {
 					if (res.statusCode == 200) {
 						this.checkdata = res.data
 					} else {}
