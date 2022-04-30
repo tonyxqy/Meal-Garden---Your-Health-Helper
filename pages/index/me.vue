@@ -1,17 +1,19 @@
 <!-- 个人中心 -->
 <template>
 	<view class="components-theme">
-		
+
 		<navigator target="miniProgram" app-id='wxdd194d285cb574b1' version='release' hover-class="none">
-		<!-- <navigator target="miniProgram" app-id='wx307a52ca028d3c07' version='release' hover-class="none"> -->
+			<!-- <navigator target="miniProgram" app-id='wx307a52ca028d3c07' version='release' hover-class="none"> -->
 			<view class="dong">
 				<view class="monster">
 					<view class="monster__face">
 						<view class="monster__eye avatar-eye avatar-eye--green eye--left">
-							<view class="avatar-eye-pupil pupil--green"><span class="avatar-eye-pupil-blackThing"><span class="avatar-eye-pupil-lightReflection"></span></span></view>
+							<view class="avatar-eye-pupil pupil--green"><span class="avatar-eye-pupil-blackThing"><span
+										class="avatar-eye-pupil-lightReflection"></span></span></view>
 						</view>
 						<view class="monster__eye avatar-eye avatar-eye--violet eye--right">
-							<view class="avatar-eye-pupil pupil--pink"><span class="avatar-eye-pupil-blackThing"><span class="avatar-eye-pupil-lightReflection"></span></span></view>
+							<view class="avatar-eye-pupil pupil--pink"><span class="avatar-eye-pupil-blackThing"><span
+										class="avatar-eye-pupil-lightReflection"></span></span></view>
 						</view>
 						<view class="monster__noses">
 							<view class="monster__nose"></view>
@@ -31,7 +33,8 @@
 				<view class="modal_bg"></view>
 				<view class="modal_main">
 					<view class='nav-list margin-top'>
-						<view :class="'nav-li bg-zt' + (index+1)" v-for="(item, index) in inter" :key="index" @click="switchImage(index,item.name)">
+						<view :class="'nav-li bg-zt' + (index+1)" v-for="(item, index) in inter" :key="index"
+							@click="switchImage(index,item.name)">
 							<view class="nav-name">{{item.name}}</view>
 						</view>
 					</view>
@@ -39,7 +42,8 @@
 			</view>
 		</view>
 		<!-- 顶部背景 -->
-		<view class='UCenter-bg' :style="'background-image: url(' + pic[topBackGroupImageIndex].link + ');margin-top:-' + CustomBar + 'px;'">
+		<view class='UCenter-bg'
+			:style="'background-image: url(' + pic[topBackGroupImageIndex].link + ');margin-top:-' + CustomBar + 'px;'">
 			<view class='space' v-show="spaceShow">
 				<view class="stars ">
 					<view class="star "></view>
@@ -54,18 +58,22 @@
 					<!-- <view class="cu-avatar2 round margin-right-sm shadow-blur bg-img" style="background-image:url(http://cdn.zhoukaiwen.com/head1.jpg);">
 					</view> -->
 
-					<view class="cu-avatar2 round xl margin-right-sm shadow-blur-lg bg-img open-data" style="overflow: hidden;">
-						<open-data type="userAvatarUrl"></open-data>
+					<view class="cu-avatar2 round xl margin-right-sm shadow-blur-lg bg-img open-data"
+						style="overflow: hidden;">
+						<view v-if="avatarUrl">
+							<image :src="avatarUrl"></image>
+						</view>
 					</view>
 					<view class="padding text-blue text-xl text-bold">
-						你好，<open-data type="userNickName"></open-data>
+						<view v-if="nickName"><text>你好，{{nickName}}</text></view>
 					</view>
 
 				</view>
 			</block>
 
-			<image src='https://cdn.nlark.com/yuque/0/2019/gif/280373/1570670848649-assets/web-upload/3dbaa72a-062b-470f-9b9d-058ff8f85ab8.gif'
-			 mode='scaleToFill' class='gif-wave'></image>
+			<image
+				src='https://cdn.nlark.com/yuque/0/2019/gif/280373/1570670848649-assets/web-upload/3dbaa72a-062b-470f-9b9d-058ff8f85ab8.gif'
+				mode='scaleToFill' class='gif-wave'></image>
 		</view>
 
 		<block>
@@ -73,22 +81,26 @@
 				<view class='flex flex-sub flex-direction solid-right'>
 					<view class="text-xxl text-orange">{{ansList[0]}}cm</view>
 					<view class="margin-top-sm">
-						<text ></text> 身高</view>
+						<text></text> 身高
+					</view>
 				</view>
 				<view class='flex flex-sub flex-direction solid-right'>
 					<view class="text-xxl text-blue">{{ansList[1]}}kg</view>
 					<view class="margin-top-sm">
-						<text ></text> 体重</view>
+						<text></text> 体重
+					</view>
 				</view>
 				<view class='flex flex-sub flex-direction'>
 					<view class="text-xxl text-red">{{ansList[2]}}%</view>
 					<view class="margin-top-sm">
-						<text ></text> BMI</view>
+						<text></text> BMI
+					</view>
 				</view>
 			</view>
 
 
-			<view class="cu-list menu card-menu margin-top-lg margin-bottom-sm shadow-shop bg-white text-black my-radius sm-border">
+			<view
+				class="cu-list menu card-menu margin-top-lg margin-bottom-sm shadow-shop bg-white text-black my-radius sm-border">
 				<view class="cu-item" @tap="showModal" data-target="Modal">
 					<view class='content'>
 						<image src='../../static/me/icon/zhuti.png' class='png' mode='aspectFit'></image>
@@ -138,7 +150,8 @@
 
 			</view>
 
-			<view class="cu-list menu card-menu margin-top-lg margin-bottom-lg shadow-shop bg-white text-black my-radius sm-border">
+			<view
+				class="cu-list menu card-menu margin-top-lg margin-bottom-lg shadow-shop bg-white text-black my-radius sm-border">
 
 				<view class="cu-item ">
 					<button class='content cu-btn' @click="goSalary">
@@ -195,13 +208,15 @@
 	import request from '@/common/request.js';
 	export default {
 		data() {
+			var nickName = uni.getStorageSync('nickName')
+			var avatarUrl = uni.getStorageSync('avatarUrl')
 			return {
-				// Custom: this.Custom,
-				// CustomBar: this.CustomBar,
-				spaceShow:true,
+				nickName,
+				avatarUrl,
+				spaceShow: true,
 				modalName: null,
 				TabList: [],
-				ansList:[],
+				ansList: [],
 				picName: '流星之夜',
 				pic: [{
 					link: 'https://cdn.zhoukaiwen.com/zjx_me_bg1.jpeg',
@@ -256,12 +271,12 @@
 				title: '看看这个小程序多好玩～',
 			};
 		},
-		watch:{
+		watch: {
 			topBackGroupImageIndex(val) {
 				console.log(val)
-				if (val == 4 || val == 5 ) {
+				if (val == 4 || val == 5) {
 					this.spaceShow = true;
-				}else{
+				} else {
 					this.spaceShow = false;
 				}
 			}
@@ -273,6 +288,9 @@
 			//     duration: 2000
 			// });
 			this.getServerData()
+			this.nickName = uni.getStorageSync('nickName')
+			this.avatarUrl = uni.getStorageSync('avatarUrl')
+			console.log(this.nickName, this.avatarUrl, "name")
 		},
 		methods: {
 			getServerData() {
@@ -293,9 +311,9 @@
 					if (res.statusCode == 200) {
 						this.TabList = res.data
 						console.log(this.TabList)
-						for(let i=0  ;i<this.TabList.length;i++){
-							console.log(this.TabList[i].timeList[this.TabList[i].timeList.length-1].value)
-							this.ansList.push(this.TabList[i].timeList[this.TabList[i].timeList.length-1].value);
+						for (let i = 0; i < this.TabList.length; i++) {
+							console.log(this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value)
+							this.ansList.push(this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value);
 						}
 						console.log(this.ansList)
 					} else {}
@@ -322,12 +340,12 @@
 					phoneNumber: "18301912104",
 				});
 			},
-			goSalary(){
-				if(uni.getStorageSync('job'))
-				uni.navigateTo({
-					url: '../../page_job/aboutjob'
-				})
-				else{
+			goSalary() {
+				if (uni.getStorageSync('job'))
+					uni.navigateTo({
+						url: '../../page_job/aboutjob'
+					})
+				else {
 					uni.navigateTo({
 						url: '../../page_job/job'
 					})
@@ -561,7 +579,7 @@
 		color: #fff;
 		background: #152e9d;
 	}
-	
+
 	.bg-zt6 {
 		color: #fff;
 		background: #0f1358;

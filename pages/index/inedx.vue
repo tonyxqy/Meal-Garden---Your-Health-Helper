@@ -255,7 +255,7 @@
 						<view class="detailsTop">
 							<text class="text-lg text-black text-blue" style="padding-bottom: 20rpx;">所需食材：</text>
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"v-if="index<4">
 									{{item}}
 								</text>
 							</view>
@@ -458,9 +458,9 @@
 								console.log(resinfo, "code");
 								console.log(resinfo.userInfo.avatarUrl,resinfo.userInfo.nickName)
 								uni.setStorageSync('avatarUrl', resinfo.userInfo.avatarUrl);
-								uni.setStorageSync('nikeName', resinfo.userInfo.nikeName);
-								const  nikeName = uni.getStorageSync('nikeName')
-								const avatarUrl = uni.getStorageSync('avatarUrl')
+								uni.setStorageSync('nickName', resinfo.userInfo.nickName);
+								var nickName = uni.getStorageSync('nickName')
+								var avatarUrl = uni.getStorageSync('avatarUrl')
 								console.log(nickName,avatarUrl,"name")
 								if (res.code) {
 									console.log(res.code, "getProfile");

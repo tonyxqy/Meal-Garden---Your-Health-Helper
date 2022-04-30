@@ -60,7 +60,7 @@
 						</view>
 						<view class="detailsTop">
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"v-if="index<12">
 									{{item}}
 								</text>
 							</view>
@@ -70,7 +70,7 @@
 				<view class="details">
 						<text class="text-xl text-bold text-shadow">步骤：</text>
 					<view slot="desc" v-for="(item, index) in popArray.practice">
-						<text style="line-height: 30rpx;">
+						<text style="line-height: 30rpx;"v-if="index<6">
 							{{item}}
 						</text>
 					</view>
@@ -165,6 +165,7 @@
 				uni.request({
 					url: 'https://xuyq.xyz:3306/dish/dinner',
 					success: (res) => {
+						uni.hideLoading();
 						console.log(res.data[1])
 						this.foodArray = res.data
 						console.log(this.foodArray[0].pictureUrl)
@@ -183,6 +184,7 @@
 				uni.request({
 					url: 'https://xuyq.xyz:3306/dish/dish?menu=' + this.foodText,
 					success: (res) => {
+						uni.hideLoading();
 						console.log(res.data[1])
 						this.foodArray = res.data
 						console.log(this.foodArray[0].pictureUrl)
@@ -206,6 +208,7 @@
 						createTime:this.timer,
 					},
 					success: (res) => {
+						uni.hideLoading();
 						console.log(200,"addsuccess")
 						wx.showToast({
 						  title: '提交成功',
@@ -272,9 +275,7 @@
 		text-align: left;
 		padding: 20rpx;
 		padding-left:30rpx ;
-		overflow: scroll;
 		line-height: 20px;
-		max-height: 200px;
 		color: #304156;
 		letter-spacing:2rpx;
 	}
