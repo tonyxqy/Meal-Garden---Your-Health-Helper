@@ -134,30 +134,14 @@
 			})
 			request.httpRequest(optstar).then(res => {
 				console.log(res);
-				// uni.hideLoading();
+				uni.hideLoading();
 				if (res.statusCode == 200) {
 					this.list =res.data
 					this.pageName = '动态';
 					this.addRandomData();
 				} else {}
 			});
-			let optvideo = {
-				url: 'forum/videos',
-				method: 'get',
-			};
-			uni.showLoading({
-				title: '加载中'
-			})
-			request.httpRequest(optvideo).then(res => {
-				console.log(res);
-				uni.hideLoading();
-				if (res.statusCode == 200) {
-					console.log(res.data)
-					res.data.forEach(item=>{
-						this.urls.push(item.photourl)
-					})
-				} else {}
-			});
+
 		},
 
 		methods: {
@@ -192,6 +176,26 @@
 			change(index) {
 				this.swiperCurrent = index;
 				// this.getOrderList(index);
+				console.log(this.swiperCurrent)
+				if(this.swiperCurrent==1){
+					let optvideo = {
+						url: 'forum/videos',
+						method: 'get',
+					};
+					uni.showLoading({
+						title: '加载中'
+					})
+					request.httpRequest(optvideo).then(res => {
+						console.log(res);
+						uni.hideLoading();
+						if (res.statusCode == 200) {
+							console.log(res.data)
+							res.data.forEach(item=>{
+								this.urls.push(item.photourl)
+							})
+						} else {}
+					});
+				}
 			},
 			transition({
 				detail: {
@@ -208,6 +212,25 @@
 				this.$refs.tabs.setFinishCurrent(current);
 				this.swiperCurrent = current;
 				this.current = current;
+				if(this.swiperCurrent==1){
+					let optvideo = {
+						url: 'forum/videos',
+						method: 'get',
+					};
+					uni.showLoading({
+						title: '加载中'
+					})
+					request.httpRequest(optvideo).then(res => {
+						console.log(res);
+						uni.hideLoading();
+						if (res.statusCode == 200) {
+							console.log(res.data)
+							res.data.forEach(item=>{
+								this.urls.push(item.photourl)
+							})
+						} else {}
+					});
+				}
 			},
 			addRandomData() {
 				console.log(this.list.length)
