@@ -1,7 +1,6 @@
 <!-- 关于本程序 -->
 <template>
-	<view class="about"  v-if="checkdata">
-
+	<view class="about" v-if="checkdata">
 		<canvas canvas-id="bubble" :style="'width:' + width + 'px;height:' + height + 'px'" class="like-fx"></canvas>
 		<like-fx ref="likeFx" :width="width" :height="height"></like-fx>
 		<view class="titleZ text-center align-center">
@@ -48,7 +47,8 @@
 				width: 375,
 				height: 1920,
 				show:false,
-				user_id:','
+				user_id:',',
+				checkdata:false
 			}
 		},
 		mounted() {
@@ -65,11 +65,11 @@
 		},
 		methods: {
 			check(){
-				let opt = {
+				let optBreakfastMenu = {
 					url: 'forum/false',
 					method: 'get',
 				};
-				request.httpRequest(opt).then(res => {
+				request.httpRequest(optBreakfastMenu).then(res => {
 					if (res.statusCode == 200) {
 						this.checkdata = res.data
 					} else {}
@@ -103,7 +103,7 @@
 						words: this.words,
 						sign1: this.sign1,
 						sign2: this.sign2,
-						nickname: "hhh"
+						nickname: uni.getStorageSync('nickName')
 					},
 					success(res) {
 						console.log(res)
@@ -116,7 +116,7 @@
 			},
 			_startLikeAnimation() {
 				this.animation_timer = setInterval(() => {
-					this.$refs.likeFx.likeClick()
+					// this.$refs.likeFx.likeClick()
 				}, 300)
 			}
 		}
