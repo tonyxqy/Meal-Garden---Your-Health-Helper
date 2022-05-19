@@ -1,25 +1,21 @@
 <!-- 首页 -->
 <template>
-	<view>
-		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
+	<view class="bodycolor">
+		<cu-custom bgColor="bg-gradual-green" :isBack="false">
 			<!-- <block slot="backText">返回</block> -->
 			<block slot="content">首页</block>
 		</cu-custom>
-		<!-- bodyhelper -->
-		<bodyhelper style="z-index: 5;"></bodyhelper>
-
-
 		<add-tip :tip="tip" :duration="duration" />
 		<view id="container">
 			<!-- banner图 -->
 			<view class="uni-padding-wrap">
-				<view class="page-section swiper">
+				<view class="page-section myswiper">
 					<view class="page-section-spacing">
-						<swiper class="swiper" circular="true" indicator-dots="true" autoplay="true" interval="3500"
+						<swiper class="myswiper" circular="true" indicator-dots="true" autoplay="true" interval="3500"
 							duration="600">
 							<swiper-item class="swiper-list" v-for="(item, index) in bannerList" :key="index">
 								<view class="swiper-item uni-bg-red">
-									<image class="swiper-img" :src="item.imageUrl" mode=""></image>
+									<image class="myswiper-img" :src="item.imageUrl" mode=""></image>
 								</view>
 							</swiper-item>
 						</swiper>
@@ -27,11 +23,12 @@
 				</view>
 			</view>
 			<!-- 导航栏 -->
-			<view class="cu-list grid solids-bottom col-4 no-border">
+			<view class="cu-list grid col-4 no-border">
 				<view class="cu-item" v-for="(item,index) in categories" :key="index"
 					:style="[{animation: 'show ' + ((index+1)*0.2+1) + 's 1'}]" @click="goCategorieslist"
 					:data-mid="item.mid">
-					<view :class="['cuIcon-' + item.cuIcon,'text-' + item.color]">
+					<view :class="['cuIcon-' + item.cuIcon,'text-' + item.color]" class="tagbar"
+						:style="[{background:item.bgc}]">
 						<view class="cu-tag badge" v-if="item.count!=0">
 							<block v-if="item.badge!=1">{{item.badge>99?'99+':item.badge}}</block>
 						</view>
@@ -42,27 +39,30 @@
 			<!-- <van-sticky offset-top="80 "> -->
 			<view class="cu-bar bg-white margin-top-xs">
 				<view class="action sub-title">
-					<text class="text-xl text-bold text-blue text-shadow">今日能量</text>
-					<text class="text-ABC text-blue">energy</text>
+					<text class="text-xl text-bold text-dark text-shadow">今日能量</text>
+					<text class="text-ABC text-light">energy</text>
 				</view>
 			</view>
-			<van-grid column-num="3" border="false" direction="horizontal">
-				<van-grid-item use-slot text="糖分" border="false">
-					<span class="iconfont">&#xe62d;</span>
-					<text class="gridtext">糖分</text>
-					<text class="gridtext1">:{{target.targetSugar}}g</text>
-				</van-grid-item>
-				<van-grid-item use-slot text="能量" border="false">
-					<span class="iconfont">&#xe61b;</span>
-					<text class="gridtext">能量</text>
-					<text class="gridtext1">:{{target.targetEnergy}}cal</text>
-				</van-grid-item>
-				<van-grid-item use-slot text="脂肪" border="false">
-					<span class="iconfont">&#xe725;</span>
-					<text class="gridtext">脂肪</text>
-					<text class="gridtext1">:{{target.targetFat}}g</text>
-				</van-grid-item>
-			</van-grid>
+			<view class="mydata">
+				<image class="" src="https://s1.328888.xyz/2022/05/19/DVao1.png" mode=""></image>
+				<text class="gridtext1">{{current.currentEnergy.toFixed(2)}}</text>
+				<image class="" src="https://s1.328888.xyz/2022/05/19/DVKqC.png" mode="">
+					<text class="gridtext1">{{current.currentFat.toFixed(2)}}</text>
+					<image class="" src="https://s1.328888.xyz/2022/05/19/DVOwg.png" mode=""></image>
+					<text class="gridtext1">{{current.currentSugar.toFixed(2)}}</text>
+				</image>
+			</view>
+			<view class="bodycontainer">
+				<view class="bodydata">
+					<bodyhelper style="z-index: 5;"></bodyhelper>
+				</view>
+			</view>
+
+
+
+
+
+			<!-- 
 			<van-grid column-num="3" border="false">
 				<van-grid-item use-slot text="糖分" style="text-align: center;">
 					<view style="height: 160px">
@@ -88,14 +88,14 @@
 						<text class="gridtext">脂肪</text>
 					</view>
 				</van-grid-item>
-			</van-grid>
+			</van-grid> -->
 			<!-- </van-sticky> -->
 
 			<view class="cu-bar bg-white margin-top-xs">
 				<view class="action sub-title">
-					<text class="text-xl text-bold text-blue text-shadow">每日推荐</text>
-					<text class="text-ABC text-blue">recommendation</text>
-<!-- 					<button>早餐</button>
+					<text class="text-xl text-bold text-dark text-shadow">每日推荐</text>
+					<text class="text-ABC text-light">recommendation</text>
+					<!-- 					<button>早餐</button>
 					<button>中餐</button>
 					<button>晚餐</button> -->
 				</view>
@@ -117,39 +117,170 @@
 					</div>
 					<view @click="bindIt(item)" class="kite-classify-cell shadow" v-for="(item, index) in curriculum"
 						:key="index">
-						<view :class="'nav-li bg-index' + ((index%6)+1)">
-							<view class="nav-name">{{item.menu}}</view>
+						<image style="width: 136px; height: 120px;border-radius: 10px; margin: 10px;"
+							:src="item.pictureUrl" />
+						<view class="nav-name">{{item.energy}}cal</view>
+						<view class="itemmenu">{{item.menu}}</view>
+						<view class="itemingredients">
+							<text v-for="(item, index) in item.classifiction" v-if="index<3">
+								{{item}},
+							</text>
 						</view>
-						<view class="nav-content" style="height: 100%;">
-							<van-grid column-num="1" :border="false">
-								<van-grid-item use-slot>
-									<image style="width: 100%; height: 90px;border-radius: 10%;"
-										:src="item.pictureUrl" />
-								</van-grid-item>
-							</van-grid>
-						</view>
+						<button type="default" class="buttonchoose" style="background-color: #0BCCD2;">
+							<text>
+								选择
+							</text>
+						</button>
 					</view>
 				</scroll-view>
 			</view>
-			<view class="cu-bar bg-white margin-top-xs">
-				<view class="action sub-title">
-					<text class="text-xl text-bold text-blue text-shadow">我的今日食谱</text>
-					<text class="text-ABC text-blue">Daily recipe</text>
-				</view>
-				<view class="action" @click="goBreakfast">
-					<text class="text-lg text-grey text-shadow">早餐</text>
-				</view>
-				<view class="action" @click="goLunch">
-					<text class="text-lg text-grey text-shadow">中餐</text>
-				</view>
-				<view class="action" @click="goDinner">
-					<text class="text-lg text-grey text-shadow">晚餐</text>
-				</view>
-			</view>
-			<!-- <view style="height: 1000px;"> -->
+			
 		</view>
+		<view class="cu-bar bg-white margin-top-xs">
+			<view class="action sub-title">
+				<text class="text-xl text-bold text-dark text-shadow">我的今日早餐</text>
+				<text class="text-ABC text-light">BreakFast</text>
+			</view>
+			<view class="action" @click="goBreakfast">
+				<text class="text-lg text-grey text-shadow">添加早餐</text>
+			</view>
+			<!-- 				<view class="action" @click="goLunch">
+				<text class="text-lg text-grey text-shadow">中餐</text>
+			</view>
+			<view class="action" @click="goDinner">
+				<text class="text-lg text-grey text-shadow">晚餐</text>
+			</view> -->
+		</view>
+		<scroll-view scroll-x="true" class="body-classify-scroll">
+			<view @click="bindY(item)" class="body-classify-cell shadow bodyshadow"
+				v-for="(item, index) in breakfastList" :key="index">
+				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
+				<view class="bodyname">早餐</view>
+				<view class="bodymenu">{{item.menu}}</view>
+				<button type="default" style="background-color: #0BCCD2;">
+					<text>
+						营养成分
+					</text>
+				</button>
+			</view>
+			<view class="body-classify-cell shadow bodyshadow">
+				<image style="width: 301px; height: 193px; opacity: 0.8;" src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
+			</view>
+		</scroll-view>
+		<view class="cu-bar bg-white margin-top-xs">
+			<view class="action sub-title">
+				<text class="text-xl text-bold text-dark text-shadow">我的今日午餐</text>
+				<text class="text-ABC text-light">Lunch</text>
+			</view>
+<!-- 			<view class="action" @click="goBreakfast">
+				<text class="text-lg text-grey text-shadow">添加早餐</text>
+			</view> -->
+							<view class="action" @click="goLunch">
+				<text class="text-lg text-grey text-shadow">添加午餐</text>
+			</view>
+<!-- 			<view class="action" @click="goDinner">
+				<text class="text-lg text-grey text-shadow">晚餐</text>
+			</view> -->
+		</view>
+		<scroll-view scroll-x="true" class="body-classify-scroll">
+			<view @click="bindY(item)" class="body-classify-cell shadow bodyshadow"
+				v-for="(item, index) in lunchList" :key="index">
+				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
+				<view class="bodyname">午餐</view>
+				<view class="bodymenu">{{item.menu}}</view>
+				<button type="default" style="background-color: #0BCCD2;">
+					<text>
+						营养成分
+					</text>
+				</button>
+			</view>
+			<view class="body-classify-cell shadow bodyshadow">
+				<image style="width: 301px; height: 193px; opacity: 0.8;" src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
+			</view>
+		</scroll-view>
+		<view class="cu-bar bg-white margin-top-xs">
+			<view class="action sub-title">
+				<text class="text-xl text-bold text-dark text-shadow">我的今日晚餐</text>
+				<text class="text-ABC text-light">Dinner</text>
+			</view>
+<!-- 			<view class="action" @click="goBreakfast">
+				<text class="text-lg text-grey text-shadow">添加早餐</text>
+			</view> -->
+<!-- 							<view class="action" @click="goLunch">
+				<text class="text-lg text-grey text-shadow">中餐</text>
+			</view> -->
+			<view class="action" @click="goDinner">
+				<text class="text-lg text-grey text-shadow">添加晚餐</text>
+			</view>
+		</view>
+		<scroll-view scroll-x="true" class="body-classify-scroll">
+			<view @click="bindY(item)" class="body-classify-cell shadow bodyshadow"
+				v-for="(item, index) in dinnerList" :key="index">
+				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
+				<view class="bodyname">晚餐</view>
+				<view class="bodymenu">{{item.menu}}</view>
+				<button type="default" style="background-color: #0BCCD2;">
+					<text>
+						营养成分
+					</text>
+				</button>
+			</view>
+			<view class="body-classify-cell shadow bodyshadow">
+				<image style="width: 301px; height: 193px; opacity: 0.8;" src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
+			</view>
+		</scroll-view>
+		<u-popup v-model="showY" mode="center" width="690rpx" height="810rpx" @close="popupClose" border-radius="20"
+			style=" border: 10rpx;">
+			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
+				<view class="canlass">
+					<view class="aasd" style="padding-left: 20rpx;" @click="showY = false">关闭 </view>
+					<view class="titileCenter">菜名： {{popArray.menu}} </view>
+					<view class="aasd"
+						style="color: white; background-color: red; text-align: center; border-radius: 20%;"
+						@click="deleteMenuBreakfast(popArray)"> 删除菜品
+					</view>
+				</view>
+				<view style="column-count: 2;">
+					<image :src="popArray.pictureUrl" mode="aspectFill"
+						style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;"></image>
+					<view>
+						<view>
+							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
+								v-for="(item,index) in popArray.classifiction">
+								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" size="large"
+									v-if="index<4">
+									{{item}}
+								</van-tag>
+							</view>
+						</view>
 
-		<view class="cu-card case no-card">
+						<view class="detailsTop">
+							<text class="text-lg text-black text-blue" style="padding-bottom: 20rpx;">所需食材：</text>
+							<view slot="desc" v-for="(item, index) in popArray.ingredients">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
+									v-if="index<4">
+									{{item}}
+								</text>
+							</view>
+						</view>
+					</view>
+	
+				</view>
+				<view class="">
+					<van-steps :steps="steps" :active="active" direction="vertical" active-color="#ee0a24" />
+				</view>
+				<!-- <van-button  type="danger" @click="deleteMenuBreakfast(popArray)">删除</van-button> -->
+			</view>
+		</u-popup>
+
+
+
+
+
+
+
+
+		<!-- <view class="cu-card case no-card">
 			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in breakfastList" :key="index">
 				<van-card currency=" " lazy-load="true" :thumb="item.pictureUrl">
 					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
@@ -220,6 +351,7 @@
 				</van-card>
 			</view>
 		</view>
+ -->
 		<u-popup v-model="showT" mode="center" width="690rpx" height="810rpx" @close="popupClose" border-radius="20"
 			style=" border: 10rpx;">
 			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
@@ -236,7 +368,8 @@
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
 								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;"size="large" v-if="index<4">
+								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" size="large"
+									v-if="index<4">
 									{{item}}
 								</van-tag>
 							</view>
@@ -255,7 +388,8 @@
 						<view class="detailsTop">
 							<text class="text-lg text-black text-blue" style="padding-bottom: 20rpx;">所需食材：</text>
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"v-if="index<4">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
+									v-if="index<4">
 									{{item}}
 								</text>
 							</view>
@@ -303,9 +437,35 @@
 			var timer = year + "-" + month + "-" + day
 			console.log(timer, "dateStrdateStrdateStr")
 			return {
+				steps: [{
+						// text: '步骤一',
+						desc: '描述信息',
+						inactiveIcon: 'location-o',
+						activeIcon: 'success',
+					},
+					{
+						// text: '步骤二',
+						desc: '描述信息',
+						inactiveIcon: 'location-o',
+						activeIcon: 'plus',
+					},
+					{
+						// text: '步骤三',
+						desc: '描述信息',
+						inactiveIcon: 'location-o',
+						activeIcon: 'cross',
+					},
+					{
+						// text: '步骤四',
+						desc: '描述信息',
+						inactiveIcon: 'location-o',
+						activeIcon: 'fail',
+					},
+				],
 				hide: true,
 				//登录测试
 				showT: false,
+				showY: false,
 				logion: false,
 				hasUserInfo: false,
 				userInfo: null,
@@ -371,42 +531,50 @@
 				},
 
 				bannerList: [{
-						imageUrl: 'https://tse1-mm.cn.bing.net/th/id/R-C.5e11fda5b177f51290733a0a5e56599b?rik=gijEoQ%2faNE%2fdzA&riu=http%3a%2f%2fimg.99.com.cn%2fuploads%2f202012%2f449_111438_1.jpg&ehk=7vZcg2qvqq7OS2NbEXdlP5HA%2f6%2bLaHh5840UAARMLLI%3d&risl=&pid=ImgRaw&r=0',
+						imageUrl: 'https://s1.328888.xyz/2022/05/19/DbY8B.png',
 					},
 					{
-						imageUrl: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.jpmOoKasCkpfRddDBjGaGQHaDP?w=310&h=153&c=7&r=0&o=5&pid=1.7',
+						imageUrl: 'https://s1.328888.xyz/2022/05/19/DbTRT.png',
 					},
 					{
-						imageUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.SHuggeGyxVoCr06u5ZpwAwHaDf?w=298&h=165&c=7&r=0&o=5&pid=1.7',
+						imageUrl: 'https://s1.328888.xyz/2022/05/19/Dbc62.png',
 					},
 					{
-						imageUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.RKZRJBeeJtnyUYG7V4e1FAHaDe?w=299&h=164&c=7&r=0&o=5&pid=1.7',
+						imageUrl: 'https://s1.328888.xyz/2022/05/19/DbwLM.png',
 					}
 				],
 				categories: [{
+					imageUrl: 'https://s1.328888.xyz/2022/05/19/DF2MT.png',
 					cuIcon: 'appreciatefill',
-					color: 'red',
+					color: 'green',
 					badge: '推荐',
 					mid: '1',
-					name: '舌诊检测'
+					name: '舌诊检测',
+					bgc: '#E1FFD9'
 				}, {
-					cuIcon: 'selection',
-					color: 'orange',
+					imageUrl: 'https://s1.328888.xyz/2022/05/19/DF2MT.png',
+					cuIcon: 'we',
+					color: 'red',
 					badge: 1,
 					mid: '2',
-					name: '体质测试'
+					name: '体质测试',
+					bgc: '#FFDEDC'
 				}, {
+					imageUrl: 'https://s1.328888.xyz/2022/05/19/DF2MT.png',
 					cuIcon: 'videofill',
-					color: 'yellow',
+					color: 'blue',
 					badge: 12,
 					mid: '3',
-					name: '分享视频'
+					name: '分享视频',
+					bgc: '#DFF1FF'
 				}, {
+					imageUrl: 'https://s1.328888.xyz/2022/05/19/DF2MT.png',
 					cuIcon: 'group',
-					color: 'cyan',
+					color: 'purple',
 					badge: 22,
 					mid: '4',
-					name: '分享动态'
+					name: '分享动态',
+					bgc: '#FFD8ED'
 				}],
 				curriculum: [],
 				projectList: [],
@@ -442,7 +610,6 @@
 				this.logion = false
 			}
 		},
-
 		methods: {
 			hidebox() {
 				this.hide = !this.hide;
@@ -456,12 +623,12 @@
 						wx.login({
 							success: (res) => {
 								console.log(resinfo, "code");
-								console.log(resinfo.userInfo.avatarUrl,resinfo.userInfo.nickName)
+								console.log(resinfo.userInfo.avatarUrl, resinfo.userInfo.nickName)
 								uni.setStorageSync('avatarUrl', resinfo.userInfo.avatarUrl);
 								uni.setStorageSync('nickName', resinfo.userInfo.nickName);
 								var nickName = uni.getStorageSync('nickName')
 								var avatarUrl = uni.getStorageSync('avatarUrl')
-								console.log(nickName,avatarUrl,"name")
+								console.log(nickName, avatarUrl, "name")
 								if (res.code) {
 									console.log(res.code, "getProfile");
 									this.setCode(res.code, resinfo);
@@ -603,7 +770,9 @@
 					// this.show = true
 					this.loadshow = false
 					if (res.statusCode == 200) {
-						this.curriculum = this.curriculum.concat(res.data)
+						var list = res.data
+						this.help(list)
+						this.curriculum = this.curriculum.concat(list)
 						this.loadshow = false
 					} else {}
 				});
@@ -612,7 +781,9 @@
 					// this.show = true
 					this.loadshow = false
 					if (res.statusCode == 200) {
-						this.curriculum = this.curriculum.concat(res.data)
+						var list = res.data
+						this.help(list)
+						this.curriculum = this.curriculum.concat(list)
 						this.loadshow = false
 					} else {}
 				});
@@ -621,7 +792,9 @@
 					// this.show = true
 					this.loadshow = false
 					if (res.statusCode == 200) {
-						this.curriculum = this.curriculum.concat(res.data)
+						var list = res.data
+						this.help(list)
+						this.curriculum = this.curriculum.concat(list)
 						this.loadshow = false
 					} else {}
 				});
@@ -690,7 +863,7 @@
 			submitMenu() {
 				var that = this
 				this.showT = false
-				console.log(this.radio,this.popArray.menu, this.user_id, this.timer, this.volume)
+				console.log(this.radio, this.popArray.menu, this.user_id, this.timer, this.volume)
 				uni.showLoading({
 					title: '上传中'
 				})
@@ -728,8 +901,7 @@
 							duration: 2000 //持续的时间
 						})
 						this.getMenuData()
-					} else {
-					}
+					} else {}
 				});
 			},
 			popupClose() {
@@ -742,7 +914,29 @@
 				this.helpIt(this.popArray)
 				console.log(this.popArray, "popArray")
 			},
+			bindY(item) {
+				uni.$emit('hidebox')
+				this.showY = true
+				this.popArray = item
+				this.helpIt(this.popArray)
+				console.log(this.popArray, "popArray")
+			},
 			helpIt(self) {
+				// if(self.practice != null){
+				// 	let practice = self.practice
+				// 	console.log(practice)
+				// 	this.steps=[];
+				// 	for(var i=0;i<practice.length;i++){
+				// 		console.log(practice[i])
+				// 		let change ={
+				// 		  text: '步骤'+i,
+				// 		  desc: practice[i],
+				// 		  inactiveIcon: 'location-o',
+				// 		  activeIcon: 'plus',
+				// 		}
+				// 		this.steps.push(change)
+				// 	}
+				// }
 				if (self.ingredients != null) {
 					let sep = /\,/
 					let ingredients = self.ingredients.slice(1, -1).split(sep)
@@ -765,9 +959,18 @@
 				if (self.practice != null) {
 					let practice = self.practice.slice(1, -1).split(',')
 					let list = []
+				    this.steps=[];
 					practice.forEach((self, index) => {
 						let change = self.trim().replace(/\'/g, "");
 						list.push(change)
+						console.log(change)
+						let action = {
+							text: '步骤' + index,
+							desc: change,
+							inactiveIcon: 'location-o',
+							activeIcon: 'plus',
+						}
+						this.steps.push(action)
 					})
 					self.practice = list
 				}
@@ -788,6 +991,7 @@
 					},
 					success: (res) => {
 						console.log(200, "delete menu")
+						showY = false
 						this.getMenuData()
 						wx.showToast({
 							title: '删除成功',
@@ -898,6 +1102,80 @@
 	}
 </script>
 <style lang="scss" scoped>
+	.bodycontainer {
+		margin-top: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.bodydata {
+			width: 212px;
+			height: 212px;
+		}
+	}
+
+	.mydata {
+		width: 330px;
+		height: 30px;
+		padding: 6px;
+		border-radius: 8px 8px 8px 8px;
+		background-color: #F2F2F2;
+		margin: auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+
+		text {
+			line-height: 20px;
+			font-weight: bold;
+		}
+
+		image {
+			width: 45px;
+			height: 18px;
+		}
+	}
+
+	.text-dark {
+		color: #1BBFC8;
+	}
+
+	.text-light {
+		color: #9DE4E8;
+	}
+
+	.tagbar {
+		border-radius: 50%;
+		width: 50px !important;
+		height: 50px;
+		margin: auto;
+		vertical-align: center;
+		text-align: center;
+		line-height: 50px;
+	}
+
+	.bodycolor {
+		background-color: #fff;
+	}
+
+	.myswiper {
+		width: 100%;
+		height: 245px;
+		padding: 5px 8px 0px 8px;
+		position: relative;
+
+		.myswiper-img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+			height: 95%;
+			border-radius: 7.5px 7.5px 7.5px 7.5px;
+		}
+	}
+
 	@font-face {
 		font-family: 'iconfont';
 		src: url('@/static/iconfont.ttf?t=1647423422630') format('truetype');
@@ -1025,20 +1303,125 @@
 		background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #f3f3f3 60%);
 	}
 
+	.body-classify-scroll {
+		width: 100%;
+		height: 200px;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	.bodyshadow {
+		width: 301px;
+		height: 193px;
+		position: relative;
+		// filter: blur(1px);
+		background-size: cover;
+	}
+
+	.bodyshadow:after {
+		width: 301px;
+		height: 193px;
+		position: relative;
+		filter: blur(15px);
+		background-size: cover;
+	}
+
+	// .bodyshadow{
+	//    width: 301px;
+	//    height: 193px;
+	//     position:relative;
+	// }
+	.body-classify-cell {
+		display: inline-block;
+		border: 1px solid #DFDFDF;
+		width: 301px;
+		height: 193px;
+		// margin-right: 20px;
+		margin-left: 20px;
+		background-color: #FFFFFF;
+		border-radius: 15px;
+		overflow: hidden;
+		position: relative;
+		box-shadow: 2px 2px 3px rgba(26, 26, 26, 0.2);
+
+
+
+		.bodyname {
+			position: absolute;
+			top: 23px;
+			left: 14px;
+			width: 300px;
+			height: 46px;
+			font-size: 34px;
+			font-family: Source Han Sans CN-Bold, Source Han Sans CN;
+			font-weight: bold;
+			color: #0BCCD2;
+			line-height: 15px;
+			letter-spacing: 5px;
+			z-index: 11;
+		}
+
+		.bodymenu {
+			// background:#0BCCD2;
+			// border-radius: 15px 15px 15px 15px;
+			position: absolute;
+			top: 63px;
+			left: 25px;
+			height: 31px;
+			font-size: 16px;
+			padding: 6px;
+			z-index: 11;
+			backdrop-filter: blur(2.5px);
+			font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+			font-weight: 400;
+			color: #000000;
+			line-height: 15px;
+			border-radius: 20%;
+
+		}
+
+		button {
+			position: absolute;
+			width: 95px;
+			height: 30px;
+			right: 8px;
+			bottom: 10px;
+			background: #0BCCD2;
+			border-radius: 15px 15px 15px 15px;
+			opacity: 1;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			color: #fff;
+
+			z-index: 11;
+
+			text {
+				line-height: 30px;
+				font-weight: bold;
+				z-index: 11;
+			}
+		}
+	}
+
+
 	.kite-classify-scroll {
 		width: 100%;
-		height: 380rpx;
+		height: 240px;
 		overflow: hidden;
 		white-space: nowrap;
 	}
 
 	.kite-classify-cell {
 		display: inline-block;
-		width: 266rpx;
-		height: 370rpx;
-		margin-right: 20rpx;
+		border: 1px solid #DFDFDF;
+		width: 156px;
+		height: 231px;
+		// margin-right: 16px;
+		margin-left: 16px;
 		background-color: #FFFFFF;
-		border-radius: 10rpx;
+		border-radius: 15px;
 		overflow: hidden;
 		box-shadow: 2px 2px 3px rgba(26, 26, 26, 0.2);
 	}
@@ -1054,10 +1437,42 @@
 	}
 
 	.nav-name {
-		font-size: 28upx;
+		line-height:
+			15px;
+		font-size: 12px;
 		text-transform: Capitalize;
-		margin-top: 20upx;
+		// margin-top: 20upx;
+		margin-left: 10px;
 		position: relative;
+		color: #0BCCD2;
+		font-family: Proxima Nova-Semibold, Proxima Nova;
+		font-weight: 600;
+		width: 36px;
+		height: 16px;
+	}
+
+	.itemmenu {
+		margin-left: 10px;
+		margin-top: 3px;
+		width: 48px;
+		height: 16px;
+		font-size: 12px;
+		font-family: Source Han Sans CN-Medium, Source Han Sans CN;
+		font-weight: 500;
+		color: #000000;
+		line-height: 15px;
+	}
+
+	.itemingredients {
+		margin-left: 10px;
+		margin-top: 3px;
+		width: 120px;
+		height: 14px;
+		font-size: 10px;
+		font-family: Proxima Nova-Semibold, Proxima Nova;
+		font-weight: 600;
+		color: #0BCCD2;
+		line-height: 15px;
 	}
 
 	.nav-name::before {
@@ -1210,6 +1625,29 @@
 	.dot:nth-child(5) {
 		animation-delay: 0.5s;
 		background: #faaacc;
+	}
+
+	.buttonchoose {
+		width: 85px;
+		height: 28px;
+		margin: auto;
+		margin-top: 3px;
+		background: #0BCCD2;
+		border-radius: 15px 15px 15px 15px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: 1;
+
+		text {
+			width: 22px;
+			height: 28px;
+			font-size: 11px;
+			font-family: Proxima Nova-Semibold, Proxima Nova;
+			font-weight: 600;
+			color: #FFFFFF;
+			line-height: 28px;
+		}
 	}
 
 	@-moz-keyframes slide {

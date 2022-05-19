@@ -108,7 +108,7 @@
 					</view>
 					<view class='action'>
 						<view class="cu-capsule radius">
-							<view class='cu-tag bg-gradual-blue'>
+							<view class='cu-tag bg-gradual-green'>
 								<view style="clear: both;"></view>
 							</view>
 							<view class="cu-tag line-blue">

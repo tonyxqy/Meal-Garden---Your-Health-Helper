@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<cu-custom class="navBox" bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom class="navBox" bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">海报生成器</block>
 		</cu-custom>

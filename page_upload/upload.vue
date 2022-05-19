@@ -1,6 +1,6 @@
 <template>
 	<view class="wrap" v-if="checkdata">
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">分享</block>
 		</cu-custom>
@@ -123,7 +123,7 @@
 				} = event.detail;
 				Toast(`当前值：${value}, 当前索引：${index}`);
 			},
-			check(){
+			check(){ji
 				let optBreakfastMenu = {
 					url: 'forum/false',
 					method: 'get',

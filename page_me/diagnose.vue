@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">舌诊</block>
 		</cu-custom>

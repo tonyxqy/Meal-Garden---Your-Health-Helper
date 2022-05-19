@@ -433,9 +433,9 @@ const cfu = {
 	    "dataPointShapeType": "solid",
 	    "tapLegend": true,
 	    "title": {
-	        "name": " ",
-	        "fontSize": 20,
-	        "color": "#00FF00",
+	        "name": "今日能量",
+	        "fontSize": 15,
+	        "color": "#B3BCD0",
 	        "offsetX": 0,
 	        "offsetY": 0
 	    },
@@ -449,11 +449,11 @@ const cfu = {
 	    "extra": {
 	        "arcbar": {
 	            "type": "circle",
-	            "width": 5,
+	            "width": 10,
 	            "backgroundColor": "#E9E9E9",
 	            "startAngle": 1.5,
 	            "endAngle": 1.5,
-	            "gap": 2,
+	            "gap": 15,
 	            "centerX": 0,
 	            "centerY": 0,
 	            "linearType": "custom"

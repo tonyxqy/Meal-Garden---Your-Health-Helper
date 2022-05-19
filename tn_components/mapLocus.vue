@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<cu-custom class="navBox" bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom class="navBox" bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">地图轨迹</block>
 		</cu-custom>

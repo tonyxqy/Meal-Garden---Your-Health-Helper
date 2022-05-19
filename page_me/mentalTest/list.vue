@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">答题测试</block>
 		</cu-custom>
@@ -30,7 +30,7 @@
 						</view>
 					</view>
 					<view class="action">
-						<button v-if="item.isAnswer != 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-blue shadow">前往答题</button>
+						<button v-if="item.isAnswer != 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-green shadow">前往答题</button>
 						<button v-if="item.isAnswer == 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-orange shadow">已经答题</button>
 					</view>
 				</view>
@@ -55,7 +55,7 @@
 						</view>
 					</view>
 					<view class="action">
-						<button v-if="item.isAnswer != 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-blue shadow">前往答题</button>
+						<button v-if="item.isAnswer != 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-green shadow">前往答题</button>
 						<button v-if="item.isAnswer == 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-orange shadow">已经答题</button>
 					</view>
 				</view>

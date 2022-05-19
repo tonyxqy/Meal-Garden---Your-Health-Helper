@@ -1,7 +1,7 @@
 <!-- 模拟数据加载 -->
 <template>
 	<view class="container">
-		<cu-custom class="navBox" bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom class="navBox" bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">模拟数据加载</block>
 		</cu-custom>

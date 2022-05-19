@@ -1,5 +1,5 @@
 <template>
-	<view class="" style="z-index: 5;">
+	<view class="bodyhelper" style="z-index: 5;">
 		<van-dialog id="van-dialog" />
 		<view class="bodyhelper" @click="bodyhelpermethod">
 			<view class="charts-box1">
@@ -23,16 +23,12 @@
 				},
 				current: {
 					userId: 8,
-					currentWeight: 155,
-					currentHeight: 46,
 					currentSugar: 16.2,
 					currentEnergy: 311.6,
 					currentFat: 16.2
 				},
 				target: {
 					userId: 6,
-					targetWeight: 0,
-					targetHeight: 0,
 					targetSugar: 50,
 					targetEnergy: 2000,
 					targetFat: 55
@@ -92,18 +88,19 @@
 					console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
+						this.bodyhelper.series=[]
 						this.current = res.data;
 						console.log(this.current)
 						let ans1 = {
-							color : "#0081ff",
+							color : "#0B5BD2",
 							data: this.current.currentEnergy / this.target.targetEnergy
 						};
 						let ans2={
-							color : "#F49A02",
+							color : "#0B9CD2",
 							data: this.current.currentSugar / this.target.targetSugar
 						};
 						let ans3 = {
-							color : "#954ff6",
+							color : "#0B5BD2",
 							data: this.current.currentFat / this.target.targetFat
 						};
 						this.bodyhelper.series.push(ans1)
@@ -120,16 +117,13 @@
 <style>
 	.charts-box1 {
 		width: 100%;
-		height: 100px;
+		height: 100%;
 		z-index: 200;
 	}
 
 	.bodyhelper {
-		position: fixed;
-		top: 80%;
-		left: 0;
-		height: 60px;
-		width: 60px;
+		width: 100%;
+		height: 100%;
 		z-index: 10;
 	}
 </style>
