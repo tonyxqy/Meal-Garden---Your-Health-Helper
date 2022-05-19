@@ -640,11 +640,6 @@ export default [{
 			"icon":"https://s1.328888.xyz/2022/04/11/fqJFA.png"
         },
         {
-            "tag": 72,
-            "name": "甜品/点心",
-			"icon":"https://s1.328888.xyz/2022/04/11/fq0N2.png"
-        },
-        {
             "tag": 74,
             "name": "豫菜",
 			"icon":"https://s1.328888.xyz/2022/04/11/fqmag.png"
@@ -738,21 +733,6 @@ export default [{
             "tag": 140,
             "name": "美味糕点",
 			"icon":"https://s1.328888.xyz/2022/04/11/fquYO.jpg"
-        },
-        {
-            "tag": 141,
-            "name": "韩国料理",
-			"icon":"https://s1.328888.xyz/2022/04/11/fq9pm.png"
-        },
-        {
-            "tag": 142,
-            "name": "意大利餐",
-			"icon":"https://s1.328888.xyz/2022/04/11/fqTGZ.png"
-        },
-        {
-            "tag": 146,
-            "name": "日本料理",
-			"icon":"https://s1.328888.xyz/2022/04/11/fqttQ.png"
         },
         {
             "tag": 149,

@@ -1,6 +1,6 @@
 <template>
 	<view class="components-home">
-		<cu-custom bgColor="bg-green" :isBack="true">
+		<cu-custom bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">营养银行</block>
 		</cu-custom>
@@ -396,9 +396,9 @@
 				info.votes = Number(this.info.votes);
 				rainArr.splice(index, 1);
 				this.setData({
-					// plussNum: value,
+					plussNum: value,
 					info,
-					// pluss: true,
+					pluss: true,
 					treemove: true
 				});
 				setTimeout(() => {

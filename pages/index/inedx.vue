@@ -236,7 +236,7 @@
 					<view class="aasd" style="padding-left: 20rpx;" @click="showY = false">关闭 </view>
 					<view class="titileCenter">菜名： {{popArray.menu}} </view>
 					<view class="aasd"
-						style="color: white; background-color: red; text-align: center; border-radius: 20%;"
+						style="color: black; text-align: center; border-radius: 10%;"
 						@click="deleteMenuBreakfast(popArray)"> 删除菜品
 					</view>
 				</view>
@@ -898,7 +898,7 @@
 					},
 					success: (res) => {
 						console.log(200, "delete menu")
-						showY = false
+						this.showY = false
 						this.getMenuData()
 						wx.showToast({
 							title: '删除成功',
