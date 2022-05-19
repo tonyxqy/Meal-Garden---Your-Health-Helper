@@ -34,6 +34,13 @@
           "name": "舌诊",
           "pathName": "pages/index/diagnose",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "早餐",
+          "pathName": "page_menu/breakfast",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

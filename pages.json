@@ -4,7 +4,14 @@
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue",
 		"mp-video-swiper": "@/wxcomponents/video-swiper/index"
 	},
-	"pages": [{
+	"pages": [
+		{
+			"path":"pages/index/login",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/index/tabbar",
 			"style": {
 				"navigationBarTitleText": "",

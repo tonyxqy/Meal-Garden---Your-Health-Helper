@@ -89,6 +89,7 @@
 </template>
 
 <script>
+	import request from '@/common/request.js';
 	//index.js
 	//获取应用实例
 	const app = getApp();
@@ -344,7 +345,41 @@
 					}
 				}, time);
 			},
-
+			bubble(value) {
+				var user_id = uni.getStorageSync('userId')
+				var that = this
+				uni.request({
+					url: 'https://xuyq.xyz:3306/tree/bubble',
+					method: 'POST',
+					header: {
+						'content-type': 'application/x-www-form-urlencoded'
+					},
+					data: {
+						user_id,
+						rain:value,
+					},
+					success: (res) => {
+						console.log(res,"bubble")
+					}
+				})
+			},
+			temp(){
+				var user_id = uni.getStorageSync('userId')
+				var that = this
+				let opt = {
+					url: 'tree/templateRain',
+					method: 'get',
+				};
+				let data={
+					user_id,
+				}
+				request.httpRequest(opt,data).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						console.log(res,"temp")
+					} else {}
+				});
+			},
 			// 收取雨滴的动画
 			rainFun(e) {
 				let {
@@ -355,7 +390,9 @@
 				let rainArr = this.rainArr;
 				value=value.rain
 				console.log(value)
-				// info.votes = Number(this.info.votes) + (value - 0);
+				this.bubble(value)
+				this.temp()
+				info.votes = Number(this.info.votes) + (value - 0);
 				info.votes = Number(this.info.votes);
 				rainArr.splice(index, 1);
 				this.setData({

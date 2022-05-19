@@ -29,6 +29,7 @@
 					// #endif
 				}
 			});
+			
 		},
 		onShow: function() {
 			console.log('App Show')
@@ -44,5 +45,4 @@
 	@import "colorui/icon.css";
 	@import "uview-ui/index.scss";
 	@import "@/wxcomponents/vant/common/index.wxss";
-
 </style>

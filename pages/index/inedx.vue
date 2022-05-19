@@ -466,7 +466,6 @@
 				//登录测试
 				showT: false,
 				showY: false,
-				logion: false,
 				hasUserInfo: false,
 				userInfo: null,
 				//
@@ -614,98 +613,6 @@
 			hidebox() {
 				this.hide = !this.hide;
 			},
-			getUserInfo() {
-				this.logion = false
-				wx.getUserProfile({
-					desc: '用于完善会员资料',
-					success: (resinfo) => {
-						console.log(resinfo, "resinfo");
-						wx.login({
-							success: (res) => {
-								console.log(resinfo, "code");
-								console.log(resinfo.userInfo.avatarUrl, resinfo.userInfo.nickName)
-								uni.setStorageSync('avatarUrl', resinfo.userInfo.avatarUrl);
-								uni.setStorageSync('nickName', resinfo.userInfo.nickName);
-								var nickName = uni.getStorageSync('nickName')
-								var avatarUrl = uni.getStorageSync('avatarUrl')
-								console.log(nickName, avatarUrl, "name")
-								if (res.code) {
-									console.log(res.code, "getProfile");
-									this.setCode(res.code, resinfo);
-								} else {
-									console.log(res.errMsg);
-								}
-							},
-							fail: (err) => {
-								console.log(err);
-							}
-						})
-					},
-					fail: (errinfo) => {
-						//console.log(errinfo);
-					}
-				})
-			},
-
-			// 传code
-			setCode(code, resinfo) {
-				wx.request({
-					// url: 'http://localhost:8088/user/wx/login',
-					url: 'https://xuyq.xyz:3306/user/wx/login',
-					method: "POST",
-					header: {
-						'content-type': 'application/x-www-form-urlencoded',
-					},
-					data: {
-						code: code, //临时登录凭证
-						rawData: resinfo.rawData, //用户非敏感信息
-						signature: resinfo.signature, //签名
-						encrypteData: resinfo.encryptedData, //用户敏感信息
-						iv: resinfo.iv //解密算法的向量
-					},
-					success: (loginRes) => {
-						console.log(loginRes, "loginRes");
-						if (loginRes.data.status == 200) {
-							uni.setStorageSync('itemlogin', loginRes.data.data);
-							this.getUserid(loginRes.data.data)
-							console.log(loginRes.data.data)
-						} else {
-							uni.showToast({
-								title: '登录失败',
-								icon: 'none'
-							});
-						}
-					},
-					fail: (loginErr) => {}
-				})
-			},
-			getUserid(id) {
-				var that = this
-				uni.request({
-					// url: 'http://localhost:8088/user/findUserId',
-					url: 'https://xuyq.xyz:3306/user/findUserId',
-					method: 'GET',
-					header: {
-						'content-type': 'application/x-www-form-urlencoded'
-					},
-					data: {
-						skey: id
-					},
-					success: (res) => {
-						console.log(res, "getUserid")
-						uni.setStorage({
-							key: 'userId',
-							data: res.data,
-							success: function() {
-								that.getData();
-								uni.$emit('bodyhelper')
-							}
-						});
-						// uni.setStorageSync('userId', res.data)
-					}
-				})
-			},
-
 			//测试登录
 			getData() {
 				var user_id = uni.getStorageSync('userId')

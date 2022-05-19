@@ -169,7 +169,8 @@
 				console.log(time, "md5tim2")
 				console.log(sign, "md5tim2")
 				uni.request({
-					url: 'https://www.aibayes.cn/api/analysis',
+					url:'https://xuyq.xyz:3306/forum/tongue',
+					// url: 'http://www.aibayes.cn/api/analysis',
 					// url: 'https://www.aibayes.com',
 					method: 'POST',
 					header: {
@@ -177,14 +178,14 @@
 						'content-type': ' application/x-www-form-urlencoded'
 					},
 					data: {
-						app_id: "70cd5aa7a6a143d0",
-						timestamp: timestamp,
-						version: "1.0",
-						sign: sign,
-						method: "jiuti",
+						// app_id: "70cd5aa7a6a143d0",
+						// timestamp: timestamp,
+						// version: "1.0",
+						// sign: sign,
+						// method: "jiuti",
 						imgpath: "https://tongue-api.oss-cn-beijing.aliyuncs.com/weixin_20220321174512.jpg",
 						// imgpath:img,
-						timeout_express: 600
+					// 	timeout_express: 600
 					},
 					// success: (res) => {
 					// 	console.log(res.data.data, "get")
