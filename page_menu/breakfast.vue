@@ -58,9 +58,10 @@
 								<text style="color: #304156;padding-left:10rpx ;">{{popArray.time}}</text>
 							</view>
 						</view>
+						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：</view>
 						<view class="detailsTop">
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"v-if="index<12">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"v-if="index<10">
 									{{item}}
 								</text>
 							</view>
@@ -265,7 +266,7 @@
 	}
 
 	.detailsTop {
-		padding: 30rpx;
+		padding-left: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
 		max-height: 140px;
@@ -275,7 +276,6 @@
 		flex-direction:row;
 		flex-wrap: wrap;
 	}
-
 	.details {
 		display: flex;
 		flex-direction: column;

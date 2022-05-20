@@ -134,7 +134,7 @@
 					</view>
 				</scroll-view>
 			</view>
-			
+
 		</view>
 		<view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
@@ -152,7 +152,7 @@
 			</view> -->
 		</view>
 		<scroll-view scroll-x="true" class="body-classify-scroll">
-			<view @click="bindY(item)" class="body-classify-cell shadow bodyshadow"
+			<view @click="bindY(item,1)" class="body-classify-cell shadow bodyshadow"
 				v-for="(item, index) in breakfastList" :key="index">
 				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
 				<view class="bodyname">早餐</view>
@@ -164,7 +164,8 @@
 				</button>
 			</view>
 			<view class="body-classify-cell shadow bodyshadow">
-				<image style="width: 301px; height: 193px; opacity: 0.8;" src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
+				<image style="width: 301px; height: 193px; opacity: 0.8;"
+					src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
 			</view>
 		</scroll-view>
 		<view class="cu-bar bg-white margin-top-xs">
@@ -172,19 +173,19 @@
 				<text class="text-xl text-bold text-dark text-shadow">我的今日午餐</text>
 				<text class="text-ABC text-light">Lunch</text>
 			</view>
-<!-- 			<view class="action" @click="goBreakfast">
+			<!-- 			<view class="action" @click="goBreakfast">
 				<text class="text-lg text-grey text-shadow">添加早餐</text>
 			</view> -->
-							<view class="action" @click="goLunch">
+			<view class="action" @click="goLunch">
 				<text class="text-lg text-grey text-shadow">添加午餐</text>
 			</view>
-<!-- 			<view class="action" @click="goDinner">
+			<!-- 			<view class="action" @click="goDinner">
 				<text class="text-lg text-grey text-shadow">晚餐</text>
 			</view> -->
 		</view>
 		<scroll-view scroll-x="true" class="body-classify-scroll">
-			<view @click="bindY(item)" class="body-classify-cell shadow bodyshadow"
-				v-for="(item, index) in lunchList" :key="index">
+			<view @click="bindY(item,2)" class="body-classify-cell shadow bodyshadow" v-for="(item, index) in lunchList"
+				:key="index">
 				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
 				<view class="bodyname">午餐</view>
 				<view class="bodymenu">{{item.menu}}</view>
@@ -195,7 +196,8 @@
 				</button>
 			</view>
 			<view class="body-classify-cell shadow bodyshadow">
-				<image style="width: 301px; height: 193px; opacity: 0.8;" src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
+				<image style="width: 301px; height: 193px; opacity: 0.8;"
+					src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
 			</view>
 		</scroll-view>
 		<view class="cu-bar bg-white margin-top-xs">
@@ -203,10 +205,10 @@
 				<text class="text-xl text-bold text-dark text-shadow">我的今日晚餐</text>
 				<text class="text-ABC text-light">Dinner</text>
 			</view>
-<!-- 			<view class="action" @click="goBreakfast">
+			<!-- 			<view class="action" @click="goBreakfast">
 				<text class="text-lg text-grey text-shadow">添加早餐</text>
 			</view> -->
-<!-- 							<view class="action" @click="goLunch">
+			<!-- 							<view class="action" @click="goLunch">
 				<text class="text-lg text-grey text-shadow">中餐</text>
 			</view> -->
 			<view class="action" @click="goDinner">
@@ -214,7 +216,7 @@
 			</view>
 		</view>
 		<scroll-view scroll-x="true" class="body-classify-scroll">
-			<view @click="bindY(item)" class="body-classify-cell shadow bodyshadow"
+			<view @click="bindY(item,3)" class="body-classify-cell shadow bodyshadow"
 				v-for="(item, index) in dinnerList" :key="index">
 				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
 				<view class="bodyname">晚餐</view>
@@ -226,7 +228,8 @@
 				</button>
 			</view>
 			<view class="body-classify-cell shadow bodyshadow">
-				<image style="width: 301px; height: 193px; opacity: 0.8;" src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
+				<image style="width: 301px; height: 193px; opacity: 0.8;"
+					src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
 			</view>
 		</scroll-view>
 		<u-popup v-model="showY" mode="center" width="690rpx" height="810rpx" @close="popupClose" border-radius="20"
@@ -235,8 +238,7 @@
 				<view class="canlass">
 					<view class="aasd" style="padding-left: 20rpx;" @click="showY = false">关闭 </view>
 					<view class="titileCenter">菜名： {{popArray.menu}} </view>
-					<view class="aasd"
-						style="color: black; text-align: center; border-radius: 10%;"
+					<view class="aasd" style="color: black; text-align: center; border-radius: 10%;"
 						@click="deleteMenuBreakfast(popArray)"> 删除菜品
 					</view>
 				</view>
@@ -254,17 +256,18 @@
 							</view>
 						</view>
 
+						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：
+						</view>
 						<view class="detailsTop">
-							<text class="text-lg text-black text-blue" style="padding-bottom: 20rpx;">所需食材：</text>
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
 								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<4">
+									v-if="index<10">
 									{{item}}
 								</text>
 							</view>
 						</view>
 					</view>
-	
+
 				</view>
 				<view class="">
 					<van-steps :steps="steps" :active="active" direction="vertical" active-color="#ee0a24" />
@@ -272,13 +275,6 @@
 				<!-- <van-button  type="danger" @click="deleteMenuBreakfast(popArray)">删除</van-button> -->
 			</view>
 		</u-popup>
-
-
-
-
-
-
-
 
 		<!-- <view class="cu-card case no-card">
 			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in breakfastList" :key="index">
@@ -352,7 +348,7 @@
 			</view>
 		</view>
  -->
-		<u-popup v-model="showT" mode="center" width="690rpx" height="810rpx" @close="popupClose" border-radius="20"
+		<u-popup v-model="showT" mode="center" width="690rpx" height="900rpx" @close="popupClose" border-radius="20"
 			style=" border: 10rpx;">
 			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
 				<view class="canlass">
@@ -361,9 +357,20 @@
 					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="showT = false"> 确定
 					</view>
 				</view>
+
 				<view style="column-count: 2;">
-					<image :src="popArray.pictureUrl" mode="aspectFill"
-						style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;"></image>
+					<view>
+						<view>
+							<view style="padding: 10rpx;padding-left: 20rpx;">
+								有{{precent}}%的用户
+							</view>
+							<view style="padding-left: 90rpx;padding-bottom: 10rpx;">
+								也喜欢这道菜...
+							</view>
+						</view>
+						<image :src="popArray.pictureUrl" mode="aspectFill"
+							style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;"></image>
+					</view>
 					<view>
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
@@ -385,11 +392,13 @@
 								<text style="color: #304156;padding-left:10rpx ;">{{popArray.time}}</text>
 							</view>
 						</view>
+						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：
+						</view>
 						<view class="detailsTop">
-							<text class="text-lg text-black text-blue" style="padding-bottom: 20rpx;">所需食材：</text>
+
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
 								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<4">
+									v-if="index<12">
 									{{item}}
 								</text>
 							</view>
@@ -463,6 +472,7 @@
 					},
 				],
 				hide: true,
+				precent: 60,
 				//登录测试
 				showT: false,
 				showY: false,
@@ -475,6 +485,7 @@
 				volume: 1,
 				//
 				radio: 1,
+				deleteNo: 1,
 				// 仪表盘
 				gaugeWidth: 10,
 				chartData: {
@@ -583,7 +594,7 @@
 				popArray: [],
 				timer,
 				user_id,
-				showT: false
+				showT: false,
 			}
 		},
 		activated() {
@@ -814,14 +825,19 @@
 			popupClose() {
 				uni.$emit('hidebox')
 			},
+			getRndInteger(min, max) {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			},
 			bindIt(item) {
+				this.precent = this.getRndInteger(60, 80)
 				uni.$emit('hidebox')
 				this.showT = true
 				this.popArray = item
 				this.helpIt(this.popArray)
 				console.log(this.popArray, "popArray")
 			},
-			bindY(item) {
+			bindY(item, num) {
+				this.deleteNo = num
 				uni.$emit('hidebox')
 				this.showY = true
 				this.popArray = item
@@ -845,7 +861,7 @@
 				// 	}
 				// }
 				if (self.ingredients != null) {
-					let sep = /\,/
+					let sep = /\,|\:/
 					let ingredients = self.ingredients.slice(1, -1).split(sep)
 					let list = []
 					ingredients.forEach((self, index) => {
@@ -866,13 +882,14 @@
 				if (self.practice != null) {
 					let practice = self.practice.slice(1, -1).split(',')
 					let list = []
-				    this.steps=[];
+					this.steps = [];
 					practice.forEach((self, index) => {
-						let change = self.trim().replace(/\'/g, "");
+						let change = self.trim().replace(/\'|\\n|\d|\\t/g, "");
 						list.push(change)
 						console.log(change)
+						var no = index + 1
 						let action = {
-							text: '步骤' + index,
+							text: '步骤' + no,
 							desc: change,
 							inactiveIcon: 'location-o',
 							activeIcon: 'plus',
@@ -885,18 +902,35 @@
 			deleteMenuBreakfast(item) {
 				var that = this
 				console.log(item.menu, this.user_id, this.timer)
-				uni.request({
-					url: 'https://xuyq.xyz:3306/user/deleteTodayMeunbreakfast',
-					method: 'POST',
-					header: {
-						'content-type': 'application/json'
-					},
-					data: {
-						user_id: this.user_id,
-						menu: item.menu,
-						createTime: this.timer,
-					},
-					success: (res) => {
+				uni.showLoading({
+					title: '删除中'
+				})
+				if (this.deleteNo == 1) {
+					var opt = {
+						url: 'user/deleteTodayMeunbreakfast',
+						method: 'POST'
+					}
+				};
+				if (this.deleteNo == 2) {
+					var opt = {
+						url: 'user/deleteTodayMeunlunch',
+						method: 'POST'
+					}
+				};
+				if (this.deleteNo == 3) {
+					var opt = {
+						url: 'user/deleteTodayMeundinner',
+						method: 'POST'
+					}
+				};
+				let data = {
+					user_id: this.user_id,
+					menu: item.menu,
+					createTime: this.timer,
+				};
+				request.httpRequest(opt, data).then(res => {
+					uni.hideLoading();
+					if (res.statusCode == 200) {
 						console.log(200, "delete menu")
 						this.showY = false
 						this.getMenuData()
@@ -905,58 +939,8 @@
 							icon: 'success',
 							duration: 2000 //持续的时间
 						})
-					}
-				})
-			},
-			deleteMenuLunch(item) {
-				var that = this
-				console.log(item.menu, this.user_id, this.timer)
-				uni.request({
-					url: 'https://xuyq.xyz:3306/user/deleteTodayMeunlunch',
-					method: 'POST',
-					header: {
-						'content-type': 'application/json'
-					},
-					data: {
-						user_id: this.user_id,
-						menu: item.menu,
-						createTime: this.timer,
-					},
-					success: (res) => {
-						console.log(200, "delete lunch")
-						this.getMenuData()
-						wx.showToast({
-							title: '删除成功',
-							icon: 'success',
-							duration: 2000 //持续的时间
-						})
-					}
-				})
-			},
-			deleteMenuDinner(item) {
-				var that = this
-				console.log(item.menu, this.user_id, this.timer)
-				uni.request({
-					url: 'https://xuyq.xyz:3306/user/deleteTodayMeundinner',
-					method: 'POST',
-					header: {
-						'content-type': 'application/json'
-					},
-					data: {
-						user_id: this.user_id,
-						menu: item.menu,
-						createTime: this.timer,
-					},
-					success: (res) => {
-						console.log(200, "delete dinner")
-						this.getMenuData()
-						wx.showToast({
-							title: '删除成功',
-							icon: 'success',
-							duration: 2000 //持续的时间
-						})
-					}
-				})
+					} else {}
+				});
 			},
 			scroll: function(e) {
 				console.log(e)
@@ -1094,10 +1078,10 @@
 	}
 
 	.detailsTop {
-		padding: 30rpx;
+		padding-left: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
-		max-height: 130px;
+		max-height: 140px;
 		color: #304156;
 		letter-spacing: 2rpx;
 		display: flex;

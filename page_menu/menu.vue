@@ -71,7 +71,7 @@
 						<text class="text-xl text-bold text-shadow">步骤：</text>
 					<view slot="desc" v-for="(item, index) in popArray.practice">
 						<text style="line-height: 30rpx;"v-if="index<6">
-							{{item}}
+							({{index+1}}){{item}}
 						</text>
 					</view>
 				</view>
@@ -161,7 +161,7 @@
 					let practice = self.practice.slice(1, -1).split(',')
 					let list = []
 					practice.forEach((self, index) => {
-						let change = self.trim().replace(/\'/g, "");
+						let change = self.trim().replace(/\'|\\n|\d|\\t/g, "");
 						list.push(change)
 					})
 					self.practice = list

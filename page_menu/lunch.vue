@@ -60,10 +60,10 @@
 								<text style="color: #304156;padding-left:10rpx ;">{{popArray.time}}</text>
 							</view>
 						</view>
+						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：</view>
 						<view class="detailsTop">
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<12">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"v-if="index<10">
 									{{item}}
 								</text>
 							</view>
@@ -74,7 +74,7 @@
 					<text class="text-xl text-bold text-shadow">步骤：</text>
 					<view slot="desc" v-for="(item, index) in popArray.practice">
 						<text style="line-height: 30rpx;"v-if="index<6">
-							{{item}}
+							({{index+1}}){{item}}
 						</text>
 					</view>
 				</view>
@@ -157,7 +157,7 @@
 					let practice = self.practice.slice(1, -1).split(',')
 					let list = []
 					practice.forEach((self, index) => {
-						let change = self.trim().replace(/\'/g, "");
+						let change = self.trim().replace(/\'|\\n|\d|\\t/g, "");
 						list.push(change)
 					})
 					self.practice = list
@@ -267,15 +267,14 @@
 	}
 
 	.detailsTop {
-		padding: 30rpx;
+		padding-left: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
 		max-height: 140px;
 		color: #304156;
-		letter-spacing: 2rpx;
-
+		letter-spacing:2rpx;
 		display: flex;
-		flex-direction: row;
+		flex-direction:row;
 		flex-wrap: wrap;
 	}
 
