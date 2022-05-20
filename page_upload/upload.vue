@@ -123,7 +123,7 @@
 				} = event.detail;
 				Toast(`当前值：${value}, 当前索引：${index}`);
 			},
-			check(){ji
+			check(){
 				let optBreakfastMenu = {
 					url: 'forum/false',
 					method: 'get',
@@ -140,6 +140,7 @@
 				})
 				var that = this;
 				let user_id = uni.getStorageSync('userId')
+				let nickName = uni.getStorageSync('nickName')
 				uni.uploadFile({
 					url: 'https://xuyq.xyz:3306/forum/add_forum',
 					filePath: this.file.url,
@@ -149,7 +150,7 @@
 						words: this.words,
 						sign1: this.sign1,
 						sign2: this.sign2,
-						nickname: "hhh"
+						nickname: nickName
 					},
 					success(res) {
 						console.log(res)
