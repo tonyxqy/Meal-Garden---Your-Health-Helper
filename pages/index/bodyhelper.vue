@@ -3,7 +3,8 @@
 		<van-dialog id="van-dialog" />
 		<view class="bodyhelper" @click="bodyhelpermethod">
 			<view class="charts-box1">
-				<qiun-data-charts type="arcbar" :chartData="bodyhelper" background="none" />
+				<qiun-data-charts type="arcbar" :chartData="bodyhelper" background="none" :canvas2d="true"
+					canvasId="PtkLjVCficswnxqitCLWhYOaMHrIrHvm" />
 			</view>
 		</view>
 	</view>
@@ -18,8 +19,7 @@
 		data() {
 			return {
 				bodyhelper: {
-					"series": [
-					]
+					"series": []
 				},
 				current: {
 					userId: 8,
@@ -33,12 +33,12 @@
 					targetEnergy: 2000,
 					targetFat: 55
 				},
-				user_id:''
+				user_id: ''
 			}
 		},
-		mounted(){
+		mounted() {
 			this.getData()
-			uni.$on('bodyhelper',this.getData)
+			uni.$on('bodyhelper', this.getData)
 		},
 		methods: {
 			bodyhelpermethod() {
@@ -88,25 +88,25 @@
 					console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
-						this.bodyhelper.series=[]
+						this.bodyhelper.series = []
 						this.current = res.data;
 						console.log(this.current)
 						let ans1 = {
-							color : "#0B5BD2",
+							color: "#1890FF",
 							data: this.current.currentEnergy / this.target.targetEnergy
 						};
-						let ans2={
-							color : "#0B9CD2",
+						let ans2 = {
+							color: "#73C0DE",
 							data: this.current.currentSugar / this.target.targetSugar
 						};
 						let ans3 = {
-							color : "#0B5BD2",
+							color: "#079CD2",
 							data: this.current.currentFat / this.target.targetFat
 						};
 						this.bodyhelper.series.push(ans1)
 						this.bodyhelper.series.push(ans2)
 						this.bodyhelper.series.push(ans3)
-						console.log('#######',this.bodyhelper)
+						console.log('#######', this.bodyhelper)
 					} else {}
 				});
 			}
@@ -118,12 +118,12 @@
 	.charts-box1 {
 		width: 100%;
 		height: 100%;
-		z-index: 200;
+		z-index: 0;
 	}
 
 	.bodyhelper {
 		width: 100%;
 		height: 100%;
-		z-index: 10;
+		z-index: 0;
 	}
 </style>

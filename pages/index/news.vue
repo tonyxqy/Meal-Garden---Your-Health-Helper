@@ -42,22 +42,22 @@
 						</template>
 						<template v-slot:right="{rightList}">
 							<view class="demo-warter" v-for="(item, index) in rightList" :key="index"
-								@click="seeImg(item.image)">
-								<u-lazy-load threshold="-450" border-radius="10" :image="item.image" :index="index">
+								@click="seeImg(item.photourl)">
+								<u-lazy-load threshold="-450" border-radius="10" :image="item.photourl" :index="index">
 								</u-lazy-load>
 								<view class="demo-title">
-									{{item.title}}
+									{{item.words}}
 								</view>
 								<view class="demo-tag">
 									<view class="demo-tag-owner">
-										{{item.yhdj}}
+										{{item.sign1}}
 									</view>
 									<view class="demo-tag-text">
-										{{item.type}}
+										{{item.sign2}}
 									</view>
 								</view>
 								<view class="demo-shop">
-									{{item.shop}}
+									{{item.nickname}}
 								</view>
 <!-- 								<u-icon name="close-circle-fill" color="#ff55ff" size="34" class="u-close"
 									@click="remove(item.id)">
@@ -78,6 +78,12 @@
 			</swiper-item>
 		</swiper>
 		<u-loadmore bg-color="rgb(240, 240, 240)" :status="loadStatus" @loadmore="addRandomData"></u-loadmore>
+		<view class="" @click="uploaddata()">
+			<navigator url="/page_upload/upload">
+			<image src='https://s1.328888.xyz/2022/05/20/duFhB.png'  class='share-img png round shadow-lg bg-white'>
+			</navigator>
+		</view>
+		</image>
 	</view>
 
 </template>
@@ -145,6 +151,11 @@
 		},
 
 		methods: {
+			uploaddata() {
+				uni.navigateTo({
+					url: '/page_upload/uploadvideo.vue'
+				})
+			},
 			reachBottom() {
 				this.loadStatus = 'loading';
 				// 模拟数据加载
@@ -282,6 +293,19 @@
 	/* #endif */
 </style>
 <style lang="scss" scoped>
+	.share-img {
+		position: fixed;
+		padding: 10rpx;
+		width: 100rpx;
+		height: 100rpx;
+		/* top: 680rpx; */
+		bottom: 200rpx;
+		right: 20rpx;
+		z-index: 1024;
+		opacity: 0.8;
+		box-shadow: 0rpx 8rpx 30rpx 0rpx rgba(0, 0, 0, 0.3);
+		border: none;
+	}
 	mp-video-swiper {
 		width: 100%;
 	}

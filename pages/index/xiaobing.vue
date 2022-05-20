@@ -2,7 +2,7 @@
 	<view>
 		<!-- 冰冰我的冰冰 -->
 		<view class="friend" @click="talking" v-if="xiaobing" style="z-index: 10000;">
-			<image src="https://s.cn.bing.net/th?id=OJ.ctIMyEUgdeHZwQ&w=120&h=160&c=8&rs=1&pid=academic" mode=""
+			<image src="https://s1.328888.xyz/2022/05/20/duyyQ.png" mode=""
 				style="width: 100%;height: 100%;z-index: 10000;"></image>
 		</view>
 		<uni-transition mode-class="fade" :show="!xiaobing">
@@ -10,7 +10,7 @@
 				<div class="ev_tb_header">
 					<div id="ev_tb_disable" class="ev_tb_disable"></div>
 					<div id="ev_tb_header_text" class="ev_tb_disable_header_text">
-						<a id="ev_tb_header_default_text" class="ev_tb_header_default_text">小螺号</a>
+						<a id="ev_tb_header_default_text" class="ev_tb_header_default_text">小菲菲</a>
 					</div>
 					<span id="ev_tb_maxclose" class="ev_tb_disable_close" @click="talking">
 						<span id="ev_tb_maxclose_img" class="ev_tb_close_img">
@@ -224,7 +224,7 @@
 	}
 
 	.ev_zo_img {
-		background: url(https://cn.bing.com/rp/ar_9isCNU2Q-VG1yEDDHnx8HAFQ.png
+		background: url(https://s1.328888.xyz/2022/05/20/duKFk.png
 ) no-repeat center;
 	z-index: 99;
 	}
@@ -358,7 +358,7 @@
 		right: 0;
 		top: 70%;
 		top: 50%;
-		width: 150rpx;
+		width: 220rpx;
 		height: 300rpx;
 	}
 </style>
