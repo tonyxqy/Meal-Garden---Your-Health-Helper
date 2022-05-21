@@ -6,6 +6,12 @@
 	},
 	"pages": [
 		{
+			"path":"pages/index/aboutMe",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path":"pages/index/login",
 			"style": {
 				"navigationStyle": "custom"
