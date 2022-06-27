@@ -1,34 +1,62 @@
 {
-  "description": "项目配置文件。",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "minified": true,
-    "es6": true,
-    "postcss": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "",
-  "appid": "wxdd194d285cb574b1",
-  "projectname": "营养助手",
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
+    "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "packOptions": {
+        "ignore": [],
+        "include": []
     },
-    "conversation": {
-      "current": -1,
-      "list": []
+    "setting": {
+        "urlCheck": false,
+        "minified": true,
+        "es6": true,
+        "postcss": true,
+        "enhance": true,
+        "preloadBackgroundData": false,
+        "coverView": true,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
+        "useMultiFrameRuntime": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "disableUseStrict": false,
+        "showES6CompileOption": false,
+        "useCompilerPlugins": false,
+        "useStaticServer": true
     },
-    "game": {
-      "current": -1,
-      "list": []
+    "compileType": "miniprogram",
+    "libVersion": "2.23.4",
+    "appid": "wxdd194d285cb574b1",
+    "projectname": "营养助手",
+    "condition": {
+        "search": {
+            "current": -1,
+            "list": []
+        },
+        "conversation": {
+            "current": -1,
+            "list": []
+        },
+        "game": {
+            "current": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "current": -1,
+            "list": []
+        }
     },
-    "miniprogram": {
-      "current": -1,
-      "list": []
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
     }
-  }
 }

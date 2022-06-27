@@ -36,6 +36,9 @@
 						<view class="waters" v-if="waterdom"></view>
 					</view>
 
+					<navigator url="/page_rank/rank" class="rank">
+						<image src="https://s1.ax1x.com/2022/06/20/Xj75ZV.png" mode=""></image>
+					</navigator>
 					<!-- 用户信息、水滴值 -->
 					<view class="sumup">
 						<view class="user">
@@ -627,7 +630,19 @@
 		width: 100%;
 		height: 300rpx;
 	}
-
+	.canvas .rank {
+		position: fixed;
+		bottom: 20%;
+		left: 0;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background-color: #fff;
+	}
+	.canvas .rank image{
+		width: 100%;
+		height: 100%;
+	}
 	.canvas .kettle .kettls {
 		position: absolute;
 		top: -172rpx;

@@ -5,7 +5,14 @@
 		<canvas canvas-id="bubble" :style="'width:' + width + 'px;height:' + height + 'px'" class="like-fx"></canvas>
 		<like-fx ref="likeFx" :width="width" :height="height"></like-fx>
 
-		<view class="titleZ text-center align-center">
+		<view class="picgif">
+			<image src="https://img1.imgtp.com/2022/06/27/Tm7zLcmd.gif" mode=""></image>
+		</view>
+		
+		<view class="titleword animated bounceInUp">
+			膳食花园
+		</view>
+		<!-- <view class="titleZ text-center align-center">
 			<text class="text-bold">关于本程序</text>
 			<view class="contentZ">
 				<text class="text-xl">      随着经济发展，人们对于饮食的概念不再止于温饱，而是更注重食物的营养配比，卡路里含量等因素，均衡饮食，膳食调理，已成为焦点话题。</text>
@@ -19,7 +26,7 @@
 				<text
 					class="text-xl">      本项目旨在利用数据挖掘技术的思想，利用建立知识图谱和nlp技术建立智能医疗膳食回答系统,基于协同过滤算法，结合中医中的望闻问切，引入舌诊和基于知识图谱的智能问答系统，融合用户爱好和BMI基本信息智能化定制化一日三餐和新型打卡机制鼓励大家健康饮食。</text>
 			</view>
-		</view>
+		</view> -->
 
 		<button class='' open-type="contact">
 			<image src='../../static/logo.png' class='share-img png round shadow-lg bg-white' mode='aspectFit'>
@@ -48,7 +55,7 @@
 					console.log('12412312')
 					this.nav()
 					
-				}, 6000)
+				}, 8000)
 			}
 		},
 		destroyed: function() {
@@ -88,7 +95,30 @@
 	}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+	.titleword{
+		width: 200px;
+		height: 67px;
+		font-size: 50px;
+		font-family: TsangerFeiBai W01-Regular, TsangerFeiBai W01;
+		font-weight: 400;
+		color: #009594;
+		line-height: 0px;
+		text-stroke: 3px #009594;
+		margin: 430px auto;
+	}
+	.picgif{
+		position: absolute;
+		width: 460px;
+		height: 256px;
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%);
+		image{
+			width: 100%;
+			height: 100%;
+		}
+	}
 	.titleZ {
 		width: 750rpx;
 		font-size: 52rpx;
@@ -124,7 +154,7 @@
 		/* height:400rpx; 不定高了*/
 		border: 0;
 		padding: 0;
-		margin: 0
+		margin: 0;
 	}
 
 	.share-img {
@@ -147,7 +177,7 @@
 		height: 100vh;
 		padding-top: 20%;
 		color: #2E8987;
-		background: linear-gradient(-120deg, #F8FCFC, #83e8cf, #28e4f5);
+		background: linear-gradient(-120deg, #F8FCFC, #83e8cf, #d5f2f5);
 		/* background: linear-gradient(-120deg, #0976ea, #c471f5, #f956b6, #ea7e0a); */
 		background-size: 500% 500%;
 		animation: gradientBG 15s ease infinite;
@@ -161,7 +191,7 @@
 		50% { 
 			background-position: 100% 50%;
 		}
-
+l
 		100% {
 			background-position: 0% 50%;
 		}

@@ -1,7 +1,6 @@
 <!-- 关于本程序 -->
 <template>
   <view class="about">
-
     <canvas canvas-id="bubble" :style="'width:' + width + 'px;height:' + height + 'px'" class="like-fx"></canvas>
     <like-fx ref="likeFx" :width="width" :height="height"></like-fx>
 	

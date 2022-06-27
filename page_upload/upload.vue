@@ -4,58 +4,57 @@
 			<block slot="backText">返回</block>
 			<block slot="content">分享</block>
 		</cu-custom>
-					<div class="parent">
-						<view class="inputbox">
-							<textarea style="font-size: 1.2rem;padding: 0.6rem;width: 100%;height: 100%;"
-								v-model:value="words" placeholder="分享新鲜事……" />
-						</view>
-						<view class="cu-bar bg-white margin-top-xs">
-							<view class="action sub-title">
-								<text class="text-xl text-bold text-blue text-shadow">分享你美味的食物吧</text>
-								<text class="text-ABC text-blue">uploadImage</text>
-							</view>
-						</view>
-						<div class="child">
-							<view class="padding text-blue text-xl text-bold">
 
+		<view class="headava">
+			<view v-if="avatarUrl">
+				<image :src="avatarUrl"></image>
+			</view>
+			<view class="nameava">
+				<view v-if="nickName"><text>{{nickName}}</text></view>
+			</view>
+		</view>
+		<view>
+			<div class="parent">
+				<view class="inputbox">
+					<textarea style="font-size: 1.2rem;padding: 0.6rem;width: 100%;height: 100%;" v-model:value="words"
+						placeholder="分享新鲜事……" />
+				</view>
+				<div class="child">
+					<van-uploader class="photobox" :file-list="fileList" max-count="1" @after-read="afterRead" />
+				</div>
+			</div>
+			<view class="line"></view>
+			<view class="label">
+				#添加标签
+			</view>
+			<view>
+				<view class="labelbox">
+					<view class="labelboxinside bounceIn animated" hover-class="animated jello">
+						<!-- <image style="width: 2rem;height: 2rem;" src="static/pages/upload/label.png" /> -->
+						<picker @change="bindPickerChange1" :value="index1" :range="array1" range-key="name">
+							<view class="">
+								{{ array1[index1].name }}								
 							</view>
-							<van-uploader class="photobox" :file-list="fileList" max-count="1"
-								@after-read="afterRead" />
-						</div>
-						<!-- <van-picker :columns="columns" bind:change="onChange" />
-				 -->
-						<view class="cu-bar bg-white margin-top-xs">
-							<view class="action sub-title">
-								<text class="text-xl text-bold text-blue text-shadow">为你的分享打上标签让更多的人看到</text>
-								<text class="text-ABC text-blue">label</text>
+						</picker>
+					</view>
+					<view class="labelboxinside bounceIn animated" hover-class="animated jello">
+						<!-- <image style="width: 2rem;height: 2rem;" src="static/pages/upload/label.png" /> -->
+						<picker @change="bindPickerChange2" :value="index2" :range="array2" range-key="name">
+							<view class="">
+							{{ array2[index2].name }}
 							</view>
-						</view>
-						<view>
-							<van-grid column-num="2" border="false" direction="horizontal">
-								<van-grid-item use-slot>
-									<image style="width: 2rem;height: 2rem;" src="static/pages/upload/label.png" />
-									<picker @change="bindPickerChange1" :value="index1" :range="array1"
-										range-key="name">
-										<view style="padding: 20rpx;background-color: white;">{{ array1[index1].name }}
-										</view>
-									</picker>
-								</van-grid-item>
-								<van-grid-item use-slot>
-									<image style="width: 2rem;height: 2rem;" src="static/pages/upload/label.png" />
-									<picker @change="bindPickerChange2" :value="index2" :range="array2"
-										range-key="name">
-										<view style="padding: 20rpx;background-color: white;">{{ array2[index2].name }}
-										</view>
-									</picker>
-								</van-grid-item>
-							</van-grid>
-						</view>
-						<view class="keepcenter">
-							<van-button size="large" color="linear-gradient(to right, #4bb0ff, #6149f6)" @click="upload">
-							  发布
-							</van-button>
-						</view>
-					</div>
+						</picker>
+					</view>
+				</view>
+			</view>
+			<view class="line"></view>
+			<view class="keepcenter bounceIn animated" hover-class="animated jello">
+				<view @click="upload">
+					发布
+				</view>
+			</view>
+
+		</view>
 	</view>
 </template>
 
@@ -64,7 +63,11 @@
 	import request from '@/common/request.js';
 	export default {
 		data() {
+			var nickName = uni.getStorageSync('nickName')
+			var avatarUrl = uni.getStorageSync('avatarUrl')
 			return {
+				nickName,
+				avatarUrl,
 				data: [],
 				file: {},
 				fileList: [],
@@ -100,7 +103,7 @@
 				index1: 0,
 				index2: 0,
 				user_id: '',
-				checkdata:false,
+				checkdata: false,
 			}
 		},
 		mounted() {
@@ -123,7 +126,7 @@
 				} = event.detail;
 				Toast(`当前值：${value}, 当前索引：${index}`);
 			},
-			check(){
+			check() {
 				let optBreakfastMenu = {
 					url: 'forum/false',
 					method: 'get',
@@ -156,7 +159,7 @@
 						console.log(res)
 						uni.hideLoading();
 						uni.navigateBack({
-							url:'/pages/index/index'
+							url: '/pages/index/index'
 						})
 					},
 				});
@@ -178,33 +181,117 @@
 	};
 </script>
 
-<style>
+<style lang="scss" scoped>
+	.labelbox{
+		// padding: 0px 36px 16px 36px;
+		margin-bottom: 16px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-items:center;
+		align-items: center;
+		.labelboxinside{
+			picker{
+				float: left;
+				width: 137px;
+				height: 36px;
+				background: #BBF1F3;
+				border-radius: 10px 10px 10px 10px;
+				view{
+					font-size: 16px;
+					line-height: 36px;
+					font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+					font-weight: 400;
+					color: #1ED0D5;
+					text-align: center;
+				}
+			}
+		}
+	}
+	.line {
+		width: 343px;
+		margin: 0 auto;
+		height: 1px;
+		background: #DBDBDB;
+		border-radius: 0px 0px 0px 0px;
+		opacity: 1;
+		margin-bottom: 16px;
+	}
+
+	.label {
+		width: 206px;
+		height: 21px;
+		font-size: 16px;
+		font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+		font-weight: 400;
+		color: #A2A2A2;
+		line-height: 15px;
+		margin-bottom: 13px;
+		margin-left: 20px;
+	}
+
+	.headava {
+		padding: 17px 0 21px 20px;
+
+		image {
+			float: left;
+			margin-right: 16px;
+			width: 50px;
+			height: 50px;
+			opacity: 1;
+			border-radius: 20px 20px 20px 20px;
+		}
+
+		.nameava {
+			float: left;
+			width: 200px;
+			height: 50px;
+			font-size: 16px;
+			font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+			font-weight: 400;
+			color: #000000;
+			line-height: 50px;
+		}
+	}
+
 	.parent {
-		height: 15rem;
 		width: 100%;
-		/* background-color: gray; */
-		/* display: flex; */
-		/* 		justify-content: center; */
-		/* 		align-items: center; */
+		display: grid;
+		padding: 20px;
+		grid-template-columns: 60% 40%;
 	}
 
 	.inputbox {
-		height: 15rem;
+		height: 10rem;
+		font-size: 16px;
+		font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+		font-weight: 400;
+		color: #A2A2A2;
 	}
 
 	.photobox {
-		background-color: rgb(240, 240, 240);
+		width: 375px;
+		height: 420px;
+		background: #FFFFFF;
+		border-radius: 10px 10px 10px 10px;
 	}
 
 	.child {
-		width: 400px;
-		margin: 0 auto;
 		text-align: center;
 	}
+
 	.keepcenter {
-		width: 30%;
+		margin-top: 50px;
+		width: 343px;
+		height: 51px;
+		background: #0BCCD2;
+		border-radius: 23px 23px 23px 23px;
+		opacity: 1;
 		margin: 0 auto;
+		line-height: 51px;
+		text-align: center;
+		font-size: 22px;
+		font-family: Proxima Nova-Semibold, Proxima Nova;
+		font-weight: 600;
+		color: #FFFFFF;
 	}
-
-
 </style>

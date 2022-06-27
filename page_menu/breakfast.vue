@@ -32,7 +32,7 @@
 				<view class="canlass">
 					<view class="aasd" style="padding-left: 20rpx;" @click="showT = false"> 取消 </view>
 					<view class="titileCenter">菜名： {{menu}} </view>
-					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="showT = false"> 确定
+					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="submitMenu()"> 提交
 					</view>
 				</view>
 

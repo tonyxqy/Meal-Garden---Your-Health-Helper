@@ -18,6 +18,12 @@
 			}
 		},
 		{
+			"path":"pages/index/guide",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/index/tabbar",
 			"style": {
 				"navigationBarTitleText": "",
@@ -182,7 +188,19 @@
 					}
 				},
 				{
-					"path": "mentalTest/index",
+					"path": "mentalTest/index1",
+					"style": {
+						"navigationBarTitleText": "答题测试",
+						"navigationStyle": "custom"
+					}
+				},				{
+					"path": "mentalTest/index2",
+					"style": {
+						"navigationBarTitleText": "答题测试",
+						"navigationStyle": "custom"
+					}
+				},				{
+					"path": "mentalTest/index3",
 					"style": {
 						"navigationBarTitleText": "答题测试",
 						"navigationStyle": "custom"
@@ -206,6 +224,15 @@
 			"root": "page_info",
 			"pages": [{
 				"path": "info",
+				"style": {
+					"navigationStyle": "custom"
+				}
+			}]
+		},
+		{
+			"root": "page_rank",
+			"pages": [{
+				"path": "rank",
 				"style": {
 					"navigationStyle": "custom"
 				}

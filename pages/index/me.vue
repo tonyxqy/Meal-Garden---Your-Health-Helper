@@ -5,7 +5,7 @@
 		<navigator target="miniProgram" app-id='wxdd194d285cb574b1' version='release' hover-class="none">
 			<!-- <navigator target="miniProgram" app-id='wx307a52ca028d3c07' version='release' hover-class="none"> -->
 			<view class="dong">
-				<view class="monster">
+				<!-- <view class="monster">
 					<view class="monster__face">
 						<view class="monster__eye avatar-eye avatar-eye--green eye--left">
 							<view class="avatar-eye-pupil pupil--green"><span class="avatar-eye-pupil-blackThing"><span
@@ -24,7 +24,7 @@
 							<view class="monster__bottom"></view>
 						</view>
 					</view>
-				</view>
+				</view> -->
 			</view>
 		</navigator>
 		<!-- 弹窗确认 -->
@@ -43,7 +43,7 @@
 		</view>
 		<!-- 顶部背景 -->
 		<view class='UCenter-bg'
-			:style="'background-image: url(' + pic[topBackGroupImageIndex].link + ');margin-top:-' + CustomBar + 'px;'">
+			:style="'background-image: url(' + pic[topBackGroupImageIndex].link + ');'">
 			<view class='space' v-show="spaceShow">
 				<view class="stars ">
 					<view class="star "></view>
@@ -54,7 +54,7 @@
 			</view>
 
 			<block>
-				<view class='text-center'>
+				<view class='text-center bounceInDown animated'>
 					<!-- <view class="cu-avatar2 round margin-right-sm shadow-blur bg-img" style="background-image:url(http://cdn.zhoukaiwen.com/head1.jpg);">
 					</view> -->
 
@@ -64,7 +64,7 @@
 							<image :src="avatarUrl"></image>
 						</view>
 					</view>
-					<view class="padding text-blue text-xl text-bold">
+					<view class="padding text-blue text-xl text-bold" hover-class="animated rubberBand">
 						<view v-if="nickName"><text>你好，{{nickName}}</text></view>
 					</view>
 
@@ -78,19 +78,19 @@
 
 		<block>
 			<view class='padding flex text-center text-grey bg-white shadow-warp-my'>
-				<view class='flex flex-sub flex-direction solid-right'>
+				<view class='flex flex-sub flex-direction solid-right' hover-class="animated rubberBand">
 					<view class="text-xxl text-orange">{{ansList[0]}}cm</view>
 					<view class="margin-top-sm">
 						<text></text> 身高
 					</view>
 				</view>
-				<view class='flex flex-sub flex-direction solid-right'>
+				<view class='flex flex-sub flex-direction solid-right' hover-class="animated rubberBand">
 					<view class="text-xxl text-blue">{{ansList[1]}}kg</view>
 					<view class="margin-top-sm">
 						<text></text> 体重
 					</view>
 				</view>
-				<view class='flex flex-sub flex-direction'>
+				<view class='flex flex-sub flex-direction' hover-class="animated rubberBand">
 					<view class="text-xxl text-red">{{parseInt(ansList[5])}}</view>
 					<view class="margin-top-sm">
 						<text></text> BMI
@@ -103,7 +103,7 @@
 				class="cu-list menu card-menu margin-top-lg margin-bottom-sm shadow-shop bg-white text-black my-radius sm-border">
 				<view class="cu-item" @tap="showModal" data-target="Modal">
 					<view class='content'>
-						<image src='../../static/me/icon/zhuti.png' class='png' mode='aspectFit'></image>
+						<image src='https://s1.ax1x.com/2022/06/26/jAzaEn.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>主题切换</text>
 					</view>
 					<view class='action'>
@@ -120,30 +120,14 @@
 
 				<view class="cu-item " @click="mentalTest">
 					<button class='content cu-btn'>
-						<image src='../../static/me/icon/bianqian.png' class='png' mode='aspectFit'></image>
+						<image src='https://s1.ax1x.com/2022/06/26/jAxGwR.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>体质小测试</text>
 					</button>
 				</view>
 
-				<!-- <view class="cu-item " bindtap="">
-					<button class='content cu-btn'>
-						<image src='../../static/me/icon/youxi.png' class='png' mode='aspectFit'></image>
-						<text class='text-lg margin-sm'>休闲小游戏</text>
-					</button>
-					<view class="action">
-						<view class="cu-avatar-group">
-							<view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
-							<view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81005.jpg);"></view>
-							<view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg);"></view>
-							<view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg);"></view>
-						</view>
-						<text class="text-grey text-sm">共4款</text>
-					</view>
-				</view>
- -->
 				<view class="cu-item">
 					<button class='content cu-btn' open-type="share">
-						<image src='../../static/me/icon/lvhang.png' class='png' mode='aspectFit'></image>
+						<image src='https://s1.ax1x.com/2022/06/26/jAzih6.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>分享小程序</text>
 					</button>
 				</view>
@@ -154,28 +138,28 @@
 				class="cu-list menu card-menu margin-top-lg margin-bottom-lg shadow-shop bg-white text-black my-radius sm-border">
 
 				<view class="cu-item ">
-					<button class='content cu-btn' @click="goSalary">
-						<image src='../../static/me/icon/jisuanqi.png' class='png' mode='aspectFit'></image>
+					<button class='content cu-btn' @click="goSalary" hover-class="animated rubberBand">
+						<image src='https://s1.ax1x.com/2022/06/26/jAzCA1.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>我的职业</text>
 					</button>
 				</view>
 				<view class="cu-item " @click="goCourse">
-					<button class='content cu-btn'>
-						<image src='../../static/me/icon/youjian.png' class='png' mode='aspectFit'></image>
+					<button class='content cu-btn' hover-class="animated rubberBand">
+						<image src='https://s1.ax1x.com/2022/06/26/jAz338.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>个人信息</text>
 					</button>
 				</view>
 
 				<view class="cu-item ">
-					<button class='content cu-btn' open-type="contact">
-						<image src='../../static/me/icon/diannao.png' class='png' mode='aspectFit'></image>
-						<text class='text-lg margin-sm'>留空</text>
+					<button class='content cu-btn' open-type="contact" hover-class="animated rubberBand">
+						<image src='https://s1.ax1x.com/2022/06/26/jAxImj.png' class='png' mode='aspectFit'></image>
+						<text class='text-lg margin-sm'>人工客服</text>
 					</button>
 				</view>
 
 				<view class="cu-item" @click="callPhoneNumber" data-number="18301912104">
-					<view class='content'>
-						<image src='../../static/me/icon/dengta.png' class='png' mode='aspectFit'></image>
+					<view class='content' hover-class="animated rubberBand">
+						<image src='https://s1.ax1x.com/2022/06/26/jAxh6g.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>技术支持</text>
 					</view>
 					<view class="action">
@@ -184,14 +168,14 @@
 				</view>
 
 				<view class="cu-item">
-					<button class='content cu-btn' open-type="feedback">
-						<image src='../../static/me/icon/chucuo.png' class='png' mode='aspectFit'></image>
+					<button class='content cu-btn' open-type="feedback" hover-class="animated rubberBand">
+						<image src='https://s1.ax1x.com/2022/06/26/jAxgtP.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>问题反馈</text>
 					</button>
 				</view>
 				<view class="cu-item">
-					<button class='content cu-btn' @click="goAboutMe">
-						<image src='../../static/me/icon/xiaoxi.png' class='png' mode='aspectFit'></image>
+					<button class='content cu-btn' @click="goAboutMe" hover-class="animated rubberBand">
+						<image src='https://s1.ax1x.com/2022/06/26/jAznHA.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>关于作者</text>
 					</button>
 				</view>
@@ -312,6 +296,12 @@
 							this.ansList.push(this.TabList[i].timeList[this.TabList[i].timeList.length - 1].value);
 						}
 						console.log(this.ansList)
+						uni.setStorage({
+							key: 'ans',
+							data: this.ansList,
+							success: function () {
+							}
+						});
 					} else {}
 				});
 			},

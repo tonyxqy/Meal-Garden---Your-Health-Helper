@@ -5,8 +5,9 @@
 			<!-- <block slot="backText">返回</block> -->
 			<block slot="content">首页</block>
 		</cu-custom>
+		<xiaobing/>
 		<add-tip :tip="tip" :duration="duration" />
-		<view id="container">
+		<view id="container" >
 			<!-- banner图 -->
 			<view class="uni-padding-wrap">
 				<view class="page-section myswiper">
@@ -23,13 +24,13 @@
 				</view>
 			</view>
 			<!-- 导航栏 -->
-			<view class="cu-list grid col-4 no-border">
-				<view class="cu-item" v-for="(item,index) in categories" :key="index"
+			<view class="cu-list grid col-4 no-border" >
+				<view class="cu-item" v-for="(item,index) in categories" :key="index" hover-class="animated rubberBand"
 					:style="[{animation: 'show ' + ((index+1)*0.2+1) + 's 1'}]" @click="goCategorieslist"
 					:data-mid="item.mid">
 					<view :class="['cuIcon-' + item.cuIcon,'text-' + item.color]" class="tagbar"
-						:style="[{background:item.bgc}]">
-						<view class="cu-tag badge" v-if="item.count!=0">
+						:style="[{background:item.bgc}]"  hover-class="animated heartBeat">
+						<view class="cu-tag badge" v-if="item.count!=0" >
 							<block v-if="item.badge!=1">{{item.badge>99?'99+':item.badge}}</block>
 						</view>
 					</view>
@@ -38,7 +39,7 @@
 			</view>
 			<!-- <van-sticky offset-top="80 "> -->
 			<view class="cu-bar bg-white margin-top-xs">
-				<view class="action sub-title">
+				<view class="action sub-title" hover-class="animated rubberBand">
 					<text class="text-xl text-bold text-dark text-shadow">今日能量</text>
 					<text class="text-ABC text-light">energy</text>
 				</view>
@@ -92,7 +93,7 @@
 			<!-- </van-sticky> -->
 
 			<view class="cu-bar bg-white margin-top-xs">
-				<view class="action sub-title">
+				<view class="action sub-title" hover-class="animated rubberBand">
 					<text class="text-xl text-bold text-dark text-shadow">每日推荐</text>
 					<text class="text-ABC text-light">recommendation</text>
 					<!-- 					<button>早餐</button>
@@ -126,7 +127,7 @@
 								{{item}},
 							</text>
 						</view>
-						<button type="default" class="buttonchoose" style="background-color: #0BCCD2;">
+						<button hover-class="animated rubberBand" type="default" class="buttonchoose" style="background-color: #0BCCD2;">
 							<text>
 								选择
 							</text>
@@ -137,12 +138,12 @@
 
 		</view>
 		<view class="cu-bar bg-white margin-top-xs">
-			<view class="action sub-title">
+			<view class="action sub-title" hover-class="animated rubberBand">
 				<text class="text-xl text-bold text-dark text-shadow">我的今日早餐</text>
 				<text class="text-ABC text-light">BreakFast</text>
 			</view>
-			<view class="action" @click="goBreakfast">
-				<text class="text-lg text-grey text-shadow">添加早餐</text>
+			<view class="action" @click="goBreakfast" hover-class="animated rubberBand">
+				<text class="text-lg text-grey text-shadow" >添加早餐</text>
 			</view>
 			<!-- 				<view class="action" @click="goLunch">
 				<text class="text-lg text-grey text-shadow">中餐</text>
@@ -157,7 +158,7 @@
 				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
 				<view class="bodyname">早餐</view>
 				<view class="bodymenu">{{item.menu}}</view>
-				<button type="default" style="background-color: #0BCCD2;">
+				<button hover-class="animated rubberBand" type="default" style="background-color: #0BCCD2;">
 					<text>
 						营养成分
 					</text>
@@ -168,15 +169,15 @@
 					src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
 			</view>
 		</scroll-view>
-		<view class="cu-bar bg-white margin-top-xs">
-			<view class="action sub-title">
+		<view class="cu-bar bg-white margin-top-xs" hover-class="animated rubberBand">
+			<view class="action sub-title" >
 				<text class="text-xl text-bold text-dark text-shadow">我的今日午餐</text>
 				<text class="text-ABC text-light">Lunch</text>
 			</view>
 			<!-- 			<view class="action" @click="goBreakfast">
 				<text class="text-lg text-grey text-shadow">添加早餐</text>
 			</view> -->
-			<view class="action" @click="goLunch">
+			<view class="action" @click="goLunch" hover-class="animated rubberBand">
 				<text class="text-lg text-grey text-shadow">添加午餐</text>
 			</view>
 			<!-- 			<view class="action" @click="goDinner">
@@ -189,7 +190,7 @@
 				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
 				<view class="bodyname">午餐</view>
 				<view class="bodymenu">{{item.menu}}</view>
-				<button type="default" style="background-color: #0BCCD2;">
+				<button hover-class="animated rubberBand" type="default" style="background-color: #0BCCD2;">
 					<text>
 						营养成分
 					</text>
@@ -201,7 +202,7 @@
 			</view>
 		</scroll-view>
 		<view class="cu-bar bg-white margin-top-xs">
-			<view class="action sub-title">
+			<view class="action sub-title" hover-class="animated rubberBand">
 				<text class="text-xl text-bold text-dark text-shadow">我的今日晚餐</text>
 				<text class="text-ABC text-light">Dinner</text>
 			</view>
@@ -211,7 +212,7 @@
 			<!-- 							<view class="action" @click="goLunch">
 				<text class="text-lg text-grey text-shadow">中餐</text>
 			</view> -->
-			<view class="action" @click="goDinner">
+			<view class="action" @click="goDinner" hover-class="animated rubberBand">
 				<text class="text-lg text-grey text-shadow">添加晚餐</text>
 			</view>
 		</view>
@@ -221,7 +222,7 @@
 				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
 				<view class="bodyname">晚餐</view>
 				<view class="bodymenu">{{item.menu}}</view>
-				<button type="default" style="background-color: #0BCCD2;">
+				<button hover-class="animated rubberBand" type="default" style="background-color: #0BCCD2;">
 					<text>
 						营养成分
 					</text>
@@ -354,7 +355,7 @@
 				<view class="canlass">
 					<view class="aasd" style="padding-left: 20rpx;" @click="showT = false"> 取消 </view>
 					<view class="titileCenter">菜名： {{popArray.menu}} </view>
-					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="showT = false"> 确定
+					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="submitMenu()"> 提交
 					</view>
 				</view>
 
@@ -417,11 +418,12 @@
 				<van-button type="default" block @click="submitMenu()">提交</van-button>
 			</view>
 		</u-popup>
+
 		<view style="height: 140rpx;width: 1rpx;"></view>
 		<u-popup v-model="logion" mode="center" height="320rpx" :mask-close-able="false" width="530rpx"
 			border-radius="10">
 			<view class="sdsfsdfd"> 请登录 </view>
-			<button class="anniudddfd" @click="getUserInfo"> 立即登录 </button>
+			<button hover-class="animated rubberBand" class="anniudddfd" @click="getUserInfo"> 立即登录 </button>
 		</u-popup>
 	</view>
 </template>
@@ -431,20 +433,22 @@
 	import request from '@/common/request.js';
 	import addTip from "../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue"
 	import bodyhelper from "./bodyhelper.vue"
+	import xiaobing from "./xiaobing.vue"; 
 	export default {
 		components: {
 			addTip,
-			bodyhelper
+			bodyhelper,
+			xiaobing
 		},
 		data() {
 			var user_id = uni.getStorageSync('userId')
-			console.log(user_id, "userId")
+			// console.log(user_id, "userId")
 			var nowDate = new Date();
 			var year = nowDate.getFullYear();
 			var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
 			var day = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
 			var timer = year + "-" + month + "-" + day
-			console.log(timer, "dateStrdateStrdateStr")
+			// console.log(timer, "dateStrdateStrdateStr")
 			return {
 				steps: [{
 						// text: '步骤一',
@@ -541,16 +545,16 @@
 				},
 
 				bannerList: [{
-						imageUrl: 'https://s1.328888.xyz/2022/05/19/DbY8B.png',
+						imageUrl: 'https://s1.ax1x.com/2022/06/25/jkeisP.png',
 					},
 					{
-						imageUrl: 'https://s1.328888.xyz/2022/05/19/DbTRT.png',
+						imageUrl: 'https://s1.ax1x.com/2022/06/25/jkePMt.png',
 					},
 					{
-						imageUrl: 'https://s1.328888.xyz/2022/05/19/Dbc62.png',
+						imageUrl: 'https://s1.ax1x.com/2022/06/25/jkeAZ8.png',
 					},
 					{
-						imageUrl: 'https://s1.328888.xyz/2022/05/19/DbwLM.png',
+						imageUrl: 'https://s1.ax1x.com/2022/06/25/jkeFqf.png',
 					}
 				],
 				categories: [{
@@ -598,17 +602,17 @@
 			}
 		},
 		activated() {
-			console.log('((((((((((()))))))))))')
+			// console.log('((((((((((()))))))))))')
 		},
 		mounted() {
 			uni.$on('hidebox', this.hidebox);
 			if (uni.getStorageSync('userId'))
 				this.getData();
 			this.$nextTick(function() {
-				console.log(uni.createSelectorQuery().in(this))
+				// console.log(uni.createSelectorQuery().in(this))
 				const query = uni.createSelectorQuery().in(this)
 				query.select('#container').boundingClientRect(data => {
-					console.log(data)
+					// console.log(data)
 					this.container = data
 				}).exec();
 			})
@@ -628,7 +632,7 @@
 			getData() {
 				var user_id = uni.getStorageSync('userId')
 				this.user_id = user_id
-				console.log(user_id, "userId")
+				// console.log(user_id, "userId")
 				let user = {
 					user_id
 				}
@@ -642,7 +646,7 @@
 					title: '加载中'
 				})
 				request.httpRequest(optstar, user).then(res => {
-					console.log(res);
+					// console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
 						this.target = res.data;
@@ -656,16 +660,16 @@
 					method: 'get',
 				};
 				request.httpRequest(optscur, user).then(res => {
-					console.log(res);
+					// console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
 						this.current = res.data;
-						console.log(this.current)
+						// console.log(this.current)
 						let ans = {
 							name: "完成率",
 							data: this.current.currentFat / this.target.targetFat
 						}
-						console.log('aaaaaaaaaaa', ans.data)
+						// console.log('aaaaaaaaaaa', ans.data)
 						this.chartData.series.push(ans)
 					} else {}
 				});
@@ -772,16 +776,16 @@
 			bind(item) {
 				this.popArray = item
 				this.help(this.popArray)
-				console.log(this.popArray, "popArray")
+				// console.log(this.popArray, "popArray")
 			},
 			onChange(event) {
 				this.radio = parseInt(event.detail)
-				console.log(this.radio, "onchange早中晚餐的绑定")
+				// console.log(this.radio, "onchange早中晚餐的绑定")
 			},
 			submitMenu() {
 				var that = this
 				this.showT = false
-				console.log(this.radio, this.popArray.menu, this.user_id, this.timer, this.volume)
+				// console.log(this.radio, this.popArray.menu, this.user_id, this.timer, this.volume)
 				uni.showLoading({
 					title: '上传中'
 				})
@@ -812,7 +816,7 @@
 				request.httpRequest(opt, data).then(res => {
 					uni.hideLoading();
 					if (res.statusCode == 200) {
-						console.log(200, "addsuccess")
+						// console.log(200, "addsuccess")
 						wx.showToast({
 							title: '提交成功',
 							icon: 'success',
@@ -834,7 +838,7 @@
 				this.showT = true
 				this.popArray = item
 				this.helpIt(this.popArray)
-				console.log(this.popArray, "popArray")
+				// console.log(this.popArray, "popArray")
 			},
 			bindY(item, num) {
 				this.deleteNo = num
@@ -842,7 +846,7 @@
 				this.showY = true
 				this.popArray = item
 				this.helpIt(this.popArray)
-				console.log(this.popArray, "popArray")
+				// console.log(this.popArray, "popArray")
 			},
 			helpIt(self) {
 				// if(self.practice != null){
@@ -886,7 +890,7 @@
 					practice.forEach((self, index) => {
 						let change = self.trim().replace(/\'|\\n|\d|\\t/g, "");
 						list.push(change)
-						console.log(change)
+						// console.log(change)
 						var no = index + 1
 						let action = {
 							text: '步骤' + no,
@@ -901,7 +905,7 @@
 			},
 			deleteMenuBreakfast(item) {
 				var that = this
-				console.log(item.menu, this.user_id, this.timer)
+				// console.log(item.menu, this.user_id, this.timer)
 				uni.showLoading({
 					title: '删除中'
 				})
@@ -931,7 +935,7 @@
 				request.httpRequest(opt, data).then(res => {
 					uni.hideLoading();
 					if (res.statusCode == 200) {
-						console.log(200, "delete menu")
+						// console.log(200, "delete menu")
 						this.showY = false
 						this.getMenuData()
 						wx.showToast({
@@ -943,7 +947,7 @@
 				});
 			},
 			scroll: function(e) {
-				console.log(e)
+				// console.log(e)
 				this.old.scrollTop = e.detail.scrollTop
 			},
 			goCategorieslist: function(e) {
@@ -960,7 +964,7 @@
 				}
 				if (e.currentTarget.dataset.mid == 2) {
 					uni.navigateTo({
-						url: '../../page_me/mentalTest/index?mid=1'
+						url: '../../page_me/mentalTest/list'
 					})
 				}
 				if (e.currentTarget.dataset.mid == 1) {
