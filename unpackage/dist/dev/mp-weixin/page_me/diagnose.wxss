@@ -1,0 +1,24 @@
+
+.imgBox {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+	width: 700rpx;
+	height: 570rpx;
+}
+.box {
+	background-color: #f3f6f6;
+	border-radius: 40rpx;
+	margin: auto;
+}
+.column {
+	display: flex;
+	flex-direction: column
+}
+.height {
+	line-height: 2
+}
+.pad {
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+}
+

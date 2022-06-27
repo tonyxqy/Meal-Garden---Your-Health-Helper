@@ -1,9 +1,8 @@
-
 <template>
 	<view>
 		<cu-custom bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
-			<block slot="content">早餐</block>
+			<block slot="content">我的今日食谱</block>
 		</cu-custom>
 		<view class="abar topsearch bg-white">
 			<view class="frame">
@@ -15,8 +14,8 @@
 
 		<view class='swiper_con' wx:if="foodList">
 			<view class='swiper_con_view' v-for="(item,index) of foodArray" :key="index" @click="bindIt(item)">
-				<image class="swiper_con_view" v-if="item.pictureUrl" :src="item.pictureUrl" mode="widthFix" lazy-load="true"
-					style="width:100%"></image>
+				<image class="swiper_con_view" v-if="item.pictureUrl" :src="item.pictureUrl" mode="widthFix"
+					lazy-load="true" style="width:100%"></image>
 				<view class="taText" style="width:90%;display:inline-block;">
 					<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;">{{item.taste}}</van-tag>
 					<text class="meText">{{item.menu}}</text>
@@ -27,22 +26,25 @@
 				</view>
 			</view>
 		</view>
-		<u-popup v-model="showT" mode="center" width="690rpx" @close="popupClose" border-radius="20" style=" border: 10rpx;" >
-			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
+		<u-popup v-model="showT" mode="center" width="690rpx" @close="popupClose" border-radius="20"
+			style=" border: 10rpx;border-color: #0BCCD2;">
+			<view style="width: 100%;height: 100%;display: flex;flex-direction:column;">
 				<view class="canlass">
 					<view class="aasd" style="padding-left: 20rpx;" @click="showT = false"> 取消 </view>
 					<view class="titileCenter">菜名： {{menu}} </view>
-					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="showT = false"> 确定
+					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="submitMenu()"> 提交
 					</view>
 				</view>
 
 				<view style="column-count: 2;">
-					<image :src="img" mode="aspectFill" style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;border-radius: 20rpx;"></image>
+					<image :src="img" mode="aspectFill"
+						style="left:20rpx ;width:560rpx;height: 500rpx;text-align: left;border-radius: 20rpx;">
+					</image>
 					<view>
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
 								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
+								<van-tag color="#0BCCD2" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
 									{{item}}
 								</van-tag>
 							</view>
@@ -51,17 +53,25 @@
 							<view style="display: flex;flex-direction:row; padding-top:15rpx ;">
 								分量
 								<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
-									button-size="20px" bind:change="onChange"  />
+									button-size="20px" bind:change="onChange" />
 							</view>
 							<view style="display:inline-block; text-align: left; padding-top: 10rpx;">
 								<text style="color: #304156;">{{popArray.process}} </text>
 								<text style="color: #304156;padding-left:10rpx ;">{{popArray.time}}</text>
 							</view>
 						</view>
-						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：</view>
+						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：
+						</view>
 						<view class="detailsTop">
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"v-if="index<10">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
+									v-if="index<7">
+									{{item}}
+								</text>
+							</view>
+							<view slot="desc" v-for="(item, index) in popArray.ingredients2">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
+									v-if="index<7">
 									{{item}}
 								</text>
 							</view>
@@ -69,9 +79,9 @@
 					</view>
 				</view>
 				<view class="details">
-						<text class="text-xl text-bold text-shadow">步骤：</text>
+					<text class="text-xl text-bold text-shadow">步骤：</text>
 					<view slot="desc" v-for="(item, index) in popArray.practice">
-						<text style="line-height: 30rpx;"v-if="index<10">
+						<text style="line-height: 30rpx;" v-if="index<10">
 							({{index+1}}) {{item}}
 						</text>
 					</view>
@@ -88,7 +98,7 @@
 
 		data() {
 			var user_id = uni.getStorageSync('userId')
-			console.log(user_id,"userId")
+			console.log(user_id, "userId")
 			var nowDate = new Date();
 			var year = nowDate.getFullYear();
 			var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
@@ -116,6 +126,7 @@
 				volume: 2,
 				user_id,
 				timer,
+				num: 1,
 			}
 		},
 		methods: {
@@ -131,15 +142,21 @@
 				console.log(this.popArray, "popArray")
 			},
 			help(self) {
+
 				if (self.ingredients != null) {
 					let sep = /\,|\:/
 					let ingredients = self.ingredients.slice(1, -1).split(sep)
-					let list = []
+					let list2 = []
+					let list1 = []
+					let ingredients2 = []
 					ingredients.forEach((self, index) => {
 						let change = self.trim().replace(/\'/g, "");
-						list.push(change)
+						if (index % 2 == 0) list1.push(change)
+						else list2.push(change)
 					})
-					self.ingredients = list
+					self.ingredients = list1
+					self.ingredients2 = list2
+					console.log(list2, "list")
 				}
 				if (self.classifiction != null) {
 					let classifiction = self.classifiction.slice(1, -1).split(',')
@@ -155,21 +172,36 @@
 					let list = []
 					practice.forEach((self, index) => {
 						let change = self.trim().replace(/\'|\\n|\d|\\t/g, "");
-						if(change!=""){
+						if (change != "") {
 							list.push(change)
 						}
 					})
 					self.practice = list
 				}
 			},
-			getBreakfast() {
+			getAllMenu(defi) {
 				uni.showLoading({
 					title: '加载中'
 				})
 				var that = this
-				let opt = {
-					url: 'dish/breakfast',
-				};
+				if (defi == 1) {
+					var opt = {
+						url: 'dish/breakfast',
+						method: 'get',
+					};
+				}
+				if (defi == 2) {
+					var opt = {
+						url: 'dish/lunch',
+						method: 'get',
+					};
+				}
+				if (defi == 3) {
+					var opt = {
+						url: 'dish/dinner',
+						method: 'get',
+					};
+				}
 				request.httpRequest(opt).then(res => {
 					uni.hideLoading();
 					if (res.statusCode == 200) {
@@ -179,13 +211,19 @@
 					} else {}
 				});
 			},
-			onLoad(id) {
-				this.getBreakfast()
+			onLoad(defi, id) {
+				let de = JSON.stringify(defi);
+				de = de.trim().replace(/\"|\{|\}/g, "");
+				var key = de.split(":");
+				de = key[1]
+				this.num = de;
+				console.log(de, this.num, id, "ceshi")
+				this.getAllMenu(de)
 				let tag = JSON.stringify(id);
-				tag=tag.trim().replace(/\"|\{|\}/g, "");
-				var key=tag.split(":");
-				console.log(key[1],"key1")
-				this.foodText=key[1]
+				tag = tag.trim().replace(/\"|\{|\}/g, "");
+				var key = tag.split(":");
+				console.log(key[1], "key1")
+				this.foodText = key[1]
 			},
 			setIdx() {
 				this.idx = this.index
@@ -209,15 +247,30 @@
 			},
 			submitMenu() {
 				var that = this
-				this.showT=false
-				console.log(this.menu,this.user_id,this.timer,this.volume)
+				var de = this.num
+				this.showT = false
+				console.log(this.menu,de, this.user_id, this.timer, this.volume)
 				uni.showLoading({
-						title: '上传中'
+					title: '上传中'
 				})
-				let opt = {
-					url: 'user/addTodayMenubreakfast',
-					method: 'POST'
-				};
+				if (de == 1) {
+					var opt = {
+						url: 'user/addTodayMenubreakfast',
+						method: 'post',
+					};
+				}
+				if (de == 2) {
+					var opt = {
+						url: 'user/addTodayMenulunch',
+						method: 'post',
+					};
+				}
+				if (de == 3) {
+					var opt = {
+						url: 'user/addTodayMenudinner',
+						method: 'post',
+					};
+				}
 				let data = {
 					user_id: this.user_id,
 					menu: this.menu,
@@ -225,26 +278,24 @@
 					createTime: this.timer,
 				};
 				request.httpRequest(opt, data).then(res => {
+					console.log(res)
 					uni.hideLoading();
-					if (res.statusCode == 200) {
-						console.log(200, "addsuccess")
-						wx.showToast({
-							title: '提交成功',
-							icon: 'success',
-							duration: 2000 //持续的时间
-						})
-					} else {}
+					wx.showToast({
+						title: '提交成功',
+						icon: 'success',
+						duration: 2000 //持续的时间
+					})
 				});
 			},
-			popupClose(){
-				this.showT=false
+			popupClose() {
+				this.showT = false
 			},
-			goDentify(){
+			goDentify() {
 				uni.redirectTo({
-					url:'../page_menu/dentify'
+					url: '../page_menu/dentify'
 				})
 			}
-			
+
 		}
 	}
 </script>
@@ -271,21 +322,22 @@
 		line-height: 20px;
 		max-height: 140px;
 		color: #304156;
-		letter-spacing:2rpx;
+		letter-spacing: 2rpx;
 		display: flex;
-		flex-direction:row;
+		flex-direction: column;
 		flex-wrap: wrap;
 	}
+
 	.details {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
 		text-align: left;
 		padding: 20rpx;
-		padding-left:30rpx ;
+		padding-left: 30rpx;
 		line-height: 20px;
 		color: #304156;
-		letter-spacing:2rpx;
+		letter-spacing: 2rpx;
 	}
 
 	.titileCenter {

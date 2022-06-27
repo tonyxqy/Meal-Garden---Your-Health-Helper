@@ -1,12 +1,12 @@
 <template>
 	<view>
 		<!-- 冰冰我的冰冰 -->
-		<view class="friend" @click="talking" v-if="xiaobing" style="z-index: 10000;">
+		<view class="friend" @click="talking" v-if="xiaobing" style="z-index: 10000;" hover-class="swing animated">
 			<image src="https://s1.328888.xyz/2022/05/20/duyyQ.png" mode=""
 				style="width: 100%;height: 100%;z-index: 10000;"></image>
 		</view>
 		<uni-transition mode-class="fade" :show="!xiaobing">
-			<view class="ev_talkbox_max">
+			<view class="ev_talkbox_max fadeInDown animated">
 				<div class="ev_tb_header">
 					<div id="ev_tb_disable" class="ev_tb_disable"></div>
 					<div id="ev_tb_header_text" class="ev_tb_disable_header_text">
@@ -115,7 +115,10 @@
 				// this.topiclist.push(anss)
 			},
 			talking: function() {
-				this.xiaobing = !this.xiaobing
+				var t1=setTimeout(()=>{
+					this.xiaobing = !this.xiaobing
+					clearTimeout(t1)
+				},1000)
 				uni.$emit('hidebox')
 			},
 		}
@@ -124,7 +127,7 @@
 
 <style>
 	.ev_my_img {
-		background: url(../../static/me/icon/xiaoxi.png) no-repeat center;
+		background: url(https://s1.ax1x.com/2022/06/26/jAznHA.png) no-repeat center;
 		height: 38px;
 		display: inline-block;
 		vertical-align: top;

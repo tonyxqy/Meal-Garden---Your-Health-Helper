@@ -5,6 +5,7 @@
 			<!-- <block slot="backText">返回</block> -->
 			<block slot="content">首页</block>
 		</cu-custom>
+		<xiaobing />
 		<add-tip :tip="tip" :duration="duration" />
 		<view id="container">
 			<!-- banner图 -->
@@ -24,11 +25,11 @@
 			</view>
 			<!-- 导航栏 -->
 			<view class="cu-list grid col-4 no-border">
-				<view class="cu-item" v-for="(item,index) in categories" :key="index"
+				<view class="cu-item" v-for="(item,index) in categories" :key="index" hover-class="animated rubberBand"
 					:style="[{animation: 'show ' + ((index+1)*0.2+1) + 's 1'}]" @click="goCategorieslist"
 					:data-mid="item.mid">
 					<view :class="['cuIcon-' + item.cuIcon,'text-' + item.color]" class="tagbar"
-						:style="[{background:item.bgc}]">
+						:style="[{background:item.bgc}]" hover-class="animated heartBeat">
 						<view class="cu-tag badge" v-if="item.count!=0">
 							<block v-if="item.badge!=1">{{item.badge>99?'99+':item.badge}}</block>
 						</view>
@@ -38,7 +39,7 @@
 			</view>
 			<!-- <van-sticky offset-top="80 "> -->
 			<view class="cu-bar bg-white margin-top-xs">
-				<view class="action sub-title">
+				<view class="action sub-title" hover-class="animated rubberBand">
 					<text class="text-xl text-bold text-dark text-shadow">今日能量</text>
 					<text class="text-ABC text-light">energy</text>
 				</view>
@@ -58,46 +59,10 @@
 				</view>
 			</view>
 
-
-
-
-
-			<!-- 
-			<van-grid column-num="3" border="false">
-				<van-grid-item use-slot text="糖分" style="text-align: center;">
-					<view style="height: 160px">
-						<van-circle style="display: block;margin: 5px 0; z-index: -1;" v-show="hide"
-							:value="Math.floor(current.currentSugar/target.targetSugar*100)" size="60"
-							:text="Math.floor(current.currentSugar)" :color="gradientColor[0]" />
-						<text class="gridtext">糖分</text>
-					</view>
-				</van-grid-item>
-				<van-grid-item use-slot text="热量">
-					<view style="height: 180px;z-index: 0;margin-top: -20px;">
-						<view class="charts-box">
-							<qiun-data-charts type="gauge" :chartData="chartData" :loadingType="4" v-show="hide"
-								:errorShow="false" background="none" />
-						</view>
-					</view>
-				</van-grid-item>
-				<van-grid-item use-slot text="脂肪" style="text-align: center;">
-					<view style="height: 160px">
-						<van-circle style="display: block;margin: 5px 0;z-index: -1;"
-							:value="current.currentFat/target.targetFat*100" size="60"
-							:text="Math.floor(current.currentFat)" v-show="hide" :color="gradientColor[2]" />
-						<text class="gridtext">脂肪</text>
-					</view>
-				</van-grid-item>
-			</van-grid> -->
-			<!-- </van-sticky> -->
-
 			<view class="cu-bar bg-white margin-top-xs">
-				<view class="action sub-title">
+				<view class="action sub-title" hover-class="animated rubberBand">
 					<text class="text-xl text-bold text-dark text-shadow">每日推荐</text>
 					<text class="text-ABC text-light">recommendation</text>
-					<!-- 					<button>早餐</button>
-					<button>中餐</button>
-					<button>晚餐</button> -->
 				</view>
 
 			</view>
@@ -126,7 +91,8 @@
 								{{item}},
 							</text>
 						</view>
-						<button type="default" class="buttonchoose" style="background-color: #0BCCD2;">
+						<button hover-class="animated rubberBand" type="default" class="buttonchoose"
+							style="background-color: #0BCCD2;">
 							<text>
 								选择
 							</text>
@@ -137,19 +103,13 @@
 
 		</view>
 		<view class="cu-bar bg-white margin-top-xs">
-			<view class="action sub-title">
+			<view class="action sub-title" hover-class="animated rubberBand">
 				<text class="text-xl text-bold text-dark text-shadow">我的今日早餐</text>
 				<text class="text-ABC text-light">BreakFast</text>
 			</view>
-			<view class="action" @click="goBreakfast">
+			<view class="action" @click="goBreakfast" hover-class="animated rubberBand">
 				<text class="text-lg text-grey text-shadow">添加早餐</text>
 			</view>
-			<!-- 				<view class="action" @click="goLunch">
-				<text class="text-lg text-grey text-shadow">中餐</text>
-			</view>
-			<view class="action" @click="goDinner">
-				<text class="text-lg text-grey text-shadow">晚餐</text>
-			</view> -->
 		</view>
 		<scroll-view scroll-x="true" class="body-classify-scroll">
 			<view @click="bindY(item,1)" class="body-classify-cell shadow bodyshadow"
@@ -157,7 +117,7 @@
 				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
 				<view class="bodyname">早餐</view>
 				<view class="bodymenu">{{item.menu}}</view>
-				<button type="default" style="background-color: #0BCCD2;">
+				<button hover-class="animated rubberBand" type="default" style="background-color: #0BCCD2;">
 					<text>
 						营养成分
 					</text>
@@ -168,7 +128,7 @@
 					src="https://s1.328888.xyz/2022/05/19/D6BOy.png" mode="aspectFill" />
 			</view>
 		</scroll-view>
-		<view class="cu-bar bg-white margin-top-xs">
+		<view class="cu-bar bg-white margin-top-xs" hover-class="animated rubberBand">
 			<view class="action sub-title">
 				<text class="text-xl text-bold text-dark text-shadow">我的今日午餐</text>
 				<text class="text-ABC text-light">Lunch</text>
@@ -176,7 +136,7 @@
 			<!-- 			<view class="action" @click="goBreakfast">
 				<text class="text-lg text-grey text-shadow">添加早餐</text>
 			</view> -->
-			<view class="action" @click="goLunch">
+			<view class="action" @click="goLunch" hover-class="animated rubberBand">
 				<text class="text-lg text-grey text-shadow">添加午餐</text>
 			</view>
 			<!-- 			<view class="action" @click="goDinner">
@@ -189,7 +149,7 @@
 				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
 				<view class="bodyname">午餐</view>
 				<view class="bodymenu">{{item.menu}}</view>
-				<button type="default" style="background-color: #0BCCD2;">
+				<button hover-class="animated rubberBand" type="default" style="background-color: #0BCCD2;">
 					<text>
 						营养成分
 					</text>
@@ -201,17 +161,11 @@
 			</view>
 		</scroll-view>
 		<view class="cu-bar bg-white margin-top-xs">
-			<view class="action sub-title">
+			<view class="action sub-title" hover-class="animated rubberBand">
 				<text class="text-xl text-bold text-dark text-shadow">我的今日晚餐</text>
 				<text class="text-ABC text-light">Dinner</text>
 			</view>
-			<!-- 			<view class="action" @click="goBreakfast">
-				<text class="text-lg text-grey text-shadow">添加早餐</text>
-			</view> -->
-			<!-- 							<view class="action" @click="goLunch">
-				<text class="text-lg text-grey text-shadow">中餐</text>
-			</view> -->
-			<view class="action" @click="goDinner">
+			<view class="action" @click="goDinner" hover-class="animated rubberBand">
 				<text class="text-lg text-grey text-shadow">添加晚餐</text>
 			</view>
 		</view>
@@ -221,7 +175,7 @@
 				<image style="width: 301px; height: 193px; opacity: 0.8;" :src="item.pictureUrl" mode="aspectFill" />
 				<view class="bodyname">晚餐</view>
 				<view class="bodymenu">{{item.menu}}</view>
-				<button type="default" style="background-color: #0BCCD2;">
+				<button hover-class="animated rubberBand" type="default" style="background-color: #0BCCD2;">
 					<text>
 						营养成分
 					</text>
@@ -255,13 +209,18 @@
 								</van-tag>
 							</view>
 						</view>
-
 						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：
 						</view>
 						<view class="detailsTop">
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
 								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<10">
+									v-if="index<7">
+									{{item}}
+								</text>
+							</view>
+							<view slot="desc" v-for="(item, index) in popArray.ingredients2">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
+									v-if="index<7">
 									{{item}}
 								</text>
 							</view>
@@ -276,129 +235,61 @@
 			</view>
 		</u-popup>
 
-		<!-- <view class="cu-card case no-card">
-			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in breakfastList" :key="index">
-				<van-card currency=" " lazy-load="true" :thumb="item.pictureUrl">
-					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
-						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
-							{{item}}
-						</van-tag>
-						<van-tag :type="mystylelist[3-index1]" style="display: block;margin: 2rpx;" v-if="index1==2">
-							{{item}}
-						</van-tag>
-					</view>
-					<view slot="title" class="" style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
-					<view slot="price" style="padding-top: 10rpx;">{{item.taste}}</view>
-					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
-						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
-					</view>
-					<view slot="bottom" style="float: right;">
-						糖:{{item.sugar}} 脂肪{{item.fat}} 能量{{item.energy}}
-					</view>
-					<view slot="footer">
-						<van-button size="mini" type="danger" @click="deleteMenuBreakfast(item)">删除</van-button>
-					</view>
-				</van-card>
-			</view>
-			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in lunchList" :key="index">
-				<van-card currency=" " lazy-load="true" :thumb="item.pictureUrl">
-					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
-						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
-							{{item}}
-						</van-tag>
-						<van-tag :type="mystylelist[3-index1]" style="display: block;margin: 2rpx;" v-if="index1==2">
-							{{item}}
-						</van-tag>
-					</view>
-					<view slot="title" class="" style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
-					<view slot="price" style="padding-top: 10rpx;">{{item.taste}}</view>
-					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
-						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
-					</view>
-					<view slot="bottom" style="float: right;">
-						糖:{{item.sugar}} 脂肪{{item.fat}} 能量{{item.energy}}
-					</view>
-					<view slot="footer">
-						<van-button size="mini" type="danger" @click="deleteMenuLunch(item)">删除</van-button>
-					</view>
-				</van-card>
-			</view>
-			<view @click="bind(item)" class="cu-item shadow" v-for="(item, index) in dinnerList" :key="index">
-				<van-card currency=" " lazy-load="true" :thumb="item.pictureUrl">
-					<view slot="desc" v-for="(item, index1) in item.classifiction" v-if="index1<3">
-						<van-tag :type="mystylelist[3-index1]" style="float: left;margin: 2rpx;" v-if="index1<2">
-							{{item}}
-						</van-tag>
-						<van-tag :type="mystylelist[3-index1]" style="display: block;margin: 2rpx;" v-if="index1==2">
-							{{item}}
-						</van-tag>
-					</view>
-					<view slot="title" class="" style="font-size:30rpx;padding-bottom: 10rpx;">{{item.menu}}</view>
-					<view slot="price" style="padding-top: 10rpx;">{{item.taste}}</view>
-					<view slot="tags" v-for="(item, index1) in item.ingredients" v-if="index1<3">
-						<van-tag plain :type="mystylelist[index1]" style="float: left;margin: 2rpx;">{{item}}</van-tag>
-					</view>
-					<view slot="bottom" style="float: right;">
-						糖:{{item.sugar}} 脂肪{{item.fat}} 能量{{item.energy}}
-					</view>
-					<view slot="footer">
-						<van-button size="mini" type="danger" @click="deleteMenuDinner(item)">删除</van-button>
-					</view>
-				</van-card>
-			</view>
-		</view>
- -->
-		<u-popup v-model="showT" mode="center" width="690rpx" height="900rpx" @close="popupClose" border-radius="20"
-			style=" border: 10rpx;">
+		<u-popup v-model="showT" mode="center" width="690rpx" @close="popupClose" border-radius="20"
+			style=" border: 10rpx;border-color: #0BCCD2;">
 			<view style="width: 100%;height: 100%;background-color: #fefefe;display: flex;flex-direction:column;">
 				<view class="canlass">
 					<view class="aasd" style="padding-left: 20rpx;" @click="showT = false"> 取消 </view>
 					<view class="titileCenter">菜名： {{popArray.menu}} </view>
-					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="showT = false"> 确定
+					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="submitMenu()"> 提交
 					</view>
 				</view>
-
+				<view style="color: #0BCCD2;">
+					<view style="padding-bottom: 30rpx;text-align: center;padding-left: 20rpx;">
+						❤有{{precent}}%的用户也喜欢这道菜...
+					</view>
+				</view>
 				<view style="column-count: 2;">
 					<view>
-						<view>
-							<view style="padding: 10rpx;padding-left: 20rpx;">
-								有{{precent}}%的用户
-							</view>
-							<view style="padding-left: 90rpx;padding-bottom: 10rpx;">
-								也喜欢这道菜...
-							</view>
-						</view>
 						<image :src="popArray.pictureUrl" mode="aspectFill"
-							style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;"></image>
+							style="padding-left:0rpx ;width:200px;height: 200px;text-align: center;left:30rpx;border-radius: 10px;">
+						</image>
+					</view>
+
+					<view
+						style="display: flex;flex-direction:row; padding-top:25rpx ;padding-left:30rpx ;padding-bottom: 20rpx;border:10rpx;border-color: #007AFF;">
+						<text class="text-lg text-black text-blue">分量</text>
+						<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
+							button-size="20px" bind:change="onChange" />
 					</view>
 					<view>
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
 								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" size="large"
+								<van-tag color="#0BCCD2" style="padding: 10rpx; vertical-align: middle;" size="large"
 									v-if="index<4">
 									{{item}}
 								</van-tag>
 							</view>
 						</view>
-						<view class="displayCol" style="padding-left:30rpx;color: #304156; ">
-							<view style="display: flex;flex-direction:row; padding-top:5rpx ;padding-bottom: 20rpx;">
-								<text class="text-lg text-black text-blue">分量</text>
-								<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
-									button-size="20px" bind:change="onChange" />
-							</view>
+						<view class="displayCol " style="padding-left:30rpx;color: #304156; ">
 							<view style="display:inline-block; text-align: left; padding-top: 10rpx;">
-								<text class="text-lg text-black text-blue">{{popArray.process}} </text>
+								<text class="text-black text-blue">{{popArray.process}} </text>
 								<text style="color: #304156;padding-left:10rpx ;">{{popArray.time}}</text>
 							</view>
 						</view>
 						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：
 						</view>
 						<view class="detailsTop">
-
 							<view slot="desc" v-for="(item, index) in popArray.ingredients">
 								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<12">
+									v-if="index<7">
+									{{item}}
+								</text>
+							</view>
+							<view slot="desc" v-for="(item, index) in popArray.ingredients2">
+								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
+									v-if="index<7">
 									{{item}}
 								</text>
 							</view>
@@ -407,21 +298,23 @@
 				</view>
 				<view class="displayCol"
 					style="padding: 10rpx;padding-left: 30rpx;line-height: 35px;letter-spacing: 2rpx;">
+
 					<text class="text-lg text-black">您想将其添加至</text>
 					<van-radio-group value="radio" @change="onChange()" direction="horizontal">
-						<van-radio name="1">早餐</van-radio>
-						<van-radio name="2">中餐</van-radio>
-						<van-radio name="3">晚餐</van-radio>
+						<van-radio name="1" checked-color="#0BCCD2">早餐</van-radio>
+						<van-radio name="2" checked-color="#0BCCD2">中餐</van-radio>
+						<van-radio name="3" checked-color="#0BCCD2">晚餐</van-radio>
 					</van-radio-group>
 				</view>
-				<van-button type="default" block @click="submitMenu()">提交</van-button>
+				<van-button type="default" block @click="submitMenu()" style="bottom: 20rpx;">提交</van-button>
 			</view>
 		</u-popup>
+
 		<view style="height: 140rpx;width: 1rpx;"></view>
 		<u-popup v-model="logion" mode="center" height="320rpx" :mask-close-able="false" width="530rpx"
 			border-radius="10">
 			<view class="sdsfsdfd"> 请登录 </view>
-			<button class="anniudddfd" @click="getUserInfo"> 立即登录 </button>
+			<button hover-class="animated rubberBand" class="anniudddfd" @click="getUserInfo"> 立即登录 </button>
 		</u-popup>
 	</view>
 </template>
@@ -431,20 +324,22 @@
 	import request from '@/common/request.js';
 	import addTip from "../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue"
 	import bodyhelper from "./bodyhelper.vue"
+	import xiaobing from "./xiaobing.vue";
 	export default {
 		components: {
 			addTip,
-			bodyhelper
+			bodyhelper,
+			xiaobing
 		},
 		data() {
 			var user_id = uni.getStorageSync('userId')
-			console.log(user_id, "userId")
+			// console.log(user_id, "userId")
 			var nowDate = new Date();
 			var year = nowDate.getFullYear();
 			var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
 			var day = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
 			var timer = year + "-" + month + "-" + day
-			console.log(timer, "dateStrdateStrdateStr")
+			// console.log(timer, "dateStrdateStrdateStr")
 			return {
 				steps: [{
 						// text: '步骤一',
@@ -541,16 +436,16 @@
 				},
 
 				bannerList: [{
-						imageUrl: 'https://s1.328888.xyz/2022/05/19/DbY8B.png',
+						imageUrl: 'https://s1.ax1x.com/2022/06/25/jkeisP.png',
 					},
 					{
-						imageUrl: 'https://s1.328888.xyz/2022/05/19/DbTRT.png',
+						imageUrl: 'https://s1.ax1x.com/2022/06/25/jkePMt.png',
 					},
 					{
-						imageUrl: 'https://s1.328888.xyz/2022/05/19/Dbc62.png',
+						imageUrl: 'https://s1.ax1x.com/2022/06/25/jkeAZ8.png',
 					},
 					{
-						imageUrl: 'https://s1.328888.xyz/2022/05/19/DbwLM.png',
+						imageUrl: 'https://s1.ax1x.com/2022/06/25/jkeFqf.png',
 					}
 				],
 				categories: [{
@@ -598,17 +493,17 @@
 			}
 		},
 		activated() {
-			console.log('((((((((((()))))))))))')
+			// console.log('((((((((((()))))))))))')
 		},
 		mounted() {
 			uni.$on('hidebox', this.hidebox);
 			if (uni.getStorageSync('userId'))
 				this.getData();
 			this.$nextTick(function() {
-				console.log(uni.createSelectorQuery().in(this))
+				// console.log(uni.createSelectorQuery().in(this))
 				const query = uni.createSelectorQuery().in(this)
 				query.select('#container').boundingClientRect(data => {
-					console.log(data)
+					// console.log(data)
 					this.container = data
 				}).exec();
 			})
@@ -628,7 +523,7 @@
 			getData() {
 				var user_id = uni.getStorageSync('userId')
 				this.user_id = user_id
-				console.log(user_id, "userId")
+				// console.log(user_id, "userId")
 				let user = {
 					user_id
 				}
@@ -642,7 +537,7 @@
 					title: '加载中'
 				})
 				request.httpRequest(optstar, user).then(res => {
-					console.log(res);
+					// console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
 						this.target = res.data;
@@ -656,16 +551,16 @@
 					method: 'get',
 				};
 				request.httpRequest(optscur, user).then(res => {
-					console.log(res);
+					// console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
 						this.current = res.data;
-						console.log(this.current)
+						// console.log(this.current)
 						let ans = {
 							name: "完成率",
 							data: this.current.currentFat / this.target.targetFat
 						}
-						console.log('aaaaaaaaaaa', ans.data)
+						// console.log('aaaaaaaaaaa', ans.data)
 						this.chartData.series.push(ans)
 					} else {}
 				});
@@ -772,16 +667,16 @@
 			bind(item) {
 				this.popArray = item
 				this.help(this.popArray)
-				console.log(this.popArray, "popArray")
+				// console.log(this.popArray, "popArray")
 			},
 			onChange(event) {
 				this.radio = parseInt(event.detail)
-				console.log(this.radio, "onchange早中晚餐的绑定")
+				// console.log(this.radio, "onchange早中晚餐的绑定")
 			},
 			submitMenu() {
 				var that = this
 				this.showT = false
-				console.log(this.radio, this.popArray.menu, this.user_id, this.timer, this.volume)
+				// console.log(this.radio, this.popArray.menu, this.user_id, this.timer, this.volume)
 				uni.showLoading({
 					title: '上传中'
 				})
@@ -812,7 +707,7 @@
 				request.httpRequest(opt, data).then(res => {
 					uni.hideLoading();
 					if (res.statusCode == 200) {
-						console.log(200, "addsuccess")
+						// console.log(200, "addsuccess")
 						wx.showToast({
 							title: '提交成功',
 							icon: 'success',
@@ -842,33 +737,24 @@
 				this.showY = true
 				this.popArray = item
 				this.helpIt(this.popArray)
-				console.log(this.popArray, "popArray")
+				// console.log(this.popArray, "popArray")
 			},
 			helpIt(self) {
-				// if(self.practice != null){
-				// 	let practice = self.practice
-				// 	console.log(practice)
-				// 	this.steps=[];
-				// 	for(var i=0;i<practice.length;i++){
-				// 		console.log(practice[i])
-				// 		let change ={
-				// 		  text: '步骤'+i,
-				// 		  desc: practice[i],
-				// 		  inactiveIcon: 'location-o',
-				// 		  activeIcon: 'plus',
-				// 		}
-				// 		this.steps.push(change)
-				// 	}
-				// }
+
 				if (self.ingredients != null) {
 					let sep = /\,|\:/
 					let ingredients = self.ingredients.slice(1, -1).split(sep)
-					let list = []
+					let list2 = []
+					let list1 = []
+					let ingredients2 = []
 					ingredients.forEach((self, index) => {
 						let change = self.trim().replace(/\'/g, "");
-						list.push(change)
+						if (index % 2 == 0) list1.push(change)
+						else list2.push(change)
 					})
-					self.ingredients = list
+					self.ingredients = list1
+					self.ingredients2 = list2
+					console.log(list2, "list")
 				}
 				if (self.classifiction != null) {
 					let classifiction = self.classifiction.slice(1, -1).split(',')
@@ -886,7 +772,7 @@
 					practice.forEach((self, index) => {
 						let change = self.trim().replace(/\'|\\n|\d|\\t/g, "");
 						list.push(change)
-						console.log(change)
+						// console.log(change)
 						var no = index + 1
 						let action = {
 							text: '步骤' + no,
@@ -901,7 +787,7 @@
 			},
 			deleteMenuBreakfast(item) {
 				var that = this
-				console.log(item.menu, this.user_id, this.timer)
+				// console.log(item.menu, this.user_id, this.timer)
 				uni.showLoading({
 					title: '删除中'
 				})
@@ -931,7 +817,7 @@
 				request.httpRequest(opt, data).then(res => {
 					uni.hideLoading();
 					if (res.statusCode == 200) {
-						console.log(200, "delete menu")
+						// console.log(200, "delete menu")
 						this.showY = false
 						this.getMenuData()
 						wx.showToast({
@@ -943,7 +829,7 @@
 				});
 			},
 			scroll: function(e) {
-				console.log(e)
+				// console.log(e)
 				this.old.scrollTop = e.detail.scrollTop
 			},
 			goCategorieslist: function(e) {
@@ -960,7 +846,7 @@
 				}
 				if (e.currentTarget.dataset.mid == 2) {
 					uni.navigateTo({
-						url: '../../page_me/mentalTest/index?mid=1'
+						url: '../../page_me/mentalTest/list'
 					})
 				}
 				if (e.currentTarget.dataset.mid == 1) {
@@ -971,17 +857,17 @@
 			},
 			goBreakfast() {
 				uni.navigateTo({
-					url: '../../page_menu/breakfast'
+					url: '../../page_menu/breakfast?tag=1'
 				})
 			},
 			goLunch() {
 				uni.navigateTo({
-					url: '../../page_menu/lunch'
+					url: '../../page_menu/breakfast?tag=2'
 				})
 			},
 			goDinner() {
 				uni.navigateTo({
-					url: '../../page_menu/dinner'
+					url: '../../page_menu/breakfast?tag=3'
 				})
 			},
 			goVideo() {
@@ -1078,14 +964,16 @@
 	}
 
 	.detailsTop {
+		column-count: 2;
+		text-align: left;
 		padding-left: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
-		max-height: 140px;
+		max-height:140px;
 		color: #304156;
 		letter-spacing: 2rpx;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		flex-wrap: wrap;
 	}
 

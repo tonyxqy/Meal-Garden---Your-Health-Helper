@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "mp-video-swiper": "/wxcomponents/video-swiper/index"
+  }
+}

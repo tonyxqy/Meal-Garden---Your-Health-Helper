@@ -50,7 +50,7 @@
 										<view class="tag">{{ item.time.substr(0,10) }}</view>
 										<view class="answerHistory"></view>
 									</view>
-									<navigator url="/pages/askExpert/expertDetail" class="askBtn">目前没用</navigator>
+									<!-- <navigator url="/pages/askExpert/expertDetail" class="askBtn"></navigator> -->
 								</view>
 							</block>
 						</scroll-view>
@@ -301,7 +301,9 @@
 				let datas = []
 				var myDate = new Date();
 				var myDateMonth = myDate.toLocaleDateString();
+				// let i = TabList[currval].timeList.length-5;
 				let i = 0;
+				if (i<0)i=0;
 				console.log(TabList[currval].timeList.length === 0)
 				if (TabList[currval].timeList.length === 0) {
 					let data = {
@@ -314,7 +316,8 @@
 				if (TabList[currval].timeList[i].time != 'ヽ(✿ﾟ▽ﾟ)ノ')
 					for (i; i < TabList[currval].timeList.length; i++) {
 						console.log(TabList[currval].timeList[i].time);
-						categories.push(TabList[currval].timeList[i].time.substr(0,10));
+						// categories.push(TabList[currval].timeList[i].time.substr(5,5));
+						categories.push('');
 						datas.push(TabList[currval].timeList[i].value);
 					}
 				else {

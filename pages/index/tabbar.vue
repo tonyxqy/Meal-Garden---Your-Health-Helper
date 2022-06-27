@@ -5,7 +5,7 @@
 		<cases v-if="PageCur=='cases'" ></cases>
 		<news v-if="PageCur=='news'"></news>
 		<me v-if="PageCur=='me'" ref="me"></me>
-		<xiaobing/>
+		<!-- <xiaobing/> -->
 		
 		<view class="box">
 			<view class="cu-bar tabbar bg-white shadow foot">
@@ -14,7 +14,7 @@
 						<image v-if="PageCur=='index'" src="../../static/tabBar/index_cur.png"></image>
 						<image v-if="PageCur != 'index'" src="../../static/tabBar/index.png"></image>
 					</view>
-					<view :class="PageCur=='index'?'color_main':'text-gray'">首页</view>
+					<view :class="PageCur=='index'?'color_main':'text-gray'" hover-class="animated rubberBand">首页</view>
 				</view>
 
 				<view class="action" @click="NavChange" data-cur="search">
@@ -58,14 +58,14 @@
 
 <script>
 	import index from "./inedx.vue"; //首页
-	import search from "./search.vue"; //技术视频
-	import cases from "./main.vue"; //宅家学
+	import search from "./search.vue"; 
+	import cases from "./main.vue"; 
 	import news from "./news.vue"; //动态
-	import me from "./me.vue"; //个人中心
-	import xiaobing from "./xiaobing.vue"; //个人中心
+	import me from "./me.vue"; 
+	// import xiaobing from "./xiaobing.vue"; 
 	export default {
 		components: {
-			xiaobing,
+			// xiaobing,
 			index,
 			search,
 			cases,

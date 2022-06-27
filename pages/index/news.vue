@@ -1,15 +1,15 @@
 <template>
-	<view class="wrap">
+	<view class="wrap" style="    background-color: #fff;">
 		<cu-custom bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">{{pageName}}</block>
 		</cu-custom>
 
-		<view class="u-tabs-box">
-			<u-tabs-swiper activeColor="#0081ff" ref="tabs" :list="tablist" :current="current" @change="change"
+		<view class="u-tabs-box uphead">
+			<u-tabs-swiper activeColor="#0BCCD2" ref="tabs" :list="tablist" :current="current" @change="change"
 				:is-scroll="false" swiperWidth="750"></u-tabs-swiper>
 		</view>
-		<u-notice-bar mode="horizontal" type="primary" :list="listBar"></u-notice-bar>
+		<!-- <u-notice-bar mode="horizontal" type="primary" :list="listBar"></u-notice-bar> -->
 
 		<swiper class="swiper-box" :current="swiperCurrent" @transition="transition" @animationfinish="animationfinish">
 			<!-- 第一页 -->
@@ -78,12 +78,21 @@
 			</swiper-item>
 		</swiper>
 		<u-loadmore bg-color="rgb(240, 240, 240)" :status="loadStatus" @loadmore="addRandomData"></u-loadmore>
-		<view class="" @click="uploaddata()">
+		<view class="share-img png round shadow-lg bg-white" hover-class="trs" @click="uploaddata()">	
+			<image src='https://s1.ax1x.com/2022/06/25/jka4oQ.png'  style='    width: 100%;height: 100%;' >		</image>
+		</view>
+		<view class="" v-if="show">
 			<navigator url="/page_upload/upload">
-			<image src='https://s1.328888.xyz/2022/05/20/duFhB.png'  class='share-img png round shadow-lg bg-white'>
+				<view class="pic">
+					图片
+				</view>
+			</navigator>
+			<navigator url="/page_upload/uploadvideo">
+				<view class="vied">
+					视频
+				</view>
 			</navigator>
 		</view>
-		</image>
 	</view>
 
 </template>
@@ -98,6 +107,7 @@
 		},
 		data() {
 			return {
+				show:0,
 				pageName: '动态',
 				listBar: [
 					'赶快发布自己的动态吧,来这里标记我们的生活！'
@@ -152,9 +162,7 @@
 
 		methods: {
 			uploaddata() {
-				uni.navigateTo({
-					url: '/page_upload/uploadvideo.vue'
-				})
+				this.show = !this.show
 			},
 			reachBottom() {
 				this.loadStatus = 'loading';
@@ -293,9 +301,50 @@
 	/* #endif */
 </style>
 <style lang="scss" scoped>
+	.trs{
+		transform:rotate(45deg)
+	}
+	.uphead{
+		box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.16);
+	}
+	.pic{
+		    position: fixed;
+		    bottom: 410rpx;
+		    right: 0;
+		    width: 109px;
+		    height: 37px;
+			background-image: linear-gradient(45deg, #9DE4E8, #1BBFC8);
+			color: #ffffff;
+			text-align: center;
+		    box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.16);
+		    border-radius: 17px 17px 17px 17px;
+		    opacity: 0.76;
+			font-size: 18px;
+			font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+			font-weight: 600;
+			line-height: 37px;
+	}
+	.vied{
+		    position: fixed;
+		    bottom: 320rpx;
+		    right: 0;
+		    width: 109px;
+		    height: 37px;
+		    background-image: linear-gradient(45deg, #9DE4E8, #1BBFC8);
+		    color: #ffffff;
+		    text-align: center;
+		    box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.16);
+		    border-radius: 17px 17px 17px 17px;
+		    opacity: 0.76;
+			font-size: 18px;
+			font-family: Source Han Sans CN-Regular, Source Han Sans CN;
+			font-weight: 600;
+			line-height: 37px;
+	}
 	.share-img {
+		transition: transform 0.4s;
 		position: fixed;
-		padding: 10rpx;
+		padding: 20rpx;
 		width: 100rpx;
 		height: 100rpx;
 		/* top: 680rpx; */
@@ -488,6 +537,7 @@
 		background-color: #ffffff;
 		padding: 8px;
 		position: relative;
+		border: 1px solid #DFDFDF;
 	}
 
 	.u-close {
@@ -513,19 +563,19 @@
 	}
 
 	.demo-tag-owner {
-		background-color: $u-type-primary;
+		background: #0BCCD2;
 		color: #FFFFFF;
 		display: flex;
 		align-items: center;
-		padding: 4rpx 14rpx;
+		padding: 11rpx 14rpx;
 		border-radius: 50rpx;
-		font-size: 20rpx;
+		font-size: 22rpx;
 		line-height: 1;
 	}
 
 	.demo-tag-text {
-		border: 1px solid $u-type-primary;
-		color: $u-type-primary;
+		background: #0BCCD2;
+		color: #FFFFFF;
 		margin-left: 10px;
 		border-radius: 50rpx;
 		line-height: 1;

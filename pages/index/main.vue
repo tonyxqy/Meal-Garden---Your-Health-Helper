@@ -19,7 +19,7 @@
 					<view class="tree" :style="'height:' + winHeight+ 'rpx'">
 						<view :class="'rain rain-' + stages" :data-index="index" :data-value="value" @tap="rainFun"
 							v-for="(value, index) in rainArr" :key="index">
-							{{ value.rain }}
+							{{ value}}
 							<text>g</text>
 						</view>
 						<image :src="'/static/image/tree-' + stages + '.png'"
@@ -36,6 +36,9 @@
 						<view class="waters" v-if="waterdom"></view>
 					</view>
 
+					<navigator url="/page_rank/rank" class="rank">
+						<image src="https://s1.ax1x.com/2022/06/20/Xj75ZV.png" mode=""></image>
+					</navigator>
 					<!-- 用户信息、水滴值 -->
 					<view class="sumup">
 						<view class="user">
@@ -134,7 +137,7 @@
 					height: 46,
 					weight: 155,
 				},
-				rainArr: [28, 63, 5, 902],// 雨滴值 点击收取
+				rainArr: [],// 雨滴值 点击收取
 				stages: 1,// 成长阶段 1(小树[默认])，中2(中树) ，大3(大树)
 				during: 100,// 阶段阈值 1、小树[100以下](during > votes ) ，2、中树[100及以上 并且小于1000](during <= votes && oldest > votes)
 				oldest: 1000,// 阶段阈值 3、大树[1000及以上](oldest <= votes )
@@ -150,6 +153,7 @@
 		},
 		mounted() {
 			var user_id = uni.getStorageSync('userId')
+			user_id=user_id.toString()
 			console.log(user_id,"userId")
 			var that = this;
 			uni.getSystemInfo({
@@ -163,11 +167,11 @@
 					that.winHeight = calc
 				}
 			});
+			this.setTree(200)
 			this.getvotes(user_id),
 			this.getUserInfo(user_id),
 			this.getStage(user_id),
-			this.getRain(user_id),
-			this.postPluss(user_id)
+			this.temp()
 		},
 		onLoad() {
 			var that = this;
@@ -222,7 +226,7 @@
 						user_id
 					},
 					success: (res) => {
-						console.log(res)
+						console.log(res,"getvotes")
 						this.info.votes = res.data
 					}
 				})
@@ -266,7 +270,9 @@
 					}
 				})
 			},
-			postPluss(user_id) {
+			postPluss() {
+				var user_id = uni.getStorageSync('userId')
+				console.log(user_id,"userId")
 				var nowDate = new Date();
 				var year = nowDate.getFullYear();
 				var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
@@ -286,11 +292,14 @@
 					},
 					success: (res) => {
 						console.log(res, "pluss")
-
+						this.getvotes(user_id)
+						this.setTree(200)
 					}
 				})
 			},
-			getRain(user_id) {
+			getRain() {
+				var user_id = uni.getStorageSync('userId')
+				console.log(user_id,"userId")
 				var that = this
 				uni.request({
 					url: 'https://xuyq.xyz:3306/tree/getRainTime',
@@ -302,9 +311,7 @@
 						user_id
 					},
 					success: (res) => {
-						
-						this.rainArr=res.data
-						console.log(this.rainArr, "getRain")
+						console.log(res, "historyRain")
 					}
 				})
 			},
@@ -346,6 +353,12 @@
 				}, time);
 			},
 			bubble(value) {
+				var nowDate = new Date();
+				var year = nowDate.getFullYear();
+				var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+				var day = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+				var timer = year + "-" + month + "-" + day
+				console.log(timer, "dateStrdateStrdateStr")
 				var user_id = uni.getStorageSync('userId')
 				var that = this
 				uni.request({
@@ -357,9 +370,13 @@
 					data: {
 						user_id,
 						rain:value,
+						time:timer,
 					},
 					success: (res) => {
 						console.log(res,"bubble")
+						this.getvotes(user_id)
+						this.temp()
+						// this.mounted()
 					}
 				})
 			},
@@ -376,25 +393,27 @@
 				request.httpRequest(opt,data).then(res => {
 					uni.hideLoading();
 					if (res.statusCode == 200) {
-						console.log(res,"temp")
+						this.rainArr=res.data
+						console.log(this.rainArr, "rainArr")
 					} else {}
 				});
 			},
 			// 收取雨滴的动画
 			rainFun(e) {
+				console.log(e,"e")
 				let {
 					index,
 					value
 				} = e.currentTarget.dataset;
 				let info = this.info;
-				let rainArr = this.rainArr;
-				value=value.rain
-				console.log(value)
+				
 				this.bubble(value)
 				this.temp()
+				let rainArr = this.rainArr;
+				console.log(rainArr,"ceshi")
 				info.votes = Number(this.info.votes) + (value - 0);
 				info.votes = Number(this.info.votes);
-				rainArr.splice(index, 1);
+				// rainArr.splice(index, 1);
 				this.setData({
 					plussNum: value,
 					info,
@@ -405,8 +424,8 @@
 					this.setData({
 						rainArr
 					});
-				}, 1000);
-				this.setTree(2000);
+				}, 55500);
+				this.setTree(200);
 			},
 
 			// 点击树的动画
@@ -439,7 +458,7 @@
 					}, 1500);
 					setTimeout(() => {
 						let info = this.info;
-						info.votes = Number(this.info.votes) + 1;
+						// info.votes = Number(this.info.votes) + 1;
 						this.setData({
 							info,
 							pluss: true,
@@ -627,7 +646,19 @@
 		width: 100%;
 		height: 300rpx;
 	}
-
+	.canvas .rank {
+		position: fixed;
+		bottom: 20%;
+		left: 0;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background-color: #fff;
+	}
+	.canvas .rank image{
+		width: 100%;
+		height: 100%;
+	}
 	.canvas .kettle .kettls {
 		position: absolute;
 		top: -172rpx;

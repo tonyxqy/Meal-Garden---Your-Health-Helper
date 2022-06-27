@@ -30,8 +30,8 @@
 						</view>
 					</view>
 					<view class="action">
-						<button v-if="item.isAnswer != 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-green shadow">前往答题</button>
-						<button v-if="item.isAnswer == 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-orange shadow">已经答题</button>
+						<button v-if="item.isAnswer != 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-green shadow" hover-class="animated rubberBand">前往答题</button>
+						<button v-if="item.isAnswer == 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-orange shadow" hover-class="animated rubberBand">已经答题</button>
 					</view>
 				</view>
 			</view>
@@ -55,8 +55,8 @@
 						</view>
 					</view>
 					<view class="action">
-						<button v-if="item.isAnswer != 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-green shadow">前往答题</button>
-						<button v-if="item.isAnswer == 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-orange shadow">已经答题</button>
+						<button v-if="item.isAnswer != 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-green shadow" hover-class="animated rubberBand">前往答题</button>
+						<button v-if="item.isAnswer == 2" @click="goIndex(item.id)" class="cu-btn round bg-gradual-orange shadow" hover-class="animated rubberBand">已经答题</button>
 					</view>
 				</view>
 			</view>
@@ -72,10 +72,25 @@
 				dataL: {
 					data1: [{
 							id: '1',
-							name: '中医身体素质评测～',
+							name: '中医身体素质评测1～',
 							num:'31',
 							isAnswer: 1
-					}],
+					},
+					{
+							id: '2',
+							name: '中医身体素质评测2～',
+							num:'21',
+							isAnswer: 1
+					},
+					{
+							id: '3',
+							name: '中医身体素质评测3～',
+							num:'7',
+							isAnswer: 1
+					}
+					
+					
+					],
 				},
 			};
 		},
@@ -88,7 +103,7 @@
 		methods: {
 			goIndex(mid){
 				uni.navigateTo({
-					url: 'index?mid=' + mid
+					url: 'index' + mid
 				})
 			}
 		}

@@ -26,8 +26,8 @@
 							<view class="item-title">
 								<text>{{item.name}}</text>
 							</view>
-							<view class="item-container">
-								<view class="thumb-box" v-for="(item1, index1) in item.foods" :key="index1">
+							<view class="item-container" >
+								<view class="thumb-box" v-for="(item1, index1) in item.foods" :key="index1" hover-class="animated tada">
 									<image class="item-menu-image" :src="item1.icon" mode=""@click="getMenu(item1.tag)"></image>
 									<view class="item-menu-name margin-top-sm">{{item1.name}}</view>
 								</view>

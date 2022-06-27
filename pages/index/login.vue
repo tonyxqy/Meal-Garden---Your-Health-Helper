@@ -2,10 +2,12 @@
 	<view>
 		<view class='bgimg'>
 			<image style="width: 100%;height: 100%;opacity: 0.9;z-index: -1;" v-if="img" :src="img"></image>
-
+		</view>
+		<view class="titleword">
+			膳食花园
 		</view>
 		<view class="login">
-			<button class="loginbutton" @click="getUserInfo"> 立即登录 </button>
+			<button hover-class="animated rubberBand" class="loginbutton" @click="getUserInfo"> 立即登录 </button>
 		</view>
 	</view>
 </template>
@@ -58,34 +60,56 @@
 			var before = year + month + day
 			console.log(before, "before dateStrdateStrdateStr")
 			return {
-				img: "https://s1.328888.xyz/2022/05/19/Dbd80.png",
+				img: "https://s1.ax1x.com/2022/06/25/jkaTWn.png",
 				logion: true,
 				before,
 			}
 		},
 		methods: {
 			
-			mounted() {
-				console.log(222)
+			mounted(flag) {
+				console.log(flag)
 				var that = this
 				let sec = uni.getStorageSync('itemlogin')
 				console.log(sec)
 				if (sec != null) {
 					console.log(sec)
-					uni.reLaunch({
-						url: "tabbar",
-						fail(fail) {
-							console.log(fail)
-						}
-					})
+					if(flag){
+						uni.reLaunch({
+							url: "guide",
+							fail(fail) {
+								console.log(fail)
+							}
+						})
+					}
+					else{
+						uni.reLaunch({
+							url: "tabbar",
+							fail(fail) {
+								console.log(fail)
+							}
+						})
+					}
 					// uni.reLaunch({
 					// 	url:"pages/index/tabbar"
 					// })
 				} else {
-					uni.reLaunch({
-						url: "pages/index/tabbar"
-					})
-					// console.log("logintrue")
+					if(flag){
+						uni.reLaunch({
+							url: "guide",
+							fail(fail) {
+								console.log(fail)
+							}
+						})
+					}
+					else{
+						uni.reLaunch({
+							url: "tabbar",
+							fail(fail) {
+								console.log(fail)
+							}
+						})
+					}
 				}
 			},
 
@@ -142,7 +166,8 @@
 						if (loginRes.data.status == 200) {
 							uni.setStorageSync('itemlogin', loginRes.data.data);
 							this.getUserid(loginRes.data.data)
-							this.mounted()
+							console.log(loginRes)
+							this.mounted(loginRes.data.flag)
 							// console.log(loginRes.data.data)
 						} else {
 							uni.showToast({
@@ -189,6 +214,18 @@
 </script>
 
 <style>
+	.titleword{
+		width: 200px;
+		height: 67px;
+		font-size: 50px;
+		font-family: TsangerFeiBai W01-Regular, TsangerFeiBai W01;
+		font-weight: 400;
+		color: #009594;
+		line-height: 0px;
+		text-stroke: 3px #009594;
+		margin: 230px auto;
+	}
+	
 	.bgimg {
 		position: fixed;
 		top: 0;
@@ -201,7 +238,6 @@
 
 	.login {
 		display: relative;
-		height: 1000rpx;
 		width: 100%;
 		padding: 10px;
 	}
@@ -231,7 +267,6 @@
 		font-family: PingFangSC-Medium, PingFang SC;
 		font-weight: 500;
 		color: #FFFFFF;
-		margin-top: 900rpx;
 		line-height: 80rpx;
 		/* margin-left: 140rpx; */
 	}
