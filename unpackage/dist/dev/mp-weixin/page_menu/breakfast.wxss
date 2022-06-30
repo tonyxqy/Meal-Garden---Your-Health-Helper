@@ -301,6 +301,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 /* 展示框第一行 超出截断 */
 .taText {
 	overflow: hidden;
@@ -324,6 +333,10 @@
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
+}
+.displayRow {
+	display: flex;
+	flex-direction: row;
 }
 .details {
 	display: flex;

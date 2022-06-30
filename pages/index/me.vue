@@ -42,8 +42,7 @@
 			</view>
 		</view>
 		<!-- 顶部背景 -->
-		<view class='UCenter-bg'
-			:style="'background-image: url(' + pic[topBackGroupImageIndex].link + ');'">
+		<view class='UCenter-bg' :style="'background-image: url(' + pic[topBackGroupImageIndex].link + ');'">
 			<view class='space' v-show="spaceShow">
 				<view class="stars ">
 					<view class="star "></view>
@@ -174,17 +173,14 @@
 					</button>
 				</view>
 				<view class="cu-item">
-					<button class='content cu-btn' @click="goAboutMe" hover-class="animated rubberBand">
+					<button class='content cu-btn' @click="handbook()" hover-class="animated rubberBand">
 						<image src='https://s1.ax1x.com/2022/06/26/jAznHA.png' class='png' mode='aspectFit'></image>
-						<text class='text-lg margin-sm'>关于作者</text>
+						<text class='text-lg margin-sm'>使用手册</text>
 					</button>
 				</view>
 			</view>
-
 		</block>
-
 		<view style="height: 110rpx;width: 1rpx;"></view>
-
 	</view>
 </template>
 
@@ -270,9 +266,14 @@
 			this.nickName = uni.getStorageSync('nickName')
 			this.avatarUrl = uni.getStorageSync('avatarUrl')
 			console.log(this.nickName, this.avatarUrl, "name")
-			uni.$on('meData',this.getServerData)
+			uni.$on('meData', this.getServerData)
 		},
 		methods: {
+			handbook() {
+				wx.navigateTo({
+					url: '../../page_me/handbook'
+				})
+			},
 			getServerData() {
 				let user_id = uni.getStorageSync('userId')
 				uni.showLoading({
@@ -299,8 +300,7 @@
 						uni.setStorage({
 							key: 'ans',
 							data: this.ansList,
-							success: function () {
-							}
+							success: function() {}
 						});
 					} else {}
 				});

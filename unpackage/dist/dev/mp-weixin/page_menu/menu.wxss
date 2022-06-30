@@ -257,6 +257,31 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	/* 展示框第一行 超出截断 */
 .taText {
 		overflow: hidden;
@@ -281,6 +306,10 @@
 		background-color: #FFFFFF;
 		margin-top: 25rpx;
 		padding-left: 20rpx;
+}
+.displayRow {
+		display: flex;
+		flex-direction: row;
 }
 .detailsTop {
 		padding: 30rpx;

@@ -50,7 +50,8 @@
         "mentalTest/index2",
         "mentalTest/index3",
         "mentalTest/explain",
-        "diagnose"
+        "diagnose",
+        "handbook"
       ]
     },
     {
@@ -116,5 +117,6 @@
     "van-steps": "/wxcomponents/vant/steps/index",
     "cu-custom": "/colorui/components/cu-custom",
     "tn-custom": "/components/TnCustom/TnCustom"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

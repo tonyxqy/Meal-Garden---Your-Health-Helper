@@ -35,34 +35,54 @@
 					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="showT = false"> 确定
 					</view>
 				</view>
-
-				<view style="column-count: 2;">
-					<image :src="img" mode="aspectFill" style="padding-left:20rpx ;width:560rpx;height: 500rpx;text-align: left;border-radius: 20rpx;"></image>
+<view class="displayRow">
 					<view>
 						<view>
-							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
-								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
-									{{item}}
-								</van-tag>
-							</view>
+							<image :src="popArray.pictureUrl" mode="aspectFill"
+								style="padding-left:0rpx ;width:170px;height: 250px;text-align: center;left:30rpx;border-radius: 10px;">
+							</image>
 						</view>
-						<view style="display: flex;flex-direction:column;padding-left:30rpx;color: #304156; ">
-							<view style="display: flex;flex-direction:row; padding-top:15rpx ;">
-								分量
-								<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
-									button-size="20px" />
-							</view>
+
+						<view
+							style="display: flex;flex-direction:row; padding-top:25rpx ;padding-left:30rpx ;padding-bottom: 20rpx;border:10rpx;border-color: #007AFF;">
+							<text class="text-lg text-black text-blue">分量</text>
+							<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
+								button-size="20px" bind:change="onChange" />
+						</view>
+					</view>
+					<view style="padding-left: 30rpx">
+						<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
+							v-for="(item,index) in popArray.classifiction">
+							<van-tag color="#0BCCD2" style="padding: 10rpx; vertical-align: middle;" size="large"
+								v-if="index<4">
+								{{item}}
+							</van-tag>
+						</view>
+
+						<view class="displayCol " style="padding-left:30rpx;color: #304156; ">
 							<view style="display:inline-block; text-align: left; padding-top: 10rpx;">
-								<text style="color: #304156;">{{popArray.process}} </text>
+								<text class="text-black text-blue">{{popArray.process}} </text>
 								<text style="color: #304156;padding-left:10rpx ;">{{popArray.time}}</text>
 							</view>
 						</view>
-						<view class="detailsTop">
-							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"v-if="index<12">
-									{{item}}
-								</text>
+						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：
+						</view>
+						<view class="displayRow">
+							<view class="detailsTop">
+								<view slot="desc" v-for="(item, index) in popArray.ingredients">
+									<text style="padding-right: 15rpx;display: flex;justify-content: flex-start;"
+										v-if="index<6">
+										{{item}}
+									</text>
+								</view>
+							</view>
+							<view class="detailsTop">
+								<view slot="desc" v-for="(item, index) in popArray.ingredients2">
+									<text style="padding-right: 15rpx;display: flex;justify-content:flex-start;"
+										v-if="index<6">
+										{{item}}
+									</text>
+								</view>
 							</view>
 						</view>
 					</view>
@@ -141,12 +161,17 @@
 				if (self.ingredients != null) {
 					let sep = /\,|\:/
 					let ingredients = self.ingredients.slice(1, -1).split(sep)
-					let list = []
+					let list2 = []
+					let list1 = []
+					let ingredients2 = []
 					ingredients.forEach((self, index) => {
 						let change = self.trim().replace(/\'/g, "");
-						list.push(change)
+						if (index % 2 == 0) list1.push(change)
+						else list2.push(change)
 					})
-					self.ingredients = list
+					self.ingredients = list1
+					self.ingredients2 = list2
+					console.log(list2, "list")
 				}
 				if (self.classifiction != null) {
 					let classifiction = self.classifiction.slice(1, -1).split(',')
@@ -285,7 +310,10 @@
 		margin-top: 25rpx;
 		padding-left: 20rpx;
 	}
-
+	.displayRow {
+		display: flex;
+		flex-direction: row;
+	}
 	.detailsTop {
 		padding: 30rpx;
 		overflow: scroll;

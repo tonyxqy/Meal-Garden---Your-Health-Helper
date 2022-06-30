@@ -33,9 +33,18 @@
 				dishName:'',
 				calorie:'',
 				probability:'',
+				num:0,
 			}
 		},
 		methods: {
+			onload(defi){
+				let de = JSON.stringify(defi);
+				de = de.trim().replace(/\"|\{|\}/g, "");
+				var key = de.split(":");
+				de = key[1]
+				this.num = de;
+				console.log(de, this.num, "ceshi")
+			},
 			chooseImg() {
 				var that = this
 					this.ishow=false;
@@ -125,7 +134,7 @@
 			goMenu(dishName){
 				console.log(dishName)
 				uni.redirectTo({
-					url:'../page_menu/breakfast?dishName='+dishName
+					url:'../page_menu/breakfast?tag='+this.num'?dishName='+dishName
 				})
 			}
 		}

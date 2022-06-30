@@ -206,7 +206,16 @@
 						"navigationStyle": "custom"
 					}
 				}
-			]
+			    ,{
+                    "path" : "handbook",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 		},
 		{
 			"root": "page_info",

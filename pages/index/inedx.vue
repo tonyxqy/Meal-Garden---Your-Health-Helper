@@ -203,7 +203,7 @@
 						<view>
 							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
 								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#4a9bd9" style="padding: 10rpx; vertical-align: middle;" size="large"
+								<van-tag color="#0BCCD2" style="padding: 10rpx; vertical-align: middle;" size="large"
 									v-if="index<4">
 									{{item}}
 								</van-tag>
@@ -211,18 +211,22 @@
 						</view>
 						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：
 						</view>
-						<view class="detailsTop">
-							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<7">
-									{{item}}
-								</text>
+						<view class="displayRow">
+							<view class="detailsTop">
+								<view slot="desc" v-for="(item, index) in popArray.ingredients">
+									<text style="padding-right: 20rpx;display: flex;justify-content: flex-start;"
+										v-if="index<7">
+										{{item}}
+									</text>
+								</view>
 							</view>
-							<view slot="desc" v-for="(item, index) in popArray.ingredients2">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<7">
-									{{item}}
-								</text>
+							<view class="detailsTop">
+								<view slot="desc" v-for="(item, index) in popArray.ingredients2">
+									<text style="padding-right: 20rpx;display: flex;justify-content:flex-start;"
+										v-if="index<7">
+										{{item}}
+									</text>
+								</view>
 							</view>
 						</view>
 					</view>
@@ -249,29 +253,30 @@
 						❤有{{precent}}%的用户也喜欢这道菜...
 					</view>
 				</view>
-				<view style="column-count: 2;">
-					<view>
-						<image :src="popArray.pictureUrl" mode="aspectFill"
-							style="padding-left:0rpx ;width:200px;height: 200px;text-align: center;left:30rpx;border-radius: 10px;">
-						</image>
-					</view>
-
-					<view
-						style="display: flex;flex-direction:row; padding-top:25rpx ;padding-left:30rpx ;padding-bottom: 20rpx;border:10rpx;border-color: #007AFF;">
-						<text class="text-lg text-black text-blue">分量</text>
-						<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
-							button-size="20px" bind:change="onChange" />
-					</view>
+				<view class="displayRow">
 					<view>
 						<view>
-							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
-								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#0BCCD2" style="padding: 10rpx; vertical-align: middle;" size="large"
-									v-if="index<4">
-									{{item}}
-								</van-tag>
-							</view>
+							<image :src="popArray.pictureUrl" mode="aspectFill"
+								style="padding-left:0rpx ;width:170px;height: 250px;text-align: center;left:30rpx;border-radius: 10px;">
+							</image>
 						</view>
+
+						<view
+							style="display: flex;flex-direction:row; padding-top:25rpx ;padding-left:30rpx ;padding-bottom: 20rpx;border:10rpx;border-color: #007AFF;">
+							<text class="text-lg text-black text-blue">分量</text>
+							<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
+								button-size="20px" bind:change="onChange" />
+						</view>
+					</view>
+					<view style="padding-left: 30rpx">
+						<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
+							v-for="(item,index) in popArray.classifiction">
+							<van-tag color="#0BCCD2" style="padding: 10rpx; vertical-align: middle;" size="large"
+								v-if="index<4">
+								{{item}}
+							</van-tag>
+						</view>
+
 						<view class="displayCol " style="padding-left:30rpx;color: #304156; ">
 							<view style="display:inline-block; text-align: left; padding-top: 10rpx;">
 								<text class="text-black text-blue">{{popArray.process}} </text>
@@ -280,18 +285,22 @@
 						</view>
 						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：
 						</view>
-						<view class="detailsTop">
-							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<7">
-									{{item}}
-								</text>
+						<view class="displayRow">
+							<view class="detailsTop">
+								<view slot="desc" v-for="(item, index) in popArray.ingredients">
+									<text style="padding-right: 20rpx;display: flex;justify-content: flex-start;"
+										v-if="index<7">
+										{{item}}
+									</text>
+								</view>
 							</view>
-							<view slot="desc" v-for="(item, index) in popArray.ingredients2">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<7">
-									{{item}}
-								</text>
+							<view class="detailsTop">
+								<view slot="desc" v-for="(item, index) in popArray.ingredients2">
+									<text style="padding-right: 20rpx;display: flex;justify-content:flex-start;"
+										v-if="index<7">
+										{{item}}
+									</text>
+								</view>
 							</view>
 						</view>
 					</view>
@@ -316,6 +325,7 @@
 			<view class="sdsfsdfd"> 请登录 </view>
 			<button hover-class="animated rubberBand" class="anniudddfd" @click="getUserInfo"> 立即登录 </button>
 		</u-popup>
+		<official-account></official-account>
 	</view>
 </template>
 
@@ -516,6 +526,7 @@
 			}
 		},
 		methods: {
+			
 			hidebox() {
 				this.hide = !this.hide;
 			},
@@ -958,18 +969,22 @@
 		src: url('@/static/iconfont.ttf?t=1647423422630') format('truetype');
 	}
 
+	.displayRow {
+		display: flex;
+		flex-direction: row;
+	}
+
 	.displayCol {
 		display: flex;
 		flex-direction: column;
 	}
 
 	.detailsTop {
-		column-count: 2;
 		text-align: left;
 		padding-left: 30rpx;
 		overflow: scroll;
 		line-height: 20px;
-		max-height:140px;
+		max-height: 140px;
 		color: #304156;
 		letter-spacing: 2rpx;
 		display: flex;

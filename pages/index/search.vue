@@ -2,7 +2,7 @@
 	<view class="u-wrap">
 		<cu-custom bgColor="bg-gradual-green" :isBack="false">
 			<!-- <block slot="backText">返回</block> -->
-			<block slot="content">菜谱选单</block>
+			<block slot="content">菜谱选择</block>
 		</cu-custom>
 
 		<view class="u-search-box">

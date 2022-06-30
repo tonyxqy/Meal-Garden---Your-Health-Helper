@@ -2,7 +2,7 @@
 	<view class="components-home">
 		<cu-custom bgColor="bg-gradual-green" :isBack="true">
 			<block slot="backText">返回</block>
-			<block slot="content">营养银行</block>
+			<block slot="content">膳食花园</block>
 		</cu-custom>
 		<block>
 			<!-- index.wxml -->
@@ -18,7 +18,7 @@
 					<!-- 树、水滴值 -->
 					<view class="tree" :style="'height:' + winHeight+ 'rpx'">
 						<view :class="'rain rain-' + stages" :data-index="index" :data-value="value" @tap="rainFun"
-							v-for="(value, index) in rainArr" :key="index">
+							v-for="(value, index) in rainArr" :key="index" v-show="value">
 							{{ value}}
 							<text>g</text>
 						</view>
@@ -30,8 +30,8 @@
 					<!-- 水壶、浇水动画 -->
 					<view class="kettle">
 						<view class="kettls" @tap="water" hover-class="none"></view>
-						<view :class="'flasks ' + (watercss ? 'water' : '')" v-if="watercss"></view>
-						<view class="flasms" @tap="water" @click="postPluss()" v-if="!watercss" hover-class="none">
+						<view :class="'flasks ' + (watercss ? 'water' : '')" @click="postPluss()" v-if="watercss"></view>
+						<view class="flasms" @tap="water"  v-if="!watercss" hover-class="none">
 						</view>
 						<view class="waters" v-if="waterdom"></view>
 					</view>

@@ -35,45 +35,54 @@
 					<view class="aasd" style="padding-right: 20rpx;text-align: right;" @click="submitMenu()"> 提交
 					</view>
 				</view>
-
-				<view style="column-count: 2;">
-					<image :src="img" mode="aspectFill"
-						style="left:20rpx ;width:560rpx;height: 500rpx;text-align: left;border-radius: 20rpx;">
-					</image>
+<view class="displayRow">
 					<view>
 						<view>
-							<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
-								v-for="(item,index) in popArray.classifiction">
-								<van-tag color="#0BCCD2" style="padding: 10rpx; vertical-align: middle;" v-if="index<4">
-									{{item}}
-								</van-tag>
-							</view>
+							<image :src="popArray.pictureUrl" mode="aspectFill"
+								style="padding-left:0rpx ;width:170px;height: 250px;text-align: center;left:30rpx;border-radius: 10px;">
+							</image>
 						</view>
-						<view style="display: flex;flex-direction:column;padding-left:30rpx;color: #304156; ">
-							<view style="display: flex;flex-direction:row; padding-top:15rpx ;">
-								分量
-								<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
-									button-size="20px" bind:change="onChange" />
-							</view>
+
+						<view
+							style="display: flex;flex-direction:row; padding-top:25rpx ;padding-left:30rpx ;padding-bottom: 20rpx;border:10rpx;border-color: #007AFF;">
+							<text class="text-lg text-black text-blue">分量</text>
+							<van-stepper style="padding-left: 40rpx;" value="volume" step="0.5" :decimal-length="1"
+								button-size="20px" bind:change="onChange" />
+						</view>
+					</view>
+					<view style="padding-left: 30rpx">
+						<view style="padding-left: 20rpx;padding: 10rpx;display:inline-block;" slot="desc"
+							v-for="(item,index) in popArray.classifiction">
+							<van-tag color="#0BCCD2" style="padding: 10rpx; vertical-align: middle;" size="large"
+								v-if="index<4">
+								{{item}}
+							</van-tag>
+						</view>
+
+						<view class="displayCol " style="padding-left:30rpx;color: #304156; ">
 							<view style="display:inline-block; text-align: left; padding-top: 10rpx;">
-								<text style="color: #304156;">{{popArray.process}} </text>
+								<text class="text-black text-blue">{{popArray.process}} </text>
 								<text style="color: #304156;padding-left:10rpx ;">{{popArray.time}}</text>
 							</view>
 						</view>
 						<view class="text-lg text-black text-blue" style="padding:30rpx; padding-bottom: 20rpx;">所需食材：
 						</view>
-						<view class="detailsTop">
-							<view slot="desc" v-for="(item, index) in popArray.ingredients">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<7">
-									{{item}}
-								</text>
+						<view class="displayRow">
+							<view class="detailsTop">
+								<view slot="desc" v-for="(item, index) in popArray.ingredients">
+									<text style="padding-right: 20rpx;display: flex;justify-content: flex-start;"
+										v-if="index<7">
+										{{item}}
+									</text>
+								</view>
 							</view>
-							<view slot="desc" v-for="(item, index) in popArray.ingredients2">
-								<text style="padding-right: 50rpx;display: flex;justify-content: space-around;"
-									v-if="index<7">
-									{{item}}
-								</text>
+							<view class="detailsTop">
+								<view slot="desc" v-for="(item, index) in popArray.ingredients2">
+									<text style="padding-right: 20rpx;display: flex;justify-content:flex-start;"
+										v-if="index<7">
+										{{item}}
+									</text>
+								</view>
 							</view>
 						</view>
 					</view>
@@ -292,7 +301,7 @@
 			},
 			goDentify() {
 				uni.redirectTo({
-					url: '../page_menu/dentify'
+					url: '../page_menu/dentify?'+this.num
 				})
 			}
 
@@ -326,6 +335,10 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
+	}
+	.displayRow {
+		display: flex;
+		flex-direction: row;
 	}
 
 	.details {
