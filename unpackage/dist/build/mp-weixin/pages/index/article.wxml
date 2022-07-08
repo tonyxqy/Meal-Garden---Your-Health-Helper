@@ -1,0 +1,1 @@
+<view><web-view src="{{articleSrc}}" update-title="true" title="公众号"></web-view></view>

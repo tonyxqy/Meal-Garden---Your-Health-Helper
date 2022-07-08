@@ -1,0 +1,63 @@
+
+.explain {
+	width: 750rpx;
+	/* position: absolute; */
+	bottom: 40rpx;
+	font-size: 24rpx;
+	margin: 10rpx auto;
+	text-align: center;
+	color: #999999;
+}
+.titleword{
+	width: 200px;
+	height: 67px;
+	font-size: 50px;
+	font-family: TsangerFeiBai W01-Regular, TsangerFeiBai W01;
+	font-weight: 400;
+	color: #009594;
+	line-height: 0px;
+	text-stroke: 3px #009594;
+	margin: 230px auto;
+}
+.bgimg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	/* 		background: #f367c7; */
+	z-index: -1;
+}
+.login {
+	display: relative;
+	width: 100%;
+	padding: 10px;
+}
+.loginfont {
+	height: 50rpx;
+	font-size: 36rpx;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #333333;
+	line-height: 50rpx;
+	justify-content: center;
+	width: 100%;
+	text-align: center;
+	margin-top: 940rpx;
+}
+.loginbutton {
+	width: 250rpx;
+	height: 80rpx;
+	background: #027D7A;
+	box-shadow: 0rpx 4rpx 10rpx -4rpx #027D7A;
+	border-radius: 40rpx;
+	font-size: 28rpx;
+	text-align: center;
+	justify-content: center;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+	line-height: 80rpx;
+	/* margin-left: 140rpx; */
+}
+

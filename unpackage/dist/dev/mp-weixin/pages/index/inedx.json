@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-popup": "/uview-ui/components/u-popup/u-popup",
+    "add-tip": "/components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip",
+    "bodyhelper": "/pages/index/bodyhelper",
+    "xiaobing": "/pages/index/xiaobing"
+  }
+}

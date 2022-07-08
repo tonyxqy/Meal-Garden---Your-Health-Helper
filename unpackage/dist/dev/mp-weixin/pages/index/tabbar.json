@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "mp-video-swiper": "/wxcomponents/video-swiper/index",
+    "index": "/pages/index/inedx",
+    "search": "/pages/index/search",
+    "cases": "/pages/index/main",
+    "news": "/pages/index/news",
+    "me": "/pages/index/me"
+  }
+}

@@ -1,0 +1,303 @@
+{
+	"dev:mp-weixin": "cross-env NODE_ENV=development ZHICHI_ENV=develop UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch --minimize",
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue",
+		"mp-video-swiper": "@/wxcomponents/video-swiper/index"
+	},
+	"pages": [
+		{
+			"path":"pages/index/aboutMe",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path":"pages/index/login",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path":"pages/index/guide",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path":"pages/index/article",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path":"pages/index/explain",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/tabbar",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"usingComponents": {
+					"mp-video-swiper": "/wxcomponents/video-swiper/index"
+				}
+			}
+		}
+	],
+	"subPackages": [{
+			"root": "tn_components",
+			"pages": [{
+					"path": "pano",
+					"style": {}
+				}, {
+					"path": "bggrad",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}, {
+					"path": "bgcolor",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}, {
+					"path": "ancube",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}, {
+					"path": "anloading",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}, {
+					"path": "mimicry",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}, {
+					"path": "mapLocus",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "charts",
+					"style": {
+						"navigationBarTitleText": "图表展示"
+					}
+				},
+				{
+					"path": "poster",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}, {
+					"path": "sign",
+					"style": {
+						"navigationBarTitleText": "电子签名"
+					}
+				}, 
+				{
+					"path": "search",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "便捷查询"
+					}
+				},
+				{
+					"path": "openDocument",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "文档预览"
+					}
+				},
+				{
+					"path": "timeline",
+					"style": {
+						"navigationBarTitleText": "时间轴"
+					}
+				},
+				{
+					"path": "guide",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "引导页面"
+					}
+				},
+				{
+					"path": "request",
+					"style": {
+						"navigationStyle": "custom",
+						"navigationBarTitleText": "模拟数据加载"
+					}
+				}
+			]
+		}, {
+			"root": "page_upload",
+			"pages": [{
+					"path": "upload",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "uploadvideo",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+			]
+		},
+		{
+			"root": "page_menu",
+			"pages": [{
+					"path": "breakfast",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "menu",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "dentify",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+			]
+		},
+		{
+			"root": "page_me",
+			"pages": [{
+					"path": "aboutMe",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "mentalTest/list",
+					"style": {
+						"navigationBarTitleText": "答题测试",
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "mentalTest/index1",
+					"style": {
+						"navigationBarTitleText": "答题测试",
+						"navigationStyle": "custom"
+					}
+				},				{
+					"path": "mentalTest/index2",
+					"style": {
+						"navigationBarTitleText": "答题测试",
+						"navigationStyle": "custom"
+					}
+				},				{
+					"path": "mentalTest/index3",
+					"style": {
+						"navigationBarTitleText": "答题测试",
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "mentalTest/explain",
+					"style": {
+						"navigationBarTitleText": "答题规则说明"
+					}
+				},
+				{
+					"path": "diagnose",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+			    ,{
+                    "path" : "handbook",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+		},
+		{
+			"root": "page_info",
+			"pages": [{
+				"path": "info",
+				"style": {
+					"navigationStyle": "custom"
+				}
+			}]
+		},
+		{
+			"root": "page_rank",
+			"pages": [{
+				"path": "rank",
+				"style": {
+					"navigationStyle": "custom"
+				}
+			}]
+		},
+		{
+			"root": "page_setinfo",
+			"pages": [{
+				"path": "setinfo",
+				"style": {
+					"navigationStyle": "custom"
+				}
+			}]
+		},
+		{
+			"root": "page_job",
+			"pages": [{
+				"path": "job",
+				"style": {
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "aboutjob",
+				"style": {
+					"navigationStyle": "custom"
+				}
+			}]
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"usingComponents": {
+			// "van-sticky": "/wxcomponents/vant/sticky/index",
+			"van-button": "/wxcomponents/vant/button/index",
+			"van-circle": "/wxcomponents/vant/circle/index",
+			"van-grid": "/wxcomponents/vant/grid/index",
+			"van-grid-item": "/wxcomponents/vant/grid-item/index",
+			"van-transition": "/wxcomponents/vant/transition/index",
+			"van-loading": "/wxcomponents/vant/loading/index",
+			"van-card": "/wxcomponents/vant/card/index",
+			"van-tag": "/wxcomponents/vant/tag/index",
+			"van-stepper": "wxcomponents/vant/stepper/index",
+			"van-divider": "wxcomponents/vant/divider/index",
+			"van-notify": "/wxcomponents/vant/notify/index",
+			"van-dialog": "/wxcomponents/vant/dialog/index",
+			"van-uploader": "/wxcomponents/vant/uploader/index",
+			"van-field": "/wxcomponents/vant/field/index",
+			"van-picker": "/wxcomponents/vant/picker/index",
+			"van-radio": "/wxcomponents/vant/radio/index",
+			"van-radio-group": "/wxcomponents/vant/radio-group/index",
+			"van-popup": "/wxcomponents/vant/popup/index",
+			"van-steps": "/wxcomponents/vant/steps/index"
+		}
+	}
+}
