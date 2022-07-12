@@ -1,123 +1,124 @@
 {
-  "pages": [
-    "pages/index/aboutMe",
-    "pages/index/login",
-    "pages/index/guide",
-    "pages/index/article",
-    "pages/index/explain",
-    "pages/index/tabbar"
-  ],
-  "subPackages": [
-    {
-      "root": "tn_components",
-      "pages": [
-        "pano",
-        "bggrad",
-        "bgcolor",
-        "ancube",
-        "anloading",
-        "mimicry",
-        "mapLocus",
-        "charts",
-        "poster",
-        "sign",
-        "search",
-        "openDocument",
-        "timeline",
-        "guide",
-        "request"
-      ]
+    "pages": [
+        "pages/index/aboutMe",
+        "pages/index/login",
+        "pages/index/guide",
+        "pages/index/article",
+        "pages/index/explain",
+        "pages/index/tabbar"
+    ],
+    "subPackages": [
+        {
+            "root": "tn_components",
+            "pages": [
+                "pano",
+                "bggrad",
+                "bgcolor",
+                "ancube",
+                "anloading",
+                "mimicry",
+                "mapLocus",
+                "charts",
+                "poster",
+                "sign",
+                "search",
+                "openDocument",
+                "timeline",
+                "guide",
+                "request"
+            ]
+        },
+        {
+            "root": "page_upload",
+            "pages": [
+                "upload",
+                "uploadvideo"
+            ]
+        },
+        {
+            "root": "page_menu",
+            "pages": [
+                "breakfast",
+                "menu",
+                "dentify"
+            ]
+        },
+        {
+            "root": "page_me",
+            "pages": [
+                "aboutMe",
+                "mentalTest/list",
+                "mentalTest/index1",
+                "mentalTest/index2",
+                "mentalTest/index3",
+                "mentalTest/explain",
+                "diagnose",
+                "handbook"
+            ]
+        },
+        {
+            "root": "page_info",
+            "pages": [
+                "info"
+            ]
+        },
+        {
+            "root": "page_rank",
+            "pages": [
+                "rank"
+            ]
+        },
+        {
+            "root": "page_setinfo",
+            "pages": [
+                "setinfo"
+            ]
+        },
+        {
+            "root": "page_job",
+            "pages": [
+                "job",
+                "aboutjob"
+            ]
+        }
+    ],
+    "window": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "uni-app",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "backgroundColor": "#F8F8F8"
     },
-    {
-      "root": "page_upload",
-      "pages": [
-        "upload",
-        "uploadvideo"
-      ]
+    "permission": {
+        "scope.userLocation": {
+            "desc": "获取用户位置，制作地图定位功能"
+        }
     },
-    {
-      "root": "page_menu",
-      "pages": [
-        "breakfast",
-        "menu",
-        "dentify"
-      ]
+    "uniStatistics": {
+        "enable": true
     },
-    {
-      "root": "page_me",
-      "pages": [
-        "aboutMe",
-        "mentalTest/list",
-        "mentalTest/index1",
-        "mentalTest/index2",
-        "mentalTest/index3",
-        "mentalTest/explain",
-        "diagnose",
-        "handbook"
-      ]
+    "lazyCodeLoading": "requiredComponents",
+    "usingComponents": {
+        "van-button": "/wxcomponents/vant/button/index",
+        "van-circle": "/wxcomponents/vant/circle/index",
+        "van-grid": "/wxcomponents/vant/grid/index",
+        "van-grid-item": "/wxcomponents/vant/grid-item/index",
+        "van-transition": "/wxcomponents/vant/transition/index",
+        "van-loading": "/wxcomponents/vant/loading/index",
+        "van-card": "/wxcomponents/vant/card/index",
+        "van-tag": "/wxcomponents/vant/tag/index",
+        "van-stepper": "wxcomponents/vant/stepper/index",
+        "van-divider": "wxcomponents/vant/divider/index",
+        "van-notify": "/wxcomponents/vant/notify/index",
+        "van-dialog": "/wxcomponents/vant/dialog/index",
+        "van-uploader": "/wxcomponents/vant/uploader/index",
+        "van-field": "/wxcomponents/vant/field/index",
+        "van-picker": "/wxcomponents/vant/picker/index",
+        "van-radio": "/wxcomponents/vant/radio/index",
+        "van-radio-group": "/wxcomponents/vant/radio-group/index",
+        "van-popup": "/wxcomponents/vant/popup/index",
+        "van-steps": "/wxcomponents/vant/steps/index",
+        "cu-custom": "/colorui/components/cu-custom",
+        "tn-custom": "/components/TnCustom/TnCustom"
     },
-    {
-      "root": "page_info",
-      "pages": [
-        "info"
-      ]
-    },
-    {
-      "root": "page_rank",
-      "pages": [
-        "rank"
-      ]
-    },
-    {
-      "root": "page_setinfo",
-      "pages": [
-        "setinfo"
-      ]
-    },
-    {
-      "root": "page_job",
-      "pages": [
-        "job",
-        "aboutjob"
-      ]
-    }
-  ],
-  "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
-  },
-  "permission": {
-    "scope.userLocation": {
-      "desc": "获取用户位置，制作地图定位功能"
-    }
-  },
-  "uniStatistics": {
-    "enable": true
-  },
-  "lazyCodeLoading": "requiredComponents",
-  "usingComponents": {
-    "van-button": "/wxcomponents/vant/button/index",
-    "van-circle": "/wxcomponents/vant/circle/index",
-    "van-grid": "/wxcomponents/vant/grid/index",
-    "van-grid-item": "/wxcomponents/vant/grid-item/index",
-    "van-transition": "/wxcomponents/vant/transition/index",
-    "van-loading": "/wxcomponents/vant/loading/index",
-    "van-card": "/wxcomponents/vant/card/index",
-    "van-tag": "/wxcomponents/vant/tag/index",
-    "van-stepper": "wxcomponents/vant/stepper/index",
-    "van-divider": "wxcomponents/vant/divider/index",
-    "van-notify": "/wxcomponents/vant/notify/index",
-    "van-dialog": "/wxcomponents/vant/dialog/index",
-    "van-uploader": "/wxcomponents/vant/uploader/index",
-    "van-field": "/wxcomponents/vant/field/index",
-    "van-picker": "/wxcomponents/vant/picker/index",
-    "van-radio": "/wxcomponents/vant/radio/index",
-    "van-radio-group": "/wxcomponents/vant/radio-group/index",
-    "van-popup": "/wxcomponents/vant/popup/index",
-    "van-steps": "/wxcomponents/vant/steps/index",
-    "cu-custom": "/colorui/components/cu-custom",
-    "tn-custom": "/components/TnCustom/TnCustom"
-  }
+    "sitemapLocation": "sitemap.json"
 }

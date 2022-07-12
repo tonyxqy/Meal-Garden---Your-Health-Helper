@@ -642,8 +642,8 @@
 }
 }
 .water {
-	-webkit-animation: water 4s ease-in-out forwards;
-	        animation: water 4s ease-in-out forwards;
+	-webkit-animation: water 3s ease-in-out forwards;
+	        animation: water 3s ease-in-out forwards;
 }
 @-webkit-keyframes pluss {
 0% {

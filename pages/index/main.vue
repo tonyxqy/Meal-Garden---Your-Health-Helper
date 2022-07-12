@@ -30,8 +30,9 @@
 					<!-- 水壶、浇水动画 -->
 					<view class="kettle">
 						<view class="kettls" @tap="water" hover-class="none"></view>
-						<view :class="'flasks ' + (watercss ? 'water' : '')"  v-if="watercss"></view>
-						<view class="flasms" @tap="water"  v-if="!watercss" hover-class="none">
+						<view :class="'flasks ' + (watercss ? 'water' : '')"  @click="postPluss()"  v-if="watercss"></view>
+						<!-- <view :class="'flasks ' + (watercss ? 'water' : '')"  v-if="watercss"></view> -->
+						<view class="flasms" @tap="water"v-if="!watercss" hover-class="none">
 						</view>
 						<view class="waters" v-if="waterdom"></view>
 					</view>
@@ -294,7 +295,7 @@
 					success: (res) => {
 						console.log(res, "pluss")
 						this.getvotes(user_id)
-						this.setTree(200)
+						this.setTree(2000)
 					}
 				})
 			},
@@ -456,7 +457,7 @@
 						this.setData({
 							waterdom: true
 						});
-					}, 1500);
+					}, 800);
 					setTimeout(() => {
 						let info = this.info;
 						// info.votes = Number(this.info.votes) + 1;
@@ -466,15 +467,16 @@
 							treemove: true,
 							movetree: false
 						});
-					}, 2000);
+					}, 1000);
 					setTimeout(() => {
 						this.setData({
 							waterdom: false,
 							movetree: true
 						});
-					}, 3500);
-					this.postPluss()
-					this.setTree();
+					}, 2500);
+					
+					this.postPluss();
+					// this.setTree(6000);
 				}
 			}
 		}
@@ -1037,7 +1039,7 @@
 	}
 
 	.water {
-		animation: water 4s ease-in-out forwards;
+		animation: water 3s ease-in-out forwards;
 	}
 
 	@keyframes pluss {
